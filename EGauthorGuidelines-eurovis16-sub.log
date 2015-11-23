@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  23 NOV 2015 15:54
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  23 NOV 2015 17:29
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.te
-x
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -15,7 +15,7 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-(C:\Users\mindek\Desktop\mindek\eurovis2016\egpubl.cls
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\egpubl.cls
 Document Class: egpubl 2013/07/17 Document Style for EG Publications v3.56
 \c@table=\count79
 \c@figure=\count80
@@ -35,9 +35,10 @@ Document Class: egpubl 2013/07/17 Document Style for EG Publications v3.56
 Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode not detected.
 )
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.lb
-l)) (C:\Users\mindek\Desktop\mindek\eurovis2016\eurovis2016.sty)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.lbl))
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\eurovis2016.sty
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
@@ -209,7 +210,7 @@ File: pdfmark.def 2010/10/30 v6.81t Hyperref definitions for pdfmark specials
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.sty"
 Package: t1enc 1994/06/01 Standard LaTeX package
 )
-(C:\Users\mindek\Desktop\mindek\eurovis2016\dfadobe.sty
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\dfadobe.sty
 Package: dfadobe 2000/03/05 v1.4 T1-encoded Times (except symbols), Courier, He
 lvetica (at 90\%) + math package
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 14.
@@ -240,17 +241,17 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 20.
 
-(C:\Users\mindek\Desktop\mindek\eurovis2016\dfT1ptm.fd
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\dfT1ptm.fd
 File: dfT1ptm.fd 2000/03/05 DF - Fontinst v1.6 font definitions for T1/ptm.
 )
-(C:\Users\mindek\Desktop\mindek\eurovis2016\dfT1phv.fd
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\dfT1phv.fd
 File: dfT1phv.fd 1997/12/02 Fontinst v1.6 font definitions for T1/phv scaled to
  90\%.
 )
-(C:\Users\mindek\Desktop\mindek\eurovis2016\dfT1pcr.fd
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\dfT1pcr.fd
 File: dfT1pcr.fd 2000/03/05 DF - Fontinst v1.6 font definitions for T1/pcr.
 ))
-(C:\Users\mindek\Desktop\mindek\eurovis2016\egweblnk.sty
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\egweblnk.sty
 Package: egweblnk 2004/10/29 v2.2 DF's support for http web links in class egpu
 bl
 )
@@ -259,9 +260,10 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-body.inc
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.au
-x)
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-body.inc
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
@@ -337,16 +339,24 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 
-Underfull \hbox (badness 1552) in paragraph at lines 57--60
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 1552) in paragraph at lines 48--51
 []\T1/ptm/m/n/9 Categories and Sub-ject De-scrip-tors \T1/ptm/m/n/8 (ac-cord-in
 g to ACM CCS)\T1/ptm/m/n/9 :  I.3.3 [Com-puter Graph-ics]: Pic-ture/Image
  []
 
 
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.bb
-l
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.br
-f)
+LaTeX Warning: Citation `cellVIEW_2015' on page 1 undefined on input line 67.
+
+
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.bbl
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.brf)
 \tf@brf=\write3
 
 Underfull \hbox (badness 1484) in paragraph at lines 12--12
@@ -417,27 +427,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--46
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
  [1
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
 
-(C:\Users\mindek\Desktop\mindek\eurovis2016\EGauthorGuidelines-eurovis16-sub.au
-x)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
-t changed.
-(rerunfilecheck)             Checksum: DEC363103E89EBCC1128791C91FA158B;197.
+(C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
+nes-eurovis16-sub.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
+
+
+Package rerunfilecheck Warning: File `EGauthorGuidelines-eurovis16-sub.brf' has
+ changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `EGauthorGuidelines-eurovis16-sub.br
+f':
+(rerunfilecheck)             Before: DEC363103E89EBCC1128791C91FA158B;197
+(rerunfilecheck)             After:  48C45FF0CB17E0754C35A9328400B507;243.
+
+LaTeX Warning: There were undefined references.
+
  ) ) 
 Here is how much of TeX's memory you used:
- 5086 strings out of 494020
- 78178 string characters out of 3143901
- 162183 words of memory out of 3000000
- 8280 multiletter control sequences out of 15000+200000
+ 5087 strings out of 494020
+ 78773 string characters out of 3143901
+ 164183 words of memory out of 3000000
+ 8281 multiletter control sequences out of 15000+200000
  36534 words of font info for 55 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,11n,30p,283b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,11n,30p,1215b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on EGauthorGuidelines-eurovis16-sub.dvi (1 page, 13108 bytes).
+Output written on EGauthorGuidelines-eurovis16-sub.dvi (1 page, 13904 bytes).

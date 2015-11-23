@@ -73,7 +73,23 @@ Another issue is the information about the part of the object that is being cut 
 When displaying man-made objects, this issue is often circumvented by displaying contours of the cutaway part of the object.
 Contours are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
 
+In molecular visualization, cutaway views can be applied to reveal structures hidden within large molecular models.
+Here, the shape of the cutaway part is usually not crucial to preserve in the visualization.
+It is rather the \emph{context} that might be lost when everything in front of the object of interest is cut away.
+To preserve the context when applying cutaway views on molecular models, it is possible to exploit the fact that these models consist of individual entities, such as proteins or other molecules.
+By removing most of the entities of the same type, which are occluding the object of interest, but leaving few of them on their original positions, we achieve a compromise - the object of interest is revealed, but the illustration is also communicating the fact that the entities of this particular type are present in the model.
+An example is shown in Figure \ref{fig:hiv}.
+Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
+In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - capsid containing the DNA.
+Some of the glycoproteins (yellow molecules on the surface of the virus) are left in the illustration to communicate their presence on the surface of the virus.
+In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
 
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
+ \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
+ \caption{\label{fig:hiv}(a) Illustration of a HIV virus. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins are kept in the view as context.}
+\end{figure}
 
 \section{Related Work}
 \cite{Viola05}

@@ -43,7 +43,7 @@
 
 \begin{abstract}
 
-In the field of molecular biology, knowledge transfer is commonly carried out through schematic illustrations. Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing. Nowadays, complex models of various biochemical structures and micro-organisms exist. These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms. In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to display cutaway views. Such an option is beneficial to biological illustrators, since the technique of cutaway display is ubiquitously applied in traditional illustration. In contrast with existing algorithms for creating cutaway views, we take advantage of the specific nature of the biochemical models, which consist of multiple instances of the same molecular type. By reintroducing some of these instances in the parts of the rendered illustration which has been cut away to reveal internal structures, we are able to preserve the context of the objects of interest.
+In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations. Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing. Nowadays, complex models of various biochemical structures and micro-organisms exist. These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms. In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to display cutaway views. Such an option is beneficial to biological illustrators, since the technique of cutaway display is ubiquitously applied in traditional illustration. In contrast with existing algorithms for creating cutaway views, we take advantage of the specific nature of the biochemical models, which consist of multiple instances of the same molecular type. By reintroducing some of these instances in the parts of the rendered illustration which has been cut away to reveal internal structures, we are able to preserve the context of the objects of interest.
 
 \begin{classification} % according to http://www.acm.org/class/1998/
 \CCScat{Computer Graphics}{I.3.3}{Picture/Image Generation}{Viewing algorithms}
@@ -57,6 +57,11 @@ In the field of molecular biology, knowledge transfer is commonly carried out th
 
 %-------------------------------------------------------------------------
 \section{Introduction}
+
+In the field of molecular biology, micro-biology, and medicine, illustrations are essential for the inter- and intra-disciplinary knowledge transfer.
+Over the years, illustrators invented various techniques for capturing specific aspects of the displayed objects and processes.
+One of the most common techniques are so-called \emph{cutaway views}.
+
 
 \section{Related Work}
 \cite{Viola05}

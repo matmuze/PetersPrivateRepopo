@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  23 NOV 2015 17:29
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  23 NOV 2015 17:35
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
@@ -350,7 +350,12 @@ g to ACM CCS)\T1/ptm/m/n/9 :  I.3.3 [Com-puter Graph-ics]: Pic-ture/Image
  []
 
 
-LaTeX Warning: Citation `cellVIEW_2015' on page 1 undefined on input line 67.
+Underfull \hbox (badness 2310) in paragraph at lines 61--62
+\T1/ptm/m/n/9 In the field of molec-u-lar bi-ol-ogy, micro-biology, and
+ []
+
+
+LaTeX Warning: Citation `cellVIEW_2015' on page 1 undefined on input line 69.
 
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
@@ -427,37 +432,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--46
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
  [1
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
 nes-eurovis16-sub.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
+Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
+t changed.
+(rerunfilecheck)             Checksum: 48C45FF0CB17E0754C35A9328400B507;243.
 
-
-Package rerunfilecheck Warning: File `EGauthorGuidelines-eurovis16-sub.brf' has
- changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `EGauthorGuidelines-eurovis16-sub.br
-f':
-(rerunfilecheck)             Before: DEC363103E89EBCC1128791C91FA158B;197
-(rerunfilecheck)             After:  48C45FF0CB17E0754C35A9328400B507;243.
 
 LaTeX Warning: There were undefined references.
 
  ) ) 
 Here is how much of TeX's memory you used:
- 5087 strings out of 494020
- 78773 string characters out of 3143901
+ 5088 strings out of 494020
+ 78789 string characters out of 3143901
  164183 words of memory out of 3000000
- 8281 multiletter control sequences out of 15000+200000
+ 8282 multiletter control sequences out of 15000+200000
  36534 words of font info for 55 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,11n,30p,1215b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,11n,30p,1221b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on EGauthorGuidelines-eurovis16-sub.dvi (1 page, 13904 bytes).
+Output written on EGauthorGuidelines-eurovis16-sub.dvi (1 page, 14124 bytes).

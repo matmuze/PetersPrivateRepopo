@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{\uppercase{BHW{\etalchar{*}}07}}
+\begin{thebibliography}{\uppercase{MAPV15}}
 
 \bibitem[BF08]{Burns08}
 \textsc{Burns M., Finkelstein A.}:
@@ -35,6 +35,16 @@
 \newblock URL: \url{http://doi.acm.org/10.1145/1275808.1276416}, \href
   {http://dx.doi.org/10.1145/1275808.1276416}
   {\path{doi:10.1145/1275808.1276416}}.
+
+\bibitem[MAPV15]{cellVIEW_2015}
+\textsc{Muzic M.~L., Autin L., Parulek J., Viola I.}:
+\newblock cellview: a tool for illustrative and multi-scale rendering of large
+  biomolecular datasets.
+\newblock In \emph{Eurographics Workshop on Visual Computing for Biology and
+  Medicine} (Sept. 2015), B{"u}hler K., Linsen L., John N.~W., (Eds.), EG
+  Digital Library, The Eurographics Association, pp.~61--70.
+\newblock URL:
+  \url{http://www.cg.tuwien.ac.at/research/publications/2015/cellVIEW_2015/}.
 
 \bibitem[VKG05]{Viola05}
 \textsc{Viola I., Kanitsar A., Groller M.~E.}:

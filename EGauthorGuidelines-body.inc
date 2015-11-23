@@ -60,7 +60,19 @@ In molecular biology and similar fields, knowledge transfer is commonly carried 
 
 In the field of molecular biology, micro-biology, and medicine, illustrations are essential for the inter- and intra-disciplinary knowledge transfer.
 Over the years, illustrators invented various techniques for capturing specific aspects of the displayed objects and processes.
-One of the most common techniques are so-called \emph{cutaway views}.
+One of the most common methods utilized in the technical illustration are so-called \emph{cutaway views}.
+When a cutaway view is applied, parts of the illustrated object are left out, such as if they were physically cut away.
+In this way, internal structures, which are to be communicated by the illustration, can be shown.
+
+There are several issues with using cutaway views in illustrations.
+First one is that it has to be clear from the visual representation of the cut that the given part of the object has been removed artificially for the sake of illustration.
+Otherwise the viewers might believe that the hole created by the cut is in fact inherent part of the object.
+This is commonly solved by using specific shapes of the cuts which significantly differ from the shapes of the object itself (e.g., using circular cut on object consisting of straight lines only).
+
+Another issue is the information about the part of the object that is being cut away is lost.
+When displaying man-made objects, this issue is often circumvented by displaying contours of the cutaway part of the object.
+Contours are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
+
 
 
 \section{Related Work}

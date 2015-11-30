@@ -3,14 +3,15 @@
 % D.Fellner, v1.17, Sep 23, 2010
 
 
-\title[Context-Preserving Cutaways in Molecular Visualization]%
-      {Context-Preserving Cutaways in Molecular Visualization}
+\title[Visibility Equalizers]%
+      {Visibility Equalizers}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
 \author[M. Le Muzic et al.]
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
+        J. Sorger\thanks{wochenplan@cg.tuwien.ac.at}$^{1}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
@@ -43,7 +44,7 @@
 
 \begin{abstract}
 
-In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations. Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing. Nowadays, complex models of various biochemical structures and micro-organisms exist. These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms. In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to display cutaway views. Such an option is beneficial to biological illustrators, since the technique of cutaway display is ubiquitously applied in traditional illustration. In contrast with existing algorithms for creating cutaway views, we take advantage of the specific nature of the biochemical models, which consist of multiple instances of the same molecular type. By reintroducing some of these instances in the parts of the rendered illustration which has been cut away to reveal internal structures, we are able to preserve the context of the objects of interest.
+In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations. Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing. Nowadays, complex models of various biochemical structures and micro-organisms exist. These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms. In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to display cutaway views. Such an option is beneficial to biological illustrators, since the technique of cutaway display is ubiquitously applied in traditional illustration. In contrast with existing algorithms for creating cutaway views, we take advantage of the specific nature of the biochemical models, which consist of multiple instances of the limited number of different molecular types. By reintroducing some of these instances in the cutaway parts of the rendered illustration, we are able to create comprehensible illustrations of complex models. The main contribution of this paper is an interaction mechanism which allows the illustrators to precisely control the amount of instances of different molecular types in the illustration, while maintaining the desired information value.
 
 \begin{classification} % according to http://www.acm.org/class/1998/
 \CCScat{Computer Graphics}{I.3.3}{Picture/Image Generation}{Viewing algorithms}

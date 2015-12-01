@@ -3,8 +3,8 @@
 % D.Fellner, v1.17, Sep 23, 2010
 
 
-\title[Visibility Equalizers]%
-      {Visibility Equalizers}
+\title[Visibility Equalizer]%
+      {Visibility Equalizer}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
@@ -68,10 +68,10 @@ In this way, internal structures, which are to be communicated by the illustrati
 There are several issues with using cutaway views in illustrations.
 First one is that it has to be clear from the visual representation of the cut that the given part of the object has been removed artificially for the sake of illustration.
 Otherwise the viewers might believe that the hole created by the cut is in fact inherent part of the object.
-This is commonly solved by using specific shapes of the cuts which significantly differ from the shapes of the object itself (e.g., using circular cut on object consisting of straight lines only).
+This is commonly solved by using specific shapes of the cuts which significantly differ from the shapes naturally occurring within the object (e.g., using circular cut on object which only have straight edges).
 
-Another issue is the information about the part of the object that is being cut away is lost.
-When displaying man-made objects, this issue is often circumvented by displaying contours of the cutaway part of the object.
+Another issue is that the information about the part of the object that is being cut away is lost.
+In technical illustration, this issue is often circumvented by displaying contours of the cutaway part of the object.
 Contours are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
 
 In molecular visualization, cutaway views can be applied to reveal structures hidden within large molecular models.

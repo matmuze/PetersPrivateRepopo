@@ -1,0 +1,16 @@
+from a high level perspective, cutaway techniques can be distinguished by the domain that they are applied to, such as medical or geological visualization. from a low level perspective, they can further be categorized into techniques applied to volume or point cloud data and into techniques applied to polygonal data. while the application domain determines, which guidelines or principles should be adhered to when designing or implementing a cutaway technique, the data that they are applied to determines technical possibilities, challenges, and restrictions in terms of the individual techniques' implementation. we structure our related work from a low level perspective, i.e., the data types on which the technques are applied to.
+
+directly related to our approach are cutaway techniques for pointcloud and volume data.
+
+
+
+
+
+*********************
+*********************
+useful statements:
+
+*********************
+@intro:
+The cutaway is a technique often used to expose focus features that otherwise would
+be occluded. [dp]

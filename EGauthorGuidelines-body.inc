@@ -69,41 +69,42 @@ This process is enabled through a novel interaction method for controlling the v
 
 
 
-
-8%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
 \section{Introduction}
 
 In the field of molecular biology, micro-biology, and medicine, illustrations are essential for the inter- and intra-disciplinary knowledge transfer.
-Over the years, illustrators invented various techniques for capturing specific aspects of the displayed objects and processes.
+Over the years, illustrators have developed various techniques for capturing specific aspects of the displayed objects and processes.
 One of the most common methods utilized in the technical illustration are so-called \emph{cutaway views}.
 When a cutaway view is applied, parts of the illustrated object are left out, such as if they were physically cut away.
 In this way, internal structures, which are to be communicated by the illustration, can be shown.
 
-There are several issues with using cutaway views in illustrations.
-First one is that it has to be clear from the visual representation of the cut that the given part of the object has been removed artificially for the sake of illustration.
-Otherwise the viewers might believe that the hole created by the cut is in fact inherent part of the object.
-This is commonly solved by using specific shapes of the cuts which significantly differ from the shapes naturally occurring within the object (e.g., using circular cut on object which only have straight edges).
+Creating hand-drawn illustrations of complex polymolecular structures, or even entire microorganisms, is an extremely tedious task. Such structures can contain hundreds of thousands of molecules.
+Therefore, to communicate the intended message, it is often necessary to adequately simplify the structure in question.
+The illustration then consists of appropriate abstractions, while certain amount of information is lost.
 
-Another issue is that the information about the part of the object that is being cut away is lost.
-In technical illustration, this issue is often circumvented by displaying contours of the cutaway part of the object.
-Contours are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
+A different approach is to utilize computational models of the structures which are to be illustrated, and utilizing software packages for visualization of these models. Such models, typically generated through simulation and statistical modelling, consists of large numbers of instances of several molecular types. The different molecular types contained within the model represent the chemical composition of the modelled object, while the distributions of the instances of the individual types represent the concentrations of the respective chemical compounds. High number of molecular instances, as well as their large densities, often make task of visualizing such models non-trivial.
 
-In molecular visualization, cutaway views can be applied to reveal structures hidden within large molecular models.
-Here, the shape of the cutaway part is usually not crucial to preserve in the visualization.
-It is rather the \emph{context} that might be lost when everything in front of the object of interest is cut away.
-To preserve the context when applying cutaway views on molecular models, it is possible to exploit the fact that these models consist of individual entities, such as proteins or other molecules.
-By removing most of the entities of the same type, which are occluding the object of interest, but leaving few of them on their original positions, we achieve a compromise - the object of interest is revealed, but the illustration is also communicating the fact that the entities of this particular type are present in the model.
+When utilizing these models for the illustrative purposes, algorithmic equivalents of the traditional illustrative techniques are often employed. For instance, software packages for computer-aided illustration often offer an option to manipulate and apply culling objects for creating cutaway views of the illustrated models. The culling objects work in such a way that the part of the rendered scene enclosed by the surface of the cutting object is removed, thus making previously occluded structures visible.
+
+%Cutaways views are essential in illustration of processes on the microscopic scale. These processes are often demonstrated on polymolecular models, where large number of molecular instances form complex nested structures. Such structures would be impossible to visualize when the model is displayed as a whole, thus creating a need for the cutaway views.
+
+In general, illustrators choose such placements of the culling objects that only unimportant parts of the scene are removed and no essential information is lost. Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene. However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
+
+
+
+
+
 An example is shown in Figure \ref{fig:hiv}.
 Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
-In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - capsid containing the DNA.
-Some of the glycoproteins (yellow molecules on the surface of the virus) are left in the illustration to communicate their presence on the surface of the virus.
+In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - the capsid containing the RNA.
+Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
 In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
 
 \begin{figure}[t]
  \centering
  \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
  \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
- \caption{\label{fig:hiv}(a) Illustration of a HIV virus. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins are kept in the view as context.}
+ \caption{\label{fig:hiv}(a) Illustration of a HIV virus. Here, outside membrane of the virus particle is visible. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
 \end{figure}
 
 \section{Related Work}
@@ -113,6 +114,18 @@ In particular, those glycoproteins which are not occluding the object of interes
 \cite{Li07}
 \cite{Lidal12}
 \cite{cellVIEW_2015}
+
+\section{Overview}
+\subsection{Design principles}
+There are several issues with using cutaway views in illustrations.
+First one is that it has to be clear from the visual representation of the cut that the given part of the object has been removed artificially for the sake of illustration.
+Otherwise the viewers might believe that the hole created by the cut is in fact inherent part of the object.
+This is commonly solved by using specific shapes of the cuts which significantly differ from the shapes naturally occurring within the object (e.g., using circular cut on object which only have straight edges).
+
+Another issue is that the information about the part of the object that is being cut away is lost.
+In technical illustration, this issue is often circumvented by displaying contours of the cutaway part of the object.
+Alternatively, small portions of the cutaway parts can be reintroduced into the scene.
+These graphical elements are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
 
 %-------------------------------------------------------------------------
 

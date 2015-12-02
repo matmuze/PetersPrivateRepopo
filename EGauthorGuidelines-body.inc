@@ -106,9 +106,14 @@ However, the placement of the culling objects also needs to correspond with the 
 Given the high complexity inherent to most of the molecular models, meeting both of these requirements at the same time is a difficult task.
 With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts.
 
-To alleviate this problem, we propose \emph{Visibility Equalizer}. It is a visualization element which displays a histograms of the individual molecule types present in the scene. These histograms show the total numbers of molecules of each type in the model, numbers of molecules cut away by the clipping objects, and numbers of molecules of each type which are actually visible from the current viewpoint. By showing these histograms, the illustrator is informed about the information value of the illustration at any given time during the creative process.
+To alleviate this problem, we propose \emph{Visibility Equalizer}.
+It is a visualization element which displays a histograms of the individual molecule types present in the scene.
+These histograms show the total numbers of molecules of each type in the model, numbers of molecules cut away by the clipping objects, and numbers of molecules of each type which are actually visible from the current viewpoint.
+By showing these histograms, the illustrator is informed about the information value of the illustration at any given time during the creative process.
 
-We focus on real-time visualization tools that can be used for illustration of molecular data. In these scenarios, the user does not have direct control over the presented content, in contrast to a scenario where the content is created by manually placing individual molecules into the scene. Therefore, Visibility Equalizer provides essential information about the scene while multiple culling objects are placed and dynamically manipulated.
+We focus on real-time visualization tools that can be used for illustration of molecular data.
+In these scenarios, the user does not have direct control over the presented content, in contrast to a scenario where the content is created by manually placing individual molecules into the scene.
+Therefore, Visibility Equalizer provides essential information about the scene while multiple culling objects are placed and dynamically manipulated.
 
 \begin{figure}[t]
  \centering

@@ -11,7 +11,7 @@
 \author[M. Le Muzic et al.]
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
-        J. Sorger\thanks{jsorger@cg.tuwien.ac.at}$^{1}$,
+        J. Sorger\thanks{wochenplan@cg.tuwien.ac.at}$^{1}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
@@ -98,15 +98,13 @@ In general, illustrators choose such placements of the culling objects that only
 Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene.
 However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
 Given the high complexity inherent to most of the molecular models, meeting both of these requirements at the same time is a difficult task.
-With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts.
+With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts. 
 
-...
-
-An example is shown in Figure \ref{fig:hiv}.
+Simple culling objects are not always sufficient for the illustrative purposes. Sometimes, it is necessary to reintroduce parts of the scene that has been culled away in order to increase the informative value of the illustration. An example is shown in Figure \ref{fig:hiv}.
 Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
 In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - the capsid containing the RNA.
 Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
-In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
+In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information. In this way, the main components of the virus particle can be illustrated in a single image.
 
 \begin{figure}[t]
  \centering

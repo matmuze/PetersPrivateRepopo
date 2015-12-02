@@ -11,7 +11,7 @@
 \author[M. Le Muzic et al.]
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
-        J. Sorger\thanks{wochenplan@cg.tuwien.ac.at}$^{1}$,
+        J. Sorger\thanks{jsorger@cg.tuwien.ac.at}$^{1}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.

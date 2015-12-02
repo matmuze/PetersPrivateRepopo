@@ -1,7 +1,8 @@
-from a high level perspective, cutaway techniques can be distinguished by the domain that they are applied to, such as medical or geological visualization. from a low level perspective, they can further be categorized into techniques applied to volume or point cloud data and into techniques applied to polygonal data. while the application domain determines, which guidelines or principles should be adhered to when designing or implementing a cutaway technique, the data that they are applied to determines technical possibilities, challenges, and restrictions in terms of the individual techniques' implementation. we structure our related work from a low level perspective, i.e., the data types on which the technques are applied to.
+from a high level perspective, cutaway techniques can be distinguished by the domain that they are applied to, such as medical or geological visualization. from a low level perspective, they can further be categorized into techniques applied to volume or point cloud data and into techniques applied to polygonal data. while the application domain determines, which guidelines or principles should be adhered to when designing or implementing a cutaway technique, the data that they are applied to determines technical possibilities, challenges, and restrictions in terms of the individual techniques' implementation. Cutaway approaches can further be divided into automated and interactive techniques.
 
-directly related to our approach are cutaway techniques for pointcloud and volume data.
+our approach is an interactive cutaway techniques for molecular pointcloud data.
 
+we structure our related work from a low level perspective, i.e., the data types on which the technques are applied to. 
 
 
 
@@ -12,5 +13,12 @@ useful statements:
 
 *********************
 @intro:
-The cutaway is a technique often used to expose focus features that otherwise would
-be occluded. [dp]
+The cutaway is a technique often used to expose focus features that otherwise would be occluded. [design principles]
+
+related work/ general:
+According to Thomson et al. [2011], familiarity with the object’s
+shape contributes to the scene perception.
+medical illustration cutaways are predominantly utilized for an
+onion-like structural arrangement. Geological structures have usu-
+ally a layer-cake structure. [design principles]
+

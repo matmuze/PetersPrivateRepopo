@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 16:36
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 17:43
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
@@ -448,7 +448,7 @@ File: figures/hiv0.eps Graphic file (type eps)
 <figures/hiv0.eps>
 File: figures/hiv1.eps Graphic file (type eps)
  <figures/hiv1.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 119--125
+Underfull \hbox (badness 10000) in paragraph at lines 117--123
  \T1/ptm/m/n/9 [[][][][][][][]] [[][][][][][][]] [[][][][][][][]] [[][][][][][]
 []] [[][][][][][][]]
  []
@@ -486,7 +486,7 @@ Overfull \hbox (35.75009pt too wide) in paragraph at lines 23--23
 [][][][][][]\T1/ptm/m/n/8 ,
  []
 
-
+[2]
 Underfull \hbox (badness 2735) in paragraph at lines 38--38
 []\T1/ptm/m/sc/8 Li W., Rit-ter L., Agrawala M., Cur-less
  []
@@ -501,7 +501,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--38
 [][][][][][]\T1/ptm/m/n/8 ,
  []
 
-[2]
+
 Underfull \hbox (badness 3579) in paragraph at lines 48--48
 \T1/ptm/m/n/8 of large biomolec-u-lar datasets.  In \T1/ptm/m/it/8 Eu-ro-graph-
 ics Work-
@@ -540,15 +540,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--56
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
  [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
 nes-eurovis16-sub.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
 Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: A8190BB02EA85054AE222A556A340B86;290.
@@ -562,4 +562,4 @@ Here is how much of TeX's memory you used:
  714 hyphenation exceptions out of 8191
  44i,11n,46p,3161b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on EGauthorGuidelines-eurovis16-sub.dvi (3 pages, 27312 bytes).
+Output written on EGauthorGuidelines-eurovis16-sub.dvi (3 pages, 27736 bytes).

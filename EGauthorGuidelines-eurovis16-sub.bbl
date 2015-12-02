@@ -6,9 +6,6 @@
 \newblock Adaptive cutaways for comprehensible rendering of polygonal scenes.
 \newblock In \emph{ACM SIGGRAPH Asia 2008 Papers} (New York, NY, USA, 2008),
   SIGGRAPH Asia '08, ACM, pp.~154:1--154:7.
-\newblock URL: \url{http://doi.acm.org/10.1145/1457515.1409107}, \href
-  {http://dx.doi.org/10.1145/1457515.1409107}
-  {\path{doi:10.1145/1457515.1409107}}.
 
 \bibitem[BHW{\etalchar{*}}07]{Burns07}
 \textsc{Burns M., Haidacher M., Wein W., Viola I., Gr\"{o}ller M.~E.}:
@@ -17,9 +14,6 @@
 \newblock In \emph{Proceedings of the 9th Joint Eurographics / IEEE VGTC
   Conference on Visualization} (Aire-la-Ville, Switzerland, Switzerland, 2007),
   EUROVIS'07, Eurographics Association, pp.~275--282.
-\newblock URL: \url{http://dx.doi.org/10.2312/VisSym/EuroVis07/275-282}, \href
-  {http://dx.doi.org/10.2312/VisSym/EuroVis07/275-282}
-  {\path{doi:10.2312/VisSym/EuroVis07/275-282}}.
 
 \bibitem[LHV12]{Lidal12}
 \textsc{Lidal E.~M., Hauser H., Viola I.}:
@@ -32,9 +26,6 @@
 \newblock Interactive cutaway illustrations of complex 3d models.
 \newblock In \emph{ACM SIGGRAPH 2007 Papers} (New York, NY, USA, 2007),
   SIGGRAPH '07, ACM.
-\newblock URL: \url{http://doi.acm.org/10.1145/1275808.1276416}, \href
-  {http://dx.doi.org/10.1145/1275808.1276416}
-  {\path{doi:10.1145/1275808.1276416}}.
 
 \bibitem[MAPV15]{cellVIEW_2015}
 \textsc{Muzic M.~L., Autin L., Parulek J., Viola I.}:
@@ -43,15 +34,11 @@
 \newblock In \emph{Eurographics Workshop on Visual Computing for Biology and
   Medicine} (Sept. 2015), B{"u}hler K., Linsen L., John N.~W., (Eds.), EG
   Digital Library, The Eurographics Association, pp.~61--70.
-\newblock URL:
-  \url{http://www.cg.tuwien.ac.at/research/publications/2015/cellVIEW_2015/}.
 
 \bibitem[VKG05]{Viola05}
 \textsc{Viola I., Kanitsar A., Groller M.~E.}:
 \newblock Importance-driven feature enhancement in volume visualization.
 \newblock \emph{IEEE Transactions on Visualization and Computer Graphics 11}, 4
   (July 2005), 408--418.
-\newblock URL: \url{http://dx.doi.org/10.1109/TVCG.2005.62}, \href
-  {http://dx.doi.org/10.1109/TVCG.2005.62} {\path{doi:10.1109/TVCG.2005.62}}.
 
 \end{thebibliography}

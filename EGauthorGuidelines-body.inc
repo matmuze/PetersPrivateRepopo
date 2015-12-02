@@ -94,17 +94,21 @@ The culling objects work in such a way that the part of the rendered scene enclo
 
 %Cutaways views are essential in illustration of processes on the microscopic scale. These processes are often demonstrated on polymolecular models, where large number of molecular instances form complex nested structures. Such structures would be impossible to visualize when the model is displayed as a whole, thus creating a need for the cutaway views.
 
-In general, illustrators choose such placements of the culling objects that only unimportant parts of the scene are removed and no essential information is lost.
-Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene.
-However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
-Given the high complexity inherent to most of the molecular models, meeting both of these requirements at the same time is a difficult task.
-With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts. 
-
 Simple culling objects are not always sufficient for the illustrative purposes. Sometimes, it is necessary to reintroduce parts of the scene that has been culled away in order to increase the informative value of the illustration. An example is shown in Figure \ref{fig:hiv}.
 Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
 In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - the capsid containing the RNA.
 Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
 In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information. In this way, the main components of the virus particle can be illustrated in a single image.
+
+In general, illustrators choose such placements of the culling objects that only unimportant parts of the scene are removed and no essential information is lost.
+Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene.
+However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
+Given the high complexity inherent to most of the molecular models, meeting both of these requirements at the same time is a difficult task.
+With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts.
+
+To alleviate this problem, we propose \emph{Visibility Equalizer}. It is a visualization element which displays a histograms of the individual molecule types present in the scene. These histograms show the total numbers of molecules of each type in the model, numbers of molecules cut away by the clipping objects, and numbers of molecules of each type which are actually visible from the current viewpoint. By showing these histograms, the illustrator is informed about the information value of the illustration at any given time during the creative process.
+
+We focus on real-time visualization tools that can be used for illustration of molecular data. In these scenarios, the user does not have direct control over the presented content, in contrast to a scenario where the content is created by manually placing individual molecules into the scene. Therefore, Visibility Equalizer provides essential information about the scene while multiple culling objects are placed and dynamically manipulated.
 
 \begin{figure}[t]
  \centering

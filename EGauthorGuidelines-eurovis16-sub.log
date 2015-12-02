@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 17:55
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 19:31
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
@@ -448,13 +448,13 @@ File: figures/hiv0.eps Graphic file (type eps)
 <figures/hiv0.eps>
 File: figures/hiv1.eps Graphic file (type eps)
  <figures/hiv1.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 117--123
+Underfull \hbox (badness 10000) in paragraph at lines 121--127
  \T1/ptm/m/n/9 [[][][][][][][]] [[][][][][][][]] [[][][][][][][]] [[][][][][][]
 []] [[][][][][][][]]
  []
 
 File: figures/results01.eps Graphic file (type eps)
-<figures/results01.eps>
+<figures/results01.eps> [2]
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
 nes-eurovis16-sub.bbl
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
@@ -486,7 +486,7 @@ Overfull \hbox (35.75009pt too wide) in paragraph at lines 23--23
 [][][][][][]\T1/ptm/m/n/8 ,
  []
 
-[2]
+
 Underfull \hbox (badness 2735) in paragraph at lines 38--38
 []\T1/ptm/m/sc/8 Li W., Rit-ter L., Agrawala M., Cur-less
  []
@@ -540,15 +540,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--56
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
- [3
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
 nes-eurovis16-sub.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
 Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: A8190BB02EA85054AE222A556A340B86;290.
@@ -560,6 +558,6 @@ Here is how much of TeX's memory you used:
  9434 multiletter control sequences out of 15000+200000
  36534 words of font info for 55 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,11n,46p,3161b,406s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,11n,46p,3161b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on EGauthorGuidelines-eurovis16-sub.dvi (3 pages, 27736 bytes).
+Output written on EGauthorGuidelines-eurovis16-sub.dvi (3 pages, 28928 bytes).

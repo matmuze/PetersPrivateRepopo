@@ -132,6 +132,17 @@ Therefore, Visibility Equalizer provides essential information about the scene w
 
 \section{Overview}
 
+\begin{figure*}[t]
+ \centering
+ \subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/h0.eps}}
+ \subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/h1.eps}}
+ \subfloat[]{\label{fig:his2}\includegraphics[width=0.166\linewidth]{figures/h2.eps}}
+ \subfloat[]{\label{fig:his3}\includegraphics[width=0.166\linewidth]{figures/h3.eps}}
+ \subfloat[]{\label{fig:his4}\includegraphics[width=0.166\linewidth]{figures/h4.eps}}
+ \subfloat[]{\label{fig:his5}\includegraphics[width=0.166\linewidth]{figures/h5.eps}}
+ \caption{\label{fig:his}Visibility Equalizers.}
+\end{figure*}
+
 \subsection{Design Principles for Cutaway Illustrations}
 [here we write what principles are there, and how is our system fulfilling them]
 \cite{Lidal12}

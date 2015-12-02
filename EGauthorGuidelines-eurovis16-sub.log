@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  1 DEC 2015 21:34
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 12:22
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
@@ -437,7 +437,7 @@ Underfull \hbox (badness 2310) in paragraph at lines 75--80
  []
 
 
-Underfull \vbox (badness 4013) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
@@ -448,13 +448,10 @@ File: figures/hiv0.eps Graphic file (type eps)
 <figures/hiv0.eps>
 File: figures/hiv1.eps Graphic file (type eps)
  <figures/hiv1.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 111--117
+Underfull \hbox (badness 10000) in paragraph at lines 119--125
  \T1/ptm/m/n/9 [[][][][][][][]] [[][][][][][][]] [[][][][][][][]] [[][][][][][]
 []] [[][][][][][][]]
  []
-
-
-Underfull \vbox (badness 2150) has occurred while \output is active []
 
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
@@ -514,7 +511,7 @@ Overfull \hbox (121.65015pt too wide) in paragraph at lines 48--48
 [][][][][][]\T1/ptm/m/n/8 .
  []
 
-
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 56--56
 []\T1/ptm/m/sc/8 Viola I., Kan-it-sar A., Groller M. E.\T1/ptm/m/n/8 :
  []
@@ -542,13 +539,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--56
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+ [3
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
 
 (C:\Users\mindek\Desktop\mindek\eurovis2016\PetersPrivateRepopo\EGauthorGuideli
 nes-eurovis16-sub.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
 Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: 9A2359604A58DC05CB8706E50424621B;243.
@@ -556,10 +555,10 @@ t changed.
 Here is how much of TeX's memory you used:
  6261 strings out of 494020
  100014 string characters out of 3143901
- 186965 words of memory out of 3000000
+ 187965 words of memory out of 3000000
  9432 multiletter control sequences out of 15000+200000
  36534 words of font info for 55 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,11n,46p,3161b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,11n,46p,3161b,402s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on EGauthorGuidelines-eurovis16-sub.dvi (2 pages, 24172 bytes).
+Output written on EGauthorGuidelines-eurovis16-sub.dvi (3 pages, 25684 bytes).

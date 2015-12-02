@@ -82,17 +82,25 @@ Creating hand-drawn illustrations of complex polymolecular structures, or even e
 Therefore, to communicate the intended message, it is often necessary to adequately simplify the structure in question.
 The illustration then consists of appropriate abstractions, while certain amount of information is lost.
 
-A different approach is to utilize computational models of the structures which are to be illustrated, and utilizing software packages for visualization of these models. Such models, typically generated through simulation and statistical modelling, consists of large numbers of instances of several molecular types. The different molecular types contained within the model represent the chemical composition of the modelled object, while the distributions of the instances of the individual types represent the concentrations of the respective chemical compounds. High number of molecular instances, as well as their large densities, often make task of visualizing such models non-trivial.
+A different approach is to utilize computational models of the structures which are to be illustrated, and utilizing software packages for visualization of these models.
+Such models, typically generated through simulation and statistical modelling, consists of large numbers of instances of several molecular types.
+The different molecular types contained within the model represent the chemical composition of the modelled object, while the distributions of the instances of the individual types represent the concentrations of the respective chemical compounds.
+High number of molecular instances, as well as their large densities, often make task of visualizing such models non-trivial.
+The advantage of this approach is the possibility to generate illustrations exhibiting high degree of accuracy, which would require extremely high effort.
 
-When utilizing these models for the illustrative purposes, algorithmic equivalents of the traditional illustrative techniques are often employed. For instance, software packages for computer-aided illustration often offer an option to manipulate and apply culling objects for creating cutaway views of the illustrated models. The culling objects work in such a way that the part of the rendered scene enclosed by the surface of the cutting object is removed, thus making previously occluded structures visible.
+When utilizing the molecular models for the illustrative purposes, algorithmic equivalents of the traditional illustrative techniques are often employed.
+For instance, software packages for computer-aided illustration often offer an option to manipulate and apply culling objects for creating cutaway views of the illustrated models or scenes.
+The culling objects work in such a way that the part of the rendered scene enclosed by the surface of the cutting object is removed, thus making previously occluded structures visible.
 
 %Cutaways views are essential in illustration of processes on the microscopic scale. These processes are often demonstrated on polymolecular models, where large number of molecular instances form complex nested structures. Such structures would be impossible to visualize when the model is displayed as a whole, thus creating a need for the cutaway views.
 
-In general, illustrators choose such placements of the culling objects that only unimportant parts of the scene are removed and no essential information is lost. Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene. However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
+In general, illustrators choose such placements of the culling objects that only unimportant parts of the scene are removed and no essential information is lost.
+Specifically in molecular visualization, it is often desired that the culling objects are positioned so that all molecular types are represented in the generated scene.
+However, the placement of the culling objects also needs to correspond with the geometrical structure of the model, so that it is obvious what are the artificial cuts introduced in the illustration, and what is their purpose.
+Given the high complexity inherent to most of the molecular models, meeting both of these requirements at the same time is a difficult task.
+With each additional culling object that the illustrator introduces into the scene, it gets progressively more difficult to keep overview of which molecular types are still represented in the scene in sufficient amounts.
 
-
-
-
+...
 
 An example is shown in Figure \ref{fig:hiv}.
 Figure \ref{fig:hiv0} shows an illustration of a HIV virus.

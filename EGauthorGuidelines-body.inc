@@ -124,7 +124,11 @@ In particular, those glycoproteins which are not occluding the object of interes
 \cite{cellVIEW_2015}
 
 \section{Overview}
-\subsection{Design principles}
+
+\subsection{Design Principles for Cutaway Illustrations}
+[here we write what principles are there, and how is our system fulfilling them]
+\cite{Lidal12}
+
 There are several issues with using cutaway views in illustrations.
 First one is that it has to be clear from the visual representation of the cut that the given part of the object has been removed artificially for the sake of illustration.
 Otherwise the viewers might believe that the hole created by the cut is in fact inherent part of the object.
@@ -134,6 +138,22 @@ Another issue is that the information about the part of the object that is being
 In technical illustration, this issue is often circumvented by displaying contours of the cutaway part of the object.
 Alternatively, small portions of the cutaway parts can be reintroduced into the scene.
 These graphical elements are not occluding the objects of interest, but at the same time they help to convey the overall shape of the cutaway part.
+
+\section{Fuzzy Cutaways}
+
+\section{Equalizing Visibility}
+
+\section{Evaluation}
+
+\section{Results and Discussion}
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\linewidth]{figures/results01.eps}
+ \caption{\label{fig:results01}An illustration of the HIV virus in the blood serum utilizing cutaways created with our approach.}
+\end{figure}
+
+\section{Conclusions}
 
 %-------------------------------------------------------------------------
 

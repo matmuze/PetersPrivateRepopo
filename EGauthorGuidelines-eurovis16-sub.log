@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 12:38
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=latex 2015.11.23)  2 DEC 2015 16:36
 entering extended mode
 **EGauthorGuidelines-eurovis16-sub.tex
 
@@ -552,10 +552,6 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
 Package rerunfilecheck Info: File `EGauthorGuidelines-eurovis16-sub.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: A8190BB02EA85054AE222A556A340B86;290.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) ) 
 Here is how much of TeX's memory you used:
  6264 strings out of 494020

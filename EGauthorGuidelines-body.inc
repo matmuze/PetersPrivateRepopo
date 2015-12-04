@@ -4,14 +4,14 @@
 
 
 \title[Visibility Equalizer]%
-      {Visibility Equalizer}
+      {Visibility Equalizer for Molecular Visualization}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
 \author[M. Le Muzic et al.]
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
-        J. Sorger\thanks{jsorger@cg.tuwien.ac.at}$^{1}$,
+        J. Sorger\thanks{sorger@cg.tuwien.ac.at}$^{1}$,
         L. Autin\thanks{ludovic.autin@gmail.com}$^{2}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\

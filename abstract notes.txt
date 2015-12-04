@@ -1,0 +1,25 @@
+first message:context: cutaways = occlusion management technique in vis & illu
+
+2nd: new method for authoring cutaway vis based on data (centric)
+what separates us from other approaches?
+multi instancing = data property
+amount of instances = controlled to determine what is shown to the user
+make sure that everything that should be shown is shown
+
+überleitung vis of visibility: histograms of visibility distribution.
+what is cut away, what is visible, what is occluded
+
+interaction with the vis:
+like "sliders" in an equalizer
+override natural setting that a clipping plane would provide
+
+2stage process:
+1) clipping plane
+2) equalizer for tweaking
+
+histograms:
+1) not yet interactive: gives info about visibility
+2) now we know about visibility: we change the histo to adapt how we want the visibility to be
+
+mention evaluation / prototype testing with domain experts in scientific illustration
+

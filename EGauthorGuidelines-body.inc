@@ -43,16 +43,26 @@
 \maketitle
 
 \begin{abstract}
+In scientific illustration and visualization, cutaway views are often employed as a useful technique for the occlusion management within the displayed scenes.
+We propose a novel data-centric method for authoring cutaway illustrations of mesoscopic biological models.
+In contrast with the existing cutaway algorithms, we take advantage of the specific nature of the biological models, which consist of multiple instances of a limited number of different molecular types.
+Our method constitutes a two stage process.
+In the first step, culling objects are placed in the scene, creating a cutaway visualization of the model.
+During this process, the user is informed about the amounts of individual molecular types represented in the scene through histograms of their visibility distributions.
+In the second step, the visibility is fine-tuned through interaction with the histograms, which at this point act as visibility equalizers.
+The prototype application implementing our method has been evaluated by domain experts in scientific illustration.
 
-In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations.
-Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing.
-Nowadays, complex models of various biochemical structures and micro-organisms exist.
-These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms.
-When using such algorithms, it is beneficial for illustrators to be able to apply techniques common in traditional illustration, such as cutaway views.
-In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to apply cutaway views.
-In contrast with existing cutaway algorithms, we take advantage of the specific nature of the biochemical models, which consists of multiple instances of a limited number of different molecular types.
-Our approach to cutaway views allows the illustrators to reintroduce some of the removed instances into the scene to communicate the presence of the given molecular type, yet maintaining the visibility of the internal structures of the model.
-This process is enabled through a novel interaction method for controlling the visibility in the instance-based scene. We refer to this method as visibility equaliser.
+
+%In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations.
+%Traditionally, illustrations of biological processes on the molecular level have been created by manual hand drawing.
+%Nowadays, complex models of various biochemical structures and micro-organisms exist.
+%These models can be utilized in creating computer-generated biological illustrations through various molecular-visualization algorithms.
+%When using such algorithms, it is beneficial for illustrators to be able to apply techniques common in traditional illustration, such as cutaway views.
+%In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to apply cutaway views.
+%In contrast with existing cutaway algorithms, we take advantage of the specific nature of the biochemical models, which consists of multiple instances of a limited number of different molecular types.
+%Our approach to cutaway views allows the illustrators to reintroduce some of the removed instances into the scene to communicate the presence of the given molecular type, yet maintaining the visibility of the internal structures of the model.
+%This process is enabled through a novel interaction method for controlling the visibility in the instance-based scene. We refer to this method as visibility equaliser.
+
 
 %In this paper, we propose a method for enhancing real-time molecular-visualization algorithms with the capability to display cutaway views.
 %Such an option is beneficial to biological illustrators, since the technique of cutaway display is ubiquitously applied in traditional illustration.

@@ -3,21 +3,22 @@
 % D.Fellner, v1.17, Sep 23, 2010
 
 
-\title[Visibility Equalizer]%
-      {Visibility Equalizer for Molecular Visualization}
+\title[Visibility Equalizers]%
+      {Visibility Equalizers for Molecular Visualization}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
 \author[M. Le Muzic et al.]
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
-        J. Sorger\thanks{sorger@cg.tuwien.ac.at}$^{1}$,
-        L. Autin\thanks{ludovic.autin@gmail.com}$^{2}$,
+        J. Sorger\thanks{sorger@cg.tuwien.ac.at}$^{1,2}$,
+        L. Autin\thanks{ludovic.autin@gmail.com}$^{3}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
-         $^1$TU Wien, Austria
-        $^2$ The Scripps Research Institute, La Jolla, California, USA
+         $^1$TU Wien, Austria \\
+         $^2$VRVis Research Company, Austria \\
+        $^3$ The Scripps Research Institute, La Jolla, California, USA
 %             with different affiliations
        }
 
@@ -52,6 +53,8 @@ In the first step, culling objects are placed in the scene, creating a cutaway v
 During this process, histograms inform the user about the instance visibility distribution of each individual molecular type in the scene.
 In the second step, the visibility of each molecular type is fine-tuned through these histograms, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
 The technique has been evaluated by domain experts in scientific illustration.
+
+
 
 
 %In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations.
@@ -149,12 +152,12 @@ Therefore, Visibility Equalizer provides essential information about the scene w
 
 \begin{figure*}[t]
  \centering
- \subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/h0.eps}}
- \subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/h1.eps}}
- \subfloat[]{\label{fig:his2}\includegraphics[width=0.166\linewidth]{figures/h2.eps}}
- \subfloat[]{\label{fig:his3}\includegraphics[width=0.166\linewidth]{figures/h3.eps}}
- \subfloat[]{\label{fig:his4}\includegraphics[width=0.166\linewidth]{figures/h4.eps}}
- \subfloat[]{\label{fig:his5}\includegraphics[width=0.166\linewidth]{figures/h5.eps}}
+ \subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
+ \subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
+ \subfloat[]{\label{fig:his2}\includegraphics[width=0.166\linewidth]{figures/hi2.eps}}
+ \subfloat[]{\label{fig:his3}\includegraphics[width=0.166\linewidth]{figures/hi3.eps}}
+ \subfloat[]{\label{fig:his4}\includegraphics[width=0.166\linewidth]{figures/hi4.eps}}
+ \subfloat[]{\label{fig:his5}\includegraphics[width=0.166\linewidth]{figures/hi5.eps}}
  \caption{\label{fig:his}Visibility Equalizers.}
 \end{figure*}
 

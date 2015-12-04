@@ -18,7 +18,7 @@ Document=EGauthorGuidelines-body.inc
 
 [Frame0_View0,0]
 TopLine=30
-Cursor=2170
+Cursor=2566
 
 [SessionInfo]
 FrameCount=1

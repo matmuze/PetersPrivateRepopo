@@ -44,13 +44,13 @@
 \maketitle
 
 \begin{abstract}
-In scientific illustration and visualization, cutaway views are often employed as an effective technique for the occlusion management for densely packed scenes.
+In scientific illustration and visualization, cutaway views are often employed as an effective technique for occlusion management in densely packed scenes.
 We propose a novel data-centric method for authoring cutaway illustrations of mesoscopic biological models.
-In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models, i.e., consisting of thousands of instances but of a comparably smaller number of different molecular types.
+In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models. These models consist of thousands of instances that are distributed across a comparably smaller number of different molecular types.
 Our method constitutes a two stage process.
 In the first step, culling objects are placed in the scene, creating a cutaway visualization of the model.
-During this process, the user is informed about the amounts of visible instances for each individual molecular type represented in the scene through histograms of their visibility distributions.
-In the second step, the visibility is fine-tuned through these histograms, which at this point act as interactive visibility equalizers.
+During this process, histograms inform the user about the instance visibility distribution of each individual molecular type in the scene.
+In the second step, the visibility of each molecular type is fine-tuned through these histograms, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
 The technique has been evaluated by domain experts in scientific illustration.
 
 

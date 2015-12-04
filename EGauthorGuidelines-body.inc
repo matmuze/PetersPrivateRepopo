@@ -12,11 +12,12 @@
        {M. Le Muzic\thanks{mathieu@cg.tuwien.ac.at}$^{1}$,
         P. Mindek\thanks{mindek@cg.tuwien.ac.at}$^{1}$,
         J. Sorger\thanks{jsorger@cg.tuwien.ac.at}$^{1}$,
+        L. Autin\thanks{ludovic.autin@gmail.com}$^{2}$,
         and I. Viola\thanks{viola@cg.tuwien.ac.at}$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
          $^1$TU Wien, Austria
-%        $^2$ Another Department to illustrate the use in papers from authors
+        $^2$ The Scripps Research Institute, La Jolla, California, USA
 %             with different affiliations
        }
 
@@ -43,14 +44,14 @@
 \maketitle
 
 \begin{abstract}
-In scientific illustration and visualization, cutaway views are often employed as a useful technique for the occlusion management within the displayed scenes.
+In scientific illustration and visualization, cutaway views are often employed as an effective technique for the occlusion management for densely packed scenes.
 We propose a novel data-centric method for authoring cutaway illustrations of mesoscopic biological models.
-In contrast with the existing cutaway algorithms, we take advantage of the specific nature of the biological models, which consist of multiple instances of a limited number of different molecular types.
+In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models, i.e., consisting of thousands of instances but of a comparably smaller number of different molecular types.
 Our method constitutes a two stage process.
 In the first step, culling objects are placed in the scene, creating a cutaway visualization of the model.
-During this process, the user is informed about the amounts of individual molecular types represented in the scene through histograms of their visibility distributions.
-In the second step, the visibility is fine-tuned through interaction with the histograms, which at this point act as visibility equalizers.
-The prototype application implementing our method has been evaluated by domain experts in scientific illustration.
+During this process, the user is informed about the amounts of visible instances for each individual molecular type represented in the scene through histograms of their visibility distributions.
+In the second step, the visibility is fine-tuned through these histograms, which at this point act as interactive visibility equalizers.
+The technique has been evaluated by domain experts in scientific illustration.
 
 
 %In molecular biology and similar fields, knowledge transfer is commonly carried out through schematic illustrations.
@@ -81,6 +82,8 @@ The prototype application implementing our method has been evaluated by domain e
 
 %-------------------------------------------------------------------------
 \section{Introduction}
+
+\begin{comment}
 
 In the field of molecular biology, micro-biology, and medicine, illustrations are essential for the inter- and intra-disciplinary knowledge transfer.
 Over the years, illustrators have developed various techniques for capturing specific aspects of the displayed objects and processes.
@@ -124,6 +127,8 @@ By showing these histograms, the illustrator is informed about the information v
 We focus on real-time visualization tools that can be used for illustration of molecular data.
 In these scenarios, the user does not have direct control over the presented content, in contrast to a scenario where the content is created by manually placing individual molecules into the scene.
 Therefore, Visibility Equalizer provides essential information about the scene while multiple culling objects are placed and dynamically manipulated.
+
+\end{comment}
 
 \begin{figure}[t]
  \centering

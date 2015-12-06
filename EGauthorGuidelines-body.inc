@@ -209,6 +209,16 @@ Therefore, Visibility Equalizer provides essential information about the scene w
 
 \section{Overview}
 
+\begin{itemize}
+	\item We conceptualize the cutaway authoring as two stage process, as mentioned in the intro		\item We use cellView
+	\item In the first step, we want arbitrary culling shapes, so we use distance fields
+	\item Molecules before and after cutting test are counted in the first step, so that histograms can be shown
+	\item In the second step, we need to change the visibility, so we make the culling objects fuzzy - some removed molecules are reintroduced, some non-cutaway molecules are removed. This has to correspond with the histograms, so that this could be set by dragging histograms.
+	\item We also introduce decay curve, so that the fuzziness doesn't have to be uniform, but it can change according to the distance from the cutting surface - we can do this since we sue distance fields for cutting.
+	\item We also do shading of the cutaway parts so that the cut shapes are easily perceivable.
+\end{itemize}
+
+
 \begin{figure*}[t]
  \centering
  \subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}

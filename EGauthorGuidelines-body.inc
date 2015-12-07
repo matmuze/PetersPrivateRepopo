@@ -248,7 +248,7 @@ These graphical elements are not occluding the objects of interest, but at the s
 
 Cull objects are defined...
 
-\section{Filtering}
+\section{Property-Based Clipping}
 
 %Additionally to defining where instances will be clipped, our system offer the mean to selectively chose the concentration of displayed elements for each protein types.
 %These values are controlled by the user via the user interface. 
@@ -326,69 +326,73 @@ For the book-keeping is the clipped ingredient we count for each ingredient type
 
 
 
+\section{Shape-Based Clipping}
+
+\subsection{Object-Space}
+
+The basic parameters of the cull objects define the global number of clipped instances for each ingredient type.
+
+Additionally, they can be associated with geometrical shapes to determine where the clipping should take place.
+
+
+\subsubsection{Analytical Distance Evaluation}
+
+At the very beginning of the process, for each instance, prior to the filtering, we determine if the instance if located in the region defined by the geometry.
+
+Our system currently supports the following set of primitive shapes (plane, cube, sphere, cylinder and cone)
+
+Although simple, it may still be computationally expensive to evaluate the signed distance of those shapes with a large number of points in space, using a mesh-based representation.
+
+To accelerate the computation we solve the problem analytically using a signed distance field (SDF).
+
+Using such analytical representation reduces the problem of evaluating the distance to solving trivial 3D shapes equations.
+
+It is also possible to apply traditional transform operations to the distance field, such as translation, rotation and scaling.
+
+The effect of the shape-based clipping can also be inverted by inverting the result of the signed distance function, offering more usage flexibility.
+
+Using, for instance, a spherical shape, the clip region would normally be set to the inside of the sphere, while in inverted mode it would correspond to the inside of the sphere. 
+
+\subsubsection{Gradient Clipping}
+
+We provide additional options to gradually remove instances given a geometrical shape.
+
+The purpose is to facilitate the removal of instances, primarily for illustration purposes.
+
+\textbf{TODO PMINDEK:} Talk about gradient clipping here
+
+
+\subsection{View-Space}
+
+While object-space culling using primitive shapes allows for a great degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shapes diversities.
+
+We additionally provide a method to specify a set of ingredient types as focus, and to selectively remove occluding instances.
+
+\subsubsection{Mask-Based Approach}
+
+Due to the potentially large number of instances in our scenes, we use accelerate the computation of occluding instances using an image-based approach on the GPU.
+
+To determine what instances are in front of the focus, we first separately render a mask containing all the focus elements.
+
+Focus ingredients are priorly selected from the histogram view via a dedicated toggle.
+
+There can be only one mask created per cut object.
+
+The mask is rendered using bounding sphere in order to lower to cost of the additional render pass.
+
+The render pass sets the depth buffer in order to let subsequent draw calls to pass only if they are overlapping the focus region.
+
+Subsequently, we draw the bounding sphere of the remaining instances over the mask, fragments that will pass the depth test are therefore guaranteed to belong to an object occluding the focus, with at least one pixel.
+
+From the fragment program we then mark the occluding instance as culled, in a similar way as we would normally cull an instance. 
 
 
 
 
 
-
-
-Any properties can influence the view of the histograms
-
-Histograms, manipulate value1 which 
-
-Histograms view can be easily switch to something else
-
-
-
-
-
-
-The histograms provide an overview of the overall quantities of displayed elements in the scene.
-
-Additionally the user can modify the values of the fuzziness directly by manipulating histograms.
-
-
-
-Histograms are organised....
-
-
-
-
-%By default the histograms show 
-
-
-
-
-
-
-\subsection{Visibility Histograms}
-
-In this section I want to describe what are the histograms, how they are updated and how they are influencing the view.
-
-\subsection{title}
-
-\subsection{Instance counting}
-
-Histograms.
-
-Visibility counting
-
-counting
-
-Value 1 and probability
-
-\section{Object Space Cutaways}
-
-Distance Field 
-
-Gradient
-
-\section{View Space Cutaways}
+\subsubsection{Aperture Effect}
 
 Image-based mask culling using depth and stencil test
-
-Aperture Effect
 
 \section{Depth cues and Enhancements}
 

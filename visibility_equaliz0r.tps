@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=2140
-NormalPos.bottom=940
+NormalPos.right=1025
+NormalPos.bottom=924
 Class=LaTeXView
 Document=EGauthorGuidelines-body.inc
 
 [Frame0_View0,0]
-TopLine=30
-Cursor=2566
+TopLine=285
+Cursor=17738
 
 [SessionInfo]
 FrameCount=1

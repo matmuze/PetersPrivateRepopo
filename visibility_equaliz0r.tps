@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=EGauthorGuidelines-body.inc
 
 [Frame0_View0,0]
-TopLine=285
-Cursor=17738
+TopLine=412
+Cursor=23157
 
 [SessionInfo]
 FrameCount=1

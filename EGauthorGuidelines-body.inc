@@ -301,7 +301,7 @@ Additionally, there are more parameters which can influence when an instance is 
 To provide a clear overview of the scene properties, we display histograms for each ingredient type that indicate information about their visibility.
 
 By default we chose to show three ranges in each histogram. The section of the histogram (dark green region) shows the percentage of instances that are currently visible on the screen. 
-The entire green section (dark & light green) represents the percentage of instances that are actually rendered.
+The entire green section (dark \& light green) represents the percentage of instances that are actually rendered.
 
 In order to fill histograms with the correct value, we perform book-keeping of both clipped and visible instances, which we recompute after each changes in cut objects or camera.
 

@@ -1,10 +1,17 @@
 \section{Overview}
+
+ \begin{figure}[t]
+  \centering 
+	\includegraphics[width=\linewidth]{figures/o-histogram.eps}
+  \caption{\label{fig:ohist}Visual representation of the visibility equalizers.}
+ \end{figure}
+  
   
  \begin{figure}[t]
-  \centering
-  \subfloat[]{\label{fig:overview0}\includegraphics[width=\linewidth]{figures/o0.eps}}
-  
+  \centering 
   \subfloat[]{\label{fig:overview1}\includegraphics[width=\linewidth]{figures/o1.eps}}
+  
+  \subfloat[]{\label{fig:overview0}\includegraphics[width=\linewidth]{figures/o0.eps}}  
   \caption{\label{fig:overview}Overview.}
  \end{figure}
  

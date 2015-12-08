@@ -207,14 +207,14 @@ From the fragment program we then mark the occluding instance as culled, in a si
 
 Image-based mask culling using depth and stencil test
 
-\subsection{Aperture Effect}
+\subsection{Island Effect}
 
 Image-based mask culling using depth and stencil test
+
 
 \section{Depth cues and Enhancements}
 
 \section{Results and Discussion}
-
 
 \section{Evaluation}
 

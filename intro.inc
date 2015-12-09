@@ -1,13 +1,13 @@
 \section{Introduction}
 
-Biology is an emerging field where the state of the current knowledge changes extremely quickly.
-New discoveries have to be communicated to a large variety of audiences.
-Since these discoveries often happen on the molecular level and they are not directly observable in sufficient detail, illustration is the only way how to communicate them.
+Molecular biology is an emerging field that is marked by a constant evolution of the current state of knowledge. %where the state of the current knowledge changes extremely quickly.
+New discoveries have to be communicated frequently to a large variety of audiences.
+Since discoveries of molecular phenomena cannot directly be conveyed, illustrations are the only way of communicating them. %note: what about models? better: illustrations are a common way of...
 
-Traditional pipeline of the scientific illustration starts with the collection of data and knowledge gathering.
-Afterwards, illustrators make sketches, in which specific regions of the illustrated objects are uncovered.
+The traditional pipeline for creating scientific illustrations of molecular structures starts with the knowledge gathering process.
+When sufficient data is collected, illustrators make sketches, in which specific regions of the illustrated structures are uncovered.
 For this, occlusion management techniques are necessary.
-Oftentimes, \emph{cutaway views} are employed, where specific parts of the scene are removed form the organism model in the illustration, so that internal structures become visible.
+A common technique are \emph{cutaway views}. They remove specific parts of the scene are form the organism model in the illustration, so that internal structures become visible.
 When new knowledge is discovered, the conceptual layout of the illustration might break down and the whole process has to start from the beginning.
 Therefore, the duration of this process counts in months or even years.
 

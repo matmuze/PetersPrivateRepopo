@@ -13,12 +13,11 @@ Therefore, the duration of this process counts in months or even years.
 
 With the rapid changes to the knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that the new data can be easily plugged in and the resulting illustrations can be updated accordingly in a very short time period.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for this purposes.
-These models can be created with tools that procedurally assemble individual molecules into large complexes and into entire systems such as bacterial organisms.
-An example of such a tool is \emph{cellPack} \cite{cellpack}.
-These tools take individual molecular ingredients, as well as shapes of compartments where the instances of these ingredients are populated, as input.
+Such models can be created with tools that procedurally assemble individual molecules into large complexes and into entire systems such as bacterial organisms.
+An example of such a tool is \emph{cellPack} \cite{cellpack}. Its core functionality is a packing algorithm, which take individual molecular ingredients, as well as shapes of compartments where the instances of these ingredients are populated, as the input.
 %and the knowledge from the field of integrative structural biology.
 %The models consist of multiple instances of several molecular types.
-Output of these tools are 3D models consisting of multiple instances of several molecular ingredients.
+The output is a 3D model consisting of multiple instances of several molecular ingredients.
 The instances are densely packed within the predefined compartments.
 The shape of the compartments is designed by the domain experts in biology.
 %according to the biology knowledge.
@@ -65,8 +64,8 @@ The interactive element effectively turns the visibility histograms into visibil
 
 Our main contributions are:
 \begin{itemize}
-  \item A new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models.
-  \item A new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.
+  \item a new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models
+  \item a new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.
 \end{itemize}
 
 

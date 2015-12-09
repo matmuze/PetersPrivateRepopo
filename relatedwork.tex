@@ -1,0 +1,48 @@
+\section{Related Work}
+
+
+\subsection{Occlusion Management}
+Related occlusion management techniques can be categorized into object centric approaches and transfer function based approaches. In object centric approaches, the geometry or parts of the volume that are obstructing one or more particular objects of interest are (partially) removed. In Transfer function based approaches, the user assigns importances to intervals of the volume data values.
+
+\noindent
+\textbf{Object Centered Approaches.}
+Cutaway and ghosting techniques were first introduced by Finer \& Seligmann in 1992 as an automated approach for generating illustrations that consider the occlusion of user defined objects. In 2002, Diepstraten et al [diepstraten2002]picked up the technique again and defined a set of rules for computer-based rendering of technical illustrations to achieve a view-dependent transparency model that mimics the ghosting techniques of technical illustrations. They later extended these rules for interactive cutaway illustrations [diepstraten2003].
+
+Analogous to the cutaways for polygonal representations, Weißkopf et al. developed an interactive clipping technique for volume rendering that supports complex clipping geometries.  In 2004, Viola et al developed an automated approach for focus \& context visualization for segmented volumetric objects. An assigned object importance determines the visibility priority for the segmented parts of the volume. contextual information is kept in regions where the context does not occlude the feature of interest. Follow-up work focused on the definition of levels of sparseness and importance compositing for cutaway and ghosting calculations [importance driven feature enhancement]. 
+In 2005, Viola et al. give an overview of current “smart visibility” techniques that comprise expressive visualization techniques that smartly uncover the most important features of the displayed data, such as cut-away views, ghosted views, and exploded views. baer et al published a perceptual evaluation of smart visibility techniques for two ghosted view approaches in comparison to semi-transparent approaches. the results clearly favored the ghosted view techniques.
+[which part of your phd thesis should I highlight?]
+
+A. Krüger et al. combined visualization and interaction techniques such as cutaway views, silhouettes and color-coded distances  to improve the spatial perception of feature arrangement for surgical planning.  lymph nodes are emphasized using ghosted views to easily convey their spatial position.
+J. Krüger developed a system that applies transparency and shading to enable focus\&context visualization in volume data sets with a simple point\&click interface.
+
+li et al developed an approach that allows interactive exploration of complex models, e.g., mechanical or anatomical, that requires  the user to rig each part of the respective model. Based on the rigging, the system produces cuts that adhere to a set of rules that were inspired by anatomic and mechanical illustrations. 
+the approach by burns \& finkelstein for view dependent cutaways inspired our aperture that is discussed in section Y. the cutaway shape is determined by the enlarged shape of the focus objects in the depth image. to preserve the information of the cut geometry, they apply shading \& contouring/outlining of the cut surfaces, and ghosting of the cut geometry contours.  lawonn et al extend this approach to present a composite technique that combines the visualization of blood flow with the surrounding vessel structures. the structures visually encode the wall thickness as colored regions in order to preserve important context information. a view dependent peel-away approach for volume data was proposed by Birkeland and Viola. the approach by Diaz et al preserves the relevant context information in volume clipping by allowing the user to extrude segmented surfaces such as bone structures from the clipping plane.
+
+Sigg et al propose an approach for automatic cutaway box placement with optimized visibility for target features that are specified as degree-of-interest functions during interactive visual analysis of the volume data. Lidal et al. defined design principles for Cutaway Visualization of Geological Models. they promote boxes as ideal cutaway shapes for emphasizing the shape and depth of focus features in layered structures, such as geological sediments. illumination should effectively communicate the shape and spatial ordering inside the cutaway, as well as enhancing relationships between the focus features and the context. they define five design principles that we discuss in section X in relation to our approach. 
+
+\noindent
+\textbf{Transfer Function Based Approaches.}
+The context-preserving volume rendering model proposed by Bruckner et al is an extension of direct volume rendering. The technique uses a function of shading intensity, gradient magnitude, distance to the eye point, and previously accumulated opacity to selectively reduce the opacity in less important data regions. Contours of surfaces that would be removed due to opacity remain visible as the amount of illumination received is taken as a measure whether a point should be visible or not.
+Burns et al propose a multimodal approach that combines CT scan data and realtime ultrasound data. Importance driven shading is used to emphasize features of higher importance that have been revealed through the culling/ghosting.
+
+ The notion of visibility histograms proposed by Correa et al. inspired our visibility equalizer metaphor. These histograms represent the distribution of visibility in a volume-rendered image and should help users manage a set of transfer function parameters to maximize the visibility of interesting intervals in the volume.
+
+Ruiz et al. propose an approach for automatic transfer function optimization. The transfer functions are obtained by minimizing the informational divergence or Kullback-Leibler distance between a user specified target distribution and the visibility distribution captured from certain viewpoints. 
+
+
+
+[conclusion of the occlusion sub-section]
+Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form solid structures that could be made visible with a TF (membranes, nucleus). 	On the other side, within these structures there is a more noise like distribution of these molecules that cannot be segmented into solid structures. 
+In regard to object centered approaches, (partial) occlusion of individual molecules is not an issues as the data does not contain large singular entities such as polygonal or segmented volumetric objects where each single one has a semantic meaning. instead there are thousands or hundreds of thousands of instances that belong to a couple of dozen molecule types.
+ our approach is therefore fundamentally different from existing occlusion management approaches as it combines principles from object centered and transfer function approaches. 
+
+
+\subsection{Visualization of Molecular Structures}
+
+	
+\cite{Viola05}
+\cite{Burns07}
+\cite{Burns08}
+\cite{Li07}
+\cite{Lidal12}
+

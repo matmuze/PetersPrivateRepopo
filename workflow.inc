@@ -37,89 +37,164 @@
 
 
 
-
-
 \section{Object-Space Clipping}
 
-Cull object define how instances of a given ingredient type shall be clipped.
+Clip objects define how many instances of a given ingredient type shall be displayed.
 
-Each cull object stores clip parameters for each ingredient types.
+There are two non-exclusive ways how can a clip object influence the clipping, either in object-space or in view-space.
 
-Additionally cut parameters can be associated with a geometrical shape that localize the clipping in the domain.
+Using an object-space approach, the clip objects will discard instances independently from the view direction. 
 
-Cull objects are applied in serial as shown in figure XX.
+Clip objects are applied in serial as explained in Figure XX, This operation is recomputed every frame.
 
-Internally, for each cull object and for each single instance, we first determine the region of the clipping and then we determine if the instance shall be clipped according the cull object parameters. 
+In this section we will explain in details how an individual clip object operate for the object-space clipping only.
 
-Moreover, additional gradient parameters allows for advanced customization of the clipping region.
+The first step is the object-space clipping process is the localization of the clip sub-region.
 
+Then, once the clip object is localized, instances will be clipped according to object-space clip parameters which we describe in the following subsections.
 
-
-\subsection{Clip Parameters}
-
-For each cut object and for each ingredient type, there are two basic parameters that allow to control the visibility of entire sets of instances based on their type.
-
-When associated with geometrical shape, the cull object will only influence thee sub-region of the domain, defined by the geometry, e.g, plane, sphere, cone...
-
-It is worth mentioning that in case no shape is associated with the cull object, the clipping will be evaluated to the entire domain.
-
-****
-
-The first parameter is the percentage of visible elements of a given type. 
-
-We refer to this value as object-space clip probability.
-
-This value allows us to control the degree of fuzziness of the clipping.
-
-The other filtering parameters are related to biochemical properties and allows us to control the clipping based on the mass and/or quantity of given ingredient types.
-
-****
-
-Prior to the rendering, after localizing the clip region, each single instance is evaluated in order to determine if it shall be clipped.
-
-First is applied the filtering based on the clip probability on the ingredient type.
-
-For each instance, we compare a uniformly distributed random number with the clip probability.
-
-If the random number is higher than the probability, the instance is marked as culled, and will not be rendered. 
-
-The random number is initially set for each individual instance and remain the same for each re-evaluation of the clipping, in order to guaranty reproducibility of the scene.
-
-Secondly, instances are filtered according to their biochemical properties, for each cut object and each ingredient types the user defines range values for the both quantities and molecular weight.
-
-Instances whose properties lie outside on these ranges are marked as culled and will not be rendered.
+Moreover, we introduce advanced parametrization of the distance field falloff, for generating customizable gradient clipping effects.
 
 
-\subsection{Analytical Distance Evaluation}
 
-At the very beginning of the process, for each instance, the first task of the clipping is to determine whether an instance is located in the sub-region defined by the geometry.
+\subsection{Clip-region Localization}
 
-Our system currently supports the following set of primitive shapes (plane, cube, sphere, cylinder and cone)
+Clip objects can be associated with geometrical shapes to localize a sub-region of the domain which is influenced by the clipping.
 
-To evaluate if an instance lies inside or outside the clip object region, we compute the signed distance between the instance bounding sphere and the closest point on the region surface. 
+Our system currently supports the following set of primitive shapes: plane, cube, sphere, cylinder and cone.
 
-Although the supported shapes have a simple topology, it may still be computationally expensive, using a mesh-based representation, to evaluate the signed distance of a large number of instances.
+The first task of the object-space clipping is to determine whether an instance of a molecule is located in the sub-region defined by the clip-object geometry.
 
-Indeed, using a triangle-based discretization for the shape would imply evaluating the signed distance between the instances and every single triangle of the mesh.
+This operation is repeated every frame, for each instance of the scene.
+
+To determine if an instance lies inside or outside the clip object region, we compute the signed distance between the instance bounding sphere and the closest point on the region surface. 
+
+Although supported shapes have a rather simple topology, it may still be computationally expensive, using a mesh-based representation, to compute a signed distance for a large number of instances.
+
+Indeed, using a triangle-based discretization would imply computing the signed distance between the instances and every single triangle of the mesh.
 
 To accelerate the computation we solve the problem analytically using a mathematical description of the 3D signed distance field (SDF).
 
 Using such representation instead reduces the problem of evaluating the signed distance to solving trivial equations.
 
-It is also possible to apply traditional transform operations to the distance field, such as translation, rotation and scaling.
+It is also possible to apply simple SDF operators to the distance field, such as translation, rotation and scaling.
 
 The clipping region can also be reversed by inverting the result of the signed distance function, offering users flexibility.
 
-Using, for instance, a spherical shape, the clip region would be set to the inside of the sphere by default, while in inverted mode it would correspond to the inside of the sphere. 
+For instance, using a spherical shape, the clip region would be set to the inside of the sphere by default, while in inverted mode it would correspond to the inside of the sphere. 
 
-\subsection{Gradient}
+It is worth mentioning that although the set of offered clip-shapes is yet limited it could easily be enriched by utilizing more complex SDF operators, such as union for instance, to merge several shapes together in one single distance field.
 
-We provide additional options to gradually remove instances given a geometrical shape.
 
-The purpose is to facilitate the removal of instances, primarily for illustration purposes.
 
-\textbf{TODO PMINDEK:} Talk about gradient clipping here
+\subsection{Clip Parameters}
 
+A clip-object comprise two basic parameters for each single ingredient that control the visibility of instances, based on their type.
+
+It is worth mentioning that in case no shape is associated with the cull object, the clipping will be evaluated for the entire domain.
+
+The first parameter is the percentage of visible elements of a given type. 
+
+We refer to this value as object-space clip probability.
+
+This parameter allows us to control the degree of fuzziness of the clipping.
+
+The other filtering parameters are related to biochemical properties and allows us to control the clipping based on the mass and/or quantity of given ingredient types.
+
+These parameters can be interactively changed via the user interface.
+
+****
+
+Prior to the rendering, after localizing the clip region, each single instance is evaluated in order to determine if it shall be clipped.
+
+First is applied filtering based on the clip probability.
+
+For each instance, we compare a uniformly distributed random number with the clip probability of the instance ingredient type.
+
+If the random number is higher than the probability, the instance is marked as culled, and will not be rendered. 
+
+The random number is initially set for each individual instance and remain the same for each re-evaluation of the clipping, in order to avoid getting different results each time.
+
+Secondly, instances are filtered according to their biochemical properties, for each cut object and each ingredient type, the user defines range values for the both quantities and molecular weight.
+
+Instances whose properties lie outside on these ranges are marked as culled and will not be rendered.
+
+
+
+\subsection{Falloff Function}
+
+We provide additional parameters to gradually remove instances given a geometrical shape, for illustration purposes.
+
+\textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
+
+
+
+
+
+\section{View-Dependent Clipping}
+
+While object-space clipping using primitive shapes allows for a great degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shape diversity.
+
+We additionally provide a functionality to specify a set of ingredient types as focus, and to selectively remove occluding instances.
+
+We also provide a parameters to control the degree of fuzziness of the clipping.
+
+Finally we introduce a falloff function inspired by our object-space falloff function that allows us to control the degree of aperture of the view-dependent clipping
+
+
+\subsubsection{Occlusion Culling}
+
+%In order to clip instances that are occluding the focus region, the most optimum approach in terms of efficiency and ease of implementation is without a doubt image-based.
+
+Due to the potentially large number of instances in our scenes, we accelerate the computation of occluding instances using an image-based approach on the GPU.
+
+Modern graphics hardware already a fixed function called occlusion queries (OQ) and which allow to determine whether an instance is visible or hidden according to previously drawn geometries.
+
+This approach, however, would require issuing one draw call per queries, which can seriously effect the frame rate when issuing hundred of thousands of queries, because of GPU driver overhead.
+
+The rendering tool we are using already allows to render the entire scene in a single call to avoid latency due to the GPU driver.
+
+Therefore, we extend the system using the programmable graphics pipeline instead, to implement custom occlusion queries without GPU driver overhead.
+
+
+To determine the instances occluding, we priorly render an off-screen texture containing all the focus elements, which we will use as a depth-mask for the occlusion queries.
+
+Instances are rendered using bounding sphere in order to lower to cost of the additional render pass.
+
+Focus ingredients are priorly selected from the user interface.
+
+There can be several ingredient types constituting the focus, however, only one focus mask can be generated per cut object.
+
+Subsequently, we draw the bounding sphere of the remaining instances over the mask, fragments that will pass the depth test are therefore are guaranteed to belong to an occluding object.
+
+From the fragment shader we then update the clip-state of the occluding instance using imageStore() functionality that allows us to write directly to the main video memory.
+
+
+
+
+
+To determine what instances are in front of the focus, we first separately render a mask containing all the focus elements.
+
+
+
+
+
+The render pass sets the depth buffer in order to let subsequent draw calls to pass only if they are overlapping the focus region.
+
+Subsequently, we draw the bounding sphere of the remaining instances over the mask, fragments that will pass the depth test are therefore guaranteed to belong to an object occluding the focus, with at least one pixel.
+
+From the fragment program we then mark the occluding instance as culled, in a similar way as we would normally cull an instance. 
+
+
+\subsection{Aperture Effect}
+
+Jump Flooding Algorithm by Rong & Tan [36]
+
+Image-based mask culling using depth and stencil test
+
+\subsection{Island Effect}
+
+Image-based mask culling using depth and stencil test
 
 
 
@@ -128,16 +203,32 @@ The purpose is to facilitate the removal of instances, primarily for illustratio
 
 To provide a clear overview of the scene properties, we display histograms for each ingredient type that indicate information about their visibility.
 
-By default we chose to show three ranges in each histogram. The section of the histogram (dark green region) shows the percentage of instances that are currently visible on the screen. 
+By default we chose to show three ranges in each histogram.
+
+The first section of the histogram (dark green region) shows the percentage of instances that are currently visible on the screen. 
+
 The entire green section (dark \& light green) represents the percentage of instances that are actually rendered.
 
-In order to fill histograms with the correct value, we perform book-keeping of both clipped and visible instances, which we recompute after each changes in cut objects or camera.
+In order to fill histograms with correct values, we perform book-keeping of both clipped and visible instances, which we recompute every frame.
 
-Histograms are sorted per compartment in a tree layout, additional histograms are also displayed for the compartments, averaging all the values of the ingredients contained inside.
+Histograms are sorted per compartment in a tree layout.
+
+Additional histograms are also displayed for compartments, averaging all the values of the ingredients contained inside.
+
+Upon manipulation of compartment histograms properties, all the children ingredients will be updated accordingly.
 
 Histograms are also interactive.
 
-Upon manipulation of the right end of the second range of the histogram (light green) the system will increase or decrease the clip probability internally, resulting in changes in displayed quantities.
+The user can manipulate histograms individually by dragging the range handles.
+
+Upon manipulation of the right end of the second histogram range (light green) the system will increase or decrease the number of clipped instances.
+
+It is worth mentioning that the user does not directly set the value shown in the histograms, instead he modifies the internal object-space clip probability for the selected cut object and the selected ingredient type,.
+
+
+
+, which modified the view and affects histogram values. The internal probability value is hidden to the user to simplify interactions and let the user directly manipulate meaningful values.
+
 
 %The dragging of the range is directly influencing the internal value "value1". 
 The culled states of the instances will get subsequently updated and counted in order to update the histogram value.
@@ -178,38 +269,7 @@ For the book-keeping is the clipped ingredient we count for each ingredient type
 
 
 
-\section{View-Dependent Clipping}
 
-While object-space culling using primitive shapes allows for a great degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shapes diversities.
-
-We additionally provide a method to specify a set of ingredient types as focus, and to selectively remove occluding instances.
-
-\subsubsection{Mask-Based Approach}
-
-Due to the potentially large number of instances in our scenes, we use accelerate the computation of occluding instances using an image-based approach on the GPU.
-
-To determine what instances are in front of the focus, we first separately render a mask containing all the focus elements.
-
-Focus ingredients are priorly selected from the histogram view via a dedicated toggle.
-
-There can be only one mask created per cut object.
-
-The mask is rendered using bounding sphere in order to lower to cost of the additional render pass.
-
-The render pass sets the depth buffer in order to let subsequent draw calls to pass only if they are overlapping the focus region.
-
-Subsequently, we draw the bounding sphere of the remaining instances over the mask, fragments that will pass the depth test are therefore guaranteed to belong to an object occluding the focus, with at least one pixel.
-
-From the fragment program we then mark the occluding instance as culled, in a similar way as we would normally cull an instance. 
-
-
-\subsection{Aperture Effect}
-
-Image-based mask culling using depth and stencil test
-
-\subsection{Island Effect}
-
-Image-based mask culling using depth and stencil test
 
 
 \section{Depth cues and Enhancements}

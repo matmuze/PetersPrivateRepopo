@@ -5,23 +5,51 @@
 	\includegraphics[width=\linewidth]{figures/o-histogram.eps}
   \caption{\label{fig:ohist}Visual representation of the visibility equalizers.}
  \end{figure}
-  
-  
+
  \begin{figure}[t]
   \centering 
-  \subfloat[]{\label{fig:overview1}\includegraphics[width=\linewidth]{figures/o1.eps}}
-  
-  \subfloat[]{\label{fig:overview0}\includegraphics[width=\linewidth]{figures/o0.eps}}  
-  \caption{\label{fig:overview}Overview.}
+	\includegraphics[width=\linewidth]{figures/o1.eps}
+  \caption{\label{fig:overview-user}User-centric overview of our method.}
  \end{figure}
+
+ \begin{figure}[t]
+  \centering 
+	\includegraphics[width=\linewidth]{figures/o0.eps}
+  \caption{\label{fig:overview-tech}Technical pipeline of our method.}
+ \end{figure}
+  
+  
+% \begin{figure}[t]
+%  \centering 
+%  \subfloat[]{\label{fig:overview1}\includegraphics[width=\linewidth]{figures/o1.eps}}
+%  
+%  \subfloat[]{\label{fig:overview0}\includegraphics[width=\linewidth]{figures/o0.eps}}  
+%  \caption{\label{fig:overview}Overview.}
+% \end{figure}
+
+
+
  
  
 In this work, we focus on visualization and illustration of 3D models of mesoscale molecular structures, such as cells or viruses.
 We utilize \emph{cellView} \cite{cellVIEW_2015} tool for both representation and rendering of our 3D scenes.
 These scenes can consist up to billions of individual atoms, each belonging to one of the molecular ingredients.
- 
- 
- 
+
+
+The visual representation of the visibility equalizers is illustrated in Figure \ref{fig:ohist}. The equalizers are represented by three stacked histograms, where each histogram bin represents single molecular ingredients. Each bin is a stack of three values, denoted as \emph{a}, \emph{b}, and \emph{c}. The part \emph{a} shows the number of visible instances of the given ingredient. The part \emph{b} shows the number of instances not removed by clipping, but not visible due to occlusion. The part \emph{c} represents the number of instances which has been clipped away.
+
+Figure \ref{fig:overview-user} illustrates how our method is utilized by users. The method can show the data in one of three states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. In the state \emph{S1}, the data are shown without any clipping applied. The visibility equalizers are already shown, displaying the proportion of visible and occluded instances of the individual ingredients, however the user does not interact with them yet. In this state, the user can specify the viewing direction, which might modify the values displayed by the visibility equalizers.
+
+In the state \emph{S2}, parts of the scene are removed. The user can switch from the state \emph{S1} to the state \emph{S2} by placing and manipulating cutting objects. These are represented as distance functions, of which zero level-sets are used as the clipping criteria. The visibility equalizers now also show the portion of the molecular instnaces, which has been clipped away. So far, the clipping has been done in a deterministic manner.
+
+At this point, the user can use the information displayed by the visibility equalizers to steer the iterative process of the placement and the manipulation of the clipping objects (path $1$). However, at this point there is also the possibility of the direct interaction with the visibility equalizers. The values in the individual bins of the displayed histograms can be dragged in order to increase or decrease the number of clipped instances of certain ingredients, switching to the state \emph{S3}. This is carried out in a probabilistic manner. If the number of clipped-away instances is decreased, the probability that an instance passing a clipping test will be removed continuously decreases from $100\%$ to $0\%$. On the other hand, if the the number of clipped-away instances is increased, the probability of instances which do not pass the clipping test being removed from the scene continuously increases from $0\%$ to $100\%$.
+
+
+
+
+
+
+
  
  \begin{comment}
  

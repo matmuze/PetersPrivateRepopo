@@ -188,7 +188,7 @@ From the fragment program we then mark the occluding instance as culled, in a si
 
 \subsection{Aperture Effect}
 
-Jump Flooding Algorithm by Rong & Tan [36]
+Jump Flooding Algorithm by Rong \& Tan [36]
 
 Image-based mask culling using depth and stencil test
 

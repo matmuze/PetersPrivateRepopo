@@ -38,6 +38,10 @@ In regard to object centered approaches, (partial) occlusion of individual molec
 
 
 \subsection{Visualization of Molecular Structures}
+The visualization of the molecular structures in our approach is based on the publicly available cellView [le Muzic et al.2015]. The tool is capable of rendering structures that are comprised of several billions atoms at interactive frame rates in multiple levels of detail.  
+Lindow et al. [LBH12] were the ﬁrst to introduce a fast method for the real-time rendering of large-scale atomic data on consumer grade hardware. Similar to cellView, they utilize instancing on the GPU to repeat these structures in the scene. For each molecule type, a 3D grid of the atoms is created and stored on the GPU. Falk et al. [FKE13] further refined the method with improved depth culling and hierarchical ray casting to achieve faster rendering performance for even larger scenes. 
+
+In the domain of dedicated large scale molecular visualization, our approach is the first to introduce illustrative occlusion management techniques.
 
 	
 \cite{Viola05}

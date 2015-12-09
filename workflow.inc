@@ -142,7 +142,7 @@ We also provide a parameters to control the degree of fuzziness of the clipping.
 Finally we introduce a falloff function inspired by our object-space falloff function that allows us to control the degree of aperture of the view-dependent clipping
 
 
-\subsubsection{Occlusion Culling}
+\subsubsection{Occlusion Queries}
 
 %In order to clip instances that are occluding the focus region, the most optimum approach in terms of efficiency and ease of implementation is without a doubt image-based.
 
@@ -167,9 +167,10 @@ There can be several ingredient types constituting the focus, however, only one 
 
 Subsequently, we draw the bounding sphere of the remaining instances over the mask, fragments that will pass the depth test are therefore are guaranteed to belong to an occluding object.
 
-From the fragment shader we then update the clip-state of the occluding instance using imageStore() functionality that allows us to write directly to the main video memory.
+From the fragment shader we then update the clip-state of the occluding instance using imageStore() functionality that allows us to write directly to the main video memory from the fragment shader.
 
 
+\subsubsection{Clip parameters}
 
 
 

@@ -18,9 +18,7 @@
         and I. Viola$^{1}$        
         \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
-         $^1$TU Wien, Austria \\
-         $^2$VRVis Research Company, Austria \\
-        $^3$ The Scripps Research Institute, La Jolla, California, USA
+         $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La Jolla, California, USA
 %             with different affiliations
        }
 
@@ -48,13 +46,13 @@
 
 \begin{abstract}
 In scientific illustration and visualization, cutaway views are often employed as an effective technique for occlusion management in densely packed scenes.
-We propose a novel data-centric method for authoring cutaway illustrations of mesoscopic biological models.
+We propose a novel method for authoring cutaway illustrations of mesoscopic biological models.
 In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models. These models consist of thousands of instances that are distributed across a comparably smaller number of different molecular types.
 Our method constitutes a two stage process.
-In the first step, culling objects are placed in the scene, creating a cutaway visualization of the model.
-During this process, histograms inform the user about the instance visibility distribution of each individual molecular type in the scene.
-In the second step, the visibility of each molecular type is fine-tuned through these histograms, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
-The technique has been evaluated by domain experts in scientific illustration.
+In the first step, clipping objects are placed in the scene, creating a cutaway visualization of the model.
+During this process, a hierarchical list of stacked bars inform the user about the instance visibility distribution of each individual molecular type in the scene.
+In the second step, the visibility of each molecular type is fine-tuned through these bars, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
+An evaluation of our technique with scientific illustrators confirmed that......... they liked it!!!
 
 
 

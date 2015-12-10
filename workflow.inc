@@ -1,16 +1,23 @@
 \begin{figure}[t]
  \centering
- \subfloat[]{\label{fig:df0}\includegraphics[width=0.325\linewidth]{figures/df0.eps}}
- \subfloat[]{\label{fig:df1}\includegraphics[width=0.325\linewidth]{figures/df1.eps}}
- \subfloat[]{\label{fig:df2}\includegraphics[width=0.325\linewidth]{figures/df2.eps}}
- \caption{\label{fig:df}View-dependent clipping.}
+ \subfloat[]{\label{fig:df0}\includegraphics[width=0.25\linewidth]{figures/df0.eps}}
+ \subfloat[]{\label{fig:df1}\includegraphics[width=0.25\linewidth]{figures/df1.eps}}
+ \subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
+ \subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
+ \caption{\label{fig:df}View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
 \end{figure}
 
 \begin{figure}[t]
  \centering
  \subfloat[]{\label{fig:df0}\includegraphics[width=0.495\linewidth]{figures/islands-no.eps}}
  \subfloat[]{\label{fig:islands1}\includegraphics[width=0.495\linewidth]{figures/islands-yes.eps}}
- \caption{\label{fig:islands}Islands.}
+ \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, instances in red constitute the object of focus and instances in grey are the potential occluders. The bar char represents the depth-stencil of the mask. In (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. In figure (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring described in Section \ref{ssec:anchoring}}
+\end{figure}
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=\linewidth]{figures/cutting-eq.eps}
+\caption{\label{fig:cutting-eq}Visual mapping between stack bar intervals and instances.}
 \end{figure}
 
 %SENTENCES DUMP
@@ -92,13 +99,13 @@ We provide additional parameters to gradually remove instances according the sha
 \textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
 
 
-\section{View-Dependent Clipping}
+\section{View-Space Clipping}
 
 While object-space clipping using primitive shapes allows for a great degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shape diversity.
 We therefore provide an additional functionality to manually specify a set of ingredient as object of focus, and to selectively remove occluding instances to ensure a maximum degree of visibility.
 We use occlusion queries to determine what are the instances located in front of the focus region. 
 We provide users the option to control the degree of fuzziness of the clipping, similarly to object-space clipping.
-We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-dependent clipping.
+We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-space clipping.
 Finally, we tweak our occlusion query method to improve depth perception by performing contextual anchoring of instances that should normally be clipped, when located in the close vicinity of the focus region.
 
 \subsection{Occlusion Queries}
@@ -142,6 +149,7 @@ After computation of the distance transform, the texture stores for each pixel, 
 Then, while computing occlusion queries in the fragment shader, we may simply look-up the mask coutour distance for the current fragment, and discard instances accordingly to the user-defined aperture coefficient, priorly set of each ingredient type.
 
 \subsection{Contextual Anchoring}
+\label{ssec:anchoring}
 
 When observing still renders of cut-away scenes, it might still be challenging to perceive the depth of objects correctly, despite using lighting-based depth cues.
 We propose and additional method for depth guidance, which modifies the results of the clipping to preserve elements, located in a close range to non-clipped elements, and that would normally be clipped.
@@ -159,8 +167,8 @@ A explanation of the depth guidance effect is shown in Figure XX and a resulting
 To provide a clear overview of the scene properties, we display stack bars for each ingredient type that indicate information about their degree of visibility.
 We chose to show three ranges for each histogram, respectively corresponding to the number of visible and clipped instances.
 In order to fill the stack bars with correct values, we perform book-keeping of both clipped and visible instances, which we recompute every frame.
+The principle of the book keeping is show in Figure \ref{fig:cutting-eq};
 The stack bars are also interactive; the user can manipulate the clipping properties of the corresponding ingredient type by dragging the range handles, thus increasing or decreasing the number of displayed elements.
-
 
 \subsection{Book-Keeping}
 
@@ -184,7 +192,7 @@ Upon manipulation of histogram ranges the system will either increase or decreas
 This is intended to optimise the way user interact with the system, by offering the user to directly manipulating quantities rather than abstract internal values such as the clip probability.
 Additionally the user may also manipulate more advanced parameters in an additional UI panel.
 We chose to map the motion of the histogram handles the clip probabilities.
-The first handle manipulates the view-dependent clip probability, while the second handle controls the object-space one.
+The first handle manipulates the view-space clip probability, while the second handle controls the object-space one.
 It is worth mentioning that the clip-probabilities that are manipulated by the user correspond to the currently selected clip-object.
 The histogram view, however, remains the same when a different clip-object is selected.
 
@@ -209,7 +217,7 @@ Upon manipulation of compartment histograms properties, all the children ingredi
 
 %We implement simplistic depth cues instead with a rough approximation of light behaviour.
 
-%Additionally when provide option for context preserving view-dependent cut for a better understanding of the distance between objects in the view direction.
+%Additionally when provide option for context preserving view-space cut for a better understanding of the distance between objects in the view direction.
 
 %Finally we perform rendering of the clipped element as ghosts in order to better communicate the overall proportions of visible elements in the scene.
 

@@ -9,7 +9,7 @@ When sufficient knowledge is gathered, illustrators create sketches, in which sp
 To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific parts of the organism model, so that internal structures become visible. 
 When biologists make new findings, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated from the beginning. Such a cycle can take months or even years to complete.
 
-Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new data can be easily plugged in and resulting illustrations can be updated in a very short time.
+Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new data can be plugged in easily and resulting illustrations can be updated in a very short time.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
 Biologists use tools, such as \emph{cellPack} \cite{cellpack}, to procedurally generate these models. Based on a set of input parameters, individual molecules are assembled into large complexes or even entire systems, such as bacterial organisms. Such a parameter set consists of a specification of individual molecular ingredients, as well as spatial compartments that define where the instances of these ingredients are populated. The resulting 3D model can consist of several thousands of instances of these molecular ingredients. The instances are densely packed within the predefined compartments. %The shape of the compartments is designed by the domain experts in biology.
 

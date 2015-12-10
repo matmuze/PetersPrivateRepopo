@@ -14,31 +14,13 @@ NormalPos.top=26
 NormalPos.right=1025
 NormalPos.bottom=924
 Class=LaTeXView
-Document=EGauthorGuidelines-body.inc
+Document=intro.inc
 
 [Frame0_View0,0]
 TopLine=0
-Cursor=1542
-
-[Frame1]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1025
-NormalPos.bottom=924
-Class=LaTeXView
-Document=relatedwork.tex
-
-[Frame1_View0,0]
-TopLine=61
-Cursor=6247
+Cursor=1037
 
 [SessionInfo]
-FrameCount=2
-ActiveFrame=1
+FrameCount=1
+ActiveFrame=0
 

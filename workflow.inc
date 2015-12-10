@@ -168,6 +168,7 @@ Subsequently, we draw the bounding sphere of the remaining instances over the ma
 
 From the fragment shader we then update the clip-state of the occluding instance using imageStore() functionality that allows us to write directly to the main video memory from the fragment shader.
 
+The principle of depth queries is explained in Figure XX a.
 
 \subsection{Clip parameters}
 
@@ -284,6 +285,79 @@ Upon manipulation of compartment histograms properties, all the children ingredi
 
 
 \section{Enhancements}
+
+Additionally to standard clipping functionality we developed a few enhancements to improve the way we perceive the scene.
+
+A crucial element when dealing with cluttered scenes is depth perception.
+
+Depth cues can be implemented by imitating the way light interact in reality to help us understanding distances between objects.
+
+However simulation illumination is rather expensive and prohibits a responsive user experience.
+
+We implement simplistic depth cues instead with a rough approximation of light behaviour.
+
+Additionally when provide option for context preserving view-dependent cut for a better understanding of the distance between objects in the view direction.
+
+Finally we perform rendering of the clipped element as ghosts in order to better communicate the overall proportions of visible elements in the scene.
+
+\subsection{Depth Cues}
+
+Depth cues are essential in molecular visualization and there exists many reference in the literature on how improve depth perception for that specific case.
+
+The first depth cue that we support is screen space ambient occlusion (SSAO) which allows to mimicate how global illumination works on the local scale, in image-space by evaluating for each pixel the depth of the surrounding pixels.
+
+Similarly to \cite{keylist}, we support two levels of ambient occlusion with different search radius to provide illumination for different levels of magnification.
+
+In addition to the limited range of the effect, SSAO does not account for directional light effects, which mean that shadows cannot be casted side-ways.
+
+When performing cut away however we perform strong shape alteration of the dataset which might be hard to perceive without shadows.
+
+Therefore, we additionally provide shadow mapping to better communicate the overall shape of the cuts.
+
+A downside of this approach is that it require an additional draw pass for each light that casts shadows onto molecules.
+
+Alternatively we also provide a cheaper method to provide additional cues about the shape of the clip objects.
+
+\textbf{TODO: PMINDEK, provide details about cheap depth cues}
+
+
+\subsection{Depth Guidance}
+
+When observing still renders of a cut-away scene, it might still be challenging to perceive the depth of objects correctly, despite lighting-based depth cues.
+
+We propose and additional method for depth guidance, which modifying the results of the clipping to preserve elements, located in a close range to non-clipped elements, that would normally be clipped.
+
+This way, assuming that the viewer is aware of what has been clipped, will intuitively understand where instances neighbouring the preserved instances are located. 
+
+This principle in shown in Figure XX, where we can observe bits of the green membrane preserved around channel molecules, and which indicate that the channel molecules are located on the surface of the object.
+
+We are able to obtain a similar effect by modifying the fact we build the focus mask for occlusion queries.
+
+A explanation of the depth guidance effect is shown in Figure XX.
+
+By default the depth test use for rendering the mask is using the depth test "GREATER EQUAL" which will retain the deepest fragment only for the depth mask, as explained in Figure XX a.
+
+Using a depth test condition "LESS EQUAL" allows us to keep the only closest fragments from the view when drawing the bounding sphere of of the focus elements.
+
+Therefore, as the lipid instances of the membrane are always located beneath the bounding spheres of the channel proteins in view space, those instance are guaranteed to be preserved.
+
+The principle of the inverted view mask is explained in figure XX b.
+
+\subsection{Clipping Ghosts}
+
+While histograms allow us to visually monitor the quantities of removed instances, it might still be interesting to convey this information in the 3D scene while preserving  visibility settings.
+
+We additionally provide the option to render ghosts of all the clipped instances on top the scene, using alpha blending.
+
+We render all the ghosts in a separate off-screen texture which we later blend with the results of the scene rendering.
+
+The blending of the scene with the ghost texture is designed to ensure that the depth of the ghosts texture will merge with the scene's depth, and thus, that occluded ghosts will not be visible in the final results.
+
+We offer two rendering style for the ghosts, coloured filled or contour only.
+
+For each ingredient type we offer the option to render ghosts or not via the user interface.
+
+The resulting render of a scene with clipping ghosts can be seen in figure XX.
 
 \section{Results and Discussion}
 

@@ -6,7 +6,7 @@
 
 
 \title[Visibility Equalizer]%
-      {-------- Visibility Equalizer --------\\ Cutaway Visualization of Mesoscopic Biological Models}
+      {--------------- Visibility Equalizer ---------------\\ Cutaway Visualization of Mesoscopic Biological Models}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!

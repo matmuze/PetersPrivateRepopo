@@ -1,1 +1,5 @@
 \section{Conclusions}
+
+In this paper, we present a novel method for authoring cutaway illustrations made from mesoscopic biological 3D models. During the whole authoring process, our method keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. Additionally, the users have an option to directly change these ratios by interacting with the visibility equalizer, thus fine-tuning the visibility of the individual molecular ingredients within the visualized scene.
+
+The proposed method allows the illustrators to create high quality illustrations from the pre-packed biological models in a reasonable amount of time. This was confirmed by gathering feedback from the professional illustrators, as well as by recreating existing illustrations with our method. While being simple to use, the method gives the user a considerable level of artistic freedom.

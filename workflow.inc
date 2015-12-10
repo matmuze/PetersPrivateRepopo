@@ -12,6 +12,23 @@
 \end{figure*}
 
 
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:df0}\includegraphics[width=0.325\linewidth]{figures/df0.eps}}
+ \subfloat[]{\label{fig:df1}\includegraphics[width=0.325\linewidth]{figures/df1.eps}}
+ \subfloat[]{\label{fig:df2}\includegraphics[width=0.325\linewidth]{figures/df2.eps}}
+ \caption{\label{fig:df}View-dependent clipping.}
+\end{figure}
+
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:df0}\includegraphics[width=0.495\linewidth]{figures/islands-no.eps}}
+ \subfloat[]{\label{fig:islands1}\includegraphics[width=0.495\linewidth]{figures/islands-yes.eps}}
+ \caption{\label{fig:islands}Islands.}
+\end{figure}
+
+
+
 %SENTENCES DUMP
 
 %Our data comprise of a dense set of macromolecules, encapsulated in compartments with several degrees of nesting. 

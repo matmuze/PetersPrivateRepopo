@@ -39,10 +39,24 @@
 
 
 In this work, we focus on visualization of 3D models of mesoscale molecular structures, such as cells or viruses.
-We utilize \emph{cellView} \cite{cellVIEW_2015} tool for both representation and rendering of our 3D scenes.
+We utilize \emph{cellView} \cite{muzic15} tool for both representation and rendering of our 3D scenes.
 These scenes can consist up to billions of individual atoms, each belonging to one of the molecular ingredients.
 
-Figure \ref{fig:o} shows the workflow of our method in a form of a  state-machine. In Figure \ref{fig:o0}, three possible states are illustrated, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. In the state \emph{S1}, the scene is displayed without any clipping. The visibility equalizer shows the amounts of individual molecular ingredients. 
+The two main components of our method are the \emph{clipping objects} and the \emph{visibility equalizer}. The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. It consists of a stacked histogram of the molecular ingredients, showing tree values per ingredient: \emph{a} - the amount of visible instances of the given ingredient; \emph{b} - the amount of instances of the ingredient which are occluded; \emph{c} - the amount of instances which are clipped away by the clipping objects. The clipping objects are defined by distance functions, where the zero level set represents the clipping manifold. They can be arbitrarily positioned within the 3D scene. Additionally, the clipping objects contain several parameters, which modify the way in which they are clipping the molecules in the scene. In particular, each clipping object has a probability threshold $v_1$. $v_1$ specifies the probability of an instance inside the clipping manifold being clipped away. By default, $v_1 = 1$.
+
+An important property of the clipping objects is that they always clip the scene per molecular instance. This means that the whole molecule is always either shown, or clipped away.
+
+Figure \ref{fig:o} shows the workflow of our method in a form of a  state-machine. In Figure \ref{fig:o0}, three possible states are illustrated, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. In the state \emph{S1}, the scene is displayed without any clipping. The visibility equalizer shows that no molecules are clipped, and provides information on the portions of visible instances of each ingredient.
+
+Clipping objects can be used to transition to the state \emph{S2}, where parts of the model are removed in a deterministic way. Here, the inside-outside test of the zero level sets of the clipping objects determine whether an instance is clipped away or not. The portions of the clipped instances are displayed by the visibility equalizer. The process of placing and manipulating clipping objects corresponds with the coarse visibility specification as introduced in Section \ref{sec:intro}.
+
+At any point, the user can interact with the visibility equalizer to either modify the amount of the visible instances in the scene by dragging any of the dark green bars in the histogram, or the amount of the clipped-away instances by dragging the light green bars of the histogram. When the bars in the histograms are dragged, probability thresholds of selected clipping objects are modified. This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. This situation is represented by the state \emph{S3} and it corresponds with the fine-level visibility specification process.
+
+Figure \ref{fig:o1} represents the pipeline of the method. At the beginning of the pipeline, multiple clipping objects are placed into the 3D scene filtering the data. Each clipping object filters the output of the previous one. Clipped data are sent to the rendering stage, where the histograms of the visibility equalizer are calculated and displayed on each frame. In case the user interacts with the visibility equalizer, probability thresholds of the selected subset of the clipping object is modified, so that the 3D scene corresponds with how the user changed the values in the histograms. During the whole process of the visibility specification, the user is informed about the amounts of the visible and clipped-away instances in the scene through the visual encoding of the visibility equalizer.
+
+
+
+
 
 
 \begin{comment}
@@ -58,12 +72,7 @@ At this point, the user can use the information displayed by the visibility equa
 \end{comment}
 
 
-\begin{figure}[t]
- \centering
- \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
- \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
- \caption{\label{fig:which}Which of the proteins shown in (a) are represented in the illustration shown in (b)?}
-\end{figure}
+
 
 
 

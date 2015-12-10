@@ -1,4 +1,4 @@
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 
 Molecular biology is an emerging field that is marked by a constant evolution of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
@@ -26,10 +26,28 @@ Currently, occlusion management in mesoscale virtual models is carried out by pl
 During this process, the illustrator does not have a good overview of what instances have been already removed, and which molecular types are still sufficiently represented in the scene.
 The illustrator has to continuously check the modelled scene against the gathered data and tediously confirm whether all the necessary molecular types are still present.
 
+As a tangible example, let us assume a task where multiple molecular ingredients need to be shown in an illustration. By clipping through the center of a 3D model, many structures can be revealed. However, to find out which of the desired structures have been actually shown by the clipping and which not, one would need to manually check the presence of each single ingredient in the resulting visualization. This situation is illustrated in Figure \ref{fig:which}.
+ 
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
+ \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
+ \caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
+\end{figure}
+
+
+
 To alleviate this process, we present our first contribution.
 During the process of placing the clipping objects in the the scene, we display \emph {visibility histograms} of the molecular types, which immediately reveal which of them are underrepresented or overrepresented.
 By looking at the visibility histograms, which are continuously updated, the illustrator is able to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene.
 This is the coarse-level of the visibility specification process.
+
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
+ \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
+ \caption{\label{fig:hiv}(a) Illustration of a HIV virus. Here, outside membrane of the virus particle is visible. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
+\end{figure}
 
 In traditional illustration, fine-level visibility specification is often utilized as well.
 To communicate the biology knowledge well, the illustrations have to sometimes display molecular instances which would be impossible to specify with the simple clipping objects, such as cutting planes.
@@ -53,7 +71,7 @@ To achieve similar level of control for the visibility in the molecular models, 
 Individual bins of the histograms can be dragged to increase or decrease visibility of the individual molecular types within the scene, given the specified clipping objects.
 The interactive element effectively turns the visibility histograms into visibility equalizers for the molecular models.
 
-Our main contributions are:
+\noindent{Our main contributions are:}
 \begin{itemize}
   \item a new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models
   \item a new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.
@@ -110,9 +128,4 @@ Therefore, Visibility Equalizer provides essential information about the scene w
 
 \end{comment}
 
-\begin{figure}[t]
- \centering
- \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
- \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
- \caption{\label{fig:hiv}(a) Illustration of a HIV virus. Here, outside membrane of the virus particle is visible. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
-\end{figure}
+

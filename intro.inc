@@ -4,10 +4,8 @@ Molecular biology is an emerging field that is characterized by rapid advances o
 New discoveries have to be communicated frequently to a large variety of audiences.
 However, due to their complexity and mesoscopic scale, it is hard to directly convey the discoveries of molecular phenomena. Therefore illustrations that depict models of these structures are the most widely used form of communicating them.
 
-The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the knowledge that is required for building models that convey the newly discovered insights.
-Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
-To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific outer parts of the organism model, so that internal structures become visible.
-When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated, in the worst case from the beginning. Such a cycle can take months or even years to complete.
+The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the knowledge that is required for building models that convey the newly discovered insights. Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
+To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific outer parts of the organism model, so that internal structures become visible. When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated, in the worst case from the beginning. Such a cycle can take months or even years to complete.
 
 Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.

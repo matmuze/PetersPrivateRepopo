@@ -1,5 +1,16 @@
 \section{Overview}
 
+\begin{figure*}[t]
+\centering
+\subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
+\subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
+\subfloat[]{\label{fig:his2}\includegraphics[width=0.166\linewidth]{figures/hi2.eps}}
+\subfloat[]{\label{fig:his3}\includegraphics[width=0.166\linewidth]{figures/hi3.eps}}
+\subfloat[]{\label{fig:his4}\includegraphics[width=0.166\linewidth]{figures/hi4.eps}}
+\subfloat[]{\label{fig:his5}\includegraphics[width=0.166\linewidth]{figures/hi5.eps}}
+\caption{\label{fig:his}Visibility Equalizers.}
+\end{figure*}
+
  \begin{figure}[t]
   \centering 
 	\includegraphics[width=\linewidth]{figures/o-histogram.eps}

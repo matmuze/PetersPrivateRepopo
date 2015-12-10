@@ -1,33 +1,25 @@
 \section{Introduction}\label{sec:intro}
 
-Molecular biology is an emerging field that is marked by a constant evolution of the current state of knowledge.
+Molecular biology is an emerging field that is characterized by rapid advances of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
-Since discoveries of complex molecular phenomena at a mesoscopic scale cannot directly be conveyed, illustrations that depict models of these structures are the only way of communicating them. %note: what about models? better: illustrations are a common way of...
+However, due to their complexity and mesoscopic scale, it is hard to directly convey the discoveries of molecular phenomena. Therefore illustrations that depict models of these structures are the most widely used form of communicating them.
 
-The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the knowledge that is required for building models that convey the newly discovered insights. %the knowledge gathering process.
-When sufficient knowledge is gathered, illustrators create sketches, in which specific internal and external regions of the illustrated structures are uncovered.
-To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific parts of the organism model, so that internal structures become visible. 
-When biologists make new findings, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated from the beginning. Such a cycle can take months or even years to complete.
+The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the knowledge that is required for building models that convey the newly discovered insights.
+Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
+To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific outer parts of the organism model, so that internal structures become visible.
+When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated, in the worst case from the beginning. Such a cycle can take months or even years to complete.
 
-Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new data can be plugged in easily and resulting illustrations can be updated in a very short time.
+Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
-Biologists use tools, such as \emph{cellPack} \cite{cellpack}, to procedurally generate these models. Based on a set of input parameters, individual molecules are assembled into large complexes or even entire systems, such as bacterial organisms. Such a parameter set consists of a specification of individual molecular ingredients, as well as spatial compartments that define where the instances of these ingredients are populated. The resulting 3D model can consist of several thousands of instances of these molecular ingredients. The instances are densely packed within the predefined compartments. %The shape of the compartments is designed by the domain experts in biology.
+Biologists are starting to use tools, such as \emph{cellPack} \cite{cellpack}, to procedurally generate integrated mesoscale biological models that represent the structure of microorganisms, cells, or even viruses at atomic resolution. Based on a set of input parameters, individual molecules are assembled into these complex organic systems. Such a parameter set consists of a specification of individual molecular ingredients, as well as nested spatial compartments that define where the instances of these ingredients are populated. The resulting 3D model can consist of several thousands of instances of these molecular ingredients which in turn results in potentially millions of molecules and billions of atoms. The instances are densely packed within the predefined compartments.
+Due to this high density, inner structures that are essential for conveying the organism's functionality, remain hidden.
+It is therefore essential to develop visualization techniques that reproduce the occlusion management methods used in traditional illustration.
+Currently, this is achieved by placing clipping objects in the scene, which remove specified parts of the displayed model. However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients (Fig. \ref{fig:which}a), is represented, and not clipped away or not yet revealed through the clipping. To do this, they would need to manually check the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:which}b).
+%However, in order to know how many instances have already been removed, and which molecular types are still sufficiently represented in the scene, the illustrator has to continuously check and compare the modeled scene against the gathered data and tediously confirm whether the essential information is still represented.
+%As a tangible example, let us assume we have to confirm the presented ratio of multiple molecular ingredients (Fig. \ref{fig:which}a) in an illustration. By clipping through the center of a 3D model, many structures can be revealed (Fig. \ref{fig:which}b) . 
+%However, for dozens of molecular types, it would be tedious to manually check whether all are displayed, or if some have been completely removed or not yet revealed through the clipping.
+%However, to find out which of these ingredients have been actually shown by the clipping and which are completely cut or not yet revealed, one would need to manually check the presence of each single ingredient in the resulting visualization.
 
-The mesoscale biological models represent the structure of microorganisms, cells, or even viruses at atomic resolution.
-However, simply displaying such models does not guarantee an adequate view of internal structures.
-These structures are often the key for the function of the organism, and should be therefore shown in an illustration.
-%These are therefore shown in the illustration.
-%which are often necessary to communicate through an illustration.
-%This is due to
-The internal structures are occluded because of the high density of the molecular instances present in the models.
-To solve this problem, visualization techniques need to be developed which reproduce the occlusion management methods used in traditional illustration.
-
-Currently, occlusion management in mesoscale virtual models is carried out by placing clipping objects in the scene, which remove specified parts of the displayed model.
-During this process, the illustrator does not have a good overview of what instances have been already removed, and which molecular types are still sufficiently represented in the scene.
-The illustrator has to continuously check the modelled scene against the gathered data and tediously confirm whether all the necessary molecular types are still present.
-
-As a tangible example, let us assume a task where multiple molecular ingredients need to be shown in an illustration. By clipping through the center of a 3D model, many structures can be revealed. However, to find out which of the desired structures have been actually shown by the clipping and which not, one would need to manually check the presence of each single ingredient in the resulting visualization. This situation is illustrated in Figure \ref{fig:which}.
- 
 \begin{figure}[t]
  \centering
  \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
@@ -35,47 +27,35 @@ As a tangible example, let us assume a task where multiple molecular ingredients
  \caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
 \end{figure}
 
-
-
-To alleviate this process, we present our first contribution.
-During the process of placing the clipping objects in the the scene, we display \emph {visibility histograms} of the molecular types, which immediately reveal which of them are underrepresented or overrepresented.
-By looking at the visibility histograms, which are continuously updated, the illustrator is able to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene.
-This is the coarse-level of the visibility specification process.
+To alleviate this process, we present our first contribution. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. During the process of placing clipping objects in the scene, these bars therefore continuously reveal, which molecular types are underrepresented or overrepresented. This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the coarse-level of the visibility specification process.
 
 \begin{figure}[t]
  \centering
  \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
  \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
- \caption{\label{fig:hiv}(a) Illustration of a HIV virus. Here, outside membrane of the virus particle is visible. (b) Cutaway view of the HIV virus. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
+ \caption{\label{fig:hiv}(a) Illustration of an HIV particle. Here, outside membrane of the virus particle is visible. (b) Cutaway view of an HIV particle. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
 \end{figure}
 
-In traditional illustration, fine-level visibility specification is often utilized as well.
-To communicate the biology knowledge well, the illustrations have to sometimes display molecular instances which would be impossible to specify with the simple clipping objects, such as cutting planes.
-An example is shown in Figure \ref{fig:hiv}.
-Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
-In Figure \ref{fig:hiv1}, a cutting plane is used to reveal internal structures of the virus - the capsid containing the RNA.
-Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
-In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
+To preserve important structures that would be removed through clipping objects, such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. In Figure \ref{fig:hiv1}, for instance, the glycoproteins (yellow molecules) of the HIV particle which are not occluding the object of interest, in this case the capsid containing the RNA, are left in the illustration to communicate their presence on the surface of the virus (\ref{fig:hiv0}).
 In this way, the main components of the virus particle can be illustrated in a single image.
+%Simple cutaway however, only achieve cross sections.
+%In traditional illustration, fine-level visibility specification is often utilized as well.
+%To communicate the biology knowledge well, the illustrations have to sometimes display molecular instances which would be impossible to specify with the simple clipping objects, such as cutting planes.%An example is shown in Figure \ref{fig:hiv}.
+%Figure \ref{fig:hiv0} shows an illustration of an HIV particle.
+%In Figure \ref{fig:hiv1}, a cutting plane is used to reveal internal structures of the virus - the capsid containing the RNA.
+%Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
+%In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
+The process of fine-tuning the visibility is extremely time-consuming, as the illustrator has to manually pick individual molecular instances to be reintroduced or removed from the scene. %in order to preserve important information whily not occlude occluding 
+%This might be done to control the under and overrepresentation of some of the molecular types, removing instances occluding important aspects of the model, suggesting shapes, etc.
 
-The process of fine-tuning the visibility is extremely time-consuming, as the illustrator has to pick individual molecular instances to be reintroduced or removed from the scene.
-This might be done to control the under and overrepresentation of some of the molecular types, removing instances occluding important aspects of the model, suggesting shapes, etc.
+To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our second contribution.
+We use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. This corresponds with our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
+However, hi-fi sound systems also allow users to fine-tune the sound through an \emph{equalizer}.
+With an equalizer, the volume of each individual frequency band can be adjusted separately to achieve a desired sound reproduction.
+In the sense of this of metaphor, the visibility of each molecule type can be regarded as a frequency band - represented as the stacked bars of our visibility equalizer.
+To achieve a similar level of fine-grained control for the visibility of the molecule types, we make these bars interactive - thus allowing the user to interact with the equalizer. Individual intervals on each bar can be dragged to increase or decrease the visibility of the individual molecular types within the scene, given the specified clipping objects. This interactive element effectively turns the stacked bars into visibility equalizers for the molecular models - and as such presents the main technical contribution of this paper.
 
-To significantly speed up the fine-level visibility specification in our approach utilizing 3D virtual models, we propose our second contribution - \emph{visibility equalizers}.
-To explain how the visibility equalizers are used to speed up the process of fine-tuning the visibility in molecular models, we use the metaphor of hi-fi sound reproduction.
-In the hi-fi sound systems, volume control is the basic tool for adjusting the output sound uniformly on all frequencies.
-This corresponds with the coarse-level visibility specification through clipping objects in the molecular scenes, where all molecular types are uniformly removed from the clipped regions.
-However, hi-fi sound system allows users to fine-tune the sound through \emph{equalizers}.
-With equalizers, the volume of each individual frequency band can be adjusted separately to achieve desired sound during the reproduction.
-To achieve similar level of control for the visibility in the molecular models, we make the visibility histograms interactive.
-Individual bins of the histograms can be dragged to increase or decrease visibility of the individual molecular types within the scene, given the specified clipping objects.
-The interactive element effectively turns the visibility histograms into visibility equalizers for the molecular models.
-
-\noindent{Our main contributions are:}
-\begin{itemize}
-  \item a new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models
-  \item a new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.
-\end{itemize}
+%\noindent{Our main contributions are:} %\begin{itemize}  \item a new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models  \item a new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.\end{itemize}
 
 
 
@@ -106,7 +86,7 @@ The culling objects work in such a way that the part of the rendered scene enclo
 %Cutaways views are essential in illustration of processes on the microscopic scale. These processes are often demonstrated on polymolecular models, where large number of molecular instances form complex nested structures. Such structures would be impossible to visualize when the model is displayed as a whole, thus creating a need for the cutaway views.
 
 Simple culling objects are not always sufficient for the illustrative purposes. Sometimes, it is necessary to reintroduce parts of the scene that has been culled away in order to increase the informative value of the illustration. An example is shown in Figure \ref{fig:hiv}.
-Figure \ref{fig:hiv0} shows an illustration of a HIV virus.
+Figure \ref{fig:hiv0} shows an illustration of an HIV particle.
 In Figure \ref{fig:hiv1}, a cutaway view is used to reveal internal structures of the virus - the capsid containing the RNA.
 Some of the glycoproteins (yellow molecules) are left in the illustration to communicate their presence on the surface of the virus particle.
 In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information. In this way, the main components of the virus particle can be illustrated in a single image.

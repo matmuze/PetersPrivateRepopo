@@ -1,26 +1,17 @@
 \section{Introduction}
 
-Molecular biology is an emerging field that is marked by a constant evolution of the current state of knowledge. %where the state of the current knowledge changes extremely quickly.
+Molecular biology is an emerging field that is marked by a constant evolution of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
-Since discoveries of molecular phenomena cannot directly be conveyed, illustrations are the only way of communicating them. %note: what about models? better: illustrations are a common way of...
+Since discoveries of complex molecular phenomena at a mesoscopic scale cannot directly be conveyed, illustrations that depict models of these structures are the only way of communicating them. %note: what about models? better: illustrations are a common way of...
 
-The traditional pipeline for creating scientific illustrations of molecular structures starts with the knowledge gathering process.
-When sufficient data is collected, illustrators make sketches, in which specific regions of the illustrated structures are uncovered.
-For this, occlusion management techniques are necessary.
-A common technique are \emph{cutaway views}. They remove specific parts of the scene are form the organism model in the illustration, so that internal structures become visible.
-When new knowledge is discovered, the conceptual layout of the illustration might break down and the whole process has to start from the beginning.
-Therefore, the duration of this process counts in months or even years.
+The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the knowledge that is required for building models that convey the newly discovered insights. %the knowledge gathering process.
+When sufficient knowledge is gathered, illustrators create sketches, in which specific internal and external regions of the illustrated structures are uncovered.
+To achieve this, occlusion management techniques, such as \emph{cutaways} are applied. Cutaways remove specific parts of the organism model, so that internal structures become visible. 
+When biologists make new findings, the conceptual layout of the original illustration might not be valid anymore. The whole illustration process has to be repeated from the beginning. Such a cycle can take months or even years to complete.
 
-With the rapid changes to the knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that the new data can be easily plugged in and the resulting illustrations can be updated accordingly in a very short time period.
-Virtual 3D models of cells and other mesoscale molecular structures can be utilized for this purposes.
-Such models can be created with tools that procedurally assemble individual molecules into large complexes and into entire systems such as bacterial organisms.
-An example of such a tool is \emph{cellPack} \cite{cellpack}. Its core functionality is a packing algorithm, which take individual molecular ingredients, as well as shapes of compartments where the instances of these ingredients are populated, as the input.
-%and the knowledge from the field of integrative structural biology.
-%The models consist of multiple instances of several molecular types.
-The output is a 3D model consisting of multiple instances of several molecular ingredients.
-The instances are densely packed within the predefined compartments.
-The shape of the compartments is designed by the domain experts in biology.
-%according to the biology knowledge.
+Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new data can be easily plugged in and resulting illustrations can be updated in a very short time.
+Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
+Biologists use tools, such as \emph{cellPack} \cite{cellpack}, to procedurally generate these models. Based on a set of input parameters, individual molecules are assembled into large complexes or even entire systems, such as bacterial organisms. Such a parameter set consists of a specification of individual molecular ingredients, as well as spatial compartments that define where the instances of these ingredients are populated. The resulting 3D model can consist of several thousands of instances of these molecular ingredients. The instances are densely packed within the predefined compartments. %The shape of the compartments is designed by the domain experts in biology.
 
 The mesoscale biological models represent the structure of microorganisms, cells, or even viruses at atomic resolution.
 However, simply displaying such models does not guarantee an adequate view of internal structures.

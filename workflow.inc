@@ -260,7 +260,7 @@ Upon manipulation of compartment histograms properties, all the children ingredi
 
 \section{Results and Discussion}
 
-\section{Evaluation}
+
 
 \begin{figure}[t]
  \centering

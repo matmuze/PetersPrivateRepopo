@@ -1,15 +1,15 @@
 \section{Overview}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
-\subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
-\subfloat[]{\label{fig:his2}\includegraphics[width=0.166\linewidth]{figures/hi2.eps}}
-\subfloat[]{\label{fig:his3}\includegraphics[width=0.166\linewidth]{figures/hi3.eps}}
-\subfloat[]{\label{fig:his4}\includegraphics[width=0.166\linewidth]{figures/hi4.eps}}
-\subfloat[]{\label{fig:his5}\includegraphics[width=0.166\linewidth]{figures/hi5.eps}}
-\caption{\label{fig:his}Visibility Equalizers.}
-\end{figure*}
+%\subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
+%\subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
+\subfloat[]{\label{fig:his2}\includegraphics[width=0.25\linewidth]{figures/hi3.eps}}
+\subfloat[]{\label{fig:his3}\includegraphics[width=0.25\linewidth]{figures/hi2.eps}}
+\subfloat[]{\label{fig:his4}\includegraphics[width=0.25\linewidth]{figures/hi4.eps}}
+\subfloat[]{\label{fig:his5}\includegraphics[width=0.25\linewidth]{figures/hi5.eps}}
+\caption{\label{fig:his}Interaction with the visibility Equalizer. (a) Ratio of the visible red molecules is increased, which caused blue molecules occluding the red ones to be removed. (b) Ratio of the clipped-away red molecules has been decreased. (c) Visibility of the red molecules has been increased, whole the ratio of clipped-away red molecules has been decreased. (d) The ratio of the clipped-away blue molecules has been partially increased.}
+\end{figure}
 
  \begin{figure}[t]
   \centering 
@@ -69,7 +69,7 @@ Figure \ref{fig:o} shows the workflow of our method in a form of a  state-machin
 
 Clipping objects can be used to transition to the state \emph{S2}, where parts of the model are removed in a deterministic way. Here, the inside-outside test of the zero level sets of the clipping objects determine whether an instance is clipped away or not. The implicit representation of the clipping objects allows us to simply query the signed distance function to quickly evaluate whether a molecule is inside or outside of the clipping manifold. In the stage \emph{S2}, the ratios of the clipped instances are displayed by the visibility equalizer. The process of placing and manipulating clipping objects corresponds with the coarse visibility specification as introduced in Section \ref{sec:intro}.
 
-At any point, the user can interact with the visibility equalizer to either modify the amount of the visible instances in the scene by dragging any of the dark green bars in the histogram, or the amount of the clipped-away instances by dragging the light green bars of the histogram. When the bars in the histograms are dragged, probability thresholds of selected clipping objects are modified. This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. This situation is represented by the state \emph{S3} and it corresponds with the fine-level visibility specification process.
+At any point, the user can interact with the visibility equalizer to either modify the amount of the visible instances in the scene by dragging any of the dark green bars in the histogram, or the amount of the clipped-away instances by dragging the light green bars of the histogram. When the bars in the histograms are dragged, probability thresholds of selected clipping objects are modified. This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. This situation is represented by the state \emph{S3} and it corresponds with the fine-level visibility specification process. The possible interactions with the visibility equalizer are illustrated in Figure \ref{fig:his}.
 
 Below the three states, Figure \ref{fig:o} shows the technical overview of the method. At the beginning of the pipeline, multiple clipping objects are placed into the 3D scene filtering the data. Each clipping object filters the output of the previous one. Clipped data are sent to the rendering stage, where the visible and clipped-away instances are counted so that the visibility equalizer can be displayed on each frame. In case the user interacts with the visibility equalizer, probability thresholds of the selected subset of the clipping object is modified, so that the 3D scene corresponds to how the user changed the values in the histograms. During the whole process of the visibility specification, the user is informed about the amounts of the visible and clipped-away instances in the scene through the visual encoding of the visibility equalizer.
 

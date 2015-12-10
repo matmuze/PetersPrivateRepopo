@@ -11,7 +11,7 @@
  \centering
  \subfloat[]{\label{fig:df0}\includegraphics[width=0.495\linewidth]{figures/islands-no.eps}}
  \subfloat[]{\label{fig:islands1}\includegraphics[width=0.495\linewidth]{figures/islands-yes.eps}}
- \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, instances in red constitute the object of focus and instances in grey are the potential occluders. The bar char represents the depth-stencil of the mask. In (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. In figure (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring described in Section \ref{ssec:anchoring}}
+ \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, the instances in red constitute the object of focus and the instances in grey are the potential occluders. The bar chart represents the depth-stencil of the mask. In (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. In figure (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring described in Section \ref{ssec:anchoring}.}
 \end{figure}
 
 \begin{figure}[t]
@@ -45,12 +45,11 @@
 %Instances whose properties lie outside on these ranges are marked as culled and discarded.
 %For the book-keeping is the clipped ingredient we count for each ingredient type how many instances where discarded in total, for all active cut object.
 
-
 \section{Object-Space Clipping}
 
 Clipping objects define how many instances of a given ingredient type shall be displayed.
 There are two ways how can a clipping object influence the clipping, either in object-space or in view-space.
-Using an object-space approach, the clip objects will discard instances independently from the view direction. 
+Using an object-space approach, the clipping objects will discard instances independently from the view direction. 
 Clipping objects are applied consecutively as explained in Figure XX, and this operation is recomputed every frame.
 In this section we will explain in details how clipping objects operate in object-space.
 The first step of the process is to determine, for each instance, if they are located in the clipping region.

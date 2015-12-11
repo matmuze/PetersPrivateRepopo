@@ -22,3 +22,9 @@
 \subfloat[]{\label{fig:res:vsc3}\includegraphics[width=0.245\linewidth]{figures/res-vsc3.eps}}
 \caption{\label{fig:res:gh}View-space clipping.}
 \end{figure}
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\linewidth]{figures/results01.eps}
+ \caption{\label{fig:results01}An illustration of the HIV virus in the blood serum utilizing cutaways created with our approach.}
+\end{figure}

@@ -95,7 +95,7 @@ The other filtering parameters are related to biochemical properties and allow u
 These parameters can be interactively changed via the user interface.
 Prior to the rendering, after determining the location of instances according to the clipping region, each instance is evaluated in order to determine if it shall be clipped.
 
-First is applied filtering based on the clip probability.
+First is applied filtering based on the clipping probability.
 For each instance, we compare a uniformly distributed random number with the clip probability of the instance ingredient type.
 If the random number is higher than the probability, the instance is marked as culled, and will not be rendered. 
 The random number is initially set for each individual instance and remain unchanged, in order to avoid getting different results each time.
@@ -104,9 +104,23 @@ Instances whose properties lie outside these ranges are marked as culled and wil
 
 \subsection{Falloff Function}
 
-We provide additional parameters to gradually remove instances according the shape of the clipping region.
+To further increase the control over the probabilistic clipping, we introduce falloff functions. The falloff functions can be used to modulate the effect of the probabilistic clipping with respect to the distance from the clipping surface. This is easily achievable, since we use distance functions to represent the clipping objects. Therefore, the distance of a molecular instance from the clipping surface can be evaluated by simply sampling the distance function of the given clipping object at the 3D position of the instance. The farther away from the clipping surface the instance is, the lower will be the effect of the probabilistic clipping specified through the visibility equalizer.
 
-\textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
+%The falloff function can be either constant, linear, or exponential.
+
+The object-space clipping probability of a molecule on the 3D position $p$ is multiplied by the falloff function $f(p)$. The falloff function is defined as follows:
+
+\begin{equation}
+	f(p) = 1 - min(1, (d(p) / d) ^ c)
+\end{equation}
+
+where $d(p)$ is the distance to the clipping surface from the point $p$. The function is parametrized by parameters $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, while $c$ specifies the linearity of the falloff function.
+
+%We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
+
+An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. The molecules of the blood serum (shown in red) are gradually removed from bottom to top. In this way, the information about the concentration of these molecules is illustrated at the bottom of the scene, while the visibility of the HIV particle (blue and green) is increased towards to top of the scene.
+
+%\textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
 
 
 \section{View-Space Clipping}
@@ -266,16 +280,3 @@ Upon manipulation of compartment histograms properties, all the children ingredi
 %For each ingredient type we offer the option to render ghosts or not via the user interface.
 
 %The resulting render of a scene with clipping ghosts can be seen in figure XX.
-
-
-\section{Results and Discussion}
-
-
-
-\begin{figure}[t]
- \centering
- \includegraphics[width=\linewidth]{figures/results01.eps}
- \caption{\label{fig:results01}An illustration of the HIV virus in the blood serum utilizing cutaways created with our approach.}
-\end{figure}
-
-\section{Conclusions}

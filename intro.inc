@@ -79,6 +79,17 @@ When interacting with the visibility equalizer, the artist or biologist can intu
 
 \begin{comment}
 
+To speed-up the fine tuning process we propose a novel method for clipping instances using a fuzzy approach. 
+In addition to either entirely show or remove instances of a given ingredient by the clipping object, we offer the possibility to show only an arbitrary number of these instances.
+The main advantage of this approach is that we are able to increase the visibility of hidden structures while preserving potentially important, but redundant occluding molecules.
+An analogy of this approach can be drawn here with ``Screen-Door Transparency'', which is a trivial way to obtain transparency in computer graphics, by simply placing holes in the polygon to reveal what is present behind.
+
+\end{comment}
+
+
+
+\begin{comment}
+
 In the field of molecular biology, micro-biology, and medicine, illustrations are essential for the inter- and intra-disciplinary knowledge transfer.
 Over the years, illustrators have developed various techniques for capturing specific aspects of the displayed objects and processes.
 One of the most common methods utilized in the technical illustration are so-called \emph{cutaway views}.

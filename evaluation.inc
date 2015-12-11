@@ -6,9 +6,9 @@ Our technique has potential for assisting scientific exploration of large molecu
 Therefore we evaluate the significance of our tool by collecting informal user feedback from domain experts from this two areas.
 In both cases we did a remote walk-through introduction of our software, while collecting their first impression.
 Additionally, we gave them an executable version and asked them to provide a short written description of their impression after trying it by themselves.
-We first sent an early version of our tool to a biomedical illustrator with a strong academic background in biochemistry. 
-He has XX years of experience in the field of digital illustration and he also teaches online paid animation courses. He also teaches biology at university..blablabla...since.
-\textbf{TODO: Add more complete bio for Giorgio.}
+We first sent an early version of our tool to a biomedical illustrator with a strong academic background in chemistry. 
+He has 10 years of experience in the field of computer graphics  and he also teaches online paid animation courses at CgSociety focusing on training his students to create accurate representation in biomolecular fiels. 
+He also taught course about computer graphics in his own institute (National research council of Italy)  focusing on teaching basic skill for lighting and rendering to non computer graphic literate users.
 Here is a quote from his written feedback:
 
 %I was really impressed by the quality of the non photo realistic toon rendering that can be achieved.

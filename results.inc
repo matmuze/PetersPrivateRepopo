@@ -12,6 +12,13 @@
 
 We applied our method to three different datasets to showcase the capabilities of our method. The first dataset is a model of an HIV particle in blood serum. In Figure \ref{fig:res:gh} we show an example of a single clipping plane used to reduce the concentration of the blood serum molecules, so that the HIV particle is visible. However, to avoid misleading the viewer about the actual concentration of the blood molecules, we apply ghosting effect. It illustrates what the actual concentration is, while the visual clutter caused by the blood serum is significantly reduced. Figure \ref{fig:res:gh} illustrates that this can be done in different ways according to the artistic vision.
 
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=0.5\linewidth]{figures/mycoplasma.eps}
+ \caption{\label{fig:res:myco}Mycoplasma mycoides.}
+\end{figure}
+
+The second dataset to which we applied our method is a model of \emph{Mycoplasma mycoides}. Figure \ref{fig:res:myco} show how clipping object have been used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
 
 %\begin{figure}[t]
 %\centering

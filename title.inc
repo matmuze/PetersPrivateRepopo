@@ -54,7 +54,7 @@
 \subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
 \subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
 
-\caption{\label{fig:teaser}Workflow.}
+\caption{\label{fig:teaser}The workflow of our method. (a) Entire dataset is shown. The blood serum (shown in red) is occluding the view of the HIV particle. (b) Clipping objects are shown to selectively cut parts of the data to reveal the HIV capsid. (c) The illustrator decides to show more of the matrix protein (shown in blue), so their clipping is disabled. However, they are now occluding the view of the capsid. (d) The probabilistic clipping has been used to selectively remove those matrix proteins occluding the capsid, but some of them are left in the scene to indicate the presence of this type of protein on the virus membrane. The capsid has been clipped with view-space clipping to reveal its internals.}
 %\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
 %\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w1.eps}}
 %\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w2.eps}}

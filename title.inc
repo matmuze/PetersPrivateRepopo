@@ -1,12 +1,17 @@
 \hyphenation{cellPack}
 
+\usepackage{xcolor}
+\definecolor{darkgreen}{RGB}{0,158,0}
+\definecolor{green}{RGB}{145,209,145}
+\definecolor{grey}{RGB}{220,220,220}
+
 % ---------------------------------------------------------------------
 % EG author guidelines plus sample file for EG publication using LaTeX2e input
 % D.Fellner, v1.17, Sep 23, 2010
 
 
 \title[Visibility Equalizer]%
-      {--------------- Visibility Equalizer ---------------\\ Cutaway Visualization of Mesoscopic Biological Models}
+      {\textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} Visibility Equalizer \textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} \\ Cutaway Visualization of Mesoscopic Biological Models}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!

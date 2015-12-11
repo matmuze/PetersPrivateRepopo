@@ -14,11 +14,11 @@
  \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, the instances in red constitute the object of focus and the instances in grey are the potential occluders. The bar chart represents the depth-stencil of the mask. In (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. In figure (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring described in Section \ref{ssec:anchoring}.}
 \end{figure}
 
-\begin{figure}[t]
-\centering 
-\includegraphics[width=\linewidth]{figures/cutting-eq.eps}
-\caption{\label{fig:cutting-eq}Visual mapping between stack bar intervals and instances.}
-\end{figure}
+%\begin{figure}[t]
+%\centering 
+%\includegraphics[width=\linewidth]{figures/cutting-eq.eps}
+%\caption{\label{fig:cutting-eq}Visual mapping between stack bar intervals %and instances.}
+%\end{figure}
 
 %SENTENCES DUMP
 

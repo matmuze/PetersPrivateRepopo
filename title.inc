@@ -11,21 +11,23 @@
 
 
 \title[Visibility Equalizer]%
-      {\textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} Visibility Equalizer \textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} \\ Cutaway Visualization of Mesoscopic Biological Models}
+      {\textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} Visibility Equalizer \textcolor{grey}{---}\textcolor{green}{-----}\textcolor{darkgreen}{------} \\ Cutaway Visualization of Mesoscopic Biological Models}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
-\author[Le Muzic, Mindek et al.]
-       {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
-        P. Mindek$^{1}$,
-        J. Sorger$^{1,2}$,
-        L. Autin$^{3}$,
-        and I. Viola$^{1}$        
-        \\
+%\author[Le Muzic, Mindek et al.]
+%       {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
+%        P. Mindek$^{1}$,
+%        J. Sorger$^{1,2}$,
+%        L. Autin$^{3}$,
+%        and I. Viola$^{1}$        
+ %       \\
 % For Computer Graphics Forum: Please use the abbreviation of your first name.
-         $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La Jolla, California, USA
+%         $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, %Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La %Jolla, California, USA
 %             with different affiliations
-       }
+%       }
+
+\author[275]{Submission ID 275}
 
 % ------------------------------------------------------------------------
 
@@ -40,12 +42,30 @@
 %-------------------------------------------------------------------------
 \begin{document}
 
-% \teaser{
-%  \includegraphics[width=\linewidth]{eg_new}
-%  \centering
-%   \caption{New EG Logo}
-% \label{fig:teaser}
-% }
+\teaser{
+% \includegraphics[width=\linewidth]{eg_new}
+% \centering
+%  \caption{New EG Logo}
+%\label{fig:teaser}
+
+\centering
+\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
+\subfloat[]{\label{fig:res:w3}\includegraphics[width=0.25\linewidth]{figures/res-w8.eps}}
+\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
+\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
+
+\caption{\label{fig:teaser}Workflow.}
+%\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
+%\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w1.eps}}
+%\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w2.eps}}
+%\subfloat[]{\label{fig:res:w3}\includegraphics[width=0.25\linewidth]{figures/res-w3.eps}}
+
+%\subfloat[]{\label{fig:res:w4}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
+%\subfloat[]{\label{fig:res:w5}\includegraphics[width=0.25\linewidth]{figures/res-w5.eps}}
+%\subfloat[]{\label{fig:res:w6}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
+%\subfloat[]{\label{fig:res:w7}\includegraphics[width=0.25\linewidth]{figures/res-w7.eps}}
+
+}
 
 \maketitle
 

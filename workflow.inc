@@ -60,12 +60,12 @@ There are two ways of how a clipping object can influence the clipping: either i
 Clipping objects define which instances of a given ingredient type are displayed.
 There are two ways of how a clipping object can influence the clipping: either in object-space or in view-space.
 %%%%%%%%%%%%%%%%%%%%%%
-In this Section we will explain in detail how clipping objects operate in object-space.
+In this Section, we will explain in detail how clipping objects operate in object-space.
 Using an object-space approach, the clipping objects will discard instances independent of the viewing direction. 
-Clipping objects are applied consecutively as explained in Figure \ref{fig:o}. This operation is recomputed every frame.
+%Clipping objects are applied consecutively as explained in Figure \ref{fig:o}. This operation is recomputed every frame.
 %The first step of the process is to determine, for each instance, if they are located in the clipping region.
-Once the instances are localized, they will be clipped according to object-space clipping parameters, which we describe in Section \ref{ssec:clip_params}.
-Moreover, we introduce the distance field falloff, an advanced parametrization for generating customizable gradient clipping effects.
+%Once the instances are localized, they will be clipped according to object-space clipping parameters, which we describe in Section \ref{ssec:clip_params}.
+%Moreover, we introduce the distance field falloff, an advanced parametrization for generating customizable gradient clipping effects.
 
 \subsection{Clipping Region Localization}
 
@@ -81,7 +81,7 @@ To accelerate the computation, we solve the problem analytically using a mathema
 It is also possible to apply simple SDF operators to the distance field, such as translation, rotation and scaling.
 The clipping region can also be reversed by inverting the result of the signed distance function, offering users flexibility.
 For instance, using a spherical shape, the clip region would be set to the inside of the sphere by default, while in inverted mode it would correspond to the outside of the sphere. 
-It is worth mentioning that although the set of offered clipping shapes is yet limited, it would be trivial to enrich it using more complex SDF operators, such as union, to merge several shapes together in one single distance field, and thus obtain more complex clipping region shapes.
+Although the set of offered clipping shapes is yet limited, it would be trivial to enrich it using more complex SDF operators, such as union, to merge several shapes together in one single distance field, and thus obtain more complex clipping region shapes.
 
 \subsection{Clipping Parameters} \label{ssec:clip_params}
 
@@ -89,22 +89,22 @@ A clipping object comprises two basic parameters, defined for each ingredient, t
 %It is worth mentioning that in case no shape is associated with the cull object, the clipping will be evaluated for the entire domain.
 The first parameter controls the ratio of clipped elements of a given type that are located in the clipping region.
 We refer to this value as object-space clipping probability.
-This parameter allows the user to control the degree of \textit{fuzziness} of the clipping, as explained in Figure XX.
+This parameter allows the user to control the degree of \textit{fuzziness} of the clipping, as explained in Figure \ref{fig:his}.
 %While traditional cut-away methods support crisp cut, i.e., either shown of hidden, our technique allows for a more control over the strength of the cut as explained in Figure XX.
 The other filtering parameters are related to biochemical properties and allow users to control the clipping based on the molecular mass or concentration of given ingredient types.
 These parameters can be interactively changed via the user interface.
 %Prior to the rendering, after determining the location of instances according to the clipping region, each instance is evaluated in order to determine if it shall be clipped.
 
-First, filtering is applied based on the clip probability.
-For each instance, we compare a uniformly distributed random number with the clip probability of the instance ingredient type.
-If the random number is higher than the probability, the instance is marked as culled, and will not be rendered. 
+First, filtering is applied based on the clipping probability.
+For each instance, we compare a uniformly distributed random number with the clipping probability of the instance ingredient type.
+If the random number is higher than the probability, the instance is marked as discarded, and will not be rendered. 
 The random number is initially set for each individual instance and remains unchanged, in order to avoid getting different results each time.
 Secondly, instances are filtered according to their biochemical properties, for each cut object and each ingredient type. The user defines a range of values for both quantities and the molecular weight.
-Instances whose properties lie outside these ranges are marked as culled and will not be rendered.
+Instances whose properties lie outside these ranges are marked as discarded and will not be rendered.
 
 \subsection{Falloff Function}
 
-To further increase the control over the probabilistic clipping, we introduce falloff functions. The falloff functions can be used to modulate the effect of the probabilistic clipping with respect to the distance from the clipping surface. This is easily achievable, since we use distance functions to represent the clipping objects. Therefore, the distance of a molecular instance from the clipping surface can be evaluated by simply sampling the distance function of the given clipping object at the 3D position of the instance. The farther away from the clipping surface the instance is, the lower will be the effect of the probabilistic clipping specified through the visibility equalizer.
+To further increase the control over the probabilistic clipping, we introduce falloff functions. Falloff functions can be used to modulate the effect of the probabilistic clipping with respect to the distance from the clipping surface. This is easily achievable, since we use distance functions to represent the clipping objects. Therefore, the distance of a molecular instance from the clipping surface can be evaluated by simply sampling the distance function of the given clipping object at the 3D position of the instance. The farther away from the clipping surface the instance is, the lower will be the effect of the probabilistic clipping specified through the visibility equalizer.
 
 %The falloff function can be either constant, linear, or exponential.
 
@@ -114,7 +114,7 @@ The object-space clipping probability of a molecule on the 3D position $p$ is mu
 	f(p) = 1 - min(1, (d(p) / d) ^ c)
 \end{equation}
 
-where $d(p)$ is the distance to the clipping surface from the point $p$. The function is parametrized by parameters $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, while $c$ specifies the linearity of the falloff function.
+where $d(p)$ is the distance to the clipping surface from the point $p$. The function is parametrized by parameters $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, while $c$ specifies the exponent of the falloff function.
 
 %We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
 

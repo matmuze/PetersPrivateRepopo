@@ -3,15 +3,15 @@
 Molecular biology is an emerging field that is characterized by rapid advances of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
 However, due to their complexity and mesoscopic scale, it is hard to directly convey the discoveries of molecular phenomena. 
-Therefore illustrations that depict models of these structures are the most widely used form of communicating them.
+Therefore illustrations that depict models of these mesoscale structures are the most widely used form of communicating them.
 
 The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the required knowledge for building models that convey the newly discovered insights.
 Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
 To achieve this, occlusion management techniques, such as \emph{cutaways} are applied.
 Cutaways remove specific outer parts of the organism model, so that internal structures become visible. 
 When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore. 
-The whole illustration process has to be repeated, in the worst case from the beginning, 
-which is cumbersome and time consuming. 
+\textbf{The whole illustration process has to be repeated, in the worst case from the beginning, 
+which is cumbersome and time consuming. }
 %Such a cycle can take months or even years to complete.
 
 Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
@@ -19,13 +19,13 @@ Virtual 3D models of cells and other mesoscale molecular structures can be utili
 Biologists have designed tools, such as \emph{cellPACK} \cite{cellpack}, to procedurally generate 3D models that represent the structure of micro-organisms such as viruses, or entire cells at atomic resolution.
 Based on a set of input parameters, individual molecules are assembled into these complex organic static structures. 
 The parameter set consists of a specification of molecular ingredients, concentrations as well as spatial distribution that define where are the instances distributed in a given compartment. 
-The resulting 3D models, in most complex cases, may consist of thousands of ingredients, which in turn, may result in millions of molecules and billions of atoms. 
+\textbf{The resulting 3D models, in most complex cases, may consist of thousands of ingredients, which in turn, may result in millions of molecules and billions of atoms. }
 The instances are densely packed within the predefined compartments, to replicate the actual molecular crowding phenomenon prevailing in living organisms.
 Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism, remain hidden.
 It is therefore important to develop visualization techniques that would procedurally reproduce the occlusion management methods used in traditional illustration.
 Currently, this is achieved by placing clipping objects in the scene, which remove specified parts of the displayed model. 
 However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients is represented, and not either hidden in the volume or clipped away (Fig. \ref{fig:which}a). 
-To do this, they would need to manually check the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:which}b).
+To do this, they would need to visually inspect the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:which}b).
 %However, in order to know how many instances have already been removed, and which molecular types are still sufficiently represented in the scene, the illustrator has to continuously check and compare the modeled scene against the gathered data and tediously confirm whether the essential information is still represented.
 %As a tangible example, let us assume we have to confirm the presented ratio of multiple molecular ingredients (Fig. \ref{fig:which}a) in an illustration. 
 %By clipping through the center of a 3D model, many structures can be revealed (Fig. \ref{fig:which}b). 
@@ -63,15 +63,17 @@ In this way, the main components of the virus particle can be illustrated in a s
 The process of fine-tuning the visibility is extremely time-consuming, as the illustrator has to manually pick individual molecular instances to be reintroduced or removed from the scene. %in order to preserve important information whily not occlude occluding 
 %This might be done to control the under and over representation of some of the molecular types, removing instances occluding important aspects of the model, suggesting shapes, etc.
 
-To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our second contribution.
-We use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
-This corresponds with our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
+To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our main technical contribution.
+To explain its role, we use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
+Such a mechanism corresponds to our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
 However, hi-fi sound systems also allow users to fine-tune the sound through an \emph{equalizer}.
 With an equalizer, the volume of each individual frequency band can be adjusted separately to achieve a desired sound reproduction.
-In the sense of this of metaphor, the visibility of each molecule type can be regarded as a frequency band - represented as the stacked bars of our visibility equalizer.
-To achieve a similar level of fine-grained control for the visibility of the molecule types, we make these bars interactive - thus allowing the user to interact with the equalizer.
+In the sense of this of metaphor, the visibility of each molecule type can be regarded as a frequency band---represented as the stacked bars that form our visibility equalizer.
+To achieve a similar level of fine-grained control for the visibility of the molecule types, we make these bars interactive---thus allowing the user to interact with the equalizer.
 Individual intervals on each bar can be dragged to increase or decrease the visibility of the individual molecular types within the scene, given the specified clipping objects. 
-This interactive element effectively turns the stacked bars into visibility equalizers for the molecular models - and as such presents the main technical contribution of this paper.
+%This interactive element effectively turns the stacked bars into visibility equalizers for the molecular models - and as such presents the main technical contribution of this paper.
+When interacting with the visibility equalizer, the artist or biologist can intuitively achieve expressive cutaway designs in a fraction of the time that would be needed for manual visibility adjustments.
+%The conceptual contribution of this work is demonstration of a scenario where a visualization metaphor, such as the stacked bar chart in our case, can serve as a user interface for performing a specific task, in our case authoring a cutaway design. We expect to see further cases where (information) visualization is simultaneously the user interface.
 
 %\noindent{Our main contributions are:} %\begin{itemize}  \item a new workflow for illustrator-authored cutaway illustrations from mesoscale 3D structural models  \item a new visual metaphor of visibility equalizers with which allows users to fine tune the cut-away design so that visibility is distributed among the molecular types as desired by the illustrator.\end{itemize}
 

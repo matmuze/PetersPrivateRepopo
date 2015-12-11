@@ -37,8 +37,8 @@
 \caption{\label{fig:res:w}W.}
 \end{figure*}
 
-\begin{figure}[t]
- \centering
- \includegraphics[width=\linewidth]{figures/results01.eps}
- \caption{\label{fig:results01}An illustration of the HIV virus in the blood serum utilizing cutaways created with our approach.}
-\end{figure}
+%\begin{figure}[t]
+% \centering
+% \includegraphics[width=\linewidth]{figures/results01.eps}
+% \caption{\label{fig:results01}An illustration of the HIV virus in the %blood serum utilizing cutaways created with our approach.}
+%\end{figure}

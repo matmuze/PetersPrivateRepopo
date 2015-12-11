@@ -186,7 +186,7 @@ An explanation of the depth guidance effect is shown in Figure \ref{fig:hiv1} an
 
 As introduced earlier, a series of stacked bars form our visibility equalizer metaphor to convey the visibility information for each ingredient type.
 %To provide a clear overview of the scene properties, we display stack bars for each ingredient type that indicate information about their degree of visibility.
-We chose to show three ranges for each histogram, corresponding to the number of visible and clipped instances.
+We chose to show three ranges for each bar, corresponding to the number of visible and clipped instances.
 In order to fill the stacked bars with correct values, we track the visibility of both clipped and visible instances, which we recompute every frame.
 The principle of the visibility tracking is shown in Figure \ref{fig:ohist}.
 %The stacked bars are also interactive; the user can manipulate the clipping properties of the corresponding ingredient type by dragging the range handles, thus increasing or decreasing the number of displayed elements.

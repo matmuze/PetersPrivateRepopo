@@ -1,6 +1,6 @@
 \section{Results and Discussion}
 
-To showcase the capabilities of our method, we applied it to three different datasets. The first dataset is a model of an HIV particle in blood serum. Figure \ref{fig:res:islands} shows it clipped with a single plane. The contextual anchoring is applied to reintroduce parts of the clipped membrane (purple) around the envelope proteins (blue).
+To showcase the capabilities of our method, we applied it to three different datasets. The first dataset is a model of an HIV particle in blood serum. Figure \ref{fig:res:islands} shows it clipped with a single plane. The contextual anchoring is applied to reintroduce parts of the clipped membrane (grey) around the envelope proteins (blue).
 
 \begin{figure}[t]
  \centering
@@ -14,7 +14,7 @@ To showcase the capabilities of our method, we applied it to three different dat
 
 The second dataset is a model of \emph{Mycoplasma mycoides}. Figure \ref{fig:res:myco} shows how probabilistic clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
 
-The third dataset, shown in Figure \ref{fig;res:eq} is a model of an immature HIV particle. Here, we applied several clipping objects to reveal the internal structure of the virus particle. The blood serum (blue) has been preserved around the particle using the probabilistic clipping to illustrate how it encloses the HIV particle. The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. The white boxes to the left of each stacked bar are used to mark the given ingredient or compartment as focus.
+The third dataset, shown in Figure \ref{fig:res:eq} is a model of an immature HIV particle. Here, we applied several clipping objects to reveal the internal structure of the virus particle. The blood serum (blue) has been preserved around the particle using the probabilistic clipping to illustrate how it encloses the HIV particle. The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. The white boxes to the left of each stacked bar are used to mark the given ingredient or compartment as focus.
 
 
 \begin{figure}[t]

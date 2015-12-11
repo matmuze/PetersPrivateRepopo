@@ -164,7 +164,7 @@ We propose an alternative technique for fuzzy removal of occluding instances.
 We define an additional parameter, called \emph{aperture} coefficient, which controls the distance threshold in 2D from the centre to the edges of the mask, below which occluding instances shall be clipped.
 A visual explanation of the aperture effect is shown in Figure \ref{fig:df}c.
 To enable this effect we compute the 2D distance transform of the occlusion mask which we store in a separate off-line texture.
-We use the GPU Jump Flooding Algorithm by Rong \& Tan \cite{xxx} to interactively recompute the 2D distance field every frame. 
+We use the GPU Jump Flooding Algorithm by Rong \& Tan \cite{Rong06} to interactively recompute the 2D distance field every frame. 
 After the computation of the distance transform, the texture stores the distance to the contours of the shape for each pixel.
 Then, while computing occlusion queries in the fragment shader, we simply look-up the mask contour distance for the current fragment, and discard instances according to the user-defined aperture coefficient.%, priorly set of each ingredient type.
 
@@ -174,9 +174,9 @@ Then, while computing occlusion queries in the fragment shader, we simply look-u
 When observing still images of cut-away scenes, it might be challenging to perceive the depth of objects correctly, despite using lighting-based depth cues.
 We propose an additional method for depth guidance, which modifies the results of the clipping to preserve elements, located in a close range to non-clipped elements that would normally be clipped.
 Due to the contextual anchoring, the viewer, assuming that he is aware of what has been clipped, will intuitively understand where instances are located.
-This principle in shown in Figure \textbf{XXX}, where we can observe parts of the green membrane anchored around channel molecules which indicate that they are located on the surface of the object.
+This principle in shown in Figure \ref{fig:res:islands}, where we can observe parts of the green membrane anchored around channel molecules which indicate that they are located on the surface of the object.
 We were able to procedurally reproduce this effect by applying a depth bias for selected focused molecules to ensure that they will overlap ingredients that need to be preserved.
-A explanation of the depth guidance effect is shown in Figure \textbf{XX} and a resulting render in show in Figure \textbf{XX}.
+An explanation of the depth guidance effect is shown in Figure \ref{fig:hiv1} and a resulting rendering in shown in Figure \ref{fig:res:islands}.
 
 \section{Equalizing Visibility}
 
@@ -188,12 +188,12 @@ As introduced earlier, a series of stacked bars form our visibility equalizer me
 %To provide a clear overview of the scene properties, we display stack bars for each ingredient type that indicate information about their degree of visibility.
 We chose to show three ranges for each histogram, corresponding to the number of visible and clipped instances.
 In order to fill the stacked bars with correct values, we track the visibility of both clipped and visible instances, which we recompute every frame.
-The principle of the visibility tracking is shown in Figure \ref{fig:cutting-eq};
+The principle of the visibility tracking is shown in Figure \ref{fig:ohist}.
 %The stacked bars are also interactive; the user can manipulate the clipping properties of the corresponding ingredient type by dragging the range handles, thus increasing or decreasing the number of displayed elements.
 
 \subsection{Visibility Tracking}
 
-Modification of the visibility using the equalizer requires to know for each ingredient type, how many instances have been clipped and how many instances are actually visible on the screen, see Figure \textbf{xx}.
+Modification of the visibility using the equalizer requires to know for each ingredient type, how many instances have been clipped and how many instances are actually visible on the screen, see Figure \ref{fig:ohist}.
 Our system leverages the power of the GPU to compute the clipping state of each instance every frame.
 Therefore, the information about clipping states is stored in the GPU memory.
 In order to avoid an overhead due to data transfer between CPU and GPU, we perform the visibility tracking on the GPU using atomic operations.
@@ -215,7 +215,7 @@ Additionally, the user may also manipulate more advanced parameters in an additi
 %We chose to map the motion of the histogram handles the clip probabilities.
 %The first handle manipulates the view-space clipping probability, while the second handle controls the object-space one.
 The clipping probabilities that are manipulated by the user correspond to the currently selected clipping object.
-The displayed visibility in the equalizer, however, is valid for the entire scene and all clipping objects. \textbf{check with ivan}
+The displayed visibility in the equalizer, however, is valid for the entire scene.
 
 %Quantities are relative by default, i.e, they represent a percentage of the total number of instances for a given ingredient.
 %However, thanks to our design choices, they can also

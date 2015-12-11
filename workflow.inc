@@ -142,19 +142,20 @@ Finally, we modify our occlusion query method to improve depth perception. This 
 %Due to the potentially large number of instances in the scenes we showcase, we accelerate the computation of occluding instances using an image-based approach on the GPU.
 
 We perform occlusion queries using an image-based approach on the GPU.
-We priorly render an off-screen texture containing all the ingredients of the focus object, which we use as a stencil-depth mask to perform occlusion queries.
+We first render an off-screen texture containing all the ingredients of the focus object, which we use as a stencil-depth mask to perform occlusion queries.
 We only render the bounding spheres of the instances, in order to lower the cost of an additional render pass.
-There can be several ingredient types constituting the object of focus, however, only one mask texture can be generated per clipping object.
-To approach zero GPU driver overhead, we perform custom occlusion queries in a single draw call, using the programmable graphics pipeline. 
+There can be several ingredient types constituting the object of focus. However, for the sake of simplicity, we decide to assign only one occlusion mask per clipping object.
+%, however, only one mask texture can be generated per clipping object.
+To achieve zero GPU driver overhead, we perform custom occlusion queries in a single draw call, using the programmable graphics pipeline. 
 Subsequently, we draw the bounding sphere of all remaining instances over the mask.
-Due to early depth-stencil test, implicitly performed by the graphics hardware, fragments of the bounding spheres that will pass the test are therefore are guaranteed to be overlapping fragments.
+Due to early depth-stencil test, implicitly performed by the graphics hardware, fragments of the bounding spheres that will pass the test are therefore guaranteed to be overlapping fragments.
 We then update the clipping state of the occluding instance by updating a flag stored in the main video memory directly from the fragment shader.
-An example of how we perform occlusion queries is shown in Figure XX a.
+An example of how we perform occlusion queries is shown in Figure \ref{fig:islands}.
 
 \subsection{Clipping Parameters}
 
-We provide an additional parameter to control the degree of fuzziness of the view-dependant clipping, which we dub view-dependant clipping probability.
-This value is priorly set by the user for each ingredient type.
+We provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we dub view-dependent clipping probability.
+This value is set by the user for each ingredient type.
 Once we computed the occlusion state of an instance, we evaluate the clip probability, similarly to the way we evaluate object-space clipping. 
 We compare the clipping probability with an uniformly distributed random number, initially set for each instance to determine if an occluding instance shall remain visible.
 This will however result in a uniformly distributed number of visible occluders over the object of focus, which might not always be the best design choice because it fragments heavily the overall structure of the occluders compartment, see Figure XX.

@@ -77,7 +77,7 @@ Our method constitutes a two stage process.
 In the first step, clipping objects are placed in the scene, creating a cutaway visualization of the model.
 During this process, a hierarchical list of stacked bars inform the user about the instance visibility distribution of each individual molecular type in the scene.
 In the second step, the visibility of each molecular type is fine-tuned through these bars, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
-An evaluation of our technique with scientific illustrators confirmed that......... they liked it!!!
+An evaluation of our technique with domain experts from biomedical illustration and molecular biology confirmed that our equalizer-based approach for visibility specification was valuable and effective for both, scientific and educational purposes.
 
 
 

@@ -1,4 +1,4 @@
-\section{Conclusions}
+\section{Conclusion}
 
 In this paper, we present a novel method for authoring cutaway illustrations made from mesoscopic biological 3D models. To monitor and fine-tune the process, we introduce the visibility equalizer. It keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. Moreover, the visibility equalizer allows the users to directly change these ratios by interacting with the visibility equalizer, thus fine-tuning the visibility of the individual molecular ingredients within the visualized scene.
 

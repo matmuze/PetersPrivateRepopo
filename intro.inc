@@ -9,9 +9,9 @@ The traditional pipeline for creating scientific illustrations of molecular stru
 Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
 To achieve this, occlusion management techniques, such as \emph{cutaways} are applied.
 Cutaways remove specific outer parts of the organism model, so that internal structures become visible. 
-When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore. 
-\textbf{The whole illustration process has to be repeated, in the worst case from the beginning, 
-which is cumbersome and time consuming. }
+When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore.
+The whole illustration process has to be repeated, in the worst case from the beginning, 
+which is cumbersome and time consuming.
 %Such a cycle can take months or even years to complete.
 
 Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
@@ -19,7 +19,7 @@ Virtual 3D models of cells and other mesoscale molecular structures can be utili
 Biologists have designed tools, such as \emph{cellPACK} \cite{cellpack}, to procedurally generate 3D models that represent the structure of micro-organisms such as viruses, or entire cells at atomic resolution.
 Based on a set of input parameters, individual molecules are assembled into these complex organic static structures. 
 The parameter set consists of a specification of molecular ingredients, concentrations as well as spatial distribution that define where are the instances distributed in a given compartment. 
-\textbf{The resulting 3D models, in most complex cases, may consist of thousands of ingredients, which in turn, may result in millions of molecules and billions of atoms. }
+The resulting 3D models, in most complex cases, may consist of thousands of ingredients, which in turn, may result in millions of molecule instances and billions of atoms.
 The instances are densely packed within the predefined compartments, to replicate the actual molecular crowding phenomenon prevailing in living organisms.
 Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism, remain hidden.
 It is therefore important to develop visualization techniques that would procedurally reproduce the occlusion management methods used in traditional illustration.

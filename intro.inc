@@ -14,6 +14,13 @@ The whole illustration process has to be repeated, in the worst case from the be
 which is cumbersome and time consuming.
 %Such a cycle can take months or even years to complete.
 
+\begin{figure}[t]
+ \centering
+ \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
+ \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
+ \caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
+\end{figure}
+
 Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
 Biologists have designed tools, such as \emph{cellPACK} \cite{cellpack}, to procedurally generate 3D models that represent the structure of micro-organisms such as viruses, or entire cells at atomic resolution.
@@ -32,12 +39,7 @@ To do this, they would need to visually inspect the presence of each single ingr
 %However, for dozens of molecular types, it would be tedious to manually check whether all are displayed, or if some have been completely removed or not yet revealed through the clipping.
 %However, to find out which of these ingredients have been actually shown by the clipping and which are completely cut or not yet revealed, one would need to manually check the presence of each single ingredient in the resulting visualization.
 
-\begin{figure}[t]
- \centering
- \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
- \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
- \caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
-\end{figure}
+
 
 To alleviate this process, we present our first contribution. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. 
 During the process of placing clipping objects in the scene, these bars therefore continuously reveal, which molecular types are underrepresented or overrepresented. 

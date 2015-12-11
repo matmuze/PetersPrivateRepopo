@@ -1,21 +1,11 @@
 \section{Overview}
 
-\begin{figure}[t]
-\centering
-%\subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
-%\subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
-\subfloat[]{\label{fig:his2}\includegraphics[width=0.25\linewidth]{figures/hi3.eps}}
-\subfloat[]{\label{fig:his3}\includegraphics[width=0.25\linewidth]{figures/hi2.eps}}
-\subfloat[]{\label{fig:his4}\includegraphics[width=0.25\linewidth]{figures/hi4.eps}}
-\subfloat[]{\label{fig:his5}\includegraphics[width=0.25\linewidth]{figures/hi5.eps}}
-\caption{\label{fig:his}Interaction with the visibility equalizer. (a) increasing the visibility ratio of the red molecules, reduces the occluding blue molecules. (b) completely decreasing the clipping ratio of the red molecules. (c) partially decreasing the clipping ratio of the blue molecules. (d) combining the steps from a and b to increase the overall visibility of the red molecules.}
-\end{figure}
-
  \begin{figure}[t]
   \centering 
 	\includegraphics[width=\linewidth]{figures/o-histogram-merged.eps}
   \caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
  \end{figure}
+
 
 \begin{comment}
  \begin{figure}[t]
@@ -80,6 +70,18 @@ The clipping objects are implicitly represented by signed distance functions. Th
 Figure \ref{fig:o} depicts the workflow of our method as a state-machine. There are three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. In the state \emph{S1}, the scene is displayed without any clipping. The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
 Clipping objects can be used to transition to state \emph{S2}, where parts of the model are removed in a deterministic way. Here, the distance function of the clipping objects determines whether an instance is clipped or not. %The implicit representation of the clipping objects allows us to simply query the signed distance function to quickly evaluate whether a molecule is inside or outside of the clipping manifold.
 The ratios of the clipped instances are displayed by the visibility equalizer. The process of placing and manipulating clipping objects corresponds with the coarse visibility specification as introduced in Section \ref{sec:intro}.
+
+\begin{figure}[t]
+\centering
+%\subfloat[]{\label{fig:his0}\includegraphics[width=0.166\linewidth]{figures/hi0.eps}}
+%\subfloat[]{\label{fig:his1}\includegraphics[width=0.166\linewidth]{figures/hi1.eps}}
+\subfloat[]{\label{fig:his2}\includegraphics[width=0.25\linewidth]{figures/hi3.eps}}
+\subfloat[]{\label{fig:his3}\includegraphics[width=0.25\linewidth]{figures/hi2.eps}}
+\subfloat[]{\label{fig:his4}\includegraphics[width=0.25\linewidth]{figures/hi4.eps}}
+\subfloat[]{\label{fig:his5}\includegraphics[width=0.25\linewidth]{figures/hi5.eps}}
+\caption{\label{fig:his}Interaction with the visibility equalizer. (a) increasing the visibility ratio of the red molecules, reduces the occluding blue molecules. (b) completely decreasing the clipping ratio of the red molecules. (c) partially decreasing the clipping ratio of the blue molecules. (d) combining the steps from a and b to increase the overall visibility of the red molecules.}
+\end{figure}
+
 
 At any point, the user can interact with the visibility equalizer to adjust the amount of the visible instances in the scene. By dragging the dark green bars, the visibility relative to occluders can be increased or decreased. Dragging the light green bars, modifies the visibility relative to clipping object. When the bars are dragged, probability thresholds of selected clipping objects are modified - directly influencing the probability that an instance of the respective type is clipped or not. This complements the deterministic clipping introduced in the coarse step.
 %Instead of the absolute clipping introduced in the coars step, the probability thresholds modify the probability for instances of a respective molecule to be ignored by the deterministic clipping object, thus remaining visible. %directly influence the amount of clipped and visible instances relative to the clipping object.

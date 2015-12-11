@@ -14,8 +14,9 @@ We applied our method to three different datasets to showcase the capabilities o
 
 \begin{figure}[t]
  \centering
- \includegraphics[width=0.5\linewidth]{figures/mycoplasma.eps}
- \caption{\label{fig:res:myco}Mycoplasma mycoides.}
+\subfloat[]{\label{fig:res:islands}\includegraphics[width=0.5\linewidth]{figures/res-islands.eps}}
+\subfloat[]{\label{fig:res:myco}\includegraphics[width=0.5\linewidth]{figures/mycoplasma.eps}}
+ \caption{\label{fig:res:res}(a) HIV clipped with a plane. Envelope proteins (blue) are reintroduced in the scene. Contextual anchoring is used to illustrate the interaction of the envelope proteins with the membrane. (b) Mycoplasma mycoides.}
 \end{figure}
 
 The second dataset to which we applied our method is a model of \emph{Mycoplasma mycoides}. Figure \ref{fig:res:myco} show how clipping object have been used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.

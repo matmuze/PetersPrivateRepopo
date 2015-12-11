@@ -154,11 +154,11 @@ An example of how we perform occlusion queries is shown in Figure \ref{fig:islan
 
 \subsection{Clipping Parameters}
 
-We provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we dub view-dependent clipping probability.
+We provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we denote as view-dependent clipping probability.
 This value is set by the user for each ingredient type.
-Once we computed the occlusion state of an instance, we evaluate the clip probability, similarly to the way we evaluate object-space clipping. 
-We compare the clipping probability with an uniformly distributed random number, initially set for each instance to determine if an occluding instance shall remain visible.
-This will however result in a uniformly distributed number of visible occluders over the object of focus, which might not always be the best design choice because it fragments heavily the overall structure of the occluders compartment, see Figure XX.
+Once we computed the occlusion state of an instance, we evaluate the clipping probability, similarly to the way we evaluate object-space clipping. 
+We compare the clipping probability with a uniformly distributed random number, initially set for each instance to determine if an occluding instance shall remain visible.
+This will however result in a uniformly distributed number of visible occluders over the object of focus. Such a distribution might not always be the best design choice because it fragments heavily the overall structure of the occluders compartment, as shown in Figure \ref{fig:df}.
 
 We propose an alternative technique for fuzzy removal of occluding instances.
 We define an additional parameter, called aperture coefficient, which controls the distance threshold in 2D from the centre to the edges of the mask, below which occluding instances shall be clipped.

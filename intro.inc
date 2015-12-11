@@ -65,7 +65,13 @@ In this way, the main components of the virus particle can be illustrated in a s
 The process of fine-tuning the visibility is extremely time-consuming, as the illustrator has to manually pick individual molecular instances to be reintroduced or removed from the scene. %in order to preserve important information whily not occlude occluding 
 %This might be done to control the under and over representation of some of the molecular types, removing instances occluding important aspects of the model, suggesting shapes, etc.
 
-To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our main technical contribution.
+
+To significantly speed up this visibility fine-tuning process, we propose a novel method for clipping instances using a fuzzy approach. 
+In addition to either, entirely show or remove instances of a given ingredient, we offer the possibility to show only an arbitrary number of them.
+The main purpose of this approach is to increase the visibility of hidden structures by removing redundant parts of occluding instances while preserving some of them.
+An analogy of this approach can be drawn with ``Screen-Door Transparency'', which is a trivial way to obtain transparency in computer graphics, by placing small holes in a polygon to reveal what is present behind.
+Additionally, we propose the novel metaphor of the \emph{visibility equalizer} for controlling efficiently this effect.
+%To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our main technical contribution.
 To explain its role, we use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
 Such a mechanism corresponds to our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
 However, hi-fi sound systems also allow users to fine-tune the sound through an \emph{equalizer}.

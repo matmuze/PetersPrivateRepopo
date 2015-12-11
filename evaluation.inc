@@ -1,43 +1,54 @@
 \section{Evaluation}
 
-Our visualization techniques have the versatility to be useful for both, scientific exploration of large bio-molecular scene, and educational purposes.
+%Our visualization technique have the versatility to be useful for both, scientific exploration of large bio-molecular scene, and educational purposes.
 
-Therefore, we evaluate the potential impact of our tool by collecting informal user feedback from different types of experts domain.
-
-In both cases we did a remote walk-through introduction of our software, while collecting feedback. Additionally we also gave them an executable version all collected a short written description of their first impression.
-
-We first sent an early version of our tool to a biomedical illustrator with a strong academic background in biochemistry and XX years of experience in the field.
-
+Our technique has potential for assisting scientific exploration of large molecular scenes, but it also has potential for educational purposes.
+Therefore we evaluate the significance of our tool by collecting informal user feedback from domain experts from this two areas.
+In both cases we did a remote walk-through introduction of our software, while collecting their first impression.
+Additionally, we gave them an executable version and asked them to provide a short written description of their impression after trying it by themselves.
+We first sent an early version of our tool to a biomedical illustrator with a strong academic background in biochemistry. 
+He has XX years of experience in the field of digital illustration and he also teaches online paid animation courses. He also teaches biology at university..blablabla...since.
+\textbf{TODO: Add more complete bio for Giorgio.}
 Here is a quote from his written feedback:
 
+%I was really impressed by the quality of the non photo realistic toon rendering that can be achieved.
+%It makes  the user able to create rendering of very complex scenes in few seconds that can be exported and tweaked for the final look in a composite software making the preproduction of high quality static rendering very fast
+%I've never seen so far software that was able to manage with such a huge number of molecules/atoms without crashing.
 
+\textit{``...in my opinion it can be a very useful toolkit  for an illustrator in the biomedical field...It also seems very promising for interactive teaching and also for animation purposes...
+One very useful feature of the software is the possibility to ``cut'' plane of interest of a particular space keeping the information of all ``layers'' creating a ``gradient'' of concentration of the ingredient of the recipe shown. 
+A visualization that reminds an ``exploded model'' but for biological assembly and it can be achieved without selecting by hand every instance you would like to hide.''}
 
-One very useful feature of the software is the possibility to “cut” plane of interest of a particular space keeping the information of all “layers” creating a “gradient” of concentration of the ingredient of the recipe shown. A visualization that reminds an “exploded model” but for biological assembly and it can be achieved without selecting by hand every instance you would like to hide.
+The overall feedback from the biomedical illustrator was very positive.
+He was impressed by how fast and responsive our software was, at manipulating such a great number of instances, in comparison with the animation and rendering tools he normally uses.
+He also enjoyed the novel concept of fuzziness and gradient clipping, which would be cumbersome to achieve with the tools he currently uses.
+As a negative point, he deplored the lack of exporting capabilities to mainstream animation packages such as Maya or Cinema 4D.
 
-I had the chance to test the software and in my opinion it can be a very useful  toolkit  for an illustrator in the biomedical field. 
-I was really impressed by the quality of the non photo realistic toon rendering that can be achieved .
-It makes  the user able to create rendering of very complex scenes in few seconds that can be exported and tweaked for the final look in a composite software making the preproduction of high quality static rendering very fast
-I’ve never seen so far software that was able to manage with such a huge number of molecules/atoms without crashing. It also seems very promising for interactive teaching and also for animation purpose.
+Secondly, we interviewed an expert in the domain of molecular biology. 
+His research focuses on development and application of computational technologies to study of the structure and function of biological molecules.
+His area of interest ranges from design of therapeutic agents for AIDS, cancer and heart disease, to development of novel algorithmic, visualization and human interface approaches for molecular 
+biology. 
+In nearly thirty years of experience, he has also contributed to a great number of molecular animations and visualizations that have appeared in popular books, magazines, newspapers and on television.
+Here is a quote from the written feedback we collected:
 
+%This work provides a state-of-the-art and powerful interactive environment for visualizing and exploring  3D models of complex cellular environments with molecular detail. 
+%Much of the problems in viewing and isolating various components of the model are assisted by the functions of this clipping environment. 
+%Below are comments on some of the features and their utility
 
+\textit{``...The aperture cutting feature is especially useful for exploring a feature or object in the context of a crowded molecular environment. 
+The ability to shade the model with the aperture cut hightens the impression that the object being viewed is embedded in the volume.
+Without the shading the object in the aperture appears to be floating above the surrounding environment, when the model is interactively manipulated.
+The ability to retain a subset of the clipped object (``fuzzy clipping'') is an interesting feature that could be very useful under certain circumstances.  
+If one wants to get an impression of reducing the concentration of some of the molecular ingredients, or of what a gradient of certain molecular ingredients would look like, this feature could be useful.''}
 
+%The approach would become even more useful if the selection of the unclipped objects could be based upon relationships between ingredients, such as retaining only selected molecules that are neighbors of one another.
 
-Comments on cellVIEW clipping/cutting environment
+For the second interview, the overall impression of the expert in molecular biology was also quite positive.
+He also greatly enjoyed how easy and fast it was to perform clipping, and also enjoyed the polished user interface for manipulating the cut object parameters.
+He also expressed the wish for several additional features to improve how the tool could be employed more efficiently by his peers.
+The first wish was to add the possibility to filter molecules according their biomolecular properties, such as molecular weight or concentration.
+He also wished to see the ghosts of clipped instances in order to visually convey the proportions of removed elements in the 3D scene while preserving the current visibility setup.
+Additionally, he highly recommended us to add directional lighting to the scene in order to improve depth perception.
+Accordingly to the expert's comments we added theses last features in the current version of the software.
 
-This work provides a state-of-the-art and powerful interactive environment for visualizing and exploring  3D models of complex cellular environments with molecular detail.  Much of the problems in viewing and isolating various components of the model are assisted by the functions of this clipping environment.  Below are comments on some of the features and their utility
-
-The ability to specify which components are clipped and which are not affected by any number of clipping objects is quite flexible and thus very useful in exploring various components of the model.  
-
-Hierarchical clipping is readily set up enabling successive objects to be “stripped away”.
-Multiple clipping objects also enables the construction of various volumes to be tailored for instructive illustrations.
-
-The ability to clip with various polygonal and polyhedral surfaces is quite useful for focusing in on regions of the model volume.   It is especially useful for examining the local environment around a particular feature or molecule.
-
-The aperture cutting feature is especially useful for exploring a feature or object in the context of a crowded molecular environment.  The ability to shade the model with the aperture cut hightens the impression that the object being viewed is embedded in the volume.  Without the shading the object in the aperture appears to be floating above the surrounding environment, when the model is interactively manipulated.
-
-The ability to retain a subset of the clipped object (“fuzzy clipping”) is an interesting feature that could be very useful under certain circumstances.  If one wants to get an impression of reducing the concentration of some of the molecular ingredients, or of what a gradient of certain molecular ingredients would look like, this feature could be useful. Also, if the selection of the unclipped objects were based upon some molecular ingredient feature, such as the molecular weight, or the order in which the ingredient was placed in the cellPACK fill, this would generate useful information.  The approach would become even more useful if the selection of the unclipped objects could be based upon relationships between ingredients, such as retaining only selected molecules that are neighbors of one another.
-
-
-
-
-Evaluation
+To summarize, the evaluation showed that, our equalizer-based approach for visibility specification was valuable and effective for both, scientific and educational purposes according to the opinion of domain experts.

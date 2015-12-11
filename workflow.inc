@@ -11,7 +11,7 @@
  \centering
  \subfloat[]{\label{fig:df0}\includegraphics[width=0.495\linewidth]{figures/islands-no.eps}}
  \subfloat[]{\label{fig:islands1}\includegraphics[width=0.495\linewidth]{figures/islands-yes.eps}}
- \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, the instances in red constitute the object of focus and the instances in grey are the potential occluders. The bar chart represents the depth-stencil of the mask. In (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. In figure (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring described in Section \ref{ssec:anchoring}.}
+ \caption{\label{fig:islands} The occlusion clipping principle using a depth-stencil mask, the instances in red constitute the object of focus. The instances in grey are the potential occluders. The bar chart represents the depth-stencil of the mask. (a) the occluders are overlapping the depth-stencil mask and will therefore be discarded. (b) the instances (in blue) will be preserved after applying a depth bias on the overlapping red instance, allowing us to perform contextual anchoring as described in Section \ref{ssec:anchoring}.}
 \end{figure}
 
 %\begin{figure}[t]
@@ -118,32 +118,27 @@ where $d(p)$ is the distance to the clipping surface from the point $p$. The fun
 
 %We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
 
-An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. The molecules of the blood serum (shown in red) are gradually removed from bottom to top. In this way, the information about the concentration of these molecules is illustrated at the bottom of the scene, while the visibility of the HIV particle (blue and green) is increased towards to top of the scene.
+An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. The molecules of the blood serum (shown in red) are gradually removed from the bottom to the top. In this way, the information about the concentration of these molecules is illustrated at the bottom of the scene, while the visibility of the HIV particle (blue and green) is increased towards to top of the scene.
 
 %\textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
 
 
 \section{View-Space Clipping}
 
-While object-space clipping using primitive shapes allows for a great degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shape diversity.
-We therefore provide an additional functionality to manually specify a set of ingredient as object of focus, and to selectively remove occluding instances to ensure a maximum degree of visibility.
-We use occlusion queries to determine what are the instances located in front of the focus region. 
-We provide users the option to control the degree of fuzziness of the clipping, similarly to object-space clipping.
+While object-space clipping with primitive shapes allows for a high degree of flexibility, it requires cumbersome manual operations for complex set-ups, and is also limited in terms of shape diversity.
+We therefore provide an additional functionality to manually specify a set of ingredients as object of focus, and to selectively remove occluding instances to ensure a maximum degree of visibility.
+We use occlusion queries to determine the instances located in front of the focus region. 
+We provide users with the option to control the degree of fuzziness of the clipping, similarly to object-space clipping.
 We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-space clipping.
-Finally, we tweak our occlusion query method to improve depth perception by performing contextual anchoring of instances that should normally be clipped, when located in the close vicinity of the focus region.
+Finally, we modify our occlusion query method to improve depth perception. This is done by performing contextual anchoring which means that instances that would normally be clipped are kept when located in close vicinity to the focus region.
 
 \subsection{Occlusion Queries}
 
 %Focus ingredients are priorly selected from the user interface.
-
 %In order to clip instances that are occluding the focus region, the most optimum approach in terms of efficiency and ease of implementation is without a doubt image-based.
-
 %Modern graphics hardware already a fixed function called occlusion queries (OQ) and which allow to determine whether an instance is visible or hidden according to previously drawn geometries.
-
 %This approach, however, would require issuing one draw call per queries, which can seriously effect the frame rate when issuing hundred of thousands of queries, because of GPU driver overhead.
-
 %The rendering tool we are using already allows to render the entire scene in a single call to avoid latency due to the GPU driver.
-
 %Due to the potentially large number of instances in the scenes we showcase, we accelerate the computation of occluding instances using an image-based approach on the GPU.
 
 We perform occlusion queries using an image-based approach on the GPU.
@@ -156,7 +151,7 @@ Due to early depth-stencil test, implicitly performed by the graphics hardware, 
 We then update the clipping state of the occluding instance by updating a flag stored in the main video memory directly from the fragment shader.
 An example of how we perform occlusion queries is shown in Figure XX a.
 
-\subsection{Clip Parameters}
+\subsection{Clipping Parameters}
 
 We provide an additional parameter to control the degree of fuzziness of the view-dependant clipping, which we dub view-dependant clipping probability.
 This value is priorly set by the user for each ingredient type.

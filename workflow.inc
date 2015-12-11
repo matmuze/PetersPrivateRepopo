@@ -45,16 +45,27 @@
 %Instances whose properties lie outside on these ranges are marked as culled and discarded.
 %For the book-keeping is the clipped ingredient we count for each ingredient type how many instances where discarded in total, for all active cut object.
 
+
+\begin{comment}  
+\section{Clipping}
+Clipping objects define which instances of a given ingredient type are displayed.
+There are two ways of how a clipping object can influence the clipping: either in object-space or in view-space.
+
+\subsection{Object-Space Clipping}
+
+\end{comment}  
+
 \section{Object-Space Clipping}
 
-Clipping objects define how many instances of a given ingredient type shall be displayed.
-There are two ways how can a clipping object influence the clipping, either in object-space or in view-space.
-Using an object-space approach, the clipping objects will discard instances independently from the view direction. 
-Clipping objects are applied consecutively as explained in Figure XX, and this operation is recomputed every frame.
-In this section we will explain in details how clipping objects operate in object-space.
+Clipping objects define which instances of a given ingredient type are displayed.
+There are two ways of how a clipping object can influence the clipping: either in object-space or in view-space.
+%%%%%%%%%%%%%%%%%%%%%%
+In this Section we will explain in detail how clipping objects operate in object-space.
+Using an object-space approach, the clipping objects will discard instances independent of the viewing direction. 
+Clipping objects are applied consecutively as explained in Figure \ref{fig:o0}. This operation is recomputed every frame.
 The first step of the process is to determine, for each instance, if they are located in the clipping region.
-Then, once the instances are localized, they will be clipped according to object-space clipping parameters, which we describe in Section \ref{ssec:clip_params}.
-Moreover, we introduce advanced parametrization of the distance field falloff, for generating customizable gradient clipping effects.
+Once the instances are localized, they will be clipped according to object-space clipping parameters, which we describe in Section \ref{ssec:clip_params}.
+Moreover, we introduce the distance field falloff, an advanced parametrization for generating customizable gradient clipping effects.
 
 \subsection{Clipping Region Localization}
 

@@ -2,9 +2,6 @@
 
 We applied our method to three different datasets to showcase the capabilities of our method. The first dataset is a model of an HIV particle in blood serum. Figure \ref{fig:res:islands} shows it clipped with a single plane. The contextual anchoring is applied to reintroduce parts of the clipped membrane (purple) around the envelope proteins (blue).
 
-
-
-
 \begin{figure}[t]
  \centering
 \subfloat[]{\label{fig:res:islands}\includegraphics[width=0.5\linewidth]{figures/res-islands.eps}}
@@ -12,21 +9,12 @@ We applied our method to three different datasets to showcase the capabilities o
 
 \subfloat[]{\label{fig:res:eq}\includegraphics[width=\linewidth]{figures/eq-s.eps}}
 
- \caption{\label{fig:res:res}(a) HIV clipped with a plane. Envelope proteins (blue) are reintroduced in the scene. Contextual anchoring is used to illustrate the interaction of the envelope proteins with the membrane. (b) Mycoplasma mycoides with ribosomes (blue) shown. (c) Internal structures of a mature HIV model are shown by several clipping objects. On the left, the visibility equalizer is shown.}
+ \caption{\label{fig:res:res}(a) HIV clipped with a plane. Envelope proteins (blue) are reintroduced in the scene. Contextual anchoring is used to illustrate the interaction of the envelope proteins with the membrane. (b) Mycoplasma mycoides with ribosomes (blue) shown. (c) Internal structures of a immature HIV model are shown by several clipping objects. On the left, the visibility equalizer is shown.}
 \end{figure}
-
-
 
 The second dataset is a model of \emph{Mycoplasma mycoides}. Figure \ref{fig:res:myco} show how probabilistic clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
 
-The third dataset, shown in Figure \ref{fig;res:eq} is a model of mature HIV particle. Here, we applied several clipping objects to reveal the internal structure of the virus particle. The blood serum (blue) have been preserved around the particle using the probabilistic clipping to illustrate how the particle it encloses the HIV particle. The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. The white boxes to the left of each stacked bar is used to mark the given ingredient or compartment as focus.
-
-
-
-
-
-
-
+The third dataset, shown in Figure \ref{fig;res:eq} is a model of immature HIV particle. Here, we applied several clipping objects to reveal the internal structure of the virus particle. The blood serum (blue) have been preserved around the particle using the probabilistic clipping to illustrate how the particle it encloses the HIV particle. The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. The white boxes to the left of each stacked bar is used to mark the given ingredient or compartment as focus.
 
 
 \begin{figure}[t]

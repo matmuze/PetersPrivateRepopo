@@ -108,7 +108,7 @@ Each time the scene is refreshed, visible and clipped instances are counted and 
 It is important to mention that with multiple clipping objects, the interaction with the Visibility Equalizer will only affect the properties of the selected clipping object.
 By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
 Upon modification of the Visibility Equalizer values, the scene is updated and re-rendered to match with the user specified clipping properties.
-This state corresponds to the fine visibility tuning is illustrated in Figure \ref{fig:his}.
+This state corresponds to the fine visibility tuning as illustrated in Figure \ref{fig:his}.
 
 %The lower part of Figure \ref{fig:o} shows the technical overview of our method. 
 %At the beginning of the pipeline, multiple clipping objects are placed in the scene to filter the data. 

@@ -3,7 +3,7 @@
 In this paper, we present a novel method for authoring cutaway illustrations of mesoscopic molecular models.
 Our system uses clipping objects to selectively remove instances based on their type and location. 
 To monitor and fine-tune the process, we introduce the visibility equalizer. 
-It keeps the user informed about the number of the molecular instances removed by the clipping objects, or occluded in the current viewpoint. 
+It keeps the user informed about the number of the molecular instances removed by the clipping objects, or occluded in the current viewport. 
 Moreover, the visibility equalizer allows the users to directly override the behaviour of the clipping objects in order to fine-tune the visibility of molecular ingredients within the scene.
 
 The visibility equalizer concept demonstrates a scenario where a visualization metaphor, such as the stacked bar chart in our case, can serve as a user interface for performing a specific task, in our case authoring a cutaway design. 

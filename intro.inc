@@ -14,12 +14,6 @@ The whole illustration process has to be repeated, in the worst case from the be
 which is cumbersome and time consuming.
 %Such a cycle can take months or even years to complete.
 
-\begin{figure}[t]
- \centering
- \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
- \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
- \caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
-\end{figure}
 
 Considering the rapid evolution of knowledge in the field of biology, it is necessary to adapt the traditional illustration pipeline so that new information can be plugged in easily and resulting illustrations can be updated in a very short time.
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
@@ -39,19 +33,9 @@ To do this, they would need to visually inspect the presence of each single ingr
 %However, for dozens of molecular types, it would be tedious to manually check whether all are displayed, or if some have been completely removed or not yet revealed through the clipping.
 %However, to find out which of these ingredients have been actually shown by the clipping and which are completely cut or not yet revealed, one would need to manually check the presence of each single ingredient in the resulting visualization.
 
-
-
 To alleviate this process, we present our first contribution. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. 
 During the process of placing clipping objects in the scene, these bars therefore continuously reveal, which molecular types are underrepresented or overrepresented. 
 This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the coarse-level of the visibility specification process.
-
-\begin{figure}[t]
- \centering
- \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
- \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
- \caption{\label{fig:hiv}(a) Illustration of an HIV. Here, outside membrane of the virus particle is visible. (b) Cutaway view of an HIV particle.
-  Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
-\end{figure}
 
 To preserve important structures that would be removed through clipping objects, such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. 
 In Figure \ref{fig:hiv1}, for instance, the glycoproteins (yellow molecules) of the HIV particle which are not occluding the object of interest, in this case the capsid containing the RNA, are left in the illustration to communicate their presence on the surface of the virus (\ref{fig:hiv0}).
@@ -65,6 +49,13 @@ In this way, the main components of the virus particle can be illustrated in a s
 %In particular, those glycoproteins which are not occluding the object of interest, were chosen to be kept in the illustration providing the contextual information.
 The process of fine-tuning the visibility is extremely time-consuming, as the illustrator has to manually pick individual molecular instances to be reintroduced or removed from the scene. %in order to preserve important information whily not occlude occluding 
 %This might be done to control the under and over representation of some of the molecular types, removing instances occluding important aspects of the model, suggesting shapes, etc.
+
+\begin{figure}[t]
+\centering
+\subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
+\subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
+\caption{\label{fig:which}Which of the proteins shown in (a) are visible in the illustration shown in (b) and which are not?}
+\end{figure}
 
 
 To significantly speed up this visibility fine-tuning process, we propose a novel method for clipping instances using a fuzzy approach. 

@@ -13,7 +13,7 @@ While the concept was applied to a specific domain, we also wish to develop othe
 
 There are several follow-up ideas which we would like to focus on in the future, to strengthen data exploration and showcasing with cellVIEW.
 Firstly, we would like to explore automatic clipping mechanisms to assist the user with the placement of clipping-objects based on the nature of the scene and shape analysis.
-Secondly, we would also like to try our visibility equalizer concept with time-dependant datasets and enhance it to provide the means for authoring animations of clipped datasets.
+Secondly, we would also like to try our visibility equalizer concept with time-dependent datasets and enhance it to provide the means for authoring animations of clipped datasets.
 
 Our Visibility Equalizer method is built on top of cellVIEW and Unity3D, which are both free to use for non-commercial use, the source code is publicly available, as well as the showcased scenes modelled with cellPACK (https://github.com/illvisation/cellVIEW).
 

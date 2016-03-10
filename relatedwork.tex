@@ -25,8 +25,14 @@ Sigg et al. \cite{sigg12} propose an approach for automatic cutaway box placemen
 %A view dependent peel-away approach for volume data was proposed by Birkeland and Viola \cite{birkeland09}. 
 The approach by Diaz et al. \cite{diaz12} preserves the relevant context information in volume clipping by allowing the user to extrude segmented surfaces such as bone structures from the clipping plane.
 
+Since these approaches are object centered, they deal with (partial) occlusion of individual objects. For our data, partial or even complete occlusion of individual molecules is not an issue. The data is not composed of large singular entities such as polygonal or segmented volumetric objects where each single one has a semantic meaning. Instead, there are thousands or hundreds of thousands of instances that stem from only a couple of dozen molecule types. Therefore it does not matter if individual instances are occluded, as long as the structures that they form are preserved.
+Our approach is therefore fundamentally different from existing occlusion management approaches as it combines principles from object centered and transfer function based approaches.
+
+
 \noindent
 \textbf{Transfer Function Based Approaches.}
+Transfer function based approaches are related as our data resembles volumetric data in the sense that it consists of a dense point cloud.
+However, instead of continuous attribute values distributed over voxels, our data features a discrete number of molecule types. This characteristic enables our visibility equalizer approach.
 The context-preserving volume rendering model \cite{Bruckner05} uses a function of shading intensity, gradient magnitude, distance to the eye point, and previously accumulated opacity to selectively reduce the opacity in less important data regions. Contours of surfaces that would be removed due to opacity, remain visible as the amount of illumination received is taken as a measure whether a point should be visible or not.
 Burns et al. \cite{Burns07} propose a multimodal approach that combines CT scan data and real-time ultrasound data. Importance driven shading is used to emphasize features of higher importance that have been revealed through the ghosting.
 
@@ -38,10 +44,7 @@ In our approach, we control visibility by interacting with the stacked bars of t
 Ruiz et al. \cite{ruiz11} propose an approach for automatic transfer function op
 timization by minimizing the informational divergence between a user specified target distribution and the visibility distribution captured from certain viewpoints. 
 
-Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other side, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures. 
-In regard to object centered approaches, (partial) occlusion of individual molecules is not an issue as the data does not contain large singular entities such as polygonal or segmented volumetric objects where each single one has a semantic meaning. Instead there are thousands or hundreds of thousands of instances that belong to a couple of dozen molecule types.
-Our approach is therefore fundamentally different from existing occlusion management approaches as it combines principles from object centered and transfer function approaches. 
-
+Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other side, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures.
 
 \subsection{Mutli-Scale Visualization of Molecular Structures}
 %The visualization of the molecular structures in our approach is based on the publicly available cellView \cite{muzic15}. The tool is capable of rendering structures that are comprised of several billions atoms at interactive frame rates in multiple levels of detail.  

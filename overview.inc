@@ -2,7 +2,7 @@
 
  \begin{figure}[t]
   \centering 
-	\includegraphics[width=0.7\linewidth]{figures/o-histogram-merged.eps}
+	\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
   \caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
  \end{figure}
 

@@ -11,7 +11,7 @@
 
 
 \title[Visibility Equalizer]%
-      {\textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} Visibility Equalizer \textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} \\ Cutaway Visualization of Mesoscopic Biological Models}
+      {\textcolor{darkgreen}{------}\textcolor{green}{-----}\textcolor{grey}{---} Visibility Equalizer \textcolor{grey}{---}\textcolor{green}{-----}\textcolor{darkgreen}{------} \\ Cutaway Visualization of Mesoscopic Biological Models}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
@@ -22,10 +22,11 @@
         L. Autin$^{3}$,
         and I. Viola$^{1}$        
         \\
-% For Computer Graphics Forum: Please use the abbreviation of your first name.
+%For Computer Graphics Forum: Please use the abbreviation of your first name.
          $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La Jolla, California, USA
-%             with different affiliations
        }
+
+%\author[275]{Submission ID 275}
 
 % ------------------------------------------------------------------------
 
@@ -40,12 +41,30 @@
 %-------------------------------------------------------------------------
 \begin{document}
 
-% \teaser{
-%  \includegraphics[width=\linewidth]{eg_new}
-%  \centering
-%   \caption{New EG Logo}
-% \label{fig:teaser}
-% }
+\teaser{
+% \includegraphics[width=\linewidth]{eg_new}
+% \centering
+%  \caption{New EG Logo}
+%\label{fig:teaser}
+
+\centering
+\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
+\subfloat[]{\label{fig:res:w3}\includegraphics[width=0.25\linewidth]{figures/res-w8.eps}}
+\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
+\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
+
+\caption{\label{fig:teaser}The workflow of our method for a model of HIV surrounded with blood plasma proteins. (a) Entire dataset is shown. The blood serum (shown in red) is occluding the virus. (b) Clipping objects are added to selectively clip molecules to reveal the HIV capsid. (c) The illustrator decides to show more of the matrix protein (shown in blue), so their clipping is disabled. However, they are now occluding the view of the capsid. (d) The probabilistic clipping has been used to selectively remove those matrix proteins occluding the capsid, but some of them are left in the scene to indicate the presence of this type of protein on the virus membrane. The capsid has been clipped with view-space clipping to reveal its internals.}
+%\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
+%\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w1.eps}}
+%\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w2.eps}}
+%\subfloat[]{\label{fig:res:w3}\includegraphics[width=0.25\linewidth]{figures/res-w3.eps}}
+
+%\subfloat[]{\label{fig:res:w4}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
+%\subfloat[]{\label{fig:res:w5}\includegraphics[width=0.25\linewidth]{figures/res-w5.eps}}
+%\subfloat[]{\label{fig:res:w6}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
+%\subfloat[]{\label{fig:res:w7}\includegraphics[width=0.25\linewidth]{figures/res-w7.eps}}
+
+}
 
 \maketitle
 
@@ -57,7 +76,7 @@ Our method constitutes a two stage process.
 In the first step, clipping objects are placed in the scene, creating a cutaway visualization of the model.
 During this process, a hierarchical list of stacked bars inform the user about the instance visibility distribution of each individual molecular type in the scene.
 In the second step, the visibility of each molecular type is fine-tuned through these bars, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
-An evaluation of our technique with scientific illustrators confirmed that......... they liked it!!!
+An evaluation of our technique with domain experts from biomedical illustration and molecular biology confirmed that our equalizer-based approach for visibility specification was valuable and effective for both, scientific and educational purposes.
 
 
 

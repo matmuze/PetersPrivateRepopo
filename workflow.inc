@@ -56,6 +56,13 @@ In this Section, we will explain in details how clipping objects operate in obje
 
 \subsection{Clipping Object Distance}
 \label{localization}
+%Although supported shapes have a rather simple topology, it may still be computationally expensive, using a mesh-based representation, to compute a signed distance for a large number of instances.
+%Indeed, using a triangle-based discretization would imply computing the signed distance between the instances and every single triangle of the mesh.
+%Using such representation instead reduces the problem of evaluating the signed distance to solving trivial equations.
+%It is also possible to apply simple SDF operators to the distance field, such as translation, rotation and scaling.
+%The clipping region can also be reversed by inverting the result of the signed distance function, offering users flexibility.
+%For instance, using a spherical shape, the clip region would be set to the inside of the sphere by default, while in inverted mode it would correspond to the outside of the sphere. 
+%Although the set of offered clipping shapes is yet limited, it would be trivial to enrich it using more complex SDF operators, such as union, to merge several shapes together in one single distance field, and thus obtain more complex clipping region shapes.
 %The first task of the object-space clipping is to determine whether an instance is located in the clipping region.
 %This operation is repeated every frame for each instance of the scene.
 Clipping objects are associated with geometric shapes to specify a region of the domain which is influenced by the clipping.
@@ -69,15 +76,6 @@ The position, rotation, scale and geometry type of every clipping object must be
 In a single thread and for each clipping object, the required information is fetched from the video memory and is used to compute the signed distance between an instance and the clipping object.
 Should an object be clipped, a dedicated flag in a GPU buffer will be updated, and that flag will be read during the rendering to discard the clipped instance.
 
-%Although supported shapes have a rather simple topology, it may still be computationally expensive, using a mesh-based representation, to compute a signed distance for a large number of instances.
-%Indeed, using a triangle-based discretization would imply computing the signed distance between the instances and every single triangle of the mesh.
-%Using such representation instead reduces the problem of evaluating the signed distance to solving trivial equations.
-%It is also possible to apply simple SDF operators to the distance field, such as translation, rotation and scaling.
-
-%The clipping region can also be reversed by inverting the result of the signed distance function, offering users flexibility.
-%For instance, using a spherical shape, the clip region would be set to the inside of the sphere by default, while in inverted mode it would correspond to the outside of the sphere. 
-%Although the set of offered clipping shapes is yet limited, it would be trivial to enrich it using more complex SDF operators, such as union, to merge several shapes together in one single distance field, and thus obtain more complex clipping region shapes.
-
 \subsection{Clipping Filtering} \label{ssec:clip_params}
 
 A clipping object also comprises a set of parameters that override the clipping state of instances based on their type.
@@ -89,7 +87,7 @@ Clipping objects are applied in serial, the output of a clipping object constitu
 It is important to mention that with multiple clipping objects, interaction with the light green bar in the visibility equalizer will only affect the clipping probability of the selected clipping object.
 
 Upon start-up of the system, each instance is given a uniformly distributed random number comprised between $0$ and $1$, and which will remain unchanged.
-Then, for each instance in the computer shader program, we compare this value with the clipping probability .
+Then, for each instance, we compare this value with the clipping probability in the computer shader program.
 In case the constant random number is higher than the clipping probability, the instance is marked as discarded, and will not be rendered. 
 For example, if the clipping probability value is equal to zero, all instances in the clipping region will be clipped, if the value is equal to one, no instance will be clipped.
 A value between zero and one thus allows to control the degree of fuzziness of a clipping, as explained in Figure \ref{fig:his}.
@@ -128,14 +126,7 @@ The focus state can be manually specified via the visibility equalizer by tickin
 %We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-space clipping.
 %Finally, we modify our occlusion query method to improve depth perception. This is done by performing contextual anchoring which means that instances that would normally be clipped are kept when located in close vicinity to the focus region.
 
-\begin{figure}[t]
-\centering
-\subfloat[]{\label{fig:df0}\includegraphics[width=0.25\linewidth]{figures/df0.eps}}
-\subfloat[]{\label{fig:df1}\includegraphics[width=0.25\linewidth]{figures/df1.eps}}
-\subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
-\subfloat[]{\label{fig:df3}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
-\caption{\label{fig:df}View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
-\end{figure}
+
 
 \subsection{Occlusion Queries}
 
@@ -166,6 +157,15 @@ Thanks to early depth-stencil functionality, available on modern graphics hardwa
 We then update the clipping state of the occluding instance by updating its corresponding occlusion flag stored in the main video memory directly from the fragment program.
 
 %An example of how we perform occlusion queries is shown in Figure \ref{fig:df0}.
+
+\begin{figure}[t]
+\centering
+\subfloat[]{\label{fig:df0}\includegraphics[width=0.25\linewidth]{figures/df0.eps}}
+\subfloat[]{\label{fig:df1}\includegraphics[width=0.25\linewidth]{figures/df1.eps}}
+\subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
+\subfloat[]{\label{fig:df3}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
+\caption{\label{fig:df}View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
+\end{figure}
 
 \subsection{Clipping Filtering}
 
@@ -203,11 +203,11 @@ Elements in grey and red correspond respectively to potentional occluders and oc
 
 When observing still images of cut-away scenes, it might be challenging to perceive the depth of objects correctly, despite using lighting-based depth cues.
 We propose an additional method for depth guidance, which we call \emph{contextual anchoring}.
-The concept is to override the results of the clipping, to preserve elements located in a close range to non-clipped elements, and that would normally be clipped.
+The concept is to override the results of clipping, to preserve elements located in a close range to non-clipped elements, and that would normally be clipped.
 By introducing contextual anchoring, the viewer, assuming that he is aware of what the context elements are, will intuitively understand where instances are located.
-This principle in shown in Figure \ref{fig:hiv1}, where we can observe parts of the green membrane anchored around channel molecules, and which indicate that they are located on the surface of the object.
+%This principle in shown in Figure \ref{fig:hiv1}, where we can observe parts of the green membrane anchored around channel molecules, and which indicate that they are located on the surface of the object.
 We were able to procedurally reproduce this effect by applying a depth bias to the occlusion queries computation for selected focused molecules.
-This bias will ensure that contextual elements will no longer overlap the focus and will therefore be preserve. %d as illustrated in Figure \ref{fig:islands}.
+This bias will ensure that contextual elements will no longer overlap the focus and will therefore be preserve as illustrated in Figure \ref{fig:islands}.
 
 \section{Equalizing Visibility}
 

@@ -1,11 +1,24 @@
-\section{Conclusion}
+\section{Conclusion and Future Work}
 
-In this paper, we present a novel method for authoring cutaway illustrations made from mesoscopic biological 3D models. To monitor and fine-tune the process, we introduce the visibility equalizer. It keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. Moreover, the visibility equalizer allows the users to directly change these ratios by interacting with the visibility equalizer, thus fine-tuning the visibility of the individual molecular ingredients within the visualized scene.
+In this paper, we present a novel method for authoring cutaway illustrations of mesoscopic molecular models.
+Our system uses clipping objects to selectively remove instances based on their type and location. 
+To monitor and fine-tune the process, we introduce the visibility equalizer. 
+It keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. 
+Moreover, the visibility equalizer allows the users to directly override the behaviour of the clipping objects, to fine-tune the visibility of the individual molecular ingredients within the scene.
 
-The proposed method allows the illustrators to create high quality illustrations from the pre-packed biological models in a reasonable amount of time. This was confirmed by gathering feedback from the professional illustrators, as well as by recreating existing illustrations with our method. While being simple to use, the method gives the user a considerable level of artistic freedom.
+The general conceptual of this work is demonstration of a scenario where a visualization metaphor, such as the stacked bar chart in our case, can serve as a user interface for performing a specific task, in our case authoring a cutaway design. 
+The proposed method allows the illustrators to create high quality illustrations from the pre-generated biological models in real-time.
+This was confirmed by gathering feedback from the professional illustrators, as well as by recreating existing illustrations with our method. 
+While the visibility equalizer concept was applied to a specific domain, we also wish to see other examples where the (information) visualization acts simultaneously as an interface to steer the view.
 
-The conceptual contribution of this work is demonstration of a scenario where a visualization metaphor, such as the stacked bar chart in our case, can serve as a user interface for performing a specific task, in our case authoring a cutaway design. We expect to see further cases where the (information) visualization acts simultaneously as the user interface.
+There are several follow-up ideas which we would like to focus in the future to strengthen data exploration and showcasing with cellVIEW.
+Firstly, we would like to explore automatic clipping mechanism to assist the user with the placement of clipping-objects based on the nature of the scene and shape analysis.
+Secondly, we would also like to try our visibilty equalizer concept with time-dependant dataset and enhance it to provide the means for authoring animations of clipped datasets.
 
+Our Visibility Equalizer method is built on top of cellVIEW and Unity3D which are both free to use for non-commercial use, the source code is publicly available, as well as the showcased scenes modelled with cellPACK (https://github.com/illvisation/cellVIEW).
 
+%While being simple to use, the method gives the user a considerable level of artistic freedom.
+%The conceptual contribution of this work is demonstration of a scenario where a visualization metaphor, such as the stacked bar chart in our case, can serve as a user interface for performing a specific task, in our case authoring a cutaway design. 
+%We expect to see further cases where the (information) visualization acts simultaneously as the user interface.
 %During the whole authoring process, our method keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. 
 

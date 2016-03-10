@@ -49,7 +49,8 @@ This enables the illustrator to modify the placement of the clipping objects in 
  \centering
  \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/hiv0.eps}}
  \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/hiv1.eps}}
- \caption{\label{fig:hiv}(a) Illustration of an HIV particle. Here, outside membrane of the virus particle is visible. (b) Cutaway view of an HIV particle. Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
+ \caption{\label{fig:hiv}(a) Illustration of an HIV. Here, outside membrane of the virus particle is visible. (b) Cutaway view of an HIV particle.
+  Despite the cutaway, some of the glycoproteins (yellow molecules) are kept in the view to provide adequate context.}
 \end{figure}
 
 To preserve important structures that would be removed through clipping objects, such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. 

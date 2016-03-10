@@ -2,7 +2,7 @@
 
  \begin{figure}[t]
   \centering 
-	\includegraphics[width=\linewidth]{figures/o-histogram-merged.eps}
+	\includegraphics[width=0.7\linewidth]{figures/o-histogram-merged.eps}
   \caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
  \end{figure}
 
@@ -51,25 +51,70 @@
 %We utilize \emph{cellView} \cite{muzic15} tool for both representation and rendering of our 3D scenes.
 %These scenes can consist up to billions of individual atoms, each belonging to one of the molecular ingredients.
 
-The two main components of our method are the \emph{clipping objects} and the \emph{visibility equalizer}. The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. It contains a series of stacked bars, one for each molecular ingredient. The stacked bars show the relation of three visibility values to each other: \emph{a} - the ratio of visible instances of the given ingredient from the current viewpoint; \emph{b} - the ratio of occluded instances; \emph{c} - the ratio of instances which are removed by the clipping objects. The instances are never partially clipped - they are either removed or preserved in the scene. This means that we can derive the visibility values by counting the visible and clipped-away instances.
 
 
-
-%These are the three states that an instance can have. The states are accumulated for all instances of each molecle type. Instances are therefore never partially clipped or partially occluded.
-
+%The instances are never partially clipped - they are either removed or preserved in the scene. 
+%This means that we can derive the visibility values by counting the visible and clipped-away instances.
+%These are the three states that an instance can have. 
+%The states are accumulated for all instances of each molecle type. 
+%Instances are therefore never partially clipped or partially occluded.
 %Partial occlusion is therefore not taken into account. 
-%An important property of the clipping objects is that they always clip the scene per molecular instance. This means that the whole molecule is always either shown, or clipped away.
+%An important property of the clipping objects is that they always clip the scene per molecular instance. 
+%This means that the whole molecule is always either shown, or clipped away.
 
-The clipping objects are implicitly represented by signed distance functions. The zero level set represents the surface clipping object. Positive distances lie outside of the object and negative distances within the object. Clipping can occur relative to the object, which we refer to as \emph{object-space clipping} but also relative to the viewpoint, which we describe as \emph{view-space clipping}. For the latter, the shape of the clipping object acts as a focus region that is revealed through clipping based on its projection onto the screen.
+%The clipping objects are implicitly represented by signed distance functions. The zero level set represents the surface clipping object. 
+%Positive distances lie outside of the object and negative distances within the object. 
+%Clipping can occur relative to the object, which we refer to as \emph{object-space clipping} but also relative to the viewpoint, which we describe as \emph{view-space clipping}. 
+%For the latter, the shape of the clipping object acts as a focus region that is revealed through clipping based on its projection onto the screen.
 
 %culling in respect to the current viewpoint.
-%can be either used for clipping parts of the scene inside the manifold, which we refer to as . Alternatively, they can be used to localize clipping of occluders of a specified focus region from the given viewpoint, which we refer to as .
+%can be either used for clipping parts of the scene inside the manifold, which we refer to as . 
+%Alternatively, they can be used to localize clipping of occluders of a specified focus region from the given viewpoint, which we refer to as .
 
-%The clipping objects are defined by the distance functions, where the zero level set represents the clipping manifold. They can be arbitrarily positioned within the 3D scene. Additionally, the clipping objects contain several parameters, which modify the way in which they are clipping the molecules in the scene. In particular, each clipping object has a probability threshold $v_1$. $v_1$ specifies the probability of an instance inside the clipping manifold being clipped away. By default, $v_1 = 1$.
+%The clipping objects are defined by the distance functions, where the zero level set represents the clipping manifold. 
+%They can be arbitrarily positioned within the 3D scene. 
+%Additionally, the clipping objects contain several parameters, which modify the way in which they are clipping the molecules in the scene. 
+%In particular, each clipping object has a probability threshold $v_1$. $v_1$ specifies the probability of an instance inside the clipping manifold being clipped away.
+%By default, $v_1 = 1$.
 
-Figure \ref{fig:o} depicts the workflow of our method as a state-machine. There are three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. In the state \emph{S1}, the scene is displayed without any clipping. The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
-Clipping objects can be used to transition to state \emph{S2}, where parts of the model are removed in a deterministic way. Here, the distance function of the clipping objects determines whether an instance is clipped or not. %The implicit representation of the clipping objects allows us to simply query the signed distance function to quickly evaluate whether a molecule is inside or outside of the clipping manifold.
-The ratios of the clipped instances are displayed by the visibility equalizer. The process of placing and manipulating clipping objects corresponds with the coarse visibility specification as introduced in Section \ref{sec:intro}.
+%The ratios of the clipped instances are then immediately displayed by the visibility equalizer. 
+%The implicit representation of the clipping objects allows us to simply query the signed distance function to quickly evaluate whether a molecule is inside or outside of the clipping manifold.
+%The process of placing and manipulating clipping objects corresponds with the coarse visibility specification as introduced in Section \ref{sec:intro}.
+
+%When the bars are dragged, probability thresholds of selected clipping objects are modified - directly influencing the probability that an instance of the respective type is clipped or not. 
+%This complements the deterministic clipping introduced in the coarse step.
+%Instead of the absolute clipping introduced in the coars step, the probability thresholds modify the probability for instances of a respective molecule to be ignored by the deterministic clipping object, thus remaining visible. %directly influence the amount of clipped and visible instances relative to the clipping object.
+%This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. 
+
+The two main components of our method are the \emph{clipping objects} and the \emph{visibility equalizer}. 
+The role of the clipping objects is to discard elements according to their distance to a geometric shape, which we refer to as \emph{object-space clipping}, but also according to whether or not they occlude certain objects in the current viewport, which we describe as \emph{view-space clipping}.
+The role of the visibility equalizer is to override the behaviour of the clipping objects.
+The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. 
+It contains a series of stacked bars, one for each molecular ingredient, which can be manipulated by user-interaction. 
+The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of non-visible instances to the total number of instances; \emph{c} - the ratio of clipped instances to the total number of instances. 
+
+Figure \ref{fig:o} depicts the workflow of our method as a state-machine.
+We demonstrated three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. 
+
+\textbf{State 1: }The scene is displayed without any clipping. 
+The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
+
+\textbf{State 2: }Clipping objects are added to filter-out elements according to the distance to a clipping object's shape.
+This state corresponds to the coarse visibility tuning.
+Clipping objects are applied in serial, the output of a clipping object constitute the input of the next one. 
+Each time the scene is refreshed, visible and clipped instances are counted and the values of the visibility equalizer are updated accordingly. 
+
+\textbf{State 3: }The user overrides the behaviour of a clipping object, a thus the degree of visibility of an ingredient, by interacting with the Visibility Equalizer. 
+It is important to mention that with multiple clipping objects, the interaction with the Visibility Equalizer will only affect the properties of the selected clipping object.
+By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
+Upon modification of the Visibility Equalizer values, the scene is updated and re-rendered to match with the user specified clipping properties.
+This state corresponds to the fine visibility tuning is illustrated in Figure \ref{fig:his}.
+
+%The lower part of Figure \ref{fig:o} shows the technical overview of our method. 
+%At the beginning of the pipeline, multiple clipping objects are placed in the scene to filter the data. 
+%In case the user interacts with the stacked bars of the visibility equalizer, the properties of the selected clipping object are modified. 
+
+%During the whole process of the visibility specification, the user is informed about the amounts of the visible and clipped-away instances in the scene through the visual encoding of the visibility equalizer.
 
 \begin{figure}[t]
 \centering
@@ -81,17 +126,6 @@ The ratios of the clipped instances are displayed by the visibility equalizer. T
 \subfloat[]{\label{fig:his5}\includegraphics[width=0.25\linewidth]{figures/hi5.eps}}
 \caption{\label{fig:his}Interaction with the visibility equalizer. (a) increasing the visibility ratio of the red molecules, reduces the occluding blue molecules. (b) completely decreasing the clipping ratio of the red molecules. (c) partially decreasing the clipping ratio of the blue molecules. (d) combining the steps from a and b to increase the overall visibility of the red molecules.}
 \end{figure}
-
-
-At any point, the user can interact with the visibility equalizer to adjust the amount of the visible instances in the scene. By dragging the dark green bars, the visibility relative to occluders can be increased or decreased. Dragging the light green bars, modifies the visibility relative to clipping object. When the bars are dragged, probability thresholds of selected clipping objects are modified - directly influencing the probability that an instance of the respective type is clipped or not. This complements the deterministic clipping introduced in the coarse step.
-%Instead of the absolute clipping introduced in the coars step, the probability thresholds modify the probability for instances of a respective molecule to be ignored by the deterministic clipping object, thus remaining visible. %directly influence the amount of clipped and visible instances relative to the clipping object.
-%This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. 
-This situation is represented by the state \emph{S3} and corresponds to the visibility fine-tuning step. The possible interactions with the visibility equalizer are illustrated in Figure \ref{fig:his}.
-
-The lower part of Figure \ref{fig:o} shows the technical overview of our method. At the beginning of the pipeline, multiple clipping objects are placed into the 3D scene, filtering the data. Each clipping object filters the output of the previous one. In the rendering stage, the visible and clipped-away instances are counted in respect to the current viewpoint and the visibility equalizer is updated each frame. In case the user interacts with the stacked bars of the visibility equalizer, the probability thresholds of the selected subset of the clipping object are modified. Then the 3D scene is updated to match with the specification in the visibility equalizer. %During the whole process of the visibility specification, the user is informed about the amounts of the visible and clipped-away instances in the scene through the visual encoding of the visibility equalizer.
-
-
-
 
 
 

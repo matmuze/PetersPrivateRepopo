@@ -46,6 +46,10 @@
 \usepackage{egweblnk}
 \usepackage{cite}
 
+\usepackage{subfig}
+\usepackage{epstopdf}
+
+
 % For backwards compatibility to old LaTeX type font selection.
 % Uncomment if your document adheres to LaTeX2e recommendations.
 % \let\rm=\rmfamily    \let\sf=\sffamily    \let\tt=\ttfamily
@@ -54,4 +58,34 @@
 
 % end of prologue
 
-\input{EGauthorGuidelines-body.inc}
+%\input{EGauthorGuidelines-body.inc}
+
+\input{title.inc}
+
+\input{intro.inc}
+
+\input{relatedwork.tex}
+
+\input{overview.inc}
+
+\input{workflow.inc}
+
+\input{results.inc}
+
+\input{evaluation.inc}
+
+\input{conclusions.inc}
+
+
+
+%-------------------------------------------------------------------------
+
+%\bibliographystyle{eg-alpha}
+\bibliographystyle{eg-alpha-doi}
+
+\bibliography{ref}
+
+%-------------------------------------------------------------------------
+
+
+\end{document}

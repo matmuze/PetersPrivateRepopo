@@ -15,19 +15,18 @@
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
-%\author[Le Muzic, Mindek et al.]
-%       {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
-%        P. Mindek$^{1}$,
-%        J. Sorger$^{1,2}$,
-%        L. Autin$^{3}$,
-%        and I. Viola$^{1}$        
- %       \\
-% For Computer Graphics Forum: Please use the abbreviation of your first name.
-%         $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, %Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La %Jolla, California, USA
-%             with different affiliations
-%       }
+\author[Le Muzic, Mindek et al.]
+       {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
+        P. Mindek$^{1}$,
+        J. Sorger$^{1,2}$,
+        L. Autin$^{3}$,
+        and I. Viola$^{1}$        
+        \\
+%For Computer Graphics Forum: Please use the abbreviation of your first name.
+         $^1$TU Wien, Austria \hspace{4mm}$^2$VRVis Research Center, Vienna, Austria \hspace{4mm}$^3$The Scripps Research Institute, La Jolla, California, USA
+       }
 
-\author[275]{Submission ID 275}
+%\author[275]{Submission ID 275}
 
 % ------------------------------------------------------------------------
 
@@ -54,7 +53,7 @@
 \subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w4.eps}}
 \subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
 
-\caption{\label{fig:teaser}The workflow of our method. (a) Entire dataset is shown. The blood serum (shown in red) is occluding the view of the HIV particle. (b) Clipping objects are shown to selectively cut parts of the data to reveal the HIV capsid. (c) The illustrator decides to show more of the matrix protein (shown in blue), so their clipping is disabled. However, they are now occluding the view of the capsid. (d) The probabilistic clipping has been used to selectively remove those matrix proteins occluding the capsid, but some of them are left in the scene to indicate the presence of this type of protein on the virus membrane. The capsid has been clipped with view-space clipping to reveal its internals.}
+\caption{\label{fig:teaser}The workflow of our method for a model of HIV surrounded with blood plasma proteins. (a) Entire dataset is shown. The blood serum (shown in red) is occluding the virus. (b) Clipping objects are added to selectively clip molecules to reveal the HIV capsid. (c) The illustrator decides to show more of the matrix protein (shown in blue), so their clipping is disabled. However, they are now occluding the view of the capsid. (d) The probabilistic clipping has been used to selectively remove those matrix proteins occluding the capsid, but some of them are left in the scene to indicate the presence of this type of protein on the virus membrane. The capsid has been clipped with view-space clipping to reveal its internals.}
 %\subfloat[]{\label{fig:res:w0}\includegraphics[width=0.25\linewidth]{figures/res-w0.eps}}
 %\subfloat[]{\label{fig:res:w1}\includegraphics[width=0.25\linewidth]{figures/res-w1.eps}}
 %\subfloat[]{\label{fig:res:w2}\includegraphics[width=0.25\linewidth]{figures/res-w2.eps}}

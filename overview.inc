@@ -1,11 +1,10 @@
 \section{Overview}
 
-
-
  \begin{figure}[t]
 \centering 
 \includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
-\caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
+\caption{\label{fig:ohist}Illustration of the visibility equalizers. 
+Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
 \end{figure}
 
 \begin{figure}[t]

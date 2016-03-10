@@ -1,6 +1,6 @@
 \section{Conclusion and Future Work}
 
-In this paper, we present a novel method for authoring cutaway illustrations of mesoscopic molecular models.
+In this paper, we presented a novel method for authoring cutaway illustrations of mesoscopic molecular models.
 Our system uses clipping objects to selectively remove instances based on their type and location. 
 To monitor and fine-tune the process, we introduce the visibility equalizer. 
 It keeps the user informed about the number of molecular instances removed by the clipping objects, or occluded in the current viewport. 

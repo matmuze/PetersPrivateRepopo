@@ -1,41 +1,18 @@
 \section{Overview}
 
- \begin{figure}[t]
-  \centering 
-	\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
-  \caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
- \end{figure}
 
-
-\begin{comment}
- \begin{figure}[t]
-  \centering 
-	\includegraphics[width=\linewidth]{figures/o1.eps}
-  \caption{\label{fig:overview-user}User-centric overview of our method.}
- \end{figure}
 
  \begin{figure}[t]
-  \centering 
-	\includegraphics[width=\linewidth]{figures/o0.eps}
-  \caption{\label{fig:overview-tech}Technical pipeline of our method.}
- \end{figure}
-
-\begin{figure*}[t]
- \centering
- \subfloat[]{\label{fig:o0}\includegraphics[width=0.47\linewidth]{figures/o1.eps}}
- \hfill
- \subfloat[]{\label{fig:o1}\includegraphics[width=0.47\linewidth]{figures/o0.eps}}
- \caption{\label{fig:o}The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or by probabilistic clipping specified through the visibility equalizer (\emph{S3}). %Below the states, the used technologies are shown: the user can either use clipping objects to clip the data, or she can manipulate the visibility equalizer to modify the clipping parameters of the clipping objects.
- }
-\end{figure*}
-
-\end{comment}  
+\centering 
+\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
+\caption{\label{fig:ohist}Visual representation of the visibility equalizers. Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
+\end{figure}
 
 \begin{figure}[t]
- \centering
-	\includegraphics[width=\linewidth]{figures/o.eps}
- \caption{\label{fig:o}The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). Lower part (technical overview): each clipping object filters the output of the previous one. The rendered image is used to update the visibility equalizer. Interaction with the bars updates the scene to match the specification in the visibility equalizer.%(b) The technologies used in the workflow. The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
- }
+\centering
+\includegraphics[width=\linewidth]{figures/o.eps}
+\caption{\label{fig:o}The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). Lower part (technical overview): each clipping object filters the output of the previous one. The rendered image is used to update the visibility equalizer. Interaction with the bars updates the scene to match the specification in the visibility equalizer.%(b) The technologies used in the workflow. The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
+}
 \end{figure}
   
 % \begin{figure}[t]
@@ -87,28 +64,28 @@
 %This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. 
 
 The two main components of our method are the \emph{clipping objects} and the \emph{visibility equalizer}. 
-The role of the clipping objects is to discard elements according to their distance to a geometric shape, which we refer to as \emph{object-space clipping}, but also according to whether or not they occlude certain objects in the current viewport, which we describe as \emph{view-space clipping}.
+We distinguish between object-space object clipping and view-space object clipping.
+Object-space clipping discards elements according to their distance to a geometric shape.
+View-space clipping discards elements according to whether or not they occlude certain objects in the current viewport.
 The role of the visibility equalizer is to override the behaviour of the clipping objects.
 The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. 
-It contains a series of stacked bars, one for each molecular ingredient, which can be manipulated by user-interaction. 
-The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of non-visible instances to the total number of instances; \emph{c} - the ratio of clipped instances to the total number of instances. 
-
+It contains a series of stacked bars, one for each molecular species, which can be manipulated by user-interaction. 
+The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded
+ instances to the total number of instances. 
+ By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
 Figure \ref{fig:o} depicts the workflow of our method as a state-machine.
 We demonstrated three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. 
 
-\textbf{State 1: }The scene is displayed without any clipping. 
+\textbf{S1: }The scene is displayed without any clipping. 
 The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
 
-\textbf{State 2: }Clipping objects are added to filter-out elements according to the distance to a clipping object's shape.
-This state corresponds to the coarse visibility tuning.
-Clipping objects are applied in serial, the output of a clipping object constitute the input of the next one. 
+\textbf{S2: }Clipping objects are added to filter-out elements according to the distance to a clipping object's shape.
+%This state corresponds to the coarse visibility tuning.
 Each time the scene is refreshed, visible and clipped instances are counted and the values of the visibility equalizer are updated accordingly. 
 
-\textbf{State 3: }The user overrides the behaviour of a clipping object, a thus the degree of visibility of an ingredient, by interacting with the Visibility Equalizer. 
-It is important to mention that with multiple clipping objects, the interaction with the Visibility Equalizer will only affect the properties of the selected clipping object.
-By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
+\textbf{S3: }The user overrides the behaviour of a clipping object, by interacting with the visibility equalizer as illustrated in Figure \ref{fig:his}.
 Upon modification of the Visibility Equalizer values, the scene is updated and re-rendered to match with the user specified clipping properties.
-This state corresponds to the fine visibility tuning as illustrated in Figure \ref{fig:his}.
+%This state corresponds to the fine visibility tuning as illustrated in Figure \ref{fig:his}.
 
 %The lower part of Figure \ref{fig:o} shows the technical overview of our method. 
 %At the beginning of the pipeline, multiple clipping objects are placed in the scene to filter the data. 

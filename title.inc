@@ -19,7 +19,7 @@
        {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
         P. Mindek$^{1}$,
         J. Sorger$^{1,2}$,
-        L. Autin$^{3}$,
+        D. Goodsell$^{3}$,
         and I. Viola$^{1}$        
         \\
 %For Computer Graphics Forum: Please use the abbreviation of your first name.
@@ -69,14 +69,17 @@
 \maketitle
 
 \begin{abstract}
-In scientific illustration and visualization, cutaway views are often employed as an effective technique for occlusion management in densely packed scenes.
+In scientific illustrations and visualization, cutaway views are often employed as an effective technique for occlusion management in densely packed scenes.
 We propose a novel method for authoring cutaway illustrations of mesoscopic biological models.
-In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models. These models consist of thousands of instances that are distributed across a comparably smaller number of different molecular types.
+In contrast to the existing cutaway algorithms, we take advantage of the specific nature of the biological models. 
+These models consist of thousands of instances with a comparably smaller number of different types.
 Our method constitutes a two stage process.
 In the first step, clipping objects are placed in the scene, creating a cutaway visualization of the model.
 During this process, a hierarchical list of stacked bars inform the user about the instance visibility distribution of each individual molecular type in the scene.
-In the second step, the visibility of each molecular type is fine-tuned through these bars, which at this point act as interactive visibility equalizers. %The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
-An evaluation of our technique with domain experts from biomedical illustration and molecular biology confirmed that our equalizer-based approach for visibility specification was valuable and effective for both, scientific and educational purposes.
+In the second step, the visibility of each molecular type is fine-tuned through these bars, which at this point act as interactive visibility equalizers. 
+%The visibility equalizers give illustrators precise control over how much percent of each type of molecule should be visible in front of the cutting object. 
+%Thus enabling them to quickly and efficiently create visualizations of biological models that provide insights  which would have taken them to manually recreate.
+An evaluation of our technique with domain experts confirmed that our equalizer-based approach for visibility specification was valuable and effective for both, scientific and educational purposes.
 
 
 
@@ -103,3 +106,5 @@ An evaluation of our technique with domain experts from biomedical illustration 
 \end{classification}
 
 \end{abstract}
+
+\clearpage

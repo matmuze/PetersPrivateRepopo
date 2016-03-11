@@ -67,9 +67,7 @@ timization by minimizing the informational divergence between a user specified t
 
 Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other side, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures.
 
-
-
-\subsection{Mutli-Scale Visualization of Molecular Structures}
+\subsection{Multi-Scale Visualization of Molecular Structures}
 %The visualization of the molecular structures in our approach is based on the publicly available cellView \cite{muzic15}. The tool is capable of rendering structures that are comprised of several billions atoms at interactive frame rates in multiple levels of detail.  
 Lindow et al. \cite{lindow15} were the first to introduce a fast method for the real-time rendering of large-scale atomic data on consumer level hardware. They utilize instancing on the GPU to repeat these structures in the scene. For each molecule type, a 3D grid of the atoms is created and stored on the GPU. Falk et al. \cite{falk13} further refined the method with improved depth culling and hierarchical ray casting to achieve faster rendering performance for even larger scenes. 
 

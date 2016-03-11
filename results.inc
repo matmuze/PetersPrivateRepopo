@@ -28,10 +28,10 @@ The first dataset is a model of an HIV particle in blood serum.
 Figure \ref{fig:res:islands} shows this dataset clipped with a single plane. 
 The contextual anchoring is applied to reintroduce parts of the clipped membrane (grey) around the envelope proteins (blue).
 The second dataset is a model of \emph{Mycoplasma mycoides}. 
-Figure \ref{fig:res:myco} shows how probabilistic clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
+Figure \ref{fig:res:myco} shows how fuzzy clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
 The third dataset, shown in Figure \ref{fig:res:eq} is a model of an immature HIV. 
 Here, we applied several clipping objects to reveal the internal structure of the virus. 
-The blood serum (blue) has been preserved around the particle using the probabilistic clipping to illustrate how it encloses the HIV particle. 
+The blood serum (blue) has been preserved around the particle using the fuzzy clipping to illustrate how it encloses the HIV particle. 
 The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. 
 The white boxes to the left of each stacked bar are used to mark the given ingredient or compartment as focus.
 
@@ -42,9 +42,10 @@ The white boxes to the left of each stacked bar are used to mark the given ingre
 
 \subfloat[]{\label{fig:res:gh2}\includegraphics[width=0.5\linewidth]{figures/res-gh2.eps}}
 \subfloat[]{\label{fig:res:gh3}\includegraphics[width=0.5\linewidth]{figures/res-gh3.eps}}
-\caption{\label{fig:res:gh}The cutaway molecules are indicated through the ghosting effect. (a) Part of the scene is removed by a clipping plane. (b) The amount of cutaway molecules has been decreased through the probabilistic clipping, which caused some of the cutaway molecules to be reintroduced into the scene. (c) The blood serum (red molecules) are removed by probabilistic clipping in the entire dataset. (d) A falloff function is used to gradually change the influence of the probabilistic clipping.}
+\caption{\label{fig:res:gh}The cutaway molecules are indicated through the ghosting effect. (a) Part of the scene is removed by a clipping plane. (b) The amount of cutaway molecules has been decreased through the fuzzy clipping, which caused some of the cutaway molecules to be reintroduced into the scene. (c) The blood serum (red molecules) are removed by fuzzy clipping in the entire dataset. (d) A falloff function is used to gradually change the influence of the fuzzy clipping.}
 \end{figure}
 
+Figure \ref{fig:teaser} shows sequential step for production a comprehensible cut-away illustration with the HIV dataset.
 In Figure \ref{fig:res:gh}, we show an example of a single clipping plane used to reduce the concentration of the blood serum molecules, so that the HIV proteins are visible. 
 However, to avoid misleading the viewer about the actual concentration of the blood molecules, we render clipped proteins with a ghosting effect. 
 It illustrates what the actual concentration is, while the visual clutter caused by the blood serum is significantly reduced. 

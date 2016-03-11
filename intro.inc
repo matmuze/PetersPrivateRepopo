@@ -2,15 +2,14 @@
 
 Molecular biology is an emerging field that is characterized by rapid advances of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
-However, due to their structural and phenomenal complexity, it is challenging to directly convey the discoveries of molecular phenomena. On a mesoscale level, where thousands or millions of macromolecules form a given structure this challenge is amplified by the presence of multiple spatio-temporal scales. Currently, illustrations are the most widely used form of communicating mesoscale structures. To reveal the internal composition of mesoscale structures such as viruses or bacteria, illustrators often employ clipping, section views or cutaways in their work.
+However, due to their structural and phenomenal complexity, it is challenging to directly convey the discoveries of molecular phenomena. On a mesoscale level, where thousands or millions of macromolecules form a given structure, this challenge is amplified by the presence of multiple spatio-temporal scales. Currently, illustrations are the most widely-used form of communicating mesoscale structures. To reveal the internal composition of mesoscale structures such as viruses or bacteria, illustrators often employ clipping, section views or cutaways in their work.
 
 %The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the required knowledge for building models that convey the newly discovered insights.
 %Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
 %To achieve this, occlusion management techniques, such as \emph{cutaways} are applied.
 %Cutaways remove specific outer parts of the organism model, so that internal structures become visible. 
 %When biologists come up with new findings that are not depicted in the existing illustration, the conceptual layout of the original illustration might not be valid anymore.
-%The whole illustration process has to be repeated, in the worst case from the beginning, 
-which is cumbersome and time consuming.
+%The whole illustration process has to be repeated, in the worst case from the beginning, which is cumbersome and time consuming.
 %Such a cycle can take months or even years to complete.
 
 
@@ -57,7 +56,7 @@ The process of fine-tuning the visibility is extremely time-consuming, as the il
 \end{figure}
 
 
-To significantly speed up this visibility fine-tuning process, we propose our second contribution, namely a novel method for managing the visibility of instances. Instead of binary enabling or disabling the presence of all instances for a given molecular type, we offer the possibility to show only a desired number of them.
+To significantly speed up this visibility fine-tuning process, we propose our second contribution, namely a novel method for managing the visibility of instances. Instead of binary enabling or disabling the presence of all instances for a given molecular type, we offer the possibility to show a desired number of them.
 The main purpose of this approach is to increase the visibility of hidden structures by removing redundant parts of occluding instances while preserving some of them.
 An analogy of this approach can be drawn with ``Screen-Door Transparency'', which is a trivial way to obtain transparency in computer graphics, by placing small holes in a polygon to reveal what is present behind.
 Additionally, we propose the novel metaphor of the \emph{visibility equalizer} for controlling efficiently this effect.
@@ -65,8 +64,8 @@ Additionally, we propose the novel metaphor of the \emph{visibility equalizer} f
 To explain its role, we use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
 Such a mechanism corresponds to our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
 However, hi-fi sound systems also allow users to fine-tune the volume levels of individual frequency bands through an \emph{equalizer}.
-Following this this metaphor, the visibility levels of each molecular type are represented as the stacked bars that form our visibility equalizer.
-All visibility bars are interactive---thus allowing the user to adjust desired levels just as with a sound equalizer. After drawing relation to previously proposed visibility management techniques in the next section, we will discuss the technique of visibility equalizers in further detail in the remaining sections.
+Following this metaphor, the visibility levels of each molecular type are represented as stacked bars that form our visibility equalizer.
+All visibility bars are interactive, thus allowing the user to adjust desired levels just as with a sound equalizer. After drawing relation to previously proposed visibility management techniques in the next section, we will discuss the technique of visibility equalizers in further detail in the remaining sections of the paper.
 %Individual intervals on each bar can be dragged to increase or decrease the visibility of the individual molecular types within the scene, given the specified clipping objects. 
 %This interactive element effectively turns the stacked bars into visibility equalizers for the molecular models - and as such presents the main technical contribution of this paper.
 %When interacting with the visibility equalizer, the artist or biologist can intuitively achieve expressive cutaway designs in a fraction of the time that would be needed for manual visibility adjustments.

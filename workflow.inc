@@ -194,6 +194,14 @@ Then, while computing occlusion queries in the fragment shader, we simply look-u
 Caption.}
 \end{figure}
 
+\begin{figure}[t]
+\centering
+\subfloat[]{\label{fig:falloff0}\includegraphics[width=0.3\linewidth]{figures/__falloff0.eps}}
+\subfloat[]{\label{fig:falloff1}\includegraphics[width=0.3\linewidth]{figures/__falloff1.eps}}
+\subfloat[]{\label{fig:falloff2}\includegraphics[width=0.3\linewidth]{figures/__falloff2.eps}}
+\caption{\label{fig:falloff} 
+Caption.}
+\end{figure}
 
 \begin{figure}[t]
 \centering

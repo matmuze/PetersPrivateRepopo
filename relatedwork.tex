@@ -52,8 +52,8 @@ Our approach is therefore fundamentally different from existing occlusion manage
 
 \noindent
 \textbf{Transfer Function Based Approaches.}
-Transfer function based approaches are related as our data resembles volumetric data in the sense that it consists of a dense point cloud.
-However, instead of continuous attribute values distributed over voxels, our data features a discrete number of molecule types. This characteristic enables our visibility equalizer approach.
+Since our molecule data is composed of a dense point cloud that resembles volumetric data on a non regular grid, our approach is also related to transfer function based approaches.
+However, instead of a wide range of attribute values distributed over voxels, our data features a comparably smaller number of molecule types. This characteristic enables our visibility equalizer approach. %Our approach could also be applied to volumetric data by binning continuous attribute ranges into discrete ones.
 The context-preserving volume rendering model \cite{Bruckner05} uses a function of shading intensity, gradient magnitude, distance to the eye point, and previously accumulated opacity to selectively reduce the opacity in less important data regions. Contours of surfaces that would be removed due to opacity, remain visible as the amount of illumination received is taken as a measure whether a point should be visible or not.
 Burns et al. \cite{Burns07} propose a multimodal approach that combines CT scan data and real-time ultrasound data. Importance driven shading is used to emphasize features of higher importance that have been revealed through the ghosting.
 

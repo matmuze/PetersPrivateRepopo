@@ -23,3 +23,7 @@ Our Visibility Equalizer method is built on top of cellVIEW and Unity3D, which a
 %We expect to see further cases where the (information) visualization acts simultaneously as the user interface.
 %During the whole authoring process, our method keeps the user informed about the ratios of the molecular instances removed by the clipping objects, or occluded from the current viewpoint. 
 
+\section{Acknowledgement}
+
+This project has been funded by the Vienna Science and Technology Fund (WWTF) through project VRG11-010 and also supported by EC Marie Curie Career Integration Grant through project PCIG13-GA-2013-618680. 
+Goodsell,D. received support from the National Institutes of Health under award number P41GM103426

@@ -49,15 +49,16 @@
 %This means the user is able to increase or decrease amounts of clipped away instances as well as the visible instances by dragging the visibility equalizer in a probabilistic manner. 
 
 The two main components of our method are the \emph{clipping objects} and the \emph{visibility equalizer}. 
+The workflow of our method is depicted in Figure \ref{fig:o}.
 We distinguish between object-space object clipping and view-space object clipping.
 Object-space clipping discards elements according to their distance to a geometric shape.
 View-space clipping discards elements according to whether or not they occlude certain objects in the current viewport.
-The role of the visibility equalizer is two fold, to provide important information about the visibility of molecular species, and to override the behaviour of the clipping objects.
-The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. 
-It contains a series of stacked bars, one for each molecular species, which can be manipulated by user-interaction. 
-The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded instances to the total number of instances. 
-By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
-The workflow of our method is depicted in Figure \ref{fig:o}.
+The role of the visibility equalizer is two fold, to provide important information about the visibility of molecular species, and to let users override the behaviour of the clipping objects by directly manipulating the equalizer values. 
+%It contains a series of stacked bars, one for each molecular species, which can be manipulated by user-interaction. 
+Each set of stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded instances to the total number of instances.
+The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}.
+By dragging the light green bar, the proportion of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the proportion of instances affected by the view-space clipping.
+
 %It is important to mention that with multiple clipping objects, interaction with the light green bar in the visibility equalizer will only affect the clipping probability of the selected clipping object.
 %We demonstrated three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. 
 

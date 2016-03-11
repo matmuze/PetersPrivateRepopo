@@ -29,6 +29,27 @@ Since these approaches are object centered, they deal with (partial) occlusion o
 Our approach is therefore fundamentally different from existing occlusion management approaches as it combines principles from object centered and transfer function based approaches.
 
 
+\begin{figure*}[t]
+	\centering
+	\includegraphics[width=\linewidth]{figures/__overview.eps}
+	\caption{\label{fig:o}
+		An illustration of the workflow with the visibility equalizer. 		
+		Clipping objects filter-out elements in the data based on their type and location (1).
+		The clipping is applied in serial, i.e., the output of a clipping object constitute de the input of the next one.
+		The visibility information of the entire scene is routinely collected and updated in the visibility equalizer to keep the viewer informed about the current state of the data (2).
+		The clipping parameters of a given clipping object can later on be refined by interacting with the bar charts of the visibility equalizer to offer more control on the clipping, such as fuzziness (3).		
+		%Upon interaction with the bar charts, the properties of the selected clipping object is overridden to offer more control on the clipping, such as fuzziness.
+		%The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). 
+		%Lower part (technical overview): each clipping object filters the output of the previous one. 
+		%The rendered image is used to update the visibility equalizer.
+		%Interaction with the bars updates the scene to match the specification in the visibility equalizer.
+		%(b) The technologies used in the workflow. 
+		%The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
+	}
+\end{figure*}
+
+
+
 \noindent
 \textbf{Transfer Function Based Approaches.}
 Transfer function based approaches are related as our data resembles volumetric data in the sense that it consists of a dense point cloud.
@@ -46,6 +67,8 @@ timization by minimizing the informational divergence between a user specified t
 
 Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other side, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures.
 
+
+
 \subsection{Mutli-Scale Visualization of Molecular Structures}
 %The visualization of the molecular structures in our approach is based on the publicly available cellView \cite{muzic15}. The tool is capable of rendering structures that are comprised of several billions atoms at interactive frame rates in multiple levels of detail.  
 Lindow et al. \cite{lindow15} were the first to introduce a fast method for the real-time rendering of large-scale atomic data on consumer level hardware. They utilize instancing on the GPU to repeat these structures in the scene. For each molecule type, a 3D grid of the atoms is created and stored on the GPU. Falk et al. \cite{falk13} further refined the method with improved depth culling and hierarchical ray casting to achieve faster rendering performance for even larger scenes. 
@@ -62,3 +85,5 @@ cellVIEW leverages GPU computing and parallel programming to enable real-time re
 %Other related work is concerned with illustrative molecular visualization. Grottel et al. \cite{grottel12} and Eichelbaum et al. \cite{eichelbaum13} propose ambient occlusion approaches for large molecular scenes in order to improve the depth perception in these complex structures. Parulek et al. \cite{parulek14} propose a continuous level of detail scheme for molecular data that offers gradual shape simplification for distant molecules based on a clustering of the atomic spheres.
 
 %In the domain of dedicated mesoscopic molecular visualization, our approach is the first to introduce illustrative occlusion management techniques.
+
+

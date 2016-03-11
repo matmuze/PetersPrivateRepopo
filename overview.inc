@@ -1,21 +1,7 @@
 \section{Overview}
 
- \begin{figure}[t]
-\centering 
-\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
-\caption{\label{fig:ohist}Illustration of the visibility equalizers. 
-Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
-\end{figure}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/__overview.eps}
-\caption{\label{fig:o}
-Caption.
-%The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). Lower part (technical overview): each clipping object filters the output of the previous one. The rendered image is used to update the visibility equalizer. Interaction with the bars updates the scene to match the specification in the visibility equalizer.
-%(b) The technologies used in the workflow. The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
-}
-\end{figure*}
+
   
 % \begin{figure}[t]
 %  \centering 
@@ -25,12 +11,9 @@ Caption.
 %  \caption{\label{fig:overview}Overview.}
 % \end{figure}
 
-
 %In this work, we focus on visualization of 3D models of mesoscale molecular structures, such as cells or viruses.
 %We utilize \emph{cellView} \cite{muzic15} tool for both representation and rendering of our 3D scenes.
 %These scenes can consist up to billions of individual atoms, each belonging to one of the molecular ingredients.
-
-
 
 %The instances are never partially clipped - they are either removed or preserved in the scene. 
 %This means that we can derive the visibility values by counting the visible and clipped-away instances.
@@ -72,21 +55,21 @@ View-space clipping discards elements according to whether or not they occlude c
 The role of the visibility equalizer is two fold, to provide important information about the visibility of molecular species, and to override the behaviour of the clipping objects.
 The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. 
 It contains a series of stacked bars, one for each molecular species, which can be manipulated by user-interaction. 
-The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded
- instances to the total number of instances. 
- By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
-Figure \ref{fig:o} depicts the workflow of our method as a state-machine.
-We demonstrated three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. 
+The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded instances to the total number of instances. 
+By dragging the light green bar, the number of instances affected by the object-space clipping is modified, while dragging the dark green bar modifies the number of instances affected by the view-space clipping.
+The workflow of our method is depicted in Figure \ref{fig:o}.
+%It is important to mention that with multiple clipping objects, interaction with the light green bar in the visibility equalizer will only affect the clipping probability of the selected clipping object.
+%We demonstrated three possible states, denoted as \emph{S1}, \emph{S2}, and \emph{S3}. 
 
-\textbf{S1: }The scene is displayed without any clipping. 
-The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
+%\textbf{S1: }The scene is displayed without any clipping. 
+%The visibility equalizer shows that no molecules are clipped, and provides the described visibility information for each molecular ingredient.
 
-\textbf{S2: }Clipping objects are added to filter-out elements according to the distance to a clipping object's shape.
+%\textbf{S2: }Clipping objects are added to filter-out elements according to the distance to a clipping object's shape.
 %This state corresponds to the coarse visibility tuning.
-Each time the scene is refreshed, visible and clipped instances are counted and the values of the visibility equalizer are updated accordingly. 
+%Each time the scene is refreshed, visible and clipped instances are counted and the values of the visibility equalizer are updated accordingly. 
 
-\textbf{S3: }The user overrides the behaviour of a clipping object, by interacting with the visibility equalizer as illustrated in Figure \ref{fig:his}.
-Upon modification of the Visibility Equalizer values, the scene is updated and re-rendered to match with the user specified clipping properties.
+%\textbf{S3: }The user overrides the behaviour of a clipping object, by interacting with the visibility equalizer as illustrated in Figure \ref{fig:his}.
+%Upon modification of the Visibility Equalizer values, the scene is updated and re-rendered to match with the user specified clipping properties.
 %This state corresponds to the fine visibility tuning as illustrated in Figure \ref{fig:his}.
 
 %The lower part of Figure \ref{fig:o} shows the technical overview of our method. 
@@ -94,6 +77,15 @@ Upon modification of the Visibility Equalizer values, the scene is updated and r
 %In case the user interacts with the stacked bars of the visibility equalizer, the properties of the selected clipping object are modified. 
 
 %During the whole process of the visibility specification, the user is informed about the amounts of the visible and clipped-away instances in the scene through the visual encoding of the visibility equalizer.
+
+\begin{figure}[t]
+\centering 
+\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
+\caption{\label{fig:ohist}Illustration of the visibility equalizers. 
+Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
+\end{figure}
+
+\begin{comment}
 
 \begin{figure}[t]
 \centering
@@ -105,10 +97,6 @@ Upon modification of the Visibility Equalizer values, the scene is updated and r
 \subfloat[]{\label{fig:his5}\includegraphics[width=0.25\linewidth]{figures/hi5.eps}}
 \caption{\label{fig:his}Interaction with the visibility equalizer. (a) increasing the visibility ratio of the red molecules, reduces the occluding blue molecules. (b) completely decreasing the clipping ratio of the red molecules. (c) partially decreasing the clipping ratio of the blue molecules. (d) combining the steps from a and b to increase the overall visibility of the red molecules.}
 \end{figure}
-
-
-
-\begin{comment}
 
 The visual representation of the visibility equalizers is illustrated in Figure \ref{fig:ohist}. The equalizers are represented by three stacked histograms, where each histogram bin represents single molecular ingredients. Each bin is a stack of three values, denoted as \emph{a}, \emph{b}, and \emph{c}. The part \emph{a} shows the number of visible instances of the given ingredient. The part \emph{b} shows the number of instances not removed by clipping, but not visible due to occlusion. The part \emph{c} represents the number of instances which has been clipped away.
 

@@ -66,7 +66,7 @@ The two main components of our method are the \emph{clipping objects} and the \e
 We distinguish between object-space object clipping and view-space object clipping.
 Object-space clipping discards elements according to their distance to a geometric shape.
 View-space clipping discards elements according to whether or not they occlude certain objects in the current viewport.
-The role of the visibility equalizer is to override the behaviour of the clipping objects.
+The role of the visibility equalizer is two fold, to provide important information about the visibility of molecular species, and to override the behaviour of the clipping objects.
 The visual encoding of the visibility equalizer is illustrated in Figure \ref{fig:ohist}. 
 It contains a series of stacked bars, one for each molecular species, which can be manipulated by user-interaction. 
 The stacked bars show three quantitative information for a given type of ingredient: \emph{a} - the ratio of visible instances to the total number of instances; \emph{b} - the ratio of occluded instances to the total number of instances; \emph{c} - the ratio of dicarded

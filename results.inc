@@ -1,4 +1,4 @@
-\section{Results}
+\section{Results and Performance Analysis}
 
 To showcase the capabilities of our method, we applied it to three different mesoscale molecular scenes. 
 We use cellVIEW \cite{muzic15} for the rendering, which is a tool designed to efficiently render large molecular scenes on the GPU and is implemented in Unity3D. 
@@ -24,12 +24,12 @@ The dark spots represent shadows projected into interior proteins.
 (c) Internal structures of a immature HIV model are shown by several clipping objects. On the left, the visibility equalizer is shown.}
 \end{figure}
 
-The first dataset is a model of an HIV particle in blood serum.
+The first dataset is a model of an HIV particle in blood serum which contains 20502 instances of 45 different protein types of 215559 instances of lipid residues.
 Figure \ref{fig:res:islands} shows this dataset clipped with a single plane. 
 The contextual anchoring is applied to reintroduce parts of the clipped membrane (grey) around the envelope proteins (blue).
-The second dataset is a model of \emph{Mycoplasma mycoides}. 
-Figure \ref{fig:res:myco} shows how fuzzy clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
-The third dataset, shown in Figure \ref{fig:res:eq} is a model of an immature HIV. 
+The second dataset is a model of \emph{Mycoplasma mycoides} which contains 5380 proteins of 22 different types. 
+Figure \ref{fig:res:myco} shows how fuzzy-clipping is used to reduce visual clutter to illustrate the positions of the ribosomes (shown in blue) within the cell.
+The third dataset, shown in Figure \ref{fig:res:eq} is a model of an immature HIV which contains 1081 instances of 13 different protein types. 
 Here, we applied several clipping objects to reveal the internal structure of the virus. 
 The blood serum (blue) has been preserved around the particle using the fuzzy clipping to illustrate how it encloses the HIV particle. 
 The visibility equalizer is displayed as well, showing the ratios of visible and clipped-away instances of the individual molecular ingredients. 
@@ -51,12 +51,24 @@ However, to avoid misleading the viewer about the actual concentration of the bl
 It illustrates what the actual concentration is, while the visual clutter caused by the blood serum is significantly reduced. 
 Figure \ref{fig:res:gh} illustrates that this can be done in different ways according to the vision of the artist.
 
-The Visibility Equalizer is designed to offer a fast and responsive user experience and therefore it is designed to limit the computational overhead. 
-The computation of the object-space clipping, compared to the rendering task performed by cellVIEW, is very light-weight and does not impact the overall performance. The view-space clipping, however, requires more computational work which could impact the responsiveness. 
-Therefore, a good strategy is to limit the number of view-space clipping objects, especially for very large scenes with up to several million instances. 
+The visibility equalizer is designed to limit the computational overhead in order to offer a fast and responsive user experience.
+To demonstrate the responsiveness of our method, we measured the computation time for the object-space clipping, view-space clipping and 2D distance transform, respectively.
+The application was running on a machine equipped with an Intel Core i7-3930 CPU 3.20 GHz machine coupled with a GeForce GTX Titan X graphics card with 12GB of video RAM. 
+The computation of the object-space clipping, compared to the rendering task performed by cellVIEW, is very light-weight and does not impact the overall performance too much. 
+It took \textbf{0.3 milliseconds} to evaluate the 236061 instances of the HIV + blood dataset without clipping any of them.
+It took \textbf{0.5 milliseconds} in total to slice the dataset in half and \textbf{0.6 milliseconds} to clip it entirely.
+The increasing cost corresponds to the writing operations to the video memory, which is performed when an instance is clipped.
+It is important to mention that neither the shape of the clipping object nor the number of clipping objects have a meaningful influence on the performance.
+
+The view-space clipping, however, requires more computational work which could impact the responsiveness. 
+%Therefore, a good strategy is to limit the number of view-space clipping objects, especially for very large scenes with up to several million instances. 
 Indeed, for computing occlusion queries, occluders and occludees must be additionally rendered, which adds extra work to the rendering pipeline. 
-For this reason, only the bounding spheres of the molecules are rendered rather than their entire structures, which may consist of hundreds or thousands of spheres, in order to guarantee a minimum computational overhead. 
-Moreover, the 2D distance transform which is needed for the aperture effect, also requires additional computation, but since it is computed in parallel on the GPU. we are able to guarantee a very low computational overhead for this operation too. ** Todo add concrete numbers **
+For this reason, only the bounding spheres of the molecules are rendered instead of their entire structures, which may consist of hundreds or thousands of spheres, in order to guarantee a minimal computational overhead. 
+We measured \textbf{0.07 milliseconds} for rendering the depth-stencil mask with 12142 instances (HIV proteins), and \textbf{0.57 milliseconds} for the computation of the 223919 occlusion queries corresponding to the remaining of the scene (blood proteins + lipid residues).
+Additionally, the 2D distance transform which is needed for the aperture effect, also requires additional computation.
+It took \textbf{0.15 milliseconds} for computing the distance transform of the previous depth-stencil mask at a resolution of 512 by 512 pixels.
+Unlike object-space clipping, the view-space clipping computation cost will keep increasing with additional operations.
+Therefore it is a good strategy to keep a low number of view-space clipping object, especially with very large scenes.
 
 %\begin{figure}[t]
 % \centering

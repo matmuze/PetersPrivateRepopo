@@ -7,12 +7,15 @@
 Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=\linewidth]{figures/o.eps}
-\caption{\label{fig:o}The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). Lower part (technical overview): each clipping object filters the output of the previous one. The rendered image is used to update the visibility equalizer. Interaction with the bars updates the scene to match the specification in the visibility equalizer.%(b) The technologies used in the workflow. The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
+\includegraphics[width=\linewidth]{figures/__overview.eps}
+\caption{\label{fig:o}
+Caption.
+%The workflow of our method. The data can be displayed either without any clipping (\emph{S1}), with deterministic clipping defined by the clipping objects (\emph{S2}), or probabilistic clipping specified through the visibility equalizer (\emph{S3}). Lower part (technical overview): each clipping object filters the output of the previous one. The rendered image is used to update the visibility equalizer. Interaction with the bars updates the scene to match the specification in the visibility equalizer.
+%(b) The technologies used in the workflow. The user can either use clipping objects to clip the data, or he can manipulate the visibility equalizers to modify clipping parameters of the clipping objects.
 }
-\end{figure}
+\end{figure*}
   
 % \begin{figure}[t]
 %  \centering 

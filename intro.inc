@@ -52,7 +52,7 @@ The process of fine-tuning the visibility is extremely time-consuming, as the il
 \centering
 \subfloat[]{\label{fig:hiv0}\includegraphics[width=0.495\linewidth]{figures/which0.eps}}
 \subfloat[]{\label{fig:hiv1}\includegraphics[width=0.495\linewidth]{figures/which1.eps}}
-\caption{\label{fig:which} Various types of protein molecules (a) and their embedding into a mesoscale structural model of an HIV (b). It is a demanding task to determine which molecular types are visible given the clipping settings and how many of their instances are shown.}
+\caption{\label{fig:which} Various types of protein molecules (a) and their embedding into a mesoscale  model (b). It is a demanding task to determine which molecular types are visible and how many of their instances are shown.}
 \end{figure}
 
 

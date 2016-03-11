@@ -186,10 +186,19 @@ After the computation of the distance transform, the texture stores the distance
 Then, while computing occlusion queries in the fragment shader, we simply look-up the distance for the current fragment, and discard instances according to the user-defined aperture coefficient.
 %, priorly set of each ingredient type.
 
+
 \begin{figure}[t]
 \centering
-\subfloat[]{\label{fig:df0}\includegraphics[width=0.45\linewidth]{figures/islands-no.eps}}
-\subfloat[]{\label{fig:islands1}\includegraphics[width=0.45\linewidth]{figures/islands-yes.eps}}
+\includegraphics[width=\linewidth]{figures/__hiv.eps}
+\caption{\label{fig:hiv-islands} 
+Caption.}
+\end{figure}
+
+
+\begin{figure}[t]
+\centering
+\subfloat[]{\label{fig:df0}\includegraphics[width=0.45\linewidth]{figures/__islands-no.eps}}
+\subfloat[]{\label{fig:islands1}\includegraphics[width=0.45\linewidth]{figures/__islands-yes.eps}}
 \caption{\label{fig:islands} 
 The principle of the depth-bias used for contextual anchoring.
 The bar chart represents the depth of the mask in one dimension. 

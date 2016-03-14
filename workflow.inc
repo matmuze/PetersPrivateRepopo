@@ -225,7 +225,7 @@ This bias will ensure that contextual elements will no longer overlap the focus 
 \subfloat[]{\label{fig:islands1}\includegraphics[width=0.45\linewidth]{figures/__islands-yes.eps}}
 \caption{\label{fig:islands} 
 The principle of the depth-bias used for contextual anchoring.
-The bar chart represents the depth of the mask in one dimension. 
+The dark bars represents the depth values of the mask from the side, in one dimension. 
 Elements in grey correspond to potentional occluders, while elements in red and green correspond to focused elements.
 The red type is subject to contextual anchoring.
 (a) Without contextual anchoring, the depth of occluders (grey) is overlapping the depth of the mask and will therefore be discarded. 

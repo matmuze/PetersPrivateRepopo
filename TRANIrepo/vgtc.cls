@@ -620,7 +620,7 @@ Digital Object Identifier: xx.xxxx/TVCG.201x.xxxxxxx/
 %%              \endgroup\par%
 %%          \fi%
         }%
-	\begin{center}\includegraphics{diamondrule.eps}\end{center}
+	\begin{center}\includegraphics{diamondrule.pdf}\end{center}
        %\vspace{\abstxtspace}%
 	\ifx\firstsectiontxt\vgtc@empty \else
 	  \section{\firstsectiontxt}

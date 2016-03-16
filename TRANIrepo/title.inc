@@ -15,10 +15,9 @@
 
 %% Paper title.
 
-\title{TRANNI -- TRANsitions aNImated: A Formalization of Animated Transitions in Illustrative Molecular Biology}
+\title{TRANNI -- TRANsitions aNImated: A Formalization of Animated Transitions in Illustrative Molecular Visualization}
 
 %% This is how authors are specified in the journal style
-
 %% indicate IEEE Member or Student Member in form indicated below
 \author{A, B, and C}
 \authorfooter{
@@ -30,7 +29,7 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{TRANNIES }
+\shortauthortitle{TRANNI -- TRANsitions aNImated}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.

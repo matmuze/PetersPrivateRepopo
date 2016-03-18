@@ -1,11 +1,13 @@
-\section{Overview}
-[here we give more detail about the stuff that we couldnt talk about more in the introduction.]
+\section{Background}
+[here we give more detail about the stuff that we couldnt talk about in more detail in the introduction \&\& that is \textbf{background information} essential for understanding/following the rest of the paper.]
 
-\subsection{animated transitions}
-upsides / downsides of animation
+\subsection{animated transitions in molecular biology}
+for what kind of knowledge transfer are they used (examples)?
+why are they essential?
 
-\subsection{illustration in molecular visualization}
-todo: discuss background of field \& application of illustration (maybe outsource to Graham?)
+%\subsection{illustration in molecular visualization}
+%todo: discuss background of field \& application of illustration
+\textbf{(todo: outsource to Graham)}
 
 \subsubsection{molecular/mesoscale data}
 	\textbf{todo: }describe cellpack format (outsource)

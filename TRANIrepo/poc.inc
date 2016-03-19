@@ -18,6 +18,30 @@ should we describe beforehand what (which representations) we try to achieve wit
 		splitting into types,
 		spatial splitting operations into equal parts,
 		cloning.
+		
+\subsubsection{Layouting}
+
+	PoC operators:
+	
+		inner:		
+			bar:
+				abstract,
+			slice:
+				abstract,
+			sphere:
+				abstract
+				
+		outer:		
+			line:
+				?,
+			circle:
+				?,
+			explosion:
+				occlusion handling,
+		schematization layout (inner/outer/both?):
+			simplify
+			
+	
 
 			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 

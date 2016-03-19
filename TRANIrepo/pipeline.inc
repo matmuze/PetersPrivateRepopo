@@ -72,22 +72,12 @@ more precisely this means, that a number of subsets is created, e.g, as many as 
 the output of an operator will therefore be a list of the newly created subsets with the respective child / parent assignments.
 %attributes modified/created in this stage: group id, parent / child assignment.
 	
-		
-	
-	
-
 %partitioning is a prerequisite stage for the following pipeline stages. it determines, on which parts of the data the operators in the following pipeline stages will operate. %, e.g., which parts of the data are handled as a unit in layouting or the morphing of the visual representation.
 
 %this stages takes the raw unstructured data and structures it according to the parametrization of the respective operator.
 
-
-
-
 %		also, typically you have very large datasets and dont want to operate on each individual instance but rather on groups of instances.
 %			to make the data manageable \& to extract knowledge it is therefore necessary to structure it.
-
-
-
 			
 %	description:		organize data into subsets.
 		%each subset is then fed into the pipeline - which means, each subset can be modified with different operators in the following pipeline stages.
@@ -104,56 +94,36 @@ the output of an operator will therefore be a list of the newly created subsets 
 			
 		
 	
-\subsubsection{layouting}
-	design decisions:
-		necessary for enabling transformation of entities/subsets into a different space.
-			transform spatial properties, e.g., from anatomical to abstract or to schematic.	=> transformation within the same visualization space (schematization) vs transformation across visualization spaces (abstraction).			
-		prerequisite for creating the spatial extents of the target representation.
-		
-	description:
-		deals with spatial attribute transformation.
-		determines the target position for each created subset/entity.
-			the spatial re-arrangement can be used to convey different information,
-			i.e., move all entities of a subset spatially close to each other to separate them from other entities and convey the group size
-			
-			can be used to:
-				spatially order/group entities (abstract),
-				reduce entities (simplify),
-				reveal hidden structures / entities (occlusion handling)
-				
-		a layout manipulates only pos/rot
-			(scaling is already part of morphing).
-			
-		can be used on an "inner" level to position entities with respect to each other => give a shape to subsets (e.g., a histogram bar).
-		
-		can be used on an "outer" level to position subsets with respect to each other.
-		
-	attributes created in this stage: target..
-		position \& rotation,
-		input: a node in the hierarchy (not a leaf),
-		output: a target position for each child entity of the node \& optionally additional CPs between original \& target position.
+\subsubsection{Layouting}
+
+%The layouting stage creates a target position and rotation for each child element of a supplied subset.
+%the operator type determines how the entities in the supplied supset are laid out in respect to each other.
 	
-	PoC operators:
-	
-		inner:		
-			bar:
-				abstract,
-			slice:
-				abstract,
-			sphere:
-				abstract
-				
-		outer:		
-			line:
-				?,
-			circle:
-				?,
-			explosion:
-				occlusion handling,
-		schematization layout (inner/outer/both?):
-			simplify
+this is the tool that illustrators use to spatially re-arrange the data that they partitioned in the previous stage/step.
+this spatial re-arrangement of the molecular data can serve various purposes. layouts can be used for occlusion handling, e.g., by exploding the dense data to reveal the inner workings of a cell. they can be used to transform the data into an altogether different visualization space, such as a line graph or a network in order to convey some more abstract points. or they can use them to simplify the complex and dense data in order to steer the viewer's attention towards some specific anatomical details that would otherwise remain hidden.
+
+	%design decisions:		necessary for enabling transformation of entities/subsets into a different space.
+			%transform spatial properties, e.g., from anatomical to abstract or to schematic.	=> transformation within the same visualization space (schematization) vs transformation across visualization spaces (abstraction).			
+		%prerequisite for creating the spatial extents of the target representation.
+		
+%	description:		deals with spatial attribute transformation.		determines the target position for each created subset/entity.
+			%the spatial re-arrangement can be used to convey different information,			i.e., move all entities of a subset spatially close to each other to separate them from other entities and convey the group size
 			
-	determines the target position for each created subset/entity
+%			can be used to:				spatially order/group entities (abstract),				reduce entities (simplify),				reveal hidden structures / entities (occlusion handling)
+%		a layout manipulates only pos/rot			(scaling is already part of morphing).
+%		can be used on an "inner" level to position entities with respect to each other => give a shape to subsets (e.g., a histogram bar).	
+%		can be used on an "outer" level to position subsets with respect to each other.
+				
+	as such, the input for a layout operator is always a node in the scene hierarchy. %(not a leaf),
+	for each child of the supplied node, the operator then calculates a new position and rotation - depending on what kind of layout the respective operator is implementing.
+	the output of a layout operator is therefore a new position and rotation for each child of the supplied node. each entity has a vector of control points that stores positions and rotations and is initialized with the element's original position and rotation. the new values calculated by the layout operators are added to this vector.
+	
+layouts can be stacked upon each other - meaning they are called multiple times for the same node - this creates additional control points that can be used to transition the data into intermediate representations before arriving at the final state. the final representation is determined by the last layout that has been called. 
+a user could, for instance, first call an explosion layout, to reveal the inner parts of the dense data set and then 
+	
+layouts are can be called for each level in the scene hierarchy. depending on the intended target representation.
+lowest level nodes contain leaves (molecule instances). here the layout works directly on re-positioning the individual molecules, e.g., it could put them into an abstract collective shape like a histogram bar. the next highest level node would then contain a list of children where each is layouted as a bar. the layout operator could then position these subsets (bars) with respect to each other.
+	
 	
 \subsubsection{blending/morphing}
 	design decisions:

@@ -4,81 +4,105 @@
 		
 	our pipeline takes a supplied molecular data set in the described format and produces a user specified number of baked frames that show a continuous transition from the provided original data to a specified target representation.
 	
-	Our pipeline consists of seven stages that can be grouped into three high level tasks:
+	Our pipeline consists of eight stages that can be grouped into four high level tasks:
 	
 	the first three stages can be parametrized to specify the target representation.
 	
-	the next two stages are used to define the transition from the original representation to the target representation.
+	the next two stages can be used to add additional labels and narrative elements to the animation, such as coordinate axes, legends, or annotations.
 	
-	the final two stages can be used to add additional labels and narrative elements to the animation, such as coordinate axes, legends, or annotations.
-	
+	the final three stages are used to define the transition from the original representation to the target representation.
+		
 	each stage supports certain types of operators.
-	these operators and their combinations determine the pipeline output.
+	operators basically determine how a stage proceeds with the supplied data.
+	
+	they have to be implemented for each stage in consideration of desired output that the respective stage should produce.
+	here is where design considerations come into play.
+	
+	%these operators and their combinations determine the pipeline output.
 	in order to achieve a desired result, the respective operators have to be selected and parametrized for each stage.
 	
-	operators have to be implemented for each stage in consideration of desired output that the respective stage should produce. here is where design considerations come into play.
-	implemented once and can then be re-used on arbitrary data sets to achieve the desired results.
-	can be combined in new ways?
+	%\textbf{todo: explain operators more explicitly} \newline
+	%implemented once and can then be re-used on arbitrary data sets to achieve the desired results.
+	%can be combined in new ways?
 	we give a discussion of our proof of concept operators in the next section.
 	
 		depending on what kind of transition should be achieved, not all stages are mandatory.
-			
-		the	pipeline can be repeated for more complex stories or multi stage transitions.
+		
+		also, the	pipeline can be repeated for more complex stories or multi stage transitions.
 	
-	in the following we will discuss each stage in terms of its function within the pipeline and in terms of what part of the supplied data each stage operates on.
-	
+	in the following we will discuss each stage in terms of its function within the pipeline and in terms of how it operates on the supplied data.
+	%mention design decisions?
+% connection to the work of the real-world illustrators?
 	
 		\begin{itemize}
 			\item Target Representation Creation: Data Partitioning, Layouting, Morphing \& Blending
-			\item Transition Specification: Trajectory, Timing
 			\item Narrative Support: Annotations \& Glyphs, Navigation
+			\item Transition Specification: Trajectory, Timing, Sampling
 		\end{itemize}
 
 		%independent of staging within one transition. staging therefore doesnt have to be implemented by multiple pipeline iterations.
 
 \subsection{Target State}
-the visual variables of the final representation are defined by these stages.\newline
-while the layout stage is responsible for manipulating the visual variables of position and rotation,
-the morphing stage is concerned with the remaining visual variables, i.e., shape, size, color.\newline
-these states are necessary / responsible for defining the target position \& form of the data, i.e., the spatial and visual transformation
+the visual appearance of the final representation is defined in these stages.\newline
+%the partitioning stage..
+%while the layouting stage is responsible for manipulating the spatial variables of position and rotation,
+%the morphing stage is concerned with the remaining visual variables, i.e., shape, size, color.\newline
+%these states are necessary / responsible for defining the target position \& form of the data, i.e., the spatial and visual transformation
 
-\subsubsection{partitioning}
-subset creation / grouping.
+\subsubsection{Partitioning Stage}
 
-	design decisions:
-		prerequisite to determine on which parts and in which granularity the remaining pipeline operates.
-		also, typically you have very large datasets and dont want to operate on each individual instance but rather on groups of instances.
-			to make the data manageable \& to extract knowledge it is therefore necessary to structure it.
-			
-	description:
-		organize data into subsets.
-		each subset is then fed into the pipeline - which means, each subset can be modified with different operators in the following pipeline stages.
-		does not modify any spatial positioning.
-		can be repeated hierarchically to create a scenegraph of the data.
-		- each subset is then fed into the pipeline - which means, each subset can be modified with different operators.
-		no simplification/abstraction/occlusion handling here since we are not manipulating any properties except for parent/child assignments.
-	attributes modified/created in this stage: group id, parent / child assignment.
+as the first stage in our pipeline, the partitioning stage is concerned with preparing the molecular data for further processing in the consecutive stages.
+
+%its task is to structure the data so that the desired knowledge can be extracted from it.
+
+illustrators partition their data to decide, in which granularity/level of detail the data is handled, e.g., which parts should be treated as a unit when transforming them to a different representation. \textbf{[concrete example?]} 
+
+as such this stage partitions the raw unstructured data into subsets according to specified criteria.
+these subsets are the building blocks that the final representation is constructed from.
+
+the criteria for structuring them are specified by the respective operators of this stage.
+
+for instance, one operator could group all molecules by type, another according to their spatial positioning.
+
+the operators of this stage can be called hierarchically to create a scenegraph of the data. a user could at first partition the scene spatially and then partition the resulting subsets by molecule type. %give reason?
+
+as such, operators implemented for this stage will receive a list of entities or list of subsets as input.
+the operator will then group the elements of the supplied list according to specified criteria, such as the elements' molecule type, position, or spatial proximity to a defined point. 
+more precisely this means, that a number of subsets is created, e.g, as many as there are molecule types or defined spatial quadrants, and each entity that fits the respective subset is assigned to it as its child. each child entity also stores the id of its designated parent.
+the output of an operator will therefore be a list of the newly created subsets with the respective child / parent assignments.
+%attributes modified/created in this stage: group id, parent / child assignment.
 	
-		input: entities or sub groups,
-		output: subgroups
-	
-	according to criteria:
-	
-		internal (data): type
 		
-		external:
-			spatial position,
-				in respect to other entities,
-				in respect to external factors(cutting planes),
-			derived properties
+	
+	
+
+%partitioning is a prerequisite stage for the following pipeline stages. it determines, on which parts of the data the operators in the following pipeline stages will operate. %, e.g., which parts of the data are handled as a unit in layouting or the morphing of the visual representation.
+
+%this stages takes the raw unstructured data and structures it according to the parametrization of the respective operator.
+
+
+
+
+%		also, typically you have very large datasets and dont want to operate on each individual instance but rather on groups of instances.
+%			to make the data manageable \& to extract knowledge it is therefore necessary to structure it.
+
+
+
 			
-	proof of concept (PoC) operators:
-		spatial subselection by clipping plane/object,
-		splitting into types,
-		spatial splitting operations into equal parts,
-		cloning.
+%	description:		organize data into subsets.
+		%each subset is then fed into the pipeline - which means, each subset can be modified with different operators in the following pipeline stages.
+		%does not modify any spatial positioning.
 		
-	determines on which parts and in which granularity the remaining pipeline operates
+		%operators in this stage	can be repeated hierarchically to create a scenegraph of the data.
+		%- each subset is then fed into the pipeline - which means, each subset can be modified with different operators.
+		
+%		no simplification/abstraction/occlusion handling here since we are not manipulating any properties except for parent/child assignments.
+		
+%	attributes modified/created in this stage: group id, parent / child assignment.
+	
+%	according to criteria:			internal (data): type				external:			spatial position,				in respect to other entities,				in respect to external factors(cuttingplanes),			derived properties
+			
+		
 	
 \subsubsection{layouting}
 	design decisions:

@@ -10,16 +10,14 @@
 
 should we describe beforehand what (which representations) we try to achieve with these implementations?
 
-\begin{itemize}
-	\item Partitioning:
-	\item Layouting:
-	\item Blending/Morphing:
-	\item Trajectory:
-	\item Timing:
-	\item Annotations/Glyphs:
-	\item Navigation:
-\end{itemize}
 
+\subsubsection{Partitioning}
+
+	proof of concept (PoC) operators:
+		spatial subselection by clipping plane/object,
+		splitting into types,
+		spatial splitting operations into equal parts,
+		cloning.
 
 			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 

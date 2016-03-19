@@ -1,23 +1,44 @@
 \section{The Pipeline}
 
 \subsection{Overview}
+		
+	our pipeline takes a supplied molecular data set in the described format and produces a user specified number of baked frames that show a continuous transition from the provided original data to a specified target representation.
 	
-		Our pipeline consists of seven stages that can be grouped into three high level tasks:
+	Our pipeline consists of seven stages that can be grouped into three high level tasks:
+	
+	the first three stages can be parametrized to specify the target representation.
+	
+	the next two stages are used to define the transition from the original representation to the target representation.
+	
+	the final two stages can be used to add additional labels and narrative elements to the animation, such as coordinate axes, legends, or annotations.
+	
+	each stage supports certain types of operators.
+	these operators and their combinations determine the pipeline output.
+	in order to achieve a desired result, the respective operators have to be selected and parametrized for each stage.
+	
+	operators have to be implemented for each stage in consideration of desired output that the respective stage should produce. here is where design considerations come into play.
+	implemented once and can then be re-used on arbitrary data sets to achieve the desired results.
+	can be combined in new ways?
+	we give a discussion of our proof of concept operators in the next section.
+	
+		depending on what kind of transition should be achieved, not all stages are mandatory.
+			
+		the	pipeline can be repeated for more complex stories or multi stage transitions.
+	
+	in the following we will discuss each stage in terms of its function within the pipeline and in terms of what part of the supplied data each stage operates on.
+	
+	
 		\begin{itemize}
 			\item Target Representation Creation: Data Partitioning, Layouting, Morphing \& Blending
 			\item Transition Specification: Trajectory, Timing
 			\item Narrative Support: Annotations \& Glyphs, Navigation
 		\end{itemize}
-	
-		depending on what kind of transition should be achieved, not all stages are mandatory.
-			
-the	pipeline can be repeated for more complex stories or transitions.
 
 		%independent of staging within one transition. staging therefore doesnt have to be implemented by multiple pipeline iterations.
 
 \subsection{Target State}
 the visual variables of the final representation are defined by these stages.\newline
-while the layout stage is repsonsible for manipulating the visual variables of position and rotation,
+while the layout stage is responsible for manipulating the visual variables of position and rotation,
 the morphing stage is concerned with the remaining visual variables, i.e., shape, size, color.\newline
 these states are necessary / responsible for defining the target position \& form of the data, i.e., the spatial and visual transformation
 
@@ -25,7 +46,7 @@ these states are necessary / responsible for defining the target position \& for
 subset creation / grouping.
 
 	design decisions:
-		prerequesite to determine on which parts and in which granularity the remaining pipeline operates.
+		prerequisite to determine on which parts and in which granularity the remaining pipeline operates.
 		also, typically you have very large datasets and dont want to operate on each individual instance but rather on groups of instances.
 			to make the data manageable \& to extract knowledge it is therefore necessary to structure it.
 			

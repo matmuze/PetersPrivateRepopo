@@ -15,25 +15,21 @@ and also ask him to write a bit about the background of his field. what his task
 \subsubsection{molecular/mesoscale data}
 	\textbf{todo: }describe cellpack format (outsource to mathieu)
 	
-	our data format:
+	\textbf{[our data format:]}	
+	this is the data that our pipeline operates on.
+	
 	\begin{itemize}
-		\item entity: represents the smallest part of the data. a single molecule. has inherent spatial attributes and optionally also an attribute vector. can be hierarchically grouped to subsets to build a sort of scene graph. has an original position and a target position and optionally control points in between
-		\item subset: is a group of entities.	grouped according so specified attributes (spatial, by type, ..)
-		\item attributes: spatial (pos, rot, volume/size, shape) for original and target \& optionally intermediate (controlpoints) state
-		\item attributes: hierarchical (children, parent)
-		\item attributes: data (data, type, shape composed of atoms \& their positions, color, also time curve?)
+	\item atom: represents the smallest part of our data. represented by a unit sphere. always represented within a molecule alongside with other atoms. has information about its chemical element and its local position within a molecule.
+		\item molecule: a single molecule. groups together a bunch of atoms. has inherent spatial attributes (pos/rot/scale) and an attribute vector (type). all molecules in the scene are instances of their respective type. the entities that our pipeline operates on. molecules	can be hierarchically grouped to form subsets within a hierarchical scene graph. %has an original position and a target position and optionally control points in between
+		\item subset: is a group of entities/molecules.	grouped according so specified attributes (spatial, by type, ..)
+		%\item attributes: spatial (pos, rot, volume/size, shape) for original and target \& optionally intermediate (controlpoints) state
+		%\item attributes: hierarchical (children, parent)
+		%\item attributes: data (data, type, shape composed of atoms \& their positions, color, also time curve?)
 	\end{itemize}
 
 			
-	\textbf{things that should be preserved:} depending on the usecase / representation - not all properties are essential for each representation form.
-	\begin{itemize}
-		\item instance level: position of instances
-		\item type level: shape of types, relative size of types, color of types (?), number relation between types
-		\item compartment level: shape/pos/size/color of compartments / structures
-		\item global level: volumetric dimensions of the data
-		\item todo: what else?
-	\end{itemize}
-		
+data is densely packed. depending on each molecules function, they can have a noisy distribution like in a liquid? or they can build rigid structures such as membranes.
+		these attributes have to be taken into account when designing a target representation as well as the transition into it.
 		
 
 

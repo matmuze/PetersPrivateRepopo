@@ -8,9 +8,12 @@ why are they essential?
 %\subsection{illustration in molecular visualization}
 %todo: discuss background of field \& application of illustration
 \textbf{(todo: outsource to Graham)}
+basically ask him to tell us in his words (justify \& motivate), why animations such as in his award winning video are such a great tool for communication scientific insights. (doesnt matter if its verbose, we can shorten it.)
+
+and also ask him to write a bit about the background of his field. what his tasks as illustrator \& animator are, who are his customers / users, where does he get his data from, what does the data look like, what do his users/customers want to see?
 
 \subsubsection{molecular/mesoscale data}
-	\textbf{todo: }describe cellpack format (outsource)
+	\textbf{todo: }describe cellpack format (outsource to mathieu)
 	
 	our data format:
 	\begin{itemize}
@@ -33,16 +36,4 @@ why are they essential?
 		
 		
 
-		
 
-\subsection{our pipeline}
-	
-		the pipeline contains three high level stages:
-		\begin{itemize}
-			\item one for the creation of the target representation.
-			\item one for the specification of the transition.
-			\item and an optional one that supports story telling.
-		\end{itemize}
-			each stage is composed of multiple lower level stages that define each high level stage.
-			
-			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations - based on a simple scripting interface.

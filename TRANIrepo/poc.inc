@@ -1,7 +1,30 @@
 \section{Proof Of Concept Implementation}
-\textbf{todo:} discuss PoC components that we implemented per pipeline stage
 
-\subsubsection{different types of transformations/abstractions}		
+\subsection{PoC Pipeline}
+[contains specifics about our pipeline]
+\newline
+
+
+\subsection{PoC components}
+[describes PoC components that we implemented per pipeline stage]
+
+should we describe beforehand what (which representations) we try to achieve with these implementations?
+
+\begin{itemize}
+	\item Partitioning:
+	\item Layouting:
+	\item Blending/Morphing:
+	\item Trajectory:
+	\item Timing:
+	\item Annotations/Glyphs:
+	\item Navigation:
+\end{itemize}
+
+
+			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
+
+
+\subsection{different types of transformations/abstractions}		
 
 	depending on what they want to convey, illustrators choose different kinds of abstractions
 	derivation (infographic)

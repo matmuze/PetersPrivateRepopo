@@ -1,12 +1,25 @@
 \section{The Pipeline}
-\subsection{overview}
-	pipeline is repeatable for more complex animations.
-		independent of staging within one transition.
-			staging therefore doesnt have to be implemented by multiple pipeline iterations.
+
+\subsection{Overview}
+	
+		Our pipeline consists of seven stages that can be grouped into three high level tasks:
+		\begin{itemize}
+			\item Target Representation Creation: Data Partitioning, Layouting, Morphing \& Blending
+			\item Transition Specification: Trajectory, Timing
+			\item Narrative Support: Annotations \& Glyphs, Navigation
+		\end{itemize}
+	
+		depending on what kind of transition should be achieved, not all stages are mandatory.
+			
+the	pipeline can be repeated for more complex stories or transitions.
+
+		%independent of staging within one transition. staging therefore doesnt have to be implemented by multiple pipeline iterations.
 
 \subsection{Target State}
-\subsubsection{general}
-these components are necessary for defining the target position \& form of the data, i.e., the spatial and visual transformation
+the visual variables of the final representation are defined by these stages.\newline
+while the layout stage is repsonsible for manipulating the visual variables of position and rotation,
+the morphing stage is concerned with the remaining visual variables, i.e., shape, size, color.\newline
+these states are necessary / responsible for defining the target position \& form of the data, i.e., the spatial and visual transformation
 
 \subsubsection{partitioning}
 subset creation / grouping.

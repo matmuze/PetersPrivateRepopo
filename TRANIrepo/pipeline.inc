@@ -187,44 +187,31 @@ depending on the operator type, new controlpoints that fulfill one of the above 
 	%	output: transition path based on additional CPs for each entity/subgroup.
 		
 	
-\subsubsection{timing}
-	design decisions:
-		prerequisite for temporal coordination of the transition,
-		illustrators can use this stage as their canvas in the temporal dimension
-		necessary to bring order into the transition across the temporal canvas,
-			making the transition more readable \& visually engaging,
-			steering amount of visual stimuli,
-			occlusion handling.
-		also necessary to encode chronological information, e.g., sequence of events.
+\subsubsection{Timing}
+
+		the timing stage is responsible for the temporal coordination of the transition by determining the order and speed at which entities or subsets reach their target position and visual form.
 		
-	description:
-		determines when an entity starts its animation and how fast the target destination should be reached.
-		can be used to coordinate the animated transition, e.g., to decrease occlusion and the number of simultaneous visual stimuli in order to increase understandability of the transition. e.g., for creating a staged animation.
+		as such, this stage is the illustrators' canvas in the temporal dimension.
+
+		while the inherent purpose of this stage is to encode chronological information, i.e., the sequence of events, illustrators can also use it for additional purposes:
+			they can make the transition more readable \& visually engaging by reducing the number of simultaneous visual stimuli, i.e., by starting the transition of indicisual molecules / subsets with a time offset to each other, thus creating staged transitions/animations [cite heer?]. %i.e., by timing when and how fast individual molecules or subsets should approach their target destinations, as well as their target representations,
+			timing can also be used for occlusion handling, i.e., by first starting the transition of elements that occlude important structures or that are closer to the viewing position, while other elements remain in their positions until they are revealed.
 			
-		input: list of entities/subsets \& offset function.
-		
-		output: start time \& transition speed (curve) for each entity.
-		
-	attributes created in this stage:
-		time offset,
-		speed,
-		per entity / subset,
-		lifetime,
-			e.g., for annotations (blending in and out).
+			further, timing can also be used for controlling visual stimuli. the transition can be timed in a way that the attention is steered to a currently important structure or event by animating what should be in focus while keeping the remaining scene still.
 			
-	offset function:
-		depending on:
-			inherent spatial parameters,
-				position, distance to other entities, density, ..,
-			external spatial parameters
-				(cutting plane/object)
+as such, operators of this stage, depending on the intent that they implement, create a time curve for each entity that determines the start time and speed of the spatial and visual transition. optionally they can also create an end time, i.e., determine, when an element should cease to exist but also, when the transition should stop, i.e., whether an element should reach its final destination as well as how close it should get. this can be used to create a target representation that looks like it stopped in mid-motion.~~~
+			
+			
 				
-	determines the order and speed at which an entity/subset reaches its final pos/form.
 	
-\subsubsection{timing}
+	
+	
+\subsubsection{Sampling}
+
+
 
 \subsection{Story Telling}
-\subsubsection{annotations}
+\subsubsection{Annotations}
 	design decisions:
 		necessary for:
 			story telling (labels and annotations) => inform,
@@ -246,7 +233,7 @@ depending on the operator type, new controlpoints that fulfill one of the above 
 			positions \& time of fadein/fadeout
 (or are these handled by timing, layouting \& trajectory?)
 				
-\subsubsection{guided navigation}
+\subsubsection{Guided Navigation}
 	design decisions:
 		essential component for storytelling.		
 			steering attention towards specific events/details in the data => in a guided walk/fly through manner.

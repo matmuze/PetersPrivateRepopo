@@ -60,7 +60,18 @@ should we describe beforehand what (which representations) we try to achieve wit
 		bundling?,
 		motion blur?.
 		
-
+\subsubsection{Timing}
+PoC: offset function \& staging by type ... anything else?
+			
+	offset function:
+		depending on:
+			inherent spatial parameters,
+				position, distance to other entities, density, ..,
+			external spatial parameters
+				(cutting plane/object)
+			
+			
+			
 			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 
 

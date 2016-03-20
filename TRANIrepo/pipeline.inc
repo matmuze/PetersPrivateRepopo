@@ -158,7 +158,43 @@ a user could, for instance, first call an explosion layout, to reveal the inner 
 	
 layouts are can be called for each level in the scene hierarchy. depending on the intended target representation.
 lowest level nodes contain leaves (molecule instances). here the layout works directly on re-positioning the individual molecules, e.g., it could put them into an abstract collective shape like a histogram bar. the next highest level node would then contain a list of children where each is layouted as a bar. the layout operator could then position these subsets (bars) with respect to each other.
-	
+
+
+\subsection{Story Helpers}
+
+\subsubsection{Annotations}
+	design decisions:
+		necessary for:
+			story telling (labels and annotations) => inform,
+			steer attention (pointers),
+			supplying frames of reference (legends \& coordinate systems) => orientation.
+			additionally used in static images / small multiples for supplementing the information that is lost due to the missing animation (continuous transition):
+			
+				- glyphs that indicate the direction of a motion
+				
+				- target destination of an apparently moving entity
+				
+	description:
+		can support understanding of the transition (e.g., arrows) - especially in still images.
+		can support understanding of the data (e.g., labels).
+		
+	attributes created in this stage:
+		labels/glyphs/...,
+			content (text,...),
+			positions \& time of fadein/fadeout
+(or are these handled by timing, layouting \& trajectory?)
+
+				
+\subsubsection{Guided Navigation}
+	design decisions:
+		essential component for storytelling.		
+			steering attention towards specific events/details in the data => in a guided walk/fly through manner.
+		necessary if the illustrator chooses a destination for the target rep that is outside the initial view frustum-
+		
+	attributes modified in this stage:
+		camera positions \& lookat vector,
+		timing handled by timing stage?
+			
 	
 \subsection{Transition}
 These stages are responsible for defining the transition to the target representation, i.e., how each entity reaches its target position and when it reaches it's target form.
@@ -199,47 +235,46 @@ depending on the operator type, new controlpoints that fulfill one of the above 
 			
 			further, timing can also be used for controlling visual stimuli. the transition can be timed in a way that the attention is steered to a currently important structure or event by animating what should be in focus while keeping the remaining scene still.
 			
-as such, operators of this stage, depending on the intent that they implement, create a time curve for each entity that determines the start time and speed of the spatial and visual transition. optionally they can also create an end time, i.e., determine, when an element should cease to exist but also, when the transition should stop, i.e., whether an element should reach its final destination as well as how close it should get. this can be used to create a target representation that looks like it stopped in mid-motion.~~~
-			
-			
-				
-	
-	
+as such, operators of this stage, depending on the intent that they implement, create a time curve for each entity that determines the start time and speed of the spatial and visual transition. optionally they can also create an end time, i.e., determine, when an element should cease to exist but also, when the transition should stop, i.e., whether an element should reach its final destination as well as how close it should get. this can be used to create a target representation that looks like it stopped in mid-motion.~~~	
 	
 \subsubsection{Sampling}
 
+This final stage determines the sampling strategy, i.e., at which rate the transition is sampled. %in which resolution the pipeline outputs the transition.
+
+The operator, that the illustrator chooses, therefore determines, whether the transition will be continuous or if sparser sampling will be applied, e.g., to extract a narrative sequence like in a comic strip.
+The lowest rate would therefore just output the final image of the target representation.
+
+%interpolates between the controlpoints/keyframes
+%produces a smooth \&continuous transition / animation 
+
+Before the sampling starts, the scene hierarchy is flattened again - which means that all information from higher level nodes is projected into the leaves, i.e., the individual molecules. The transformation matrices of higher level nodes are multiplied recursively with all their lower level children for each controlpoint - so that each molecule knows about its global position for each control point.
+
+The sampling stage then uses the output of the timing stage to determine at which rate/speed to interpolate between control points for each molecule.
+And it uses the output of the trajectory stage to determine how to interpolate between the supplied control points, e.g., linear, cubic,..
+
+The sampling stage can also determine if the transition is pre-baked or sampled on the fly in real-time.
+
+As such, this makes it possible to use a continuous pre-baked transition to create, for instance, a single result image that encodes the missing transition information within glyphs. These glyphs can be calculated from the continuous pre-baked information.
+
+The continuously sampled information could also be exploited to create a hybrid visualization that displays a discretely sampled narrative sequence of small multiples. Upon clicking one of these small multiples, it could show the continuous transition to the next discrete element in the narrative sequence.
+%This missing information can be extracted from the continuously sampled pre-baked transition and 
+
+%to use this information in a postprocessing step to create glyphs that reintroduce the information that was missing through the sparse sampling
+%this stage also allows/supports operators that can, for instance, first do a smooth continuous sampling and then extract transition / motion path information from these samples and encode the information in a postprocessing step into supporting glyphs that reintroduce the information that was missing through the sparse sampling
+ 
 
 
-\subsection{Story Telling}
-\subsubsection{Annotations}
-	design decisions:
-		necessary for:
-			story telling (labels and annotations) => inform,
-			steer attention (pointers),
-			supplying frames of reference (legends \& coordinate systems) => orientation.
-			additionally used in static images / small multiples for supplementing the information that is lost due to the missing animation (continuous transition):
-			
-				- glyphs that indicate the direction of a motion
-				
-				- target destination of an apparently moving entity
-				
-	description:
-		can support understanding of the transition (e.g., arrows) - especially in still images.
-		can support understanding of the data (e.g., labels).
-		
-	attributes created in this stage:
-		labels/glyphs/...,
-			content (text,...),
-			positions \& time of fadein/fadeout
-(or are these handled by timing, layouting \& trajectory?)
-				
-\subsubsection{Guided Navigation}
-	design decisions:
-		essential component for storytelling.		
-			steering attention towards specific events/details in the data => in a guided walk/fly through manner.
-		necessary if the illustrator chooses a destination for the target rep that is outside the initial view frustum-
-		
-	attributes modified in this stage:
-		camera positions \& lookat vector,
-		timing handled by timing stage?
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+

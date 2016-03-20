@@ -12,6 +12,11 @@ basically ask him to tell us in his words (justify \& motivate), why animations 
 
 and also ask him to write a bit about the background of his field. what his tasks as illustrator \& animator are, who are his customers / users, where does he get his data from, what does the data look like, what do his users/customers want to see?
 
+
+		to convey their message, illustrators apply a combination of the three high level tasks of occlusion handling, abstraction, and simplification on their data.
+		subsequently, many pipeline stages are concerned with fulfilling these tasks with their respective measures.
+these can, in combination, then enable other lower level tasks, such as, comparison,.. \textbf{[check brehmer task taxonomy]}
+
 \subsubsection{molecular/mesoscale data}
 	\textbf{todo: }describe cellpack format (outsource to mathieu)
 	

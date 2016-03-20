@@ -92,8 +92,43 @@ the output of an operator will therefore be a list of the newly created subsets 
 	
 %	according to criteria:			internal (data): type				external:			spatial position,				in respect to other entities,				in respect to external factors(cuttingplanes),			derived properties
 			
-		
 	
+\subsubsection{Blending/Morphing}
+%this stage enables the transformation of entities/subsets into a different representation form.			
+%is responsible for creating the visual properties of the target representation - the transformation of entities/subsets into a different representation form.
+
+illustrators can use the operators of this stage to change the visual representation of parts or all of their data.
+this can serve multiple purposes / the three high level tasks of simplification, abstraction, and occlusion handling.
+
+entities or subsets change their individual or collective appearance, in order to convey specific information by revealing, simplifying or transforming the molecular data.
+				general: individual or subsets can change their representation: blend into each other into a new collective shape, change individual shape, blend into texture, change individual or collective render mode
+
+concrete examples:				
+simplification: specific molecules could be blended to a 2D texture, that represents the molecule's kekule diagram. unnecessary details can be reduced by blurring the complex noisy distribution of molecules within a compartment to a uniform color.
+occlusion handling: by changing visual properties, such as transparency, of certain parts of the data, other parts can be revealed.
+abstraction/transformation/?: the molecules can be morphed into tetris-like blocks that the layouting stage then combines to form, e.g., a histogram bar, encoding the total volume of the respecitve molecule type. 
+
+
+operators thus can work on arbitrary levels of the scene hierarchy that was created in the previous pipeline stage:
+on the leafes (the individual molecules): 
+on the subsets (the grouped molecules): histogram, giant cubes
+
+
+depending on their implementation, operators on this stage can operate on the any part of the shader pipeline, i.e., move around individual vertices that are the atoms of a molecule or do post processing on the rendered image in a separate rendering pass.
+\textbf{[need some feedback for improvement of the input/output description]}
+
+%take individual molecules or subsets as input
+%depending on their implemented task, they can
+%apply shading (blend together, render contours, transparent,..)
+%blend to a 2D texture
+%scale
+%moph the shape: to a proxy geometry, based on the atoms
+
+%attributes created in this stage: target..		shape,		size,		color,		style,		dimensionality.		output: morphed shape(s).		
+%abstraction (cube, histogram), simplification (kekule, LoD, merging in schematization).
+			
+			
+			
 \subsubsection{Layouting}
 
 %The layouting stage creates a target position and rotation for each child element of a supplied subset.
@@ -125,79 +160,37 @@ layouts are can be called for each level in the scene hierarchy. depending on th
 lowest level nodes contain leaves (molecule instances). here the layout works directly on re-positioning the individual molecules, e.g., it could put them into an abstract collective shape like a histogram bar. the next highest level node would then contain a list of children where each is layouted as a bar. the layout operator could then position these subsets (bars) with respect to each other.
 	
 	
-\subsubsection{blending/morphing}
-	design decisions:
-		prerequisite for creating the visual extents of the target representation.
-		essential for enabling transformation of entities/subsets into a different representation form.
-			transform visual properties,
-			e.g., abstraction (cube, histogram), simplification (kekule, LoD, merging in schematization).
-			
-	description:
-		deals with visual attribute transformation.
-		entities or subsets change their individual or collective shape, in order to convey specific information or to change the visualization space.
-		
-			simplify:
-				schematization: the noisy mixture that the molecules in a compartment compose, is blurred to form a uniform color that represents the compartment.
-				
-			abstract:
-				histogram: the molecules that are layouted into a histogram bar are blended/overdrawn with a 2D histogram to better convey the abstract information the bar should represent.
-				
-			reveal (occlusion handling)
-			
-	attributes created in this stage: target..
-		shape,
-		size,
-		color,
-		style,
-		dimensionality.
-		
-		input: original shape(s).
-		
-		output: morphed shape(s).
-		
-	PoC operators:
-		unfolding,
-		blending into new collective shape
-			(schematization background,
-			histogram bar),
-		morphing
-			(simplified shapes (like in GJ video)).
-			
-	determines the shape of an entity /subset in the target state.
-	
 \subsection{Transition}
-\subsubsection{general}
-these components are necessary for defining the transition, i.e., how and when each entity reaches its target position \& form.
+These stages are responsible for defining the transition to the target representation, i.e., how each entity reaches its target position and when it reaches it's target form.
 
-\subsubsection{trajectory}
-	design decisions:
-		necessary to bring order into the transition across the spatial canvas.
-			making the transition more readable \& visually engaging.
-		also necessary to encode topological information, e.g., data highways.		
-		prerequisite for spatial coordination of the transition.
+\subsubsection{Trajectory}
+
+This stage describes for each molecule, how it reaches the target position and the control points in-between that have been defined in the layouting stage.
+This is in the simplest case a linear interpolation between a molecule's control points.
+However, if applied wisely, illustrators can use this stage for multiple purposes:
+simplification: they can make the transition more readable and visually engaging, by bringing structure into its elements' motion paths, e.g., by creating a well positioned point in space for each molecule type through which it has to "travel" to reach its target position.
+this structuring can serve occlusion handling, e.g., by placing these transit points in a way that the molecules flying through them reveal essential parts of the scene. 
+information generation: they can also encode topological information that was not present in the original data, e.g., in the form of meaningful data highways that transport molecules from one state to another, or even to simulate the flow of blood between two organs.
+
+to achieve this structuring, operators in this stage can implement techniques such as edge bundling. this means that an operator can introduce new controlpoints into the motionpath of a molecule, e.g., to re-direct it so that it does not occlude the existing scene.
+
+as such, this stage, takes a subset from the scene hierarchy as input.
+the child elements of this subset are analyzed in terms of their controlpoints (at the very least original and target position) and their relation to the controlpoints (original and target position) of the remaining elements of this subset (or even the entire scene).
+depending on the operator type, new controlpoints that fulfill one of the above described functions are created as the output of the stage.
+		%necessary to bring order into the transition across the spatial canvas.	
+		%prerequisite for spatial coordination of the transition.		
+		%can be used to infer additional information (e.g., information highways for certain entity types) - but also to decrease occlusion / increase readability of the transition.		
+%	attributes created in this stage:
+	%	control points between original and target position \& appearance.
+		%control point do not suggest a timing but rather key frames for each entity or subset.		
+%		input: set of layouted entities (they possess original and target state).		
+	%	output: transition path based on additional CPs for each entity/subgroup.
 		
-	description:
-		determines how an entity reaches its target position. can be used to infer additional information (e.g., information highways for certain entity types) - but also to decrease occlusion / increase readability of the transition.
-		
-	attributes created in this stage:
-		control points between original and target position \& appearance.
-		control point do not suggest a timing but rather key frames for each entity or subset.
-		
-		input: set of layouted entities (they possess original and target state).
-		
-		output: transition path based on additional CPs for each entity/subgroup.
-		
-	PoC operators:
-		linear: from A straight to B,
-		curved,
-		bundling,
-		motion blur.
-		
-	determines how an entity/subset reaches its target position/form
 	
 \subsubsection{timing}
 	design decisions:
 		prerequisite for temporal coordination of the transition,
+		illustrators can use this stage as their canvas in the temporal dimension
 		necessary to bring order into the transition across the temporal canvas,
 			making the transition more readable \& visually engaging,
 			steering amount of visual stimuli,
@@ -228,6 +221,8 @@ these components are necessary for defining the transition, i.e., how and when e
 				
 	determines the order and speed at which an entity/subset reaches its final pos/form.
 	
+\subsubsection{timing}
+
 \subsection{Story Telling}
 \subsubsection{annotations}
 	design decisions:

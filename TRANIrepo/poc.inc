@@ -1,7 +1,7 @@
 \section{Proof Of Concept Implementation}
 
 \subsection{PoC Pipeline}
-[contains specifics about our pipeline]
+[contains specifics about our pipeline implementation]
 \newline
 
 
@@ -18,7 +18,17 @@ should we describe beforehand what (which representations) we try to achieve wit
 		splitting into types,
 		spatial splitting operations into equal parts,
 		cloning.
+	
+\subsubsection{Blending / Morphing}
 		
+	PoC operators:
+		unfolding,
+		blending into new collective shape
+			(schematization background,
+			histogram bar),
+		morphing
+			(simplified shapes (like in GJ video)).
+	
 \subsubsection{Layouting}
 
 	PoC operators:
@@ -42,6 +52,14 @@ should we describe beforehand what (which representations) we try to achieve wit
 			simplify
 			
 	
+	\subsubsection{Trajectory}
+	
+	PoC operators:
+		linear: from A straight to B,
+		curved,
+		bundling?,
+		motion blur?.
+		
 
 			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 

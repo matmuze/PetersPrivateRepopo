@@ -44,7 +44,7 @@ quantities and relations in charts or graphs.
 To support the understanding of how the transformed data relates to the
 original, they convey this transition in a continuous way, with animated
 transitions.
-While these animations are popular, they still have be created manually in
+While these animations are popular, they still have to be created manually in
 3D modeling software.
 
 We therefore provide illustrators with a more streamlined way for creating

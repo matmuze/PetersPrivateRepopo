@@ -161,39 +161,49 @@ lowest level nodes contain leaves (molecule instances). here the layout works di
 
 
 \subsection{Story Helpers}
+%somehow different from the other stages because...
+
+%these stages are also concerned with making the resulting visualization/outcome of the pipeline/transition/animation more comprehensible but on a different level - on the level of ...
+
+%illustrators can use these stages to make support the understanding of the transition...
+
+[actually conceptually, these two stages are parallel to the data partitioning stage - as they create two additional data types (besides the molecular data): annotations and camera control points - that are also handled by the subsequent pipeline stages.]
+
 
 \subsubsection{Annotations}
-	design decisions:
-		necessary for:
-			story telling (labels and annotations) => inform,
-			steer attention (pointers),
-			supplying frames of reference (legends \& coordinate systems) => orientation.
-			additionally used in static images / small multiples for supplementing the information that is lost due to the missing animation (continuous transition):
-			
-				- glyphs that indicate the direction of a motion
-				
-				- target destination of an apparently moving entity
-				
-	description:
-		can support understanding of the transition (e.g., arrows) - especially in still images.
-		can support understanding of the data (e.g., labels).
-		
-	attributes created in this stage:
-		labels/glyphs/...,
-			content (text,...),
-			positions \& time of fadein/fadeout
-(or are these handled by timing, layouting \& trajectory?)
+This stage allows the illustrator to add various forms of annotations to the scene.
 
+Illustrators can use these annotations for multiple purposes:
+Simple text labels could assist story telling by describing what is currently happening in the scene.
+Icons that point to specific events can be used to steer the viewer's attention.
+These elements can also be combined to create frames of reference, such as coordinate axes, scales, and legends, that can improve the viewers' orientation within and their understanding of the presented information.
+	
+%			story telling (labels and annotations) => inform,
+%			steer attention (pointers),
+%			supplying frames of reference (legends \& coordinate systems) => orientation.
+	%		additionally used in static images / small multiples for supplementing the information that is lost due to the missing animation (continuous transition):	
+				%- glyphs that indicate the direction of a motion
+				%- target destination of an apparently moving entity	
+		%can support understanding of the transition (e.g., arrows) - especially in still images.
+		%can support understanding of the data (e.g., labels).	
+%	attributes created in this stage:		labels/glyphs/...,			content (text,...),			positions \& time of fadein/fadeout (or are these handled by timing, layouting \&trajectory?)
+
+Operators of this stage should therefore, in the simplest case, accept text input and should be able to create or load icons and other graphical representations.
+
+%Depending on what kind of annotations the operators in this stage should create, they have to be supplied with a position
+
+\textbf{[I guess the positioning \& lifetime of these annotations should be handled (conceptually) by the layouting \& timing stages? should we then move this stage to before the layouting stage?]}				
 				
 \subsubsection{Guided Navigation}
-	design decisions:
-		essential component for storytelling.		
-			steering attention towards specific events/details in the data => in a guided walk/fly through manner.
-		necessary if the illustrator chooses a destination for the target rep that is outside the initial view frustum-
-		
-	attributes modified in this stage:
-		camera positions \& lookat vector,
-		timing handled by timing stage?
+
+The guided navigation stage enables control over camera parameters.		%essential component for storytelling.		
+
+Illustrators can use this stage for two purposes.
+They can steer attention towards specific events or details in the scene, in a guided fly through manner.
+And they can use it to follow the transition, if it leaves the current view frustum.
+
+Operators in this stage modify the camera position \& look-at vector. As such, they create a list of control points for these two values.
+A timing and trajectory is then also defined in the respective stages for the interpolation between these control points.			
 			
 	
 \subsection{Transition}
@@ -243,6 +253,8 @@ This final stage determines the sampling strategy, i.e., at which rate the trans
 
 The operator, that the illustrator chooses, therefore determines, whether the transition will be continuous or if sparser sampling will be applied, e.g., to extract a narrative sequence like in a comic strip.
 The lowest rate would therefore just output the final image of the target representation.
+
+While the previous stages of the pipeline can be called multiple times in order to create more complex animations/transitions/stories, the sampling stage is final, as it ties together the information from the previous stages to sample the visual result.
 
 %interpolates between the controlpoints/keyframes
 %produces a smooth \&continuous transition / animation 

@@ -1,10 +1,9 @@
 \section{Results}
+in this Section, we discuss the outcome of our proof of concept implementations
 
-discuss transformation to histograms.
+\subsection{Representation of Volumetric Relations}
 
-discuss schematization.
-
-discuss comparison?	maybe as combination of transformation \& schematization
+\subsection{Schematization of Molecular Structures}
 
 	\textbf{things that should be preserved:} depending on the usecase / representation - not all properties are essential for each representation form.
 	\begin{itemize}

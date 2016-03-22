@@ -2,13 +2,13 @@
 
 \subsection{Overview}
 		
-	our pipeline takes a supplied molecular data set in the described format and produces a user specified number of baked frames that show a continuous transition from the provided original data to a specified target representation.
+	our pipeline takes a supplied molecular data set in the described format and produces a user specified number of frames that show a transition from the provided original data to a specified target representation.
 	
-	Our pipeline consists of eight stages that can be grouped into four high level tasks:
+	Our pipeline consists of eight stages that can be grouped into three high level tasks:
 	
 	the first three stages can be parametrized to specify the target representation.
 	
-	the next two stages can be used to add additional labels and narrative elements to the animation, such as coordinate axes, legends, or annotations.
+	the next two stages can be used for guiding the narrative in the transition, i.e., by providing annotations and camera guidance.%to add additional labels and narrative elements to the animation, such as coordinate axes, legends, or annotations.
 	
 	the final three stages are used to define the transition from the original representation to the target representation.
 		
@@ -35,7 +35,7 @@
 % connection to the work of the real-world illustrators?
 	
 		\begin{itemize}
-			\item Target Representation Creation: Data Partitioning, Layouting, Morphing \& Blending
+			\item Target Representation Creation: Data Partitioning, Morphing \& Blending, Layouting
 			\item Narrative Support: Annotations \& Glyphs, Navigation
 			\item Transition Specification: Trajectory, Timing, Sampling
 		\end{itemize}
@@ -62,7 +62,7 @@ these subsets are the building blocks that the final representation is construct
 
 the criteria for structuring them are specified by the respective operators of this stage.
 
-for instance, one operator could group all molecules by type, another according to their spatial positioning.
+%for instance, one operator could group all molecules by type, another according to their spatial positioning.
 
 the operators of this stage can be called hierarchically to create a scenegraph of the data. a user could at first partition the scene spatially and then partition the resulting subsets by molecule type. %give reason?
 
@@ -134,7 +134,7 @@ depending on their implementation, operators on this stage can operate on the an
 %The layouting stage creates a target position and rotation for each child element of a supplied subset.
 %the operator type determines how the entities in the supplied supset are laid out in respect to each other.
 	
-this is the tool that illustrators use to spatially re-arrange the data that they partitioned in the previous stage/step.
+this is the tool that illustrators use to spatially re-arrange the data that they partitioned and transformed/blended in the previous stages.
 this spatial re-arrangement of the molecular data can serve various purposes. layouts can be used for occlusion handling, e.g., by exploding the dense data to reveal the inner workings of a cell. they can be used to transform the data into an altogether different visualization space, such as a line graph or a network in order to convey some more abstract points. or they can use them to simplify the complex and dense data in order to steer the viewer's attention towards some specific anatomical details that would otherwise remain hidden.
 
 	%design decisions:		necessary for enabling transformation of entities/subsets into a different space.
@@ -154,9 +154,9 @@ this spatial re-arrangement of the molecular data can serve various purposes. la
 	the output of a layout operator is therefore a new position and rotation for each child of the supplied node. each entity has a vector of control points that stores positions and rotations and is initialized with the element's original position and rotation. the new values calculated by the layout operators are added to this vector.
 	
 layouts can be stacked upon each other - meaning they are called multiple times for the same node - this creates additional control points that can be used to transition the data into intermediate representations before arriving at the final state. the final representation is determined by the last layout that has been called. 
-a user could, for instance, first call an explosion layout, to reveal the inner parts of the dense data set and then 
+a user could, for instance, first call an explosion layout, to reveal the inner parts of the dense data set, before rearranging these parts into their final form.
 	
-layouts are can be called for each level in the scene hierarchy. depending on the intended target representation.
+layouts can be called for each level in the scene hierarchy. depending on the intended target representation.
 lowest level nodes contain leaves (molecule instances). here the layout works directly on re-positioning the individual molecules, e.g., it could put them into an abstract collective shape like a histogram bar. the next highest level node would then contain a list of children where each is layouted as a bar. the layout operator could then position these subsets (bars) with respect to each other.
 
 

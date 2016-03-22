@@ -15,7 +15,7 @@
 
 %% Paper title.
 
-\title{TRANNI -- TRANsitions aNImated: A Formalization of Animated Transitions in Illustrative Molecular Visualization}
+\title{TRANI -- A Formalization of Animated Transitions in Illustrative Molecular Visualization}
 
 %% This is how authors are specified in the journal style
 %% indicate IEEE Member or Student Member in form indicated below
@@ -29,7 +29,7 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{TRANNI -- TRANsitions aNImated}
+\shortauthortitle{TRANI -- TRansitions ANImated}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
@@ -62,7 +62,7 @@ schematization of mesoscopic data.
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
 %% please capitalize first letter and insert punctuation after last keyword
-\keywords{...todo..}
+\keywords{Molecular Visualization, Illustrative Rendering, Animation.}
 
 %% ACM Computing Classification System (CCS). 
 %% See <http://www.acm.org/class/1998/> for details.

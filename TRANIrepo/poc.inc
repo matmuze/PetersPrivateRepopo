@@ -1,4 +1,5 @@
 \section{Proof Of Concept Implementation}
+			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 
 \subsection{PoC Pipeline}
 [contains specifics about our pipeline implementation]
@@ -73,9 +74,6 @@ PoC: offset function \& staging by type ... anything else?
 \subsubsection{Sampling}
 
 we do continuous sampling
-
-			
-			our PoC implementation allows illustrators to generate illustrative representations by simplifying or transforming their data, as well as coordinating/authoring the transitions to these altered representations. the components for each stage can be parametrized and queued based on a simple scripting interface.
 
 
 \subsection{different types of transformations/abstractions}		

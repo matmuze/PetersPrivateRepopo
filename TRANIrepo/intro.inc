@@ -25,77 +25,59 @@
 %% the only exception to this rule is the \firstsection command
 \firstsection{Introduction}
 \maketitle
-The traditional approach for the visual communication of scientific insights is handled by illustrators and animators. %(mesoscale - do not mention yet).
-Their goal is two-fold: on the one side, they want to attract the interest of broad audiences, on the other side, the want to communicate complex phenomena in an accessible way.
-In recent years, we have seen an increase in the communication of complex topics from molecular biology \textbf{cite[drew berry, gj, david bolinsky, Gaël McGill, janett iwasa]}. These authors employed animations to explain phenomena, such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell.
-The authors build their visualizations with molecular models, e.g., of a cell, that can consist of millions of atoms that form tens of thousands of molecules. %This data is characterized by high complexity, high density, and therefore also high occlusion.
-These molecular models are loaded into the scene of a 3D modeling tool to form the basis for the modeling of the intended knowledge transfer. The communication of quantities or relations, for instance, requires an abstract representation of the molecular data, e.g., by bar charts or line graphs. The presentation and comparison of cellular structures, on the other hand, requires a simplification of the highly complex data. In both cases, the original data has to be transformed, i.e., within the same (simplification) or to a different (abstraction) visualization space. Unfortunately, these transformations have to be authored and modeled manually within these tools.
-%Considering that new discoveries are frequently made, creating new representations and updating existing ones, is a laborous task. %The explanation of sequential processes %, as well as multimodal information for each molecule.
-%communicate quantities (e.g., oxigen transport, insulin) => requires different representations (bar chart)
-%=> three examples
-%complexity of the data: animators can use scripting, toolkits, loading models (at their disposal) - but simulation of this complex environment / complex messages have to be authored manually (no tools for that)
-%now concrete examples instead of abstract discussion
-%not only molecules
-%In both cases, transformations of the original data are involved. A simplification corresponds to the transformation within the same spatial coordinates. A 
-%simplification: have to manually author transformation of presented information \& the additional representations
+The traditional approach for the visual communication of scientific insights is handled by illustrators and animators.
+Their goal is to attract the interest of broad audiences, and to convey complex phenomena in an accessible way.
+In recent years, we have seen an increase in the communication of topics from molecular biology \textbf{cite[drew berry, gj, david bolinsky, Gaël McGill, janett iwasa]}, such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell. %we dont mention animations yet
 
-Viewers have to understand these transformations and the relations between the original and the transformed data, for a successful knowledge transfer.
-How hard these transformations are to grasp depends, for instance, on how strongly an illustrative representation differs from the original data, how familiar the audience is with the presented data, and how complex the original data is (the number of objects that need to be related to each other, the amount of occlusion).
-It is therefore helpful for the user's understanding, to convey the transition from one representation state to the other. Since animations are capable of displaying transitions in a continuous way, they are especially suitable in supporting the viewer's understanding.
+Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.
+The element of temporal sequence is used to convey changes of data states over time.
+The element of visual transformation creates different representations of the data in order to convey otherwise hidden aspects.
 
-%downsides >> alternatives >> but alt less suitable (interaction/presentation)
+%transformations across visualization spaces. %also across different data spaces? (either temporal or multiple data sets)
 
-%Besides their suitability for presentation purposes,
-Still, animations are often critically regarded by the visualization community. Tversky describes the fleetingness of the displayed information and the potential sensory overload and distracting nature of badly designed animations. %Nevertheless, \textbf{[here we have to disarm these arguments somehow for our scenario]}.
+Visual transformation is necessary, because the molecular data data is complex. [explain complex data here or within the following examples?]%in the highly complex data that consists 
+Illustrators employ occlusion handling techniques, such as exploded views, to reveal the inner structures of a dense cellular data set.
+They employ focus \& context techniques, such as the simplification of unimportant details of millions of atoms, in order to enable the presentation and comparison of cellular structures.
+While these two examples correspond to a transformation within the same visualization space, the depiction of abstract quantities or relationships, e.g., by bar charts or line graphs, correspond to the transformation to a different visualization space altogether. 
 
-%illustrators can not rely on interactivity and has to be engaging
-
-However, alternative ways to convey transitions, such as narrative sequences of small multiples or static images that supplement the missing information of the animation by indicating the transition with glyphs.%that encode the transition with glyphs, might not alleviate all downsides of animation. 
-While solving the problem of fleetingness, they have to be well designed, as well, to be understandable. Other approaches, such as coordinated multiple view (CMV) visualizations, might not deliver on the requirements for an engaging presentation scenario, as they rely on user interaction.
-
-Animations are therefore often the weapon of choice for illustrators when they intend to engage broad audiences.
-
-%might not alleviate the downsides of animation
-%might not deliver the requirements for the presentation scenario
-
-%no continuous transition - missing information
-%not as engaging
-%might require interaction
-%also have to be well designed (manually) to convey the transition
-
-%However, considering that the work of illustrators is mainly used for presentation purposes
-
-%As the aim of illustrators and animators is primarily presentation, it is often a requirement that their visualizations convey the desired knowledge with limited to no interactivity. 
-
-%presentation => limited to no interactivity => need to convey the relationship => animated transitions
+%In all cases, the original representation has to be transformed, in one case, within the same visualization space, and in the other to a different visualization space. 
 
 
-%, they are a favored choice by illustrators when it comes to engage large audiences.
+For a successful knowledge transfer, viewers have to understand the relations between the original and the transformed data.
+How hard these relations are to grasp depends on how strongly an illustrative representation differs from the original data, how familiar the audience is with the presented data, and how complex the original data is (the number of objects that need to be related to each other, the amount of occlusion).
+It is therefore helpful for the user's understanding, to convey the transition, or \emph{metamorphosis}, from one representation state to the other.
+
+%These animations typically are used to display two types of continuous sequences: sequences of temporal events, and transitions to other data representations. In this paper, we deal with the second type of these sequences. 
+%Illustrators use transitions to convey, how different representations of the same data, as well as, the same representations of different data, relate to each other. 
+
+
+Animations are a powerful tool for conveying these metamorphoses, since they are capable of displaying them in a continuous way.
+The continuous presentation supports an intuitive understanding of the relationship between representation states. The presentation is self-explanatory and enjoyable to audiences \cite{Robertson:TVCG:2008}.
+Still, animations are also critically regarded by the visualization community. Tversky describes the fleetingness of the displayed information and the potential sensory overload and distracting nature of badly designed animations. 
+
+Alternative solutions for conveying transitions alleviate the fleetingness of the displayed information by sacrificing the continuous aspect of the representation. Examples are narrative sequences of small multiples or static images that supplement the missing information of the continuity with glyphs.
+While solving the problem of fleetingness, they have to be well designed to be understandable.
+
+These approaches are most suited for circumstances where little to no interaction is possible or desired, such as in presentation scenarios.
+In scenarios where interaction is possible or desired, other approaches, such as coordinated multiple view (CMV) visualizations can be used.
+
 %Since these visualizations are intended for presentation purposes, which allows little to no interactivity, animation is a suitable medium.
-
 %Animated transitions are great for engaging audiences, garnering interest from new audiences.
-%Besides being engaging, animated transitions have the advantage of being intuitively understandable if well designed - as they display the transition in a continuous way.
 
+However, no matter which medium is used for the illustrative depiction of these stories, these transformed representations and the transitions to them have to be modeled manually by the illustrators which is a laborious and time-consuming task.
+The authors build their visualizations with complex molecular models, e.g., of a cell, consisting of millions of atoms that form tens of thousands of molecules, that are loaded into the scene of a 3D modeling tool. 
+Considering that new discoveries are made frequently in molecular biology, these representations and their transitions have to be re-modeled when new insights are found, which makes the effort for maintaining them even higher.	
 
-In trying to support their mission, we discovered two problems that we feel are worth solving in the context of scientific visualization:
-\begin{enumerate}
-	\item Animations are created and authored manually. Considering that new discoveries are made frequently in molecular biology, animations have to be re-modeled or all together re-created when new insights are found which makes the effort of creating them even higher.
-	\item While animation in visualization and simple transitions in information visualization have been already addressed in literature cite[heer, tversky], narrative animations in molecular biology, while being well established in this branch of visualization, have not been formally described yet.
-\end{enumerate}
-	
-	We therefore present such a formalism as the main contribution of this paper. We describe a conceptual pipeline based all components that are involved when creating animated transitions. Since this pipeline produces a continuous transition, it also offers the prerequisites for the extraction of other forms of transitions, such as narrative sequences or static images with glyphs. %that supplement the missing information of the animation by indicating the transition with glyphs.
-	
-	As our secondary contribution, we demonstrate a proof-of-concept implementation of this theoretical pipeline based on two(three?) examples that we created in collaboration with illustrators. Finally, we present one of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, as our third contribution.
+%	\item While animation in visualization and simple transitions in information visualization have been already addressed in literature cite[heer, tversky], narrative animations in molecular biology, while being well established in this branch of visualization, have not been formally described yet.\end{enumerate}
 
-%as our 4th contribution, we present the additional output that our implementation/pipeline supports besides animated transitions: the extraction of narrative sequences \& the creation of static images that supplement the missing information of the animation by indicating the transition with glyphs and annotations
-%put after the conceptual framework: the outcome of the pipeline is a continuum that can also be harvested for narrative sequencves & kinky glyph stuff
+We therefore want to assist illustrators by presenting our primary contribution: a formal description of a uniform method for creating target representations for spatial biological data sets, as well as the continuous transitions to these representations - describing the complete metamorphosis of the data representation, so to say.
 
-%They can use motion to show sequence in complex phenomena 
+%This metamorphosis is created by an eight stage pipeline.
+The output of this method is a continuous space between two representation states.
+This space can be arbitrarily sampled to create a transition between these representations, e.g., continuously, in the form of an animation, or sparsely, in the form of small multiples.
 
-%, as well as high redundancy (need a better word) of the relatively small number of different molecule types. 
-%dont fuck with scales
+The method is described by a pipeline that consists of eight stages that can be grouped by their high-level functionality: target state representation, transition definition, and story helpers.
+Each stage supports operators, so called metamorphers, that are responsible for one aspect of the metamorphosis.
 
-
-%2: we demonstrate this theoretical pipeline on several exapmples using a proof of concept implem & %shorten % pick most resonating statements
-%move stuff to overview
+As our secondary contribution, we demonstrate a proof-of-concept implementation of this pipeline based on three use cases that we developed in collaboration with illustrators. One of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, is our third and final contribution.
 

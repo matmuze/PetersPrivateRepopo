@@ -39,7 +39,7 @@ While these animations are popular, they still have to be created manually in 3D
 We therefore provide illustrators with a more streamlined way for creating such transitions between various representations of molecular data.
 
 We propose a formalization of the process of specifying these data representations in the form of a conceptual pipeline as our primary contribution.
-The pipeline consists of eight stages: grouping, layout, blending, trajectory, timing, annotations, guided navigation, and sampling.
+The pipeline consists of eight stages that can be grouped by their high-level functionality: target state representation, transition definition, and story helpers.
 As a result, data representations are specified in such a way that they form a continuous space.
 This space can be arbitrarily sampled to create a transition between the representations, e.g., in the form of animation or small multiples.
 

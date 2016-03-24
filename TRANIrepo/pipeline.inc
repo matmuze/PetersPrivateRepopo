@@ -189,6 +189,7 @@ These elements can also be combined to create frames of reference, such as coord
 %	attributes created in this stage:		labels/glyphs/...,			content (text,...),			positions \& time of fadein/fadeout (or are these handled by timing, layouting \&trajectory?)
 
 Operators of this stage should therefore, in the simplest case, accept text input and should be able to create or load icons and other graphical representations.
+Annotations can be logically attached to components or can be free-floating.
 
 %Depending on what kind of annotations the operators in this stage should create, they have to be supplied with a position
 

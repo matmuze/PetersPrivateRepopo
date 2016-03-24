@@ -1,0 +1,108 @@
+************
+EXPLOSION:
+--data transform:
+1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
+2) [plane splitter] spatially partiton each subset with the same plane (each one could also be split with a different plane theoretically)
+
+--annotations:
+3) text labels: "serum", "capsid", "membrane"
+
+--blending:
+no blending applied here
+
+--layouting:
+for each high lvl subset:
+4) [translate] upper part up, lower part down
+5) [rotate] rotate upper part a bit up, lower part a bit down
+6) (for all except the first subset)[translate] the subset to the left (double the amount of the previous subset's BB width)
+7) position label on top/below each high lvl subset
+
+--trajectory:
+8) [linear interpolation]
+
+--timing:
+9) introduce a [delay] for each consecutive layout operation (translate sideways of highlvl subsets & translate up/down for low lvl subsets)
+10) [] let some random molecules not finish the transition
+11) [] let labels appear after animation is finished
+
+--navigation:
+12) guided navi as subset explosion & transition use more and more screenspace
+
+--sampling:
+13) continuous sampling
+
+************
+INFOVIS:
+--data transform:
+1) [type range grouper] create 3 hierarchical compartments by typerange
+2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
+
+--annotations:
+3) [txt-label] for each type subset
+10) [representative] molecule for type subset
+
+--blending:
+4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
+
+--layouting:
+5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars
+6) the [line layout] puts all the bars within a compartment side by side
+7) the [translate layout] then moves the new center for the next line layout for the next compartment
+
+8) layout: put label below below each bar
+9) layout: put rep below label
+
+--trajectory:
+10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
+
+--timing:
+11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
+
+12) timing: make label & rep appear when animation is finished
+
+--guided navi:
+13) [whole-data-in-view-keeper] update the camera pos & lookat to keep all molecules in the view frustum.
+
+--sampling:
+14) continuous sampling
+
+
+************
+SCHEMATIZATION:
+--data transform:
+1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
+2) [copy] the entire partitioned data set because we will render it in two different representations => results in copy A & B
+
+--annotations:
+do the circular annotations?
+
+--visual transform:
+A: blurrin & increasin contrast of alpha channel for nice charp edges of each subset individually
+B: scalin
+
+--layouting (spatial transform):
+A: renderin them on top of each other (occlusion management)
+B: rotatin
+
+--navigation:
+not necessary
+
+--trajectory:
+B: linear interpolation between rotations
+
+--timing:
+staged per compartment
+distance field left to right for each
+
+
+--sampling:
+continuous
+
+
+
+
+
+
+
+
+

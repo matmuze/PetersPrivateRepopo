@@ -8,14 +8,48 @@ the components for each stage can be parametrized and queued based on a simple s
 
 we will first discuss the representations that we designed and then go into detail concerning the components that are involved in creating them.
 
+
 \subsection{Supported Representations}
+
+\subsubsection{Explosion of Molecular Structures}
+
+
+\subsubsection{Schematization of Molecular Structures}
+This representation was motivated by illustrative drawing, like the ones that can be found in medical/??? books.
+
+\paragraph{simplification (schematization)}:
+		simplify data to create understanding.
+		transformation within the same visualization space.
+		resembles the illustrations that we see in biomedical textbooks.
+		immediate transition = more intuitive to follow.
+		tries to preserve anatomical attributes but in a simplified / schematic way.
+		tries to give overview of elements in  the data and possibly their interrelations.
+		
+		preserves:	shape/size of compartments,
+			maybe individual elements
+			
+		sacrifices: low level detail for high level information
+	
+
 \subsubsection{Representation of Volumetric Relations}
 This representation was inspired by \textbf{[cite graham video (he actually mentioned a video where something like this is happening)]}. XXX created this animation to give a better understanding of what kind of proteins are represented in the different compartments of a cell, as well as how their collective mass relates to each other. 
 
 what is important in these representations (preserve vs sacrifice vs put into the foreground)
 
-\subsubsection{Schematization of Molecular Structures}
-This representation was motivated by illustrative drawing, like the ones that can be found in medical/??? books.
+		\paragraph{derivation (infographic)}:
+		transformation to another visualization space.
+		tries to convey information that an anatomic representation cannot.
+			derive data to convey hidden insights.
+		immediate transition = harder to follow.
+		sacrifices high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
+		insight into hidden relations in the data.
+		
+			does not care about these aspects in the data (preserve): todo
+			
+			cares about these aspects in the data (sacrifice): todo
+			
+
+
 
 \subsection{PoC Pipeline}
 [contains specifics about our pipeline implementation]
@@ -30,106 +64,77 @@ desc was jeder component beisteuert um die beiden reps zu erzielen
 
 
 \subsubsection{Partitioning}
-
-
-
-	proof of concept (PoC) operators:
 		spatial subselection by clipping plane/object,
+		
 		splitting into types,
-		spatial splitting operations into equal parts,
-		cloning.
+		
+		splitting into type ranges
+		
+		cloning
+		
+		---not showcased but implemented:		
+		*spatial splitting operations into equal parts (pie splitter),
 	
+\subsubsection{Annotations}
+text labels,
+icons (textures),
+maybe: data representatives (for each type),
+optional addon to each operator: connectors between annotation \& assigned subset
+
 \subsubsection{Blending / Morphing}
 		
-	PoC operators:
-		unfolding,
-		blending into new collective shape
-			(schematization background,
-			histogram bar),
-		morphing
-			(simplified shapes (like in GJ video)).
-	
+		blur into collective shape,		
+		morph,
+		
+		---not showcased but implemented:				
+		blending to texture
+		
+		---other not implemented \& not used examples:
+		unfolding
+		
 \subsubsection{Layouting}
 
-PoC operators:
+bar,
+line,
+translate,
+rotate,
+scale,
+schematization layout = combi of scale \& rotate but selection of elements where what op is applied is very specific
+
+---not showcased but implemented:	
+			slice,
+			sphere,
+			circle
+
+\subsubsection{Camera / Guided Navi}
+[whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
+
+other examples:
+
+
+\subsubsection{Trajectory}
 	
-		inner:		
-			bar:
-				abstract,
-			slice:
-				abstract,
-			sphere:
-				abstract
-				
-		outer:		
-			line:
-				?,
-			circle:
-				?,
-			explosion:
-				occlusion handling,
-		schematization layout (inner/outer/both?):
-			simplify
-			
-	
-	\subsubsection{Trajectory}
-	
-	PoC operators:
 		linear: from A straight to B,
-		curved,
-		bundling?,
-		motion blur?.
+		bundling/transit points
+		
+		---other not implemented \& not used examples:
+		curved
 		
 \subsubsection{Timing}
-PoC: offset function \& staging by type ... anything else?
+
+offset function: delay timing by distance to plane
+ \& staging by type ... anything else?
 			
-	offset function:
-		depending on:
-			inherent spatial parameters,
-				position, distance to other entities, density, ..,
-			external spatial parameters
-				(cutting plane/object)
+		---other not implemented \& not used examples:
+	offset according to: inherent spatial parameters (position, distance to other entities, density)
 			
 \subsubsection{Sampling}
 
-we do continuous sampling
+continuous sampling,
 
+		---other not implemented \& not used examples:
+sparse (comic strip / narrative sequence),
 
-\subsection{different types of transformations/abstractions}		
-	depending on what they want to convey, illustrators choose different kinds of abstractions:
-	
-		\paragraph{derivation (infographic)}:
-		transformation to another visualization space.
-		tries to convey information that an anatomic representation cannot.
-			derive data to convey hidden insights.
-		immediate transition = harder to follow.
-		sacrifices high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
-		insight into hidden relations in the data.
-		
-			does not care about these aspects in the data (preserve): todo
-			
-			cares about these aspects in the data (sacrifice): todo
-			
-\paragraph{simplification (schematization)}:
-		simplify data to create understanding.
-		transformation within the same visualization space.
-		resembles the illustrations that we see in biomedical textbooks.
-		immediate transition = more intuitive to follow.
-		tries to preserve anatomical attributes but in a simplified / schematic way.
-		tries to give overview of elements in  the data and possibly their interrelations.
-		
-		preserves:	shape/size of compartments,
-			maybe individual elements
-			
-		sacrifices: low level detail for high level information
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+post-processing operators:
+motion blur,
 		

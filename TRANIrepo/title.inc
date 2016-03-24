@@ -15,8 +15,10 @@
 
 %% Paper title.
 
-\title{Metamorphers -- A Formalization of Transitions in Illustrative Molecular Visualization}
-
+\title{
+-- Metamorphers --\newline
+A Formalization of Transitions in Illustrative Molecular Visualization
+}
 %% This is how authors are specified in the journal style
 %% indicate IEEE Member or Student Member in form indicated below
 \author{A, B, and C}

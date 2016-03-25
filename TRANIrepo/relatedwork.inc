@@ -16,10 +16,14 @@ Along these lines Wohlfart and Hauser~\cite{Wohlfart:EuroVis:2007} presented a g
 Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization methods that can be used for scientific story telling. Among other issues they suggest that novel transitions between different coordinate systems are needed to address the overwhelming complexity involved in today's scientific story telling.
 
 \subsection{Transitions between visual representations}
-Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives.
+Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives. Elmquist et al.~\cite{Elmqvist:TVCG:2008} present an exploration technique for multi-dimensional data. They place scatter plots on the sides of a dice and animate the transitions when the dice is rotated.
 
 Guilmaine et al.~\cite{Guilmaine:IWCAVI:2012} compare different animated transitions of tree structures. They find that hierarchical animation is better suited for tracking of changes.
-Basch~\cite{Basch:2011:ATA} describes possibilities for animated transitions between volumetric rendering and abstract views like histograms and scatter plots. Heer and Robertson~\cite{Heer:TVCG:2007} show animated transitions between different visual representations of statistical data. These works make use of staging and staggering which are techniques that reduces occlusions and clutter. Our approach is based on these findings and formalizes animated transitions between spatial and abstract attributes.
+
+
+Basch~\cite{Basch:2011:ATA} describes possibilities for animated transitions between volumetric rendering and abstract views like histograms and scatter plots. They use staggered animation to reduce occlusion. Hurter et al.~\cite{Hurter:PacificVis:2014} present a more general technique that interpolates data points between different views which are projections of the original data dimensions. They demonstrate applications for volume data as well as for images. Their approach addresses occlusion with interaction methods like brushing and locking of data points.
+Heer and Robertson~\cite{Heer:TVCG:2007} show animated transitions between different visual representations of statistical data. Their work makes extensive use of staging to reduce occlusion and clutter. 
+Our approach is based on several findings of these previous works and formalizes animated transitions between spatial and abstract attributes.
 
 Huron et al.~\cite{huron:TVCG:2013} present the visual sedimentation metaphor for the animation of data streams. This metaphor allows to transition from discrete visual elements to a continuous representation. 
 We employ a similar metaphor for the transition of spatial objects to abstract charts.

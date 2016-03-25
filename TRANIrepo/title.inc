@@ -16,8 +16,7 @@
 %% Paper title.
 
 \title{
--- Metamorphers --\newline
-A Formalization of Transitions in Illustrative Molecular Visualization
+--- Metamorphers ---\\A Formalization of Transitions in Illustrative Molecular Visualization
 }
 %% This is how authors are specified in the journal style
 %% indicate IEEE Member or Student Member in form indicated below
@@ -37,17 +36,15 @@ A Formalization of Transitions in Illustrative Molecular Visualization
 %% Abstract section.
 \abstract{
 Illustrators in molecular biology often use animated transitions as a means to communicate complex phenomena.
-While these animations are popular, they still have to be created manually in 3D modelling software. 
+While these animations are popular, they still have to be created manually in 3D modeling software. 
 We therefore provide illustrators with a more streamlined way for creating such transitions between various representations of molecular data.
 
-We propose a formalization of the process of specifying these data representations in the form of a conceptual pipeline as our primary contribution.
-The pipeline consists of eight stages that can be grouped by their high-level functionality: target state representation, transition definition, and story helpers.
-As a result, data representations are specified in such a way that they form a continuous space.
-This space can be arbitrarily sampled to create a transition between the representations, e.g., in the form of animation or small multiples.
+We propose a formalization of the process of specifying transitions to arbitrary representations in the form of a conceptual pipeline.
+Data representations are specified in such a way that they form a continuous space.
+The first three stages of the pipeline are responsible for creating this continuum. The final four stages of the pipeline are responsible for presenting the continuum.
+This continuum can be arbitrarily sampled in order to create a transition between two representations, e.g., densely, in the form of animation, or sparsely, in the form of small multiples.
 
-Our secondary contribution is a demonstration of our pipeline based on a proof of concept implementation. We created multiple operators for each pipeline stage that can
-be combined to achieve different types of transitions for arbitrary molecular data sets.
-One of these transitions that we designed in collaborations with illustrators, is a novel illustrative rendering approach for automatic schematization of mesoscopic data.
+We demonstrate our concept on exemplary use cases by creating multiple operators, so called metamorphers, for each pipeline stage. These metamorphers can be combined to achieve different types of transitions for arbitrary molecular data sets. We present three transitions that we designed in collaboration with illustrators, based on the data set of HIV: the explosion of inner and outer cellular compartments, a novel illustrative rendering approach for automatic schematization of mesoscopic data, and a transition to an infographic view, conveying quantitative relationships.
 In a qualitative discussion of our results, we received positive feedback from domain experts in illustration.
 } % end of abstract
 

@@ -26,19 +26,32 @@
 \firstsection{Introduction}
 \maketitle
 The traditional approach for the visual communication of scientific insights is handled by illustrators and animators.
-Their goal is to attract the interest of broad audiences, and to convey complex phenomena in an accessible way.
-In recent years, we have seen an increase in the communication of topics from molecular biology \textbf{cite[drew berry, gj, david bolinsky, Gaël McGill, janett iwasa]}, such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell. %we dont mention animations yet
+Their goal is to convey complex phenomena in an accessible way, and to attract the interest of broad audiences.
+In recent years, we have seen a rapid increase in the communication of topics from molecular biology \textbf{cite[drew berry, gj, david bolinsky, Gaël McGill, janett iwasa]}, such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell. %we dont mention animations yet
+Such animations are used in teaching undergraduate level biology worldwide.
 
+%[what does an illustrator want to convey? - concrete examples]
+When illustrators want to convey, for instance, the inner and outer structures of a cell, they face the challenge that the structures of their data are very densely packed. The dense data makes it very difficult to convey inner and outer structures at the same time. Therefore they employ means for occlusion handling, such as exploded views, in order to make all important aspects of the data visible.
+Illustrators often want to convey the entire variety of different molecules within a cell in form of an atlas-based view [cite some atlas]. However, a cell contains in reality many thousand instances of the same molecular structures. To achieve such an atlas based view, an illustrator does not want to display every single molecule but would rather draw various structures at sufficiently large scale so that the viewer can understand the structural details.
+In these examples, the illustrator represents abstracted spatial information within same spatial frame of reference. We denote this as a transformation \textit{within} the same visualization space.
+In other cases, illustrators want to convey quantitative instead of spatial information, e.g., how many different molecules of each type a biological entity contains, or how a functional relationship between these molecules would look like.
+In the former case, a bar chart could be used as representation of the quantities. A node-link diagram could be chosen in the latter case to convey the relationships. 
+In such cases, the illustrator would abstract the biological structure from a spatial representation to a quantitative or relational one, which we denote as a transformation \textit{across} visualization spaces.
+
+%Illustrator abstracts the reality, in the previous examples, within the same visualization space. However, they could decide
+
+%Visual transformation is necessary, because the molecular data data is complex. [explain complex data here or within the following examples?]%in the highly complex data that consists 
+%Illustrators employ occlusion handling techniques, such as exploded views, to reveal the inner structures of a dense cellular data set.
+%They employ focus \& context techniques, such as the simplification of unimportant details of millions of atoms, in order to enable the presentation and comparison of cellular structures.
+%While these two examples correspond to a transformation within the same visualization space, the depiction of abstract quantities or relationships, e.g., by bar charts or line graphs, correspond to the transformation to a different visualization space altogether. 
+
+[general conclusion of what he wants to convey]
 Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.
 The element of temporal sequence is used to convey changes of data states over time.
 The element of visual transformation creates different representations of the data in order to convey otherwise hidden aspects.
 
 %transformations across visualization spaces. %also across different data spaces? (either temporal or multiple data sets)
 
-Visual transformation is necessary, because the molecular data data is complex. [explain complex data here or within the following examples?]%in the highly complex data that consists 
-Illustrators employ occlusion handling techniques, such as exploded views, to reveal the inner structures of a dense cellular data set.
-They employ focus \& context techniques, such as the simplification of unimportant details of millions of atoms, in order to enable the presentation and comparison of cellular structures.
-While these two examples correspond to a transformation within the same visualization space, the depiction of abstract quantities or relationships, e.g., by bar charts or line graphs, correspond to the transformation to a different visualization space altogether. 
 
 %In all cases, the original representation has to be transformed, in one case, within the same visualization space, and in the other to a different visualization space. 
 

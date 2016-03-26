@@ -1,4 +1,70 @@
-\section{The Pipeline}
+\section{Metamorphosis formalization}
+
+\begin{figure*}[t]
+\centering
+\subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
+\subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
+\subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
+\caption{\label{fig:ov}Overview.}
+\end{figure*}
+
+The context of our research is an explanatory visualization of large-scale structural models of viruses and bacteri that conveys relationships between various abstracted or transformed visual representations of the models without any need for user interaction. Such visualization techniques can then be easily employed by scientific illustrators and animators for easily accessible and engaging content authoring for popularising and conveying science to non-expert audiences.
+
+Each illustration which communicates a relationship starts with the two representations of the model. The first, source representation, is typically close to the mental model of the audience. The second, target representation illustrates different aspects of the presented model, but its relationship to the source representation might not be obvious. In that case, the illustrator needs to manually create the visual transition between the two representations. We present a method for creating continuum between two arbitrary model representations, or metamorphosis, and using it to illustrate the relationship between these representations. The metamorphosis is created automatically through describing the target representation, thus alleviating the illustrator from creating it manually.
+
+Figure \ref{fig:ov0} shows the source and the target representations. They both communicate certain aspects of the model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists two steps. In the first step, we create a continuous space between these representations. However, this low-level connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). Therefore, the second step of the pipeline prepares this continuum for the presentation to the intended audience (Figure \ref{fig:ov2}). In this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
+
+The metamorphosis is carried out by applying a sequence of operators, which we refer to as \emph{metamorphers}.
+
+%Each metamorpher belongs to one of the stages of a pipeline according to the task it is used to solve.
+
+%For the clarity, the operators are grouped into several stages
+
+\subsection{Continuum Creation}
+In the first step of the pipeline, the continuum between two model representations is created. In this section, we describe the three stages of the continuum creation, with examples of metamorphers which can be used in these stages.
+
+\subsubsection{Data restructuring}
+Biological data models are organized in a hierarchy, which corresponds with the semantics of abstraction of the modelled phenomena. This hierarchy often differ in both representations. Therefore, the first step of connecting the representations is to match their semantic hierarchy. In this step of the pipeline, the illustrator defines data subsets within the source model representation, which match the semantics of the target representation, thus restructuring the data. Additionally, some of the data subsets can be duplicated, if the target representation requires it. All the data subsets are then organized in a hierarchy with a tree structure, or a scene graph. All the subsequent pipeline stages can operate on any node of the scene graph, giving the illustrators the flexibility they are used to from the 3D modelling software.
+
+Examples of metamorphers used in this stages are implicitly defined cutaway objects, such as those proposed by Le Muzic at al. \ref{our eurovis paper}, which specify spatial data subsets, or various data clustering algorithms.
+
+\subsubsection{Morphing}
+%DESCRIBE THE RELATION
+
+An important aspect that might obfuscate the relationship between different representations of the biological data are the shapes, or visual representations, of the individual data elements. For instance, molecules in the mesoscale biological models can be displayed as space-filling models, stick models, or one of many different representations commonly used in molecular graphics. Alternatively, molecules can be represented by abstract shapes, such as balls or cubes illustrating their volume.
+
+In this stage of the pipeline, the relationship between the shapes of the individual data elements is specified. We propose several metamorphers for this purpose.
+
+\subsection{Continuum Presentation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\emph{The Pipeline}
 
 \subsection{Overview}
 \textit{[the paper story transition/flow is too hard here - restate what our paper is about and why we therefore explain now the pipeline stages - what is the pipeline about? it is for molecular models and allows for transitions to other visualization spaces. state the rationale, why a pipeline and why stages are necessary - currently too much "how i spent my summer" style - it is also important to state, why we did something (not only what we did)]}

@@ -1,3 +1,10 @@
+					
+\begin{figure*}[t!]
+\centering
+ \includegraphics[height=5cm, width=\linewidth]{figures/infovis.png}
+\caption{\label{fig:spaces}Infovis}
+\end{figure*}
+
 \section{Use Cases}
 %[we just learned about the pipeline - now we want to know how it can be actually used - surprise: we actually have a proof of concept implementation of it]
 Real world illustrators now can use this pipeline of metamorphers to create continuous representations that depict a desired metamorphosis of a given source representation to an intended target representation by combining the metamorphers on each pipeline stage that create the intended relations between the source and the target representation. %that answer specific questions / relate two different representations to each other

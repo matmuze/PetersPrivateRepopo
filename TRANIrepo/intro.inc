@@ -2,8 +2,8 @@
 %% Uncomment below to include a teaser figure.
   \teaser{
  \centering
- \includegraphics[height=6cm]{figures/teaser.png}
-  \caption{tease me, then please me}
+ \includegraphics[width=\linewidth]{figures/teaser.png}
+  \caption{\label{fig:schema}Metamorphosis to a schematic representation of an HIV particle in blood serum.}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -38,6 +38,11 @@ In other cases, illustrators want to convey quantitative instead of spatial info
 In the former case, a bar chart could be used as representation of the quantities. A node-link diagram could be chosen in the latter case to convey the relationships. 
 In such cases, the illustrator would abstract the biological structure from a spatial representation to a quantitative or relational one, which we denote as a transformation \textit{across} visualization spaces (Figure 2b).
 
+\begin{figure*}[ht!]
+\centering
+ \includegraphics[height=7cm, width=\linewidth]{figures/spaces.png}
+\caption{\label{fig:spaces}Examples of transitions within the same visualization space (a), across different visualization spaces (b).}
+\end{figure*}
 %[general conclusion of what he wants to convey]
 %Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.
 %The element of temporal sequence is used to convey changes of data states over time.
@@ -63,6 +68,7 @@ We denote such a transition as a metamorphosis and the individual building block
 %Illustrators use transitions to convey, how different representations of the same data, as well as, the same representations of different data, relate to each other.
 
 
+
 Animations are a powerful tool for conveying these metamorphoses, since they are capable of displaying such a transition between two representations in a continuous way.
 The continuous presentation supports an intuitive understanding of the relationship between representation states. The presentation is both self-explanatory, and enjoyable to audiences \cite{Robertson:TVCG:2008}.
 Despite their immense popularity in the visual communication ... (cannot read), animations are also critically regarded by the visualization community. Tversky describes the fleetingness of the displayed information and the potential sensory overload and distracting nature of badly designed animations. 
@@ -71,10 +77,9 @@ Alternative solutions for conveying transitions alleviate the fleetingness of th
 While solving the problem of fleetingness, they have to be well designed to be understandable.
 
 %Animations, narrative sequences, and static images are most suited for circumstances where little to no interaction is possible or desired, such as in presentation scenarios.
-
-
 %Since these visualizations are intended for presentation purposes, which allows little to no interactivity, animation is a suitable medium.
 %Animated transitions are great for engaging audiences, garnering interest from new audiences.
+
 
 Once a transition from one representation to another one is planned/conceptualized, there is little aid in modelling tools to realize it. Animators employ key frame animation and create these keyframes manually
 %However, no matter which medium is used for the illustrative depiction of these stories, these transformed representations and the transitions to them have to be modeled manually by the illustrators

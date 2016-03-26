@@ -5,7 +5,7 @@
 \subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
 \subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
 \subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
-\caption{\label{fig:ov}Overview.}
+\caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
 \end{figure*}
 
 The context of our research is an explanatory visualization of large-scale structural models of viruses and bacteri that conveys relationships between various abstracted or transformed visual representations of the models without any need for user interaction. Such visualization techniques can then be easily employed by scientific illustrators and animators for easily accessible and engaging content authoring for popularising and conveying science to non-expert audiences.
@@ -44,7 +44,11 @@ In this stage of the pipeline, the relationship between the shapes of the indivi
 
 
 
-
+\begin{figure*}[ht!]
+\centering
+ \includegraphics[height=5cm, width=\linewidth]{figures/metamorphers.png}
+\caption{\label{fig:spaces}Examples of different metamorphers: a) shape morphing, b) blurring, c) time offset, d) some layout}
+\end{figure*}
 
 
 
@@ -183,7 +187,8 @@ This allows the transparent rendering of occluding molecules, or the morphing of
 From a technical perspective, the operators in this stage can implement specific shaders for creating a desired effect, e.g., by changing the molecule geometry, or doing post processing on the rendered image of a subset in a separate rendering pass.
 		
 %\textbf{[not so happy with the description of this one :/]}
-			
+
+
 \subsubsection{Spatial Transformation (Layouting)}
 
 %The layouting stage creates a target position and rotation for each child element of a supplied subset.
@@ -236,7 +241,14 @@ An operator could also steer the camera to follow the development of a transitio
 
 Operators in this stage modify the camera position \& look-at vector. As such, they create a list of control points for these two values. For guided navigation, an operator could access the positional control points of user defined entities, for instance.
 A timing and trajectory is defined in the respective stages for the interpolation between these control points.			
-			
+					
+\begin{figure*}[t!]
+\centering
+ \includegraphics[height=5cm, width=\linewidth]{figures/explosion.png}
+\caption{\label{fig:spaces}Explosion}
+\end{figure*}
+
+	
 
 \subsubsection{Trajectory}
 
@@ -260,8 +272,7 @@ Depending on the operator type, new control points that fulfill a desired functi
 		%control point do not suggest a timing but rather key frames for each entity or subset.		
 %		input: set of layouted entities (they possess original and target state).		
 	%	output: transition path based on additional CPs for each entity/subgroup.
-		
-	
+
 \subsubsection{Timing}
 
 The timing stage is responsible for the temporal coordination of the transition by determining the order and speed at which entities or subsets reach their target position and visual form.
@@ -274,6 +285,8 @@ Further, timing can also be used for controlling visual stimuli. The transition 
 
 As such, operators of this stage, depending on the intent that they implement, create a time curve for each entity. This time curve determines the start time and speed of the spatial and visual transition. Optionally, also an end time can be created, i.e., to determine, when an element should cease to exist but also, when the transition should stop, i.e., whether an element should reach its final destination as well as how close it should get. This can be used to create a target representation that looks like it stopped in mid-motion.
 	
+
+
 \subsubsection{Sampling}
 
 This final stage determines the sampling strategy, i.e., at which rate the transition is sampled. %in which resolution the pipeline outputs the transition.
@@ -299,9 +312,6 @@ The continuously sampled information could also be exploited to create a hybrid 
 %to use this information in a postprocessing step to create glyphs that reintroduce the information that was missing through the sparse sampling
 %this stage also allows/supports operators that can, for instance, first do a smooth continuous sampling and then extract transition / motion path information from these samples and encode the information in a postprocessing step into supporting glyphs that reintroduce the information that was missing through the sparse sampling
  
-
-
-
 
 
 

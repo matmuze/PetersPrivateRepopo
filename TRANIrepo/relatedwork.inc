@@ -1,3 +1,4 @@
+
 \section{Related Work}
 Animation and transitions between visual and data representations have been employed in many contexts. 
 They serve as powerful tools for the dissemination of complex relations in space, time and abstract dimensions. 
@@ -15,6 +16,12 @@ Along these lines Wohlfart and Hauser~\cite{Wohlfart:EuroVis:2007} presented a g
 
 Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization methods that can be used for scientific story telling. Among other issues they suggest that novel transitions between different coordinate systems are needed to address the overwhelming complexity involved in today's scientific story telling.
 
+\begin{figure*}[ht!]
+\centering
+ \includegraphics[height=5cm, width=\linewidth]{figures/pipeline.png}
+\caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
+\end{figure*}
+
 \subsection{Transitions between visual representations}
 Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives. Elmquist et al.~\cite{Elmqvist:TVCG:2008} present an exploration technique for multi-dimensional data. They place scatter plots on the sides of a dice and animate the transitions when the dice is rotated.
 
@@ -25,13 +32,13 @@ Basch~\cite{Basch:2011:ATA} describes possibilities for animated transitions bet
 Heer and Robertson~\cite{Heer:TVCG:2007} show animated transitions between different visual representations of statistical data. Their work makes extensive use of staging to reduce occlusion and clutter. 
 Our approach is based on several findings of these previous works and formalizes animated transitions between spatial and abstract attributes.
 
+
 Huron et al.~\cite{huron:TVCG:2013} present the visual sedimentation metaphor for the animation of data streams. This metaphor allows to transition from discrete visual elements to a continuous representation. 
 We employ a similar metaphor for the transition of spatial objects to abstract charts.
 
 Exploded views~\cite{Bruckner:2006:TVCG, Li:SIGGRAPH:2008, Karpenko:2010:TVCG} have been used in different contexts as a technique for illustrating  spatial or hierarchical relations of parts of an object. They are frequently used in animations or interactive systems and reported to be effective in the dissemination of complex layouts.
 Our approach is similar to exploded views, since it animates the decomposition of the object into its parts. 
 However, the spatial displacement is not only driven by the visibility of the individual parts, but also by additional data attributes. 
-
 
 \subsection{Alternatives to animated transitions} 
 Small multiples~\cite{Tufte:1990:EI}, coordinated multiple views, and static images in conjunction with annotations, traces and glyphs are alternatives that are typically used to visualize transitions, trends, correspondences or sequences~\cite{Robertson:TVCG:2008}.

@@ -1,13 +1,16 @@
 \section{The Pipeline}
 
 \subsection{Overview}
+\textit{[the paper story transition/flow is too hard here - restate what our paper is about and why we therefore explain now the pipeline stages - what is the pipeline about? it is for molecular models and allows for transitions to other visualization spaces. state the rationale, why a pipeline and why stages are necessary - currently too much "how i spent my summer" style - it is also important to state, why we did something (not only what we did)]}
+
 In this section, we present the eight stages that our pipeline consists of.
 The pipeline operates on the following data format.
 
+\textit{[this should be part of the data structuring stage explanation:]}
 \begin{itemize}
 \item Instances: instances have a spatial position, orientation, and geometrical representation, and can have an attribute vector. in our case, instances are molecules of different types that are composed of atoms. these atoms are represented by points and are the primitives in our data.		
 \item Subsets: subsets are grouped instances, in our case groups of molecules. groups can be formed according to any internal or external attributes of instances, such as type or shape similarity.
-\item Entities: both instances and subsets are the entities that our pipeline operates on. this means, a pipeline operator accepts either individual instances and/or groups of instances, e.g., in the layout stage, when repositioning a single molecule or a group of molecules.		
+\item Entities: both instances and subsets are the entities that our pipeline operates on. this means, a metamorpher accepts either individual instances and/or groups of instances, e.g., in the layout stage, when repositioning a single molecule or a group of molecules.		
 \end{itemize}
 	
 %	\begin{itemize}
@@ -22,7 +25,7 @@ The pipeline operates on the following data format.
 %=> this should be clarified/motivated in the introduction			
 %data is densely packed. depending on each molecules function, they can have a noisy distribution like in a liquid? or they can build rigid structures such as membranes.		these attributes have to be taken into account when designing a target representation as well as the transition into it.
 
-\textbf{todo:} where to describe cellpack format? 
+%\textbf{todo:} where to describe cellpack format? 
 
 Our pipeline takes a molecular data set in the described format and produces a user specified number of frames that show a transition from the provided original representation to a specified target representation.
 	
@@ -37,6 +40,7 @@ To convey their message, illustrators apply a combination of the three high leve
 Subsequently, most pipeline stages supply measures for fulfilling these tasks with their individual means.
 These can, in combination, then enable other lower level tasks, such as, comparison,.. \textbf{[check brehmer task taxonomy]}
 
+\textit{[this whole paragraph seems irrelevant to the reader:]}
 In order to achieve a desired result, the respective operators have to be selected and parametrized for each stage.
 Depending on what kind of transition should be achieved, not all stages are mandatory.
 Further, the pipeline can be repeated for more complex stories or multi stage transitions.

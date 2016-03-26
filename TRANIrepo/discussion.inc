@@ -1,11 +1,13 @@
 \section{Discussion}
 
-\subsection{additional outcomes}
-	side products of our pipeline - free of charge / easily achievable with minimal additional effort:
-	sequence: comic strips,
-	static image with glyph
+
+\subsection{Discussion of Results}
+
+\subsection{Expert Feedback}
+
+
 	
-\subsection{generalization}
+\subsection{General Applicability of Our Approach}
 	compatible data formats:
 		point cloud,
 		volume,
@@ -15,12 +17,27 @@
 		dense hierarchical data with lots of repeating entities  of a few dozen types
 		
 \subsection{general discussion}
+\subsubsection{additional outcomes}
+	side products of our pipeline - free of charge / easily achievable with minimal additional effort:
+	sequence: comic strips,
+	static image with glyph
+	
+\subsubsection{animation}
 tversky:
 	congruence principle:
 		the structure and content of an external representation should match the structure and content of the desired mental representation.
 		
 	apprehension principle:
 		the structure and content of the external representation should be readily and accurately perceived and comprehended.
+		
+		\subsubsection{things that should be preserved:} depending on the usecase / representation - not all properties are essential for each representation form.
+	\begin{itemize}
+		\item instance level: position of instances
+		\item type level: shape of types, relative size of types, color of types (?), number relation between types
+		\item compartment level: shape/pos/size/color of compartments / structures
+		\item global level: volumetric dimensions of the data
+		\item todo: what else?
+	\end{itemize}
 		
 \subsection{occlusion}
 
@@ -52,5 +69,3 @@ then again, we could argue that there can be n-outer layouts, and one inner layo
 			coordination of timing and speed of elements, e.g., staging
 
 		
-\subsection{future work}
-implementation of comic strip / animation hybrid

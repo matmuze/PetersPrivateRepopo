@@ -1,283 +1,37 @@
 \section{Use Cases}
-In this section, we will demonstrate our proof of concept implementation based on three exemplary use cases that we developed with illustrators. We will first describe our data and then motivate these use cases, [actually, we already motivated them in the introduction..]
+%[we just learned about the pipeline - now we want to know how it can be actually used - surprise: we actually have a proof of concept implementation of it]
+Real world illustrators now can use this pipeline of metamorphers to create continuous representations that depict a desired metamorphosis of a given source representation to an intended target representation by combining the metamorphers on each pipeline stage that create the intended relations between the source and the target representation. %that answer specific questions / relate two different representations to each other
+To actually enable an illustrator to apply our method, we created a proof of concept implementation of our pipeline.
+%[then we explain the usecase setting based on the data - give details on the data]
+In order to apply our method to solve relevant problems, we approached an illustrator and, in collaboration, created three different use cases for a data set of HIV. 
+This data set represents an HIV particle contained within blood serum \textbf{(see Figure XXX)}. The three questions that we helped to answer with our demonstration are: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
 
-After this, we will motivate the components that all three use cases have in common.
-And finally, we will describe each use case's particular components and how their application produces the desired representations.
-%our PoC implementation allows illustrators to generate illustrative representations of their data, as well as coordinating/authoring the transitions to these altered representations. 
-%we designed two types of representations and created the components that our pipeline requires to produce them for arbitrary molecular data sets.
-%we will first discuss the representations that we designed and then go into detail concerning the components that are involved in creating them.
-%The components for each stage can be parametrized and queued based on a simple scripting interface.
-%\subsection{Use Case Descriptions}
-
-Our use cases are demonstrated on a data set representing an HIV particle engulfed in blood serum. The data consists of 42 types of molecules, that have a total of XXX number of instances, consisting of a total number of YYY atoms. The data can be partitioned into three closed compartments: the blood serum, the outer shell (membrane?) of the HIV particle, and the nucleus within the particle. They were supplied to us in the cellPACK format [cite cellpack].
-
-\subsection{Explosion of Molecular Structures}
-Since molecular structures are very densely packed, it is impossible to inspect the outer and inner structures, e.g., of a virus, at the same time, without applying some sort of occlusion handling technique, such as exploded views [cite some fundamental exploded view paper] [kind of have to repeat the argumentation from the introduction here - i guess here i should be more specific..].
-[why is it necessry (problem statement)][what does it preserve(focus)][what does it sacrifice]
-
-\subsection{Schematization of Molecular Structures}
-%Molecular data sets, such as the one of the HIV particle, consist of (hundreds of) thousands of molecules. These molecules are distributed across a comparably smaller number of types (in our case, 42).
-In scientific illustrations, atlas based views schematic representations of cellular structures are used to give an insight of the molecular and atomic composition of these cells. The focus lies therefore on displaying individual molecules to convey their atomic composition, as well as on selected constellations of molecules to convey the structures that they collectively create. However, the original data model consists of millions of mostly noisily distributed atoms. To achieve this schematic representation therefore, one the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of millions of atoms (context). On the other side, molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.
-This representation sacrifices the low level detail of the noisy atomic distribution, i.e., the exact count, position and shape of individual molecules. It aims to preserve the shape and size of compartments as well as molecule type overview, compartment relation (zugehörigkeit), and molecule shape.
-This metamorphosis corresponds with a transformation within the same visualization space.
-
-% therefore aims to preserve the size and shape of high level compartments within the data, and
-%This representation was motivated by illustrative drawing, like the ones that can be found in medical books.
-%\paragraph{simplification (schematization)}:		simplify data to create understanding.
-
-%		resembles the illustrations that we see in biomedical textbooks.
-	@discussion of results: transition = more intuitive to follow.
-	%	tries to preserve anatomical attributes but in a simplified / schematic way.
-		%tries to give overview of elements in  the data and possibly their interrelations.
-		
-		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
-		
-		
-		\subsection{Representation of Quantitative Relations}
-For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? Graham Johnson answered this question in his award-winning video demonstration of the decomposition of an XXX cell.
-In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
-To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
-%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
-		
-@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
-		
-
-		
-
-
-\subsection{Common Components}
-The following metamorphers are involved in all three usecases.
-\subsubsection{Grouping by Type Range}
-In all use cases, we want to partition the data into the afore mentioned three high level subsets of the blood serum, HIV membrane, and HIV capsid. This is necessary to be able to operate on each subset individually, e.g., when exploding these compartments separately [mention here already how we use it in each usecase?]. 
-We therefore need subsets that contain entities of a specified type range.
-The metamorpher therefore creates as many subsets as there are ranges specified, and parses a given list of entities. Entities of a type matching a defined range, are then assigned as children to the respective subset.
-
-\subsubsection{Text Labels}
-\subsubsection{Icons / Textures}
-
-\subsubsection{Translate?}
-\subsubsection{Rotate?}
-
-\subsubsection{Linear Interpolation}
-\subsubsection{Staging}
-\subsubsection{Spatial Time Offset}
-\subsubsection{Guided Navigation}
-\subsubsection{Continuous Sampling}
-
-\subsection{Specific Components}
-[will be placed in the respective usecase]
-
-\subsubsection{Grouping by Type - use case C}
-We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]
-The output of this metamorpher is therefore a list of subsets that contain entities of the same type.
-The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
-
-\subsubsection{Cloning}
-\subsubsection{Spatial Grouping}
-\subsubsection{Blurring}
-\subsubsection{Morphing}
-\subsubsection{Bar Layout}
-\subsubsection{Line Layout}
-\subsubsection{Schematic (Scale \& Rotate)}
-\subsubsection{Transit Points / Bundling}
-\subsubsection{SLERP}
+%[first we motivate why illustrators would want to use the pipeline]
 
 
 
 \subsection{Explosion of Molecular Structures}
+	%[motivate it - what problem does it solve in presenting the data]
+Since molecular structures of the HIV data are very densely packed, it is impossible to inspect the outer and inner structures of the virus at the same time. To answer our first question, we chose to reprsent the virus in an exploded view.
+
+We can achieve this with our pipeline in the following way:
+We want to show the 
 
 
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
-2) [plane splitter] spatially partiton each subset with the same plane (each one could also be split with a different plane theoretically)
+%refer to figure!
 
---annotations:
-3) text labels: "serum", "capsid", "membrane"
-
---blending:
-no blending applied here
-
---layouting:
-for each high lvl subset:
-4) [translate] upper part up, lower part down
-5) [rotate] rotate upper part a bit up, lower part a bit down
-6) (for all except the first subset)[translate] the subset to the left (double the amount of the previous subset's BB width)
-7) position label on top/below each high lvl subset
-
---trajectory:
-8) [linear interpolation]
-
---timing:
-9) introduce a [delay] for each consecutive layout operation (translate sideways of highlvl subsets \& translate up/down for low lvl subsets)
-10) [] let some random molecules not finish the transition
-11) [] let labels appear after animation is finished
-
---navigation:
-12) guided navi as subset explosion \& transition use more and more screenspace
-
---sampling:
-13) continuous sampling
-
-
-
+	%[then describe how we create it with our metamorphers]
+%[explosion: focus on data \& timing]
+	
+	
 \subsection{Schematization of Molecular Structures}
-
-
+	%[motivate it - what problem does it solve in presenting the data]
+	The data consists of 42 types of molecules, that have a total of XXX number of instances, consisting of a total number of YYY atoms.
+	%[then describe how we create it with our metamorphers]
+%[schematization: foucs on layouts]
 	
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
-2) [copy] the entire partitioned data set because we will render it in two different representations => results in copy A \& B
-
---annotations:
-do the circular annotations?
-
---visual transform:
-A: blurrin \& increasin contrast of alpha channel for nice charp edges of each subset individually
-B: scalin
-
---layouting (spatial transform):
-A: renderin them on top of each other (occlusion management)
-B: rotatin
-
---navigation:
-not necessary, because we stay in the same visualization space / spatial extents
-
---trajectory:
-B: linear interpolation between rotations
-
---timing:
-staged per compartment
-distance field left to right for each
-
---sampling:
-continuous
-
-
-\subsection{Representation of Volumetric Relations}
-
-			
-
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create 3 hierarchical compartments by typerange
-2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
-
---annotations:
-3) [txt-label] for each type subset
-10) [representative] molecule for type subset
-
---blending:
-4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
-
---layouting:
-5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars
-6) the [line layout] puts all the bars within a compartment side by side
-7) the [translate layout] then moves the new center for the next line layout for the next compartment
-
-8) layout: put label below below each bar
-9) layout: put rep below label
-
---trajectory:
-10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
-
---timing:
-11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
-
-12) timing: make label \& rep appear when animation is finished
-
---guided navi:
-13) [whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
-
---sampling:
-14) continuous sampling
-
-\subsection{PoC Pipeline}
-[contains specifics about our pipeline implementation]\textbf{ [move to implementation section]}
-implemented in cellVIEW: give some details about cellVIEW): unity, supports loading \&rendering of cellPACK data, renders molecules as point clouds
-\newline
-
-desc was jeder component beisteuert um die beiden reps zu erzielen
-
-\subsection{Metamorphers}
-\textbf{ [just for reference]}
-[describes PoC components that we implemented per pipeline stage]\newline
-[should we describe beforehand what (which representations) we try to achieve with these implementations?]
-
-
-\subsubsection{Partitioning}
-		spatial subselection by clipping plane/object,
-		
-		splitting into types,
-		
-		splitting into type ranges
-		
-		cloning
-		
-		---not showcased but implemented:		
-		*spatial splitting operations into equal parts (pie splitter),
 	
-\subsubsection{Annotations}
-text labels,
-icons (textures),
-maybe: data representatives (for each type),
-optional addon to each operator: connectors between annotation \& assigned subset
-
-\subsubsection{Blending / Morphing}
-		
-		blur into collective shape,		
-		morph,
-		
-		---not showcased but implemented:				
-		blending to texture
-		
-		---other not implemented \& not used examples:
-		unfolding
-		
-\subsubsection{Layouting}
-
-bar,
-line,
-translate,
-rotate,
-scale,
-schematization layout = combi of scale \& rotate but selection of elements where what op is applied is very specific
-
----not showcased but implemented:	
-			slice,
-			sphere,
-			circle
-
-\subsubsection{Camera / Guided Navi}
-[whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
-
-other examples:
-
-
-\subsubsection{Trajectory}
-	
-		linear: from A straight to B,
-		bundling/transit points
-		
-		---other not implemented \& not used examples:
-		curved
-		
-\subsubsection{Timing}
-
-offset function: delay timing by distance to plane
- \& staging by type ... anything else?
-			
-		---other not implemented \& not used examples:
-	offset according to: inherent spatial parameters (position, distance to other entities, density)
-			
-\subsubsection{Sampling}
-
-continuous sampling,
-
-		---other not implemented \& not used examples:
-sparse (comic strip / narrative sequence),
-
-post-processing operators:
-motion blur,
-		
+\subsection{Representation of Quantitative Relations}
+	%[motivate it - what problem does it solve in presenting the data]
+	%[then describe how we create it with our metamorphers]
+%[infovis: focus on morphing, camera, trajectory]

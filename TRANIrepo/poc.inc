@@ -19,10 +19,26 @@ This data set represents an HIV particle contained within blood serum \textbf{(s
 
 \subsection{Explosion of Molecular Structures}
 	%[motivate it - what problem does it solve in presenting the data]
-Since molecular structures of the HIV data are very densely packed, it is impossible to inspect the outer and inner structures of the virus at the same time. To answer our first question, we chose to reprsent the virus in an exploded view.
+Since molecular structures of the HIV data are very densely packed, it is impossible to inspect the outer and inner structures of the virus at the same time. 
+Since the four structures that we want to show, hierarchically contain each other, much like a Russian matryoshka doll, we chose to transform the virus representation to an exploded view (Figure \ref{fig:expl}), to answer our first question.
 
-We can achieve this with our pipeline in the following way:
-We want to show the 
+We can achieve the transition of the HIV data to an exploded view in the following way:
+%how do we want to relate the source rep to the target rep?
+First, we want to create the relation of the original data to the four compartment structures of the target representation. In the data re-structuring stage, we therefore need to create four subsets from our original data that correspond to these compartments. Since each compartment contains molecules of differing types, we implemented the \textit{type range} metamorpher that creates subsets that contain all given molecules that match a specified type range. These four subsets are added to the root node of our data that contains all molecules. Since three of the four compartments that we just created are exploded in our desired target representation, we further have to spatially subdivide these compartments along a plane. We therefore implemented the \textit{plane splitting} metamorpher that checks the position of a given list of molecules in respect to a plane that the user can freely position in the scene. Molecules are then assigned to two new subsets, depending on which side of the plane they are situated. %that are added as child nodes to the subset that was subdivided
+The scene hierarchy is therefore extended by two additional child nodes containing the spatial subdivision for each subset that we just spatially subdivided.
+
+Since the visual representation of individual molecules does not change across the source and the target representation, we do not need to apply any metamorphers in the morphing stage of our pipeline.
+
+In order to relate the original unexploded data to the final exploded representation, we need to call \textit{translation} and \textit{rotation} metamorphers in the layouting stage that create the translation (and slight rotation) of the explosion for each pair of spatially split subsets (Figure \ref{fig:explode}b). An additional translation moves each inner compartment to the left of its previously encapsulating compartment (Figure \ref{fig:explode}c).
+
+We now created the continuum between the original unexploded and the exploded target representation. In order to present the transition in a pleasant way, we follow the remaining steps of our pipeline.
+
+Since both, source and target representation, remain within the same view frustum, and we do not want to explicitly point the camera on any specific details, we apply no metamorpher in the camera control stage.
+
+Our original data differs from the exploded target representation only in position and topology (the split compartments). To present the transition, we therefore want to move all compartment subsets as a unit - they should keep their shape during the transition. In the trajectory stage, we therefore apply the \textit{linear interpolation} metamorpher to achieve a linear transition along the continuum between source and target representation.
+
+In the layouting stage, we apply a total of XXX layout metamorphers/operations to create the relation to the exploded representation. If all these operations would be executed at the same time, the transition could be hard to follow [cite Heer paper here]. In the timing stage, we can make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion start onl
+
 
 
 %refer to figure!

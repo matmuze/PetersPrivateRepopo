@@ -9,11 +9,11 @@
 %The components for each stage can be parametrized and queued based on a simple scripting interface.
 %\subsection{Use Case Descriptions}
 
-Our use cases are demonstrated on a data set representing an HIV particle engulfed in blood serum. The data consists of 42 types of molecules, that have a total of XXX number of instances, consisting of a total number of YYY atoms. The data can be partitioned into three closed compartments: the blood serum, the outer shell (membrane?) of the HIV particle, and the nucleus within the particle. They were supplied to us in the cellPACK format [cite cellpack].
+%Our use cases are demonstrated on a data set representing an HIV particle engulfed in blood serum. The data consists of 42 types of molecules, that have a total of XXX number of instances, consisting of a total number of YYY atoms. The data can be partitioned into three closed compartments: the blood serum, the outer shell (membrane?) of the HIV particle, and the nucleus within the particle. They were supplied to us in the cellPACK format [cite cellpack].
 
-\subsection{Explosion of Molecular Structures}
-Since molecular structures are very densely packed, it is impossible to inspect the outer and inner structures, e.g., of a virus, at the same time, without applying some sort of occlusion handling technique, such as exploded views [cite some fundamental exploded view paper] [kind of have to repeat the argumentation from the introduction here - i guess here i should be more specific..].
-[why is it necessry (problem statement)][what does it preserve(focus)][what does it sacrifice]
+%\subsection{Explosion of Molecular Structures}
+%Since molecular structures are very densely packed, it is impossible to inspect the outer and inner structures, e.g., of a virus, at the same time, without applying some sort of occlusion handling technique, such as exploded views [cite some fundamental exploded view paper] [kind of have to repeat the argumentation from the introduction here - i guess here i should be more specific..].
+%[why is it necessry (problem statement)][what does it preserve(focus)][what does it sacrifice]
 
 \subsection{Schematization of Molecular Structures}
 %Molecular data sets, such as the one of the HIV particle, consist of (hundreds of) thousands of molecules. These molecules are distributed across a comparably smaller number of types (in our case, 42).
@@ -45,79 +45,31 @@ To convey these quantitative information about aggregated volumetric and count i
 		
 
 
-\subsection{Common Components}
-The following metamorphers are involved in all three usecases.
-\subsubsection{Grouping by Type Range}
-In all use cases, we want to partition the data into the afore mentioned three high level subsets of the blood serum, HIV membrane, and HIV capsid. This is necessary to be able to operate on each subset individually, e.g., when exploding these compartments separately [mention here already how we use it in each usecase?]. 
-We therefore need subsets that contain entities of a specified type range.
-The metamorpher therefore creates as many subsets as there are ranges specified, and parses a given list of entities. Entities of a type matching a defined range, are then assigned as children to the respective subset.
+%\subsection{Common Components}
+%The following metamorphers are involved in all three usecases.
+%\subsubsection{Grouping by Type Range}
+%In all use cases, we want to partition the data into the afore mentioned three high level subsets of the blood serum, HIV membrane, and HIV capsid. This is necessary to be able to operate on each subset individually, e.g., when exploding these compartments separately [mention here already how we use it in each usecase?]. 
+%We therefore need subsets that contain entities of a specified type range.
+%The metamorpher therefore creates as many subsets as there are ranges specified, and parses a given list of entities. Entities of a type matching a defined range, are then assigned as children to the respective subset.
 
-\subsubsection{Text Labels}
-\subsubsection{Icons / Textures}
-
-\subsubsection{Translate?}
-\subsubsection{Rotate?}
-
-\subsubsection{Linear Interpolation}
-\subsubsection{Staging}
-\subsubsection{Spatial Time Offset}
-\subsubsection{Guided Navigation}
-\subsubsection{Continuous Sampling}
-
-\subsection{Specific Components}
-[will be placed in the respective usecase]
+%\subsubsection{Text Labels}\subsubsection{Icons / Textures}\subsubsection{Translate?}\subsubsection{Rotate?}\subsubsection{Linear Interpolation}\subsubsection{Staging}\subsubsection{Spatial Time Offset}\subsubsection{Guided Navigation}\subsubsection{Continuous Sampling}
+%\subsection{Specific Components}[will be placed in the respective usecase]
 
 \subsubsection{Grouping by Type - use case C}
 We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]
 The output of this metamorpher is therefore a list of subsets that contain entities of the same type.
 The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
 
-\subsubsection{Cloning}
-\subsubsection{Spatial Grouping}
-\subsubsection{Blurring}
-\subsubsection{Morphing}
-\subsubsection{Bar Layout}
-\subsubsection{Line Layout}
-\subsubsection{Schematic (Scale \& Rotate)}
-\subsubsection{Transit Points / Bundling}
-\subsubsection{SLERP}
+%\subsubsection{Cloning}\subsubsection{Spatial Grouping}\subsubsection{Blurring}\subsubsection{Morphing}\subsubsection{Bar Layout}\subsubsection{Line Layout}\subsubsection{Schematic (Scale \& Rotate)}\subsubsection{Transit Points / Bundling}\subsubsection{SLERP}
 
 
 
-\subsection{Explosion of Molecular Structures}
+%\subsection{Explosion of Molecular Structures}
 
 
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
-2) [plane splitter] spatially partiton each subset with the same plane (each one could also be split with a different plane theoretically)
-
---annotations:
-3) text labels: "serum", "capsid", "membrane"
-
---blending:
-no blending applied here
-
---layouting:
-for each high lvl subset:
-4) [translate] upper part up, lower part down
-5) [rotate] rotate upper part a bit up, lower part a bit down
-6) (for all except the first subset)[translate] the subset to the left (double the amount of the previous subset's BB width)
-7) position label on top/below each high lvl subset
-
---trajectory:
-8) [linear interpolation]
-
---timing:
-9) introduce a [delay] for each consecutive layout operation (translate sideways of highlvl subsets \& translate up/down for low lvl subsets)
-10) [] let some random molecules not finish the transition
-11) [] let labels appear after animation is finished
-
---navigation:
-12) guided navi as subset explosion \& transition use more and more screenspace
-
---sampling:
-13) continuous sampling
+%\subsubsection{Applied Metamorphers}--data transform:1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid2) [plane splitter] spatially partiton each subset with the same plane (each one could also be split with a different plane theoretically)--annotations:3) text labels: "serum", "capsid", "membrane"--blending:no blending applied here
+%--layouting:for each high lvl subset:4) [translate] upper part up, lower part down5) [rotate] rotate upper part a bit up, lower part a bit down6) (for all except the first subset)[translate] the subset to the left (double the amount of the previous subset's BB width)7) position label on top/below each high lvl subset
+%--trajectory:8) [linear interpolation]--timing:9) introduce a [delay] for each consecutive layout operation (translate sideways of highlvl subsets \& translate up/down for low lvl subsets)10) [] let some random molecules not finish the transition11) [] let labels appear after animation is finished--navigation:12) guided navi as subset explosion \& transition use more and more screenspace--sampling:13) continuous sampling
 
 
 

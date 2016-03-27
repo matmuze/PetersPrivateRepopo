@@ -15,26 +15,11 @@
 %Since molecular structures are very densely packed, it is impossible to inspect the outer and inner structures, e.g., of a virus, at the same time, without applying some sort of occlusion handling technique, such as exploded views [cite some fundamental exploded view paper] [kind of have to repeat the argumentation from the introduction here - i guess here i should be more specific..].
 %[why is it necessry (problem statement)][what does it preserve(focus)][what does it sacrifice]
 
-\subsection{Schematization of Molecular Structures}
-%Molecular data sets, such as the one of the HIV particle, consist of (hundreds of) thousands of molecules. These molecules are distributed across a comparably smaller number of types (in our case, 42).
-In scientific illustrations, atlas based views schematic representations of cellular structures are used to give an insight of the molecular and atomic composition of these cells. The focus lies therefore on displaying individual molecules to convey their atomic composition, as well as on selected constellations of molecules to convey the structures that they collectively create. However, the original data model consists of millions of mostly noisily distributed atoms. To achieve this schematic representation therefore, one the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of millions of atoms (context). On the other side, molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.
-This representation sacrifices the low level detail of the noisy atomic distribution, i.e., the exact count, position and shape of individual molecules. It aims to preserve the shape and size of compartments as well as molecule type overview, compartment relation (zugehörigkeit), and molecule shape.
-This metamorphosis corresponds with a transformation within the same visualization space.
-
-% therefore aims to preserve the size and shape of high level compartments within the data, and
-%This representation was motivated by illustrative drawing, like the ones that can be found in medical books.
-%\paragraph{simplification (schematization)}:		simplify data to create understanding.
-
-%		resembles the illustrations that we see in biomedical textbooks.
-	@discussion of results: transition = more intuitive to follow.
-	%	tries to preserve anatomical attributes but in a simplified / schematic way.
-		%tries to give overview of elements in  the data and possibly their interrelations.
-		
-		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
 		
 		
 		\subsection{Representation of Quantitative Relations}
-For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? Graham Johnson answered this question in his award-winning video demonstration of the decomposition of an XXX cell.
+For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? 
+Scientific illustrator Graha Johnson, for example, conveyed the quantities in an award-winning video demonstration of the decomposition of an XXX cell.
 In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
 To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
 %high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).

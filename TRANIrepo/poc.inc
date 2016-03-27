@@ -46,29 +46,100 @@ Since both, source and target representation, remain within the same view frustu
 
 Our original data differs from the exploded target representation only in position and topology (the split compartments). To present the transition, we move all compartment subsets as a unit so that they keep their shape during the transition. In the trajectory stage, we therefore apply the \textit{linear interpolation} metamorpher to achieve a linear transition along the continuum between source and target representation.
 
-In the layouting stage, we apply a total of XXX layout metamorphers/operations to create the relation to the exploded representation. If all these operations would be executed at the same time, the transition could be hard to follow [cite Heer paper here]. In the timing stage, we can make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion start only after the previous is finished. To suggest the opening motion of each exploding compartment in the final representation, we apply a \textit{[need fitting name]} metamorpher that adjusts the time curve of a few random molecules in such a way, that they do not finish their transition. During the transition, the opening compartments thus leave a trail of molecule "breadcrumbs" behind.
+In the layouting stage, we apply a total of XXX layout metamorphers/operations to create the relation to the exploded representation. If all these operations would be executed at the same time, the transition could be hard to follow [cite Heer paper here]. In the timing stage, we can make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion starts only after the previous is finished. 
 
-The only thing that is left to do now is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Figure \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
+In order to also support understanding for the structures of individual molecules/proteins and to convey the opening motion of each exploding compartment in the final representation, we show representatives of the proteins separated from the compartments in which they are contained.
+These representatives are molecules that simply do not complete their transition.
+To end the transition for these molecules before they reach their final position, we manipulate their timecurves with a \textit{[need fitting name]} metamorpher. During the transition, the opening compartments thus leaves a motion trail of molecules behind that makes individual molecules discernible.
+
+The only thing that is left to accomplish now, is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Figure \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
 %We parametrized the \textit{sampling} metamorpher to create a ten second video, with twenty four frames per second to create the animation for the supplemental video. 
 
-%refer to figure!
-	%[then describe how we create it with our metamorphers]
-%[explosion: focus on data \& timing]
+
+%short justification of why an animation between the S and D was necessary in this case.
+%what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically?
+
+With the transition that we just created, we can explain to a viewer, how the four compartments are actually enclosed within each other, as the final representation alone does not convey that one object is enclosed in another, especifally for a viewer who has not seen the dataset before.
+Furthermore the transition explains where the isolated molecules originate from. 
 
 
-\subsection{Schematization of Molecular Structures}
-	%[motivate it - what problem does it solve in presenting the data]
-	The data consists of 42 types of molecules, that have a total of XXX number of instances, consisting of a total number of YYY atoms.
+\subsection{Schematization of Molecular Structures}%[schematization: foucs on layouts]
+
+%[motivate it - what problem does it solve in presenting the data]
+% 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present?
 	
-%[then describe how we create it with our metamorphers]	
-We can achieve the transition of the HIV data to an exploded view in the following way:
-%how do we want to relate the source rep to the target rep?
+%since the data is XXX, it is impossible to see YYY
+Besides the structural composition of a cell, biologists are often also interested in the cell's molecular composition, i.e., what types of molecules are present in the data, in which compartment are they contained, what do the molecules look like?
+The HIV data, for instances, contains 42 different molecules but due to their high count (thousands of molecule instances across these 42 types), their mostly random distribution and the dense packing of the data, the detailed information about the number of types and their individual shape is impossible to deduce from the original data.
+Illustrators therefore create atlas based views (such as in Figure \ref{fig:schema}d) that show a simplified schematic representation of a cell to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
 
+We achieve such a transition to an atlas based view with our pipeline in the following way:
+Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the four subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the four subsets will be blended in image space to create the uniform compartment color, we need a copy of each one for the layouting stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
+
+In the morphing stage, we now create the relation of our original noisy data representation to the uniform color that marks each compartment's area by applying a \textit{blur} metamorpher. The blur operator creates an additional render pass for each given subset where the respective subset is rendered and blurred individually. By increasing the contrast of the alpha channel for the blurred image, the sharp edges of each compartment are created.
+
+In the layouting stage, we create the relation of our dense and noisy original data to the sparse enlarged rendering of representative molecules and compartment shells in the final representation.
+For a given subset, the \textit{schema} layout metamorpher differentiates between membrane molecule types, i.e., molecules that compose the shell of a compartment, and non-membrane types, i.e., the ones that are floating within a compartment, in order to create the final schematic representation.
+Since illustrators know, which molecule types the membranes of compartments are composed of, they can specify the membrane type so that they are treated differently than the molecules within compartments. For membrane molecules, the schema layout metamorpher picks the ones that are closest to the border of the compartment, from the viewing position. The picked membrane molecules remain their original size and rotation. The non-picked membrane molecules are scaled to zero to be invisible in the final representation, in order to reveal the compartments and molecules within. Alternatively, instead of scaling, transparency could be applied to membrane molecules in the morphing stage. For membranes, the schema layout operator thus preserves the membranes shells of compartments while revealing the inner structures of a compartment.
+
+For non-membrane molecules, the illustrator has control over the total count of representatives that 
+should be displayed in a compartment. Based on the specified number, the schema layout metamorpher calculates how many representatives of each molecule type of the given subset should be kept. The number of kept representatives depends on the ratio between the total number of molecules of each type within the subset, and the maximum number of allowed representatives.
+Each molecule has one guaranteed representative.
+ 
+
+to specify a percentage of how much of the available space should be covered with molecule representatives. This percentage is used to 
+
+the schema layout metamorpher calculates a count of how many molecules can be rendered on 
+counts the instances of each type within the subset,
+calculates a number that represents 
+
+
+To achieve this schematic representation therefore, on the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of a vast amount of other molecules (context). 
+
+molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.	
+
+
+	timing: distance
+%%	why is the transition to the view necessary as opposed to just having the final image?
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+% therefore aims to preserve the size and shape of high level compartments within the data, and
+%This representation was motivated by illustrative drawing, like the ones that can be found in medical books.
+%\paragraph{simplification (schematization)}:		simplify data to create understanding.
+
+%		resembles the illustrations that we see in biomedical textbooks.
+	%	tries to preserve anatomical attributes but in a simplified / schematic way.
+		%tries to give overview of elements in  the data and possibly their interrelations.
+		
+		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
 
 %how do we present the transition/continuum?
 
-%[schematization: foucs on layouts]
+
+%justification: why was this transition necessary / why is the final image alone not enough?
 	
+	discussion: 
+	@discussion of results: transition = more intuitive to follow.
+This metamorphosis corresponds with a transformation within the same visualization space.
 	
 \subsection{Representation of Quantitative Relations}
 	%[motivate it - what problem does it solve in presenting the data]

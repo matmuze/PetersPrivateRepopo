@@ -85,7 +85,8 @@ Since illustrators know, which molecule types the membranes of compartments are 
 For non-membrane molecules, the illustrator has control over the total count of representatives that 
 should be displayed in a compartment. Based on the specified number, the schema layout metamorpher calculates how many representatives of each molecule type of the given subset should be kept. The number of kept representatives depends on the ratio between the total number of molecules of each type within the subset, and the maximum number of allowed representatives.
 Each molecule has one guaranteed representative.
- 
+Once the number of representatives for each molecule type is calculated, the schema layout metamorpher creates a uniform grid for the available space with as many grid points as there are representatives.
+For each grid point, the metamorpher then pics 
 
 to specify a percentage of how much of the available space should be covered with molecule representatives. This percentage is used to 
 
@@ -141,7 +142,42 @@ molecules that do not have a noisy distribution but form coherent structures, su
 	@discussion of results: transition = more intuitive to follow.
 This metamorphosis corresponds with a transformation within the same visualization space.
 	
-\subsection{Representation of Quantitative Relations}
-	%[motivate it - what problem does it solve in presenting the data]
-	%[then describe how we create it with our metamorphers]
-%[infovis: focus on morphing, camera, trajectory]
+\subsection{Representation of Quantitative Relations}%[infovis: focus on morphing, camera, trajectory]
+
+%[motivate it - what problem does it solve in presenting the data]
+%3) how large is the volume of each compartment and the molecules contained within in respect to each other?
+
+%When biologists analyze cellular data sets, they often need, besides structural aspects, also information about quantitative aspects of their data, in our example, the aggregated volume that each type of molecule occupies in a compartment.
+
+For the analysis and explanation of the molecular data, besides structural information, often also the relation of quantitative aspects is important for its understanding. In our example, we want to convey how many different molecule types does the HIV particle contain, and how much of the volume within the particle does each type occupy. 
+
+Illustrators often supply quantitative information with infographics, which use a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as counts[cite tory/möller?].
+
+In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
+
+Scientific illustrator Graha Johnson conveyed such a relation/tranformation/metamorphosis between the .. of a cell and the quantitative...
+in a metamorphosis...
+these quantities in an award-winning video demonstration of the decomposition of an XXX cell (Figure \ref{spaces}b).
+
+these quantities are not visible in the original data and hard to convey within the same visualization space..
+we use our pipiline to transform the data into this different visualization space..
+
+
+they want to know about quantities
+
+but the data is like YYY
+
+so they use XXX to present quantities
+
+we create such a rep/tran like this:
+
+
+
+To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
+%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
+		
+@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
+
+
+
+

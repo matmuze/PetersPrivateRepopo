@@ -58,7 +58,7 @@ The metamorpher parses a given list of entities and creates a new subset for eac
 
 
 
-\subsection{Schematization of Molecular Structures}
+
 
 
 	

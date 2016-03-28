@@ -2,6 +2,12 @@
 
 
 \subsection{Discussion of Results}
+\subsubsection{infovis}
+
+shapes and positions of compartments and molecules are sacrificed. 
+%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).		
+@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
+
 
 \subsection{Expert Feedback}
 

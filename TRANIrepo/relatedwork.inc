@@ -45,7 +45,9 @@ Small multiples~\cite{Tufte:1990:EI}, coordinated multiple views, and static ima
 Tversky et al.~\cite{Tversky:IJHCS:2002} summarize cognitive studies on the benefits of animation. 
 Although, they conclude that animation alone has not been convincingly demonstrated to be superior to static illustrations, other findings of their study suggest a direction for research on animations in visualization.
 They report that animation together with basic interaction methods like pausing, partial re-playing, zooming and change of perspective might be the key to enhance the effectiveness of animation.
-Further, they acknowledge that the alternatives to animation (such as sequences of static illustration) are surprisingly hard to design and are therefore not an easy target for computer automation. 
+While techniques, such as CMV, require user interaction for establishing relationships between corresponding representations,
+Tversky et al. acknowledge that the non-interactive alternatives to animation (such as sequences of static illustration) are surprisingly hard to design and are therefore not an easy target for computer automation.
+
 
 
 %\textbf{Molecular Visualziation}: 

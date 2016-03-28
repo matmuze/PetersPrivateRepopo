@@ -1,4 +1,4 @@
-\textbf{[this is the old usecase section]}
+%\textbf{[this is the old usecase section]}
 %In this section, we will demonstrate our proof of concept implementation based on three exemplary use cases that we developed with illustrators. We will first describe our data and then motivate these use cases, [actually, we already motivated them in the introduction..]
 
 %After this, we will motivate the components that all three use cases have in common.
@@ -59,34 +59,14 @@
 
 
 	
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid
-2) [copy] the entire partitioned data set because we will render it in two different representations => results in copy A \& B
-
---annotations:
-do the circular annotations?
-
---visual transform:
-A: blurrin \& increasin contrast of alpha channel for nice charp edges of each subset individually
-B: scalin
-
---layouting (spatial transform):
-A: renderin them on top of each other (occlusion management)
-B: rotatin
-
---navigation:
-not necessary, because we stay in the same visualization space / spatial extents
-
---trajectory:
-B: linear interpolation between rotations
-
---timing:
-staged per compartment
-distance field left to right for each
-
---sampling:
-continuous
+%\subsubsection{Applied Metamorphers}--data transform:1) [type range grouper] create three high lvl subsets: the blood serum, the membrane, the capsid2) [copy] the entire partitioned data set because we will render it in two different representations => results in copy A \& B
+%--annotations:do the circular annotations?
+%--visual transform:A: blurrin \& increasin contrast of alpha channel for nice charp edges of each subset individuallyB: scalin
+%--layouting (spatial transform):A: renderin them on top of each other (occlusion management)B: rotatin
+%--navigation:not necessary, because we stay in the same visualization space / spatial extents
+%--trajectory:B: linear interpolation between rotations
+%--timing:staged per compartmentdistance field left to right for each
+%--sampling:continuous
 
 
 %\subsection{Representation of Volumetric Relations}
@@ -103,84 +83,5 @@ continuous
 
 
 
-\subsection{Metamorphers}
-\textbf{ [just for reference]}
-[describes PoC components that we implemented per pipeline stage]\newline
-[should we describe beforehand what (which representations) we try to achieve with these implementations?]
 
-
-\subsubsection{Partitioning}
-		spatial subselection by clipping plane/object,
-		
-		splitting into types,
-		
-		splitting into type ranges
-		
-		cloning
-		
-		---not showcased but implemented:		
-		*spatial splitting operations into equal parts (pie splitter),
-	
-\subsubsection{Annotations}
-text labels,
-icons (textures),
-maybe: data representatives (for each type),
-optional addon to each operator: connectors between annotation \& assigned subset
-
-\subsubsection{Blending / Morphing}
-		
-		blur into collective shape,		
-		morph,
-		
-		---not showcased but implemented:				
-		blending to texture
-		
-		---other not implemented \& not used examples:
-		unfolding
-		
-\subsubsection{Layouting}
-
-bar,
-line,
-translate,
-rotate,
-scale,
-schematization layout = combi of scale \& rotate but selection of elements where what op is applied is very specific
-
----not showcased but implemented:	
-			slice,
-			sphere,
-			circle
-
-\subsubsection{Camera / Guided Navi}
-[whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
-
-other examples:
-
-
-\subsubsection{Trajectory}
-	
-		linear: from A straight to B,
-		bundling/transit points
-		
-		---other not implemented \& not used examples:
-		curved
-		
-\subsubsection{Timing}
-
-offset function: delay timing by distance to plane
- \& staging by type ... anything else?
-			
-		---other not implemented \& not used examples:
-	offset according to: inherent spatial parameters (position, distance to other entities, density)
-			
-\subsubsection{Sampling}
-
-continuous sampling,
-
-		---other not implemented \& not used examples:
-sparse (comic strip / narrative sequence),
-
-post-processing operators:
-motion blur,
 		

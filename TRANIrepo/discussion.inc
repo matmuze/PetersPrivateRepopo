@@ -2,6 +2,14 @@
 
 
 \subsection{Discussion of Results}
+
+\subsubsection{shematization}
+	discussion: 
+	@discussion of results: transition = more intuitive to follow.
+This metamorphosis corresponds with a transformation within the same visualization space.
+
+		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
+
 \subsubsection{infovis}
 
 shapes and positions of compartments and molecules are sacrificed. 

@@ -149,7 +149,7 @@ In our example, we convey how many different molecule types the HIV particle con
 Such quantification is necessary, for instance, when analyzing different life cycle stages of a cell.
 
 The direct comparison of such information on the original 3D models of the cells can deceive due to the complexity of the molecular structures.
-Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as atom counts[cite tory/möller?].
+Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as aggregations, e.g., of atom counts[cite tory/möller?].
 %In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space.
 %A stronger abstraction of the original spatial representation than in the previous two examples takes place.
 The relation between the original spatial and the transformed abstract dimensions is even harder to grasp.
@@ -167,15 +167,16 @@ Continuous transitions are especially suitable for depicting such complex relati
 %complex interplay  of randomness and specific interactions in these structures that enables life to exist
 
 In this final use case, we demonstrate how we can achieve such a transition to an abstract visualization space with our pipeline.
-We chose to convey the quantitative information about the number of molecule types in the HIV particle and the volumetric relation between types with a histogram (Figure \ref{fig:infovis}d). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
+We chose to convey the quantitative information about the number of molecule types in the HIV particle and the volumetric relation between types by a histogram (Figure \ref{fig:infovis}d). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
 Since we are concentrating on displaying relations within the HIV particle, we remove the blood serum from our original representation before we restructure our data hierarchy to match the intended target representation.
 
 Since each histogram bar has to represent a single molecule type, we use a \textit{group-by-type} metamorpher to create a subset for each type.
 
-The histograms in the final representation are constructed from the individual molecules in our original data. Each molecule is represented as a slice with given base area and a height that represents the molecule's volume. By stacking the molecule slices, we receive a height that is representative of the total volume of all molecules of the respective type.
-In the morphing stage, we therefore apply an \textit{object space} metamorpher on each type subset, in order to morph the shape of each molecule to the afore mentioned slice. The morphing is achieved by repositioning the atoms of a molecule into a slice. The slice height depends on the number of atoms that the molecule is composed of.
+The histograms in the final representation are constructed from the individual molecules in our original data. Each molecule is represented as a slice with given base area and a height that represents the molecule's volume. The volume depends on the number of atoms that the molecule is composed of.
+By stacking the molecule slices, we receive a height that is representative of the total volume of all molecules of the respective type.
+In the morphing stage, we therefore apply an \textit{object space} metamorpher on each type subset, in order to morph the shape of each molecule to the aforementioned slice, by repositioning the atoms of the molecule. 
 
-In order to layout the created slices into the shape of a bar, we use a \textit{bar layout} metamorpher on each type subset. The bar layout simply stacks the molecule slices in a subset on top of each other. The bars are then positioned side-by-side along a line with a \textit{line layout} metamorpher.
+In order to layout the morphed molecule slices into the shape of a bar, we use a \textit{bar layout} metamorpher on each type subset. The bar layout simply stacks the molecule slices in a subset on top of each other. The bars are then positioned side-by-side along a line with a \textit{line layout} metamorpher.
 
 Since we position the histogram bars in the final representation below the HIV particle, the molecules on top of the particle would, with a linear trajectory between their origin and destination point, fly through the particle, and exit the particle on the bottom side, before reaching their final position in the histogram.
 To present the transition in a manner where molecules do not cross the HIV particle on their way to their destination, we introduce additional control points to the path of the molecules in the trajectory stage of our pipeline. \textbf{[TODO: description of first (sideways) CP]}

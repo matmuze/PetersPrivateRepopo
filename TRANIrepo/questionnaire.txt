@@ -2,26 +2,21 @@
 
 
 
-what do you like about the transition?
+1) what do you like/dislike about the transition?
 
-what do you not like?
-
-
-what do you like about the final representation?
-
-what do you not like?
-
-what would you make differently?
-
-did the transition provide any additional informaton to you?
-
-was the transition confusing?
+1b)if you disliked an aspect of the transition, how would you improve it?
 
 
-can you estimate how long it would take you to manually create such a rep/trans with the tools that you commonly use?
+2) what kind of additional information could you infer from the transition that you were not able to infer from the target representation alone?
 
-is the camera adjustment irritating? or would you prefer a static.
+3) what do you like/dislike about the final representation?
 
+
+4) can you estimate how long it would take you to manually create such a rep/trans with the tools that you commonly use?
+
+
+
+should we ask specific questions about each usecase, such as:
 @ schematization: how did you perceive the placement of the molecules in the blood serum?
 
-did the blurring adequately convey 
+

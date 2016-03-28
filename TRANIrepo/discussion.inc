@@ -1,4 +1,70 @@
-\section{Discussion}
+\section{Discussion and Future Work}
+
+\subsection{Expert Feedback}
+We demonstrated the three transitions that we discussed in Section \ref{sec:usecase} to two experts in illustration and animation in order to gather their feedback.
+Each use case was presented in form a video of the respective animated transition.
+We supplied the experts with questionnaires that contained specific questions for each use case. [mention the questions or list a few examples of the questions?]
+
+\subsubsection{Exploded Views}
+...waiting for feedback...
+\subsubsection{Schematization}
+...waiting for feedback...
+\subsubsection{Histograms}
+...waiting for feedback...
+
+
+
+
+
+\subsection{Reflections on the Pipeline}
+
+high level tasks:
+
+
+		
+	compatible data types:
+		dense hierarchical data with lots of repeating entities  of a few dozen types
+		
+
+%not supported:
+%-interaction
+%-full fledged animation
+Since we designed our pipeline to produce visualizations for presentation purposes, we did not build it explicitly with interaction in mind.
+It is built to produce static images.
+%It does not consider interactions on a conceptual level.
+The environment in which we implemented our method, however (cellVIEW), natively supports user interactions as it is based on the Unity3D engine.
+The formal pipeline, as well as the implementation could be extended to support user interactions.
+Our plan for future work is actually to allow user interactions on the final representation that then creates a partial transition of a selected subset back to the original representation.
+
+Our pipeline is not feature explicit support for 
+such as they are featured in full fledged 3D modeling environments that support 
+as our focus lies on supporting illustrators 
+
+
+
+annotations..
+
+
+general applicability:
+	compatible data formats:
+		point cloud,
+		volume,
+		polygonal?
+
+
+
+
+
+
+
+
+
+
+
+future work:
+authoring tool
+extraction of motion for glyphs
+
 
 
 \subsection{Discussion of Results}
@@ -17,18 +83,10 @@ shapes and positions of compartments and molecules are sacrificed.
 @discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 
 
-\subsection{Expert Feedback}
 
 
 	
-\subsection{General Applicability of Our Approach}
-	compatible data formats:
-		point cloud,
-		volume,
-		polygonal?
-		
-	compatible data types:
-		dense hierarchical data with lots of repeating entities  of a few dozen types
+
 		
 \subsection{general discussion}
 \subsubsection{additional outcomes}

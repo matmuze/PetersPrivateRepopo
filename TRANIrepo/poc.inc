@@ -141,39 +141,61 @@ molecules that do not have a noisy distribution but form coherent structures, su
 	discussion: 
 	@discussion of results: transition = more intuitive to follow.
 This metamorphosis corresponds with a transformation within the same visualization space.
+
+
 	
 \subsection{Representation of Quantitative Relations}%[infovis: focus on morphing, camera, trajectory]
+For the analysis and explanation of molecular data often also the comparison of quantitative aspects is important for its understanding. %, besides structural information,
+Such quantification is necessary, for instance, when analyzing different life cycle stages of a cell.
+In our example, we want to convey how many different molecule types the HIV particle contains, and how much of the volume within the particle each type occupies.
 
-%[motivate it - what problem does it solve in presenting the data]
-%3) how large is the volume of each compartment and the molecules contained within in respect to each other?
-
-%When biologists analyze cellular data sets, they often need, besides structural aspects, also information about quantitative aspects of their data, in our example, the aggregated volume that each type of molecule occupies in a compartment.
-
-For the analysis and explanation of the molecular data, besides structural information, often also the relation of quantitative aspects is important for its understanding. In our example, we want to convey how many different molecule types does the HIV particle contain, and how much of the volume within the particle does each type occupy. 
-
-Illustrators often supply quantitative information with infographics, which use a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as counts[cite tory/möller?].
-
-In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
-
-Scientific illustrator Graha Johnson conveyed such a relation/tranformation/metamorphosis between the .. of a cell and the quantitative...
-in a metamorphosis...
-these quantities in an award-winning video demonstration of the decomposition of an XXX cell (Figure \ref{spaces}b).
-
-these quantities are not visible in the original data and hard to convey within the same visualization space..
-we use our pipiline to transform the data into this different visualization space..
-
-
-they want to know about quantities
-
-but the data is like YYY
-
-so they use XXX to present quantities
-
-we create such a rep/tran like this:
+The direct comparison of such information on the original 3D models of the cells can deceive due to the complexity of the molecular structures.
+Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as atom counts[cite tory/möller?].
+%In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space.
+%A stronger abstraction of the original spatial representation than in the previous two examples takes place.
+The relation between the original spatial and the transformed abstract dimensions is even harder to grasp.
+Continuous transitions are especially suitable for depicting such complex relations, as was successfuly demonstrated in the award-winning animation of the decomposition of a cell (Figure \ref{spaces}b). In this video, scientific illustrator Graham Johnson used an animated transition to convey the relation between the 3D model of a pancreas cell and an abstract depiction of volumetric relations between the elements of the cell.
 
 
 
-To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
+%scientists and general audiences can learn a great deal about biology by comparing internal structural differences between cells from different parts of the bodies or different species, or different life cycle stages - but spatial comparisons can deceive
+%compare and constrast multiple descriptive parameters of visually complicated 3d structures
+%organizing molecules/proteins and averaging their volumes
+%graph retains qualities of the native model
+%hybrid between cell and infographic
+%enables to compare similar looking cells
+%information of hybrid easier to absorb than mentally merging quantifiation information from pie chart and original 3d model of cell
+%complex interplay  of randomness and specific interactions in these structures that enables life to exist
+
+In this final use case, we demonstrate how we can achieve such a transition to an abstract visualization space with our pipeline.
+We chose to convey the quantitative information about the number of molecule types in the HIV particle and the volumetric relation between types with a histogram (Figure \ref{fig:infovis}d). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
+Since we are concentrating on displaying relations within the HIV particle, we remove the blood serum from our original representation before we restructure our data hierarchy to match the intended target representation.
+
+Since each histogram bar has to represent a single molecule type, we use a \textit{group-by-type} metamorpher to create a subset for each type.
+
+The histograms in the final representation are constructed from the individual molecules in our original data. Each molecule is represented as a slice with given base area and a height that represents the molecule's volume. By stacking the molecule slices, we receive a height that is representative of the total volume of all molecules of the respective type.
+In the morphing stage, we therefore apply an \textit{object space} metamorpher on each type subset, in order to morph the shape of each molecule to the afore mentioned slice. The morphing is achieved by repositioning the atoms of a molecule into a slice. The slice height depends on the number of atoms that the molecule is composed of.
+
+In order to layout the created slices into the shape of a bar, we use a \textit{bar layout} metamorpher on each type subset. The bar layout simply stacks the molecule slices in a subset on top of each other. The bars are then positioned side-by-side along a line with a \textit{line layout} metamorpher.
+
+
+
+
+trajectory:
+for each molecule
+in bar subset, we add a control point to the top of the bar, so that the
+molecule seems like falling into the bar instead of going straight from
+its original position to the designated position within the bar.
+
+
+timing
+
+camera
+
+
+
+
+shapes and positions of compartments and molecules are sacrificed. 
 %high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
 		
 @discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..

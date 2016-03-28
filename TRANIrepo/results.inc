@@ -17,14 +17,14 @@
 
 		
 		
-		\subsection{Representation of Quantitative Relations}
-For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? 
-Scientific illustrator Graha Johnson, for example, conveyed the quantities in an award-winning video demonstration of the decomposition of an XXX cell.
-In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
-To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
+	%	\subsection{Representation of Quantitative Relations}
+%For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? 
+%Scientific illustrator Graha Johnson, for example, conveyed the quantities in an award-winning video demonstration of the decomposition of an XXX cell.
+%In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
+%To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
 %high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
 		
-@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
+%@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 		
 
 		

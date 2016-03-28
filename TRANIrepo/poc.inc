@@ -178,26 +178,39 @@ In the morphing stage, we therefore apply an \textit{object space} metamorpher o
 
 In order to layout the created slices into the shape of a bar, we use a \textit{bar layout} metamorpher on each type subset. The bar layout simply stacks the molecule slices in a subset on top of each other. The bars are then positioned side-by-side along a line with a \textit{line layout} metamorpher.
 
+Since we position the histogram bars in the final representation below the HIV particle, the molecules on top of the particle would, with a linear trajectory between their origin and destination point, fly through the particle, and exit the particle on the bottom side, before reaching their final position in the histogram.
+To present the transition in a manner where molecules do not cross the HIV particle on their way to their destination, we introduce additional control points to the path of the molecules in the trajectory stage of our pipeline. \textbf{[TODO: description of first (sideways) CP]}
+
+Further, we add a control point for each molecule type above its respective histogram bar to create a trajectory that looks like the molecules are filling the bar by pouring into it. We therefore bundle the trajectories of the molecules above each bar with a \textit{trajectory bundling} metamorpher.
+We place the control point at the same height for all bars. To calculate the x/y position for a control point, we use the center of the bounding box of the respective molecule type subset.
+Each subset in the scene hierarchy has a bounding box.
+Bounding boxes are calculated when a subset is created and updated when a layout is applied.
+
+Due to the onion like structure of the HIV particle, inner structures are occluded by outer structures.
+Inner structures should therefore not start their transition before the outer structures, as they would never be visible in their original representation. Further, if the inner structures would fly through the outer structures to their target representation, a viewer would not understand, from which part of the virus exactly they would be coming from.
+To present the transition in a manner, that reveals each original structure before it starts its transition, we apply the \textit{staged timing} metamorpher to peel HIV particle like an onion, starting with its outer layers.
+In contrast to the previous two use cases, here, we stage the timing by molecule type to transition each molecular type individually into its histogram bar representation. The transition of each type starts after a certain delay / when the previous transition is finished.
+To create the order of the staging that results in the peeling effect, we use a \textit{distance offset} metamorpher. The distance of each molecule of a specific type to the center of the particle is calculated and averaged. The average distance per type is then used for the ordering of the staging. As the center of the particle we assume the center of the bounding box of the root node of the scene hierarchy.
+
+In contrast to the previous use case, the position of the final representation (the histograms) differs from the position of the original representation (the HIV particle).
+A camera position that shows both representations at the same time would use the screen space inefficiently, since only during the transition both representations are visible. The original and the target representation would be shown with unused screen space where the respective other representation would be positioned.
+We therefore implemented a simple \textit{guided navigation} metamorpher to use the available screen space efficiently by zooming in as closely as possible to the displayed data, while assuring that entire scene (all molecules) are visible at all times during the transition.
+The metamorpher checks if molecule instances are culled from the view. If yes, then the camera is zoomed out until no more instances are culled. If no, the camera zooms in until instances are culled. A constant zooming in and out at the optimal position is avoided by smoothing the camera transition. The camera look-at vector is updated to look at the center of our scene, where our HIV particle is positioned.
+
+Finally, to produce the animated transition to the histogram bars, why apply the same continuous sampling as in the previous two use cases.
 
 
 
-trajectory:
-for each molecule
-in bar subset, we add a control point to the top of the bar, so that the
-molecule seems like falling into the bar instead of going straight from
-its original position to the designated position within the bar.
 
 
-timing
 
-camera
+
 
 
 
 
 shapes and positions of compartments and molecules are sacrificed. 
-%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
-		
+%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).		
 @discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 
 

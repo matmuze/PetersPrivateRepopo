@@ -40,10 +40,7 @@
 %\subsubsection{Text Labels}\subsubsection{Icons / Textures}\subsubsection{Translate?}\subsubsection{Rotate?}\subsubsection{Linear Interpolation}\subsubsection{Staging}\subsubsection{Spatial Time Offset}\subsubsection{Guided Navigation}\subsubsection{Continuous Sampling}
 %\subsection{Specific Components}[will be placed in the respective usecase]
 
-\subsubsection{Grouping by Type - use case C}
-We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]
-The output of this metamorpher is therefore a list of subsets that contain entities of the same type.
-The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
+%\subsubsection{Grouping by Type - use case C}We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]The output of this metamorpher is therefore a list of subsets that contain entities of the same type.The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
 
 %\subsubsection{Cloning}\subsubsection{Spatial Grouping}\subsubsection{Blurring}\subsubsection{Morphing}\subsubsection{Bar Layout}\subsubsection{Line Layout}\subsubsection{Schematic (Scale \& Rotate)}\subsubsection{Transit Points / Bundling}\subsubsection{SLERP}
 
@@ -92,43 +89,17 @@ distance field left to right for each
 continuous
 
 
-\subsection{Representation of Volumetric Relations}
-
-			
-
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create 3 hierarchical compartments by typerange
-2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
-
---annotations:
-3) [txt-label] for each type subset
-10) [representative] molecule for type subset
-
---blending:
-4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
-
---layouting:
-5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars
-6) the [line layout] puts all the bars within a compartment side by side
-7) the [translate layout] then moves the new center for the next line layout for the next compartment
-
-8) layout: put label below below each bar
-9) layout: put rep below label
-
---trajectory:
-10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
-
---timing:
-11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
-
-12) timing: make label \& rep appear when animation is finished
-
---guided navi:
-13) [whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
-
---sampling:
-14) continuous sampling
+%\subsection{Representation of Volumetric Relations}
+%\subsubsection{Applied Metamorphers}--data transform:1) [type range grouper] create 3 hierarchical compartments by typerange2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
+%--annotations:3) [txt-label] for each type subset10) [representative] molecule for type subset
+%--blending:4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
+%--layouting:5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars6) the [line layout] puts all the bars within a compartment side by side7) the [translate layout] then moves the new center for the next line layout for the next compartment
+%8) layout: put label below below each bar9) layout: put rep below label
+%--trajectory:10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
+%--timing:11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
+%12) timing: make label \& rep appear when animation is finished
+%--guided navi:13) [whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
+%--sampling:14) continuous sampling
 
 
 

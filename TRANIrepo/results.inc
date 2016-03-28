@@ -15,31 +15,16 @@
 %Since molecular structures are very densely packed, it is impossible to inspect the outer and inner structures, e.g., of a virus, at the same time, without applying some sort of occlusion handling technique, such as exploded views [cite some fundamental exploded view paper] [kind of have to repeat the argumentation from the introduction here - i guess here i should be more specific..].
 %[why is it necessry (problem statement)][what does it preserve(focus)][what does it sacrifice]
 
-\subsection{Schematization of Molecular Structures}
-%Molecular data sets, such as the one of the HIV particle, consist of (hundreds of) thousands of molecules. These molecules are distributed across a comparably smaller number of types (in our case, 42).
-In scientific illustrations, atlas based views schematic representations of cellular structures are used to give an insight of the molecular and atomic composition of these cells. The focus lies therefore on displaying individual molecules to convey their atomic composition, as well as on selected constellations of molecules to convey the structures that they collectively create. However, the original data model consists of millions of mostly noisily distributed atoms. To achieve this schematic representation therefore, one the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of millions of atoms (context). On the other side, molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.
-This representation sacrifices the low level detail of the noisy atomic distribution, i.e., the exact count, position and shape of individual molecules. It aims to preserve the shape and size of compartments as well as molecule type overview, compartment relation (zugehörigkeit), and molecule shape.
-This metamorphosis corresponds with a transformation within the same visualization space.
-
-% therefore aims to preserve the size and shape of high level compartments within the data, and
-%This representation was motivated by illustrative drawing, like the ones that can be found in medical books.
-%\paragraph{simplification (schematization)}:		simplify data to create understanding.
-
-%		resembles the illustrations that we see in biomedical textbooks.
-	@discussion of results: transition = more intuitive to follow.
-	%	tries to preserve anatomical attributes but in a simplified / schematic way.
-		%tries to give overview of elements in  the data and possibly their interrelations.
-		
-		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
 		
 		
-		\subsection{Representation of Quantitative Relations}
-For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? Graham Johnson answered this question in his award-winning video demonstration of the decomposition of an XXX cell.
-In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
-To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
+	%	\subsection{Representation of Quantitative Relations}
+%For the explanation of the molecular data, often also the relation of quantitative aspects is important for its understanding, e.g, how many different molecules of each type does the HIV particle contain, or how much of the volume within the particle does each type occupy? 
+%Scientific illustrator Graha Johnson, for example, conveyed the quantities in an award-winning video demonstration of the decomposition of an XXX cell.
+%In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space. A stronger abstraction than in the previous two examples takes place.
+%To convey these quantitative information about aggregated volumetric and count information, shapes and positions of compartments and molecules are sacrificed. Since this transformation is across visualization spaces, the target representation is harder to relate to the original representation.
 %high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).
 		
-@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
+%@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 		
 
 		
@@ -55,10 +40,7 @@ To convey these quantitative information about aggregated volumetric and count i
 %\subsubsection{Text Labels}\subsubsection{Icons / Textures}\subsubsection{Translate?}\subsubsection{Rotate?}\subsubsection{Linear Interpolation}\subsubsection{Staging}\subsubsection{Spatial Time Offset}\subsubsection{Guided Navigation}\subsubsection{Continuous Sampling}
 %\subsection{Specific Components}[will be placed in the respective usecase]
 
-\subsubsection{Grouping by Type - use case C}
-We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]
-The output of this metamorpher is therefore a list of subsets that contain entities of the same type.
-The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
+%\subsubsection{Grouping by Type - use case C}We need to visually or spatially transform all molecules of the same type in a uniform fashion, e.g., to spatially transform them into a collective shape. [refer to all usecases here?]The output of this metamorpher is therefore a list of subsets that contain entities of the same type.The metamorpher parses a given list of entities and creates a new subset for each new type-ID that it finds. Entities of the matching type are then assigned as children to this subset.
 
 %\subsubsection{Cloning}\subsubsection{Spatial Grouping}\subsubsection{Blurring}\subsubsection{Morphing}\subsubsection{Bar Layout}\subsubsection{Line Layout}\subsubsection{Schematic (Scale \& Rotate)}\subsubsection{Transit Points / Bundling}\subsubsection{SLERP}
 
@@ -73,7 +55,7 @@ The metamorpher parses a given list of entities and creates a new subset for eac
 
 
 
-\subsection{Schematization of Molecular Structures}
+
 
 
 	
@@ -107,43 +89,17 @@ distance field left to right for each
 continuous
 
 
-\subsection{Representation of Volumetric Relations}
-
-			
-
-\subsubsection{Applied Metamorphers}
---data transform:
-1) [type range grouper] create 3 hierarchical compartments by typerange
-2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
-
---annotations:
-3) [txt-label] for each type subset
-10) [representative] molecule for type subset
-
---blending:
-4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
-
---layouting:
-5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars
-6) the [line layout] puts all the bars within a compartment side by side
-7) the [translate layout] then moves the new center for the next line layout for the next compartment
-
-8) layout: put label below below each bar
-9) layout: put rep below label
-
---trajectory:
-10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
-
---timing:
-11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
-
-12) timing: make label \& rep appear when animation is finished
-
---guided navi:
-13) [whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
-
---sampling:
-14) continuous sampling
+%\subsection{Representation of Volumetric Relations}
+%\subsubsection{Applied Metamorphers}--data transform:1) [type range grouper] create 3 hierarchical compartments by typerange2) [single type grouper] split all three by type => subsets containing all molecules of same type for each hierarchical compartment
+%--annotations:3) [txt-label] for each type subset10) [representative] molecule for type subset
+%--blending:4) [slice-flatterer] create target rep for each molecule with blending: slice with hight representing the molecule volume
+%--layouting:5) [bar layout] for each type compartment - the layout puts all molecule slices on top of each other to create histogram bars6) the [line layout] puts all the bars within a compartment side by side7) the [translate layout] then moves the new center for the next line layout for the next compartment
+%8) layout: put label below below each bar9) layout: put rep below label
+%--trajectory:10) [top-down-fall-in-component]: for each molecule in bar subset, we add a control point to the top of the bar, so that the molecule seems like falling into the bar instead of going straight from its original position to the designated position within the bar.
+%--timing:11) [distance offset] a plane can be positioned in space. the distance of each molecule/compartment to this plane is measured and used for a the creation of a time offset that specified when each molecule is allowed to start its transition
+%12) timing: make label \& rep appear when animation is finished
+%--guided navi:13) [whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
+%--sampling:14) continuous sampling
 
 
 

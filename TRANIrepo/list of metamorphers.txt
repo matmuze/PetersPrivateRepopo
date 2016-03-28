@@ -1,0 +1,80 @@
+\subsection{Metamorphers}
+\textbf{ [just for reference]}
+[describes PoC components that we implemented per pipeline stage]\newline
+[should we describe beforehand what (which representations) we try to achieve with these implementations?]
+
+
+\subsubsection{Partitioning}
+		spatial subselection by clipping plane/object,
+		
+		splitting into types,
+		
+		splitting into type ranges
+		
+		cloning
+		
+		---not showcased but implemented:		
+		*spatial splitting operations into equal parts (pie splitter),
+	
+\subsubsection{Annotations}
+text labels,
+icons (textures),
+maybe: data representatives (for each type),
+optional addon to each operator: connectors between annotation \& assigned subset
+
+\subsubsection{Blending / Morphing}
+		
+		blur into collective shape,		
+		morph,
+		
+		---not showcased but implemented:				
+		blending to texture
+		
+		---other not implemented \& not used examples:
+		unfolding
+		
+\subsubsection{Layouting}
+
+bar,
+line,
+translate,
+rotate,
+scale,
+schematization layout = combi of scale \& rotate but selection of elements where what op is applied is very specific
+
+---not showcased but implemented:	
+			slice,
+			sphere,
+			circle
+
+\subsubsection{Camera / Guided Navi}
+[whole-data-in-view-keeper] update the camera pos \& lookat to keep all molecules in the view frustum.
+
+other examples:
+
+
+\subsubsection{Trajectory}
+	
+		linear: from A straight to B,
+		bundling/transit points
+		
+		---other not implemented \& not used examples:
+		curved
+		
+\subsubsection{Timing}
+
+offset function: delay timing by distance to plane
+ \& staging by type ... anything else?
+			
+		---other not implemented \& not used examples:
+	offset according to: inherent spatial parameters (position, distance to other entities, density)
+			
+\subsubsection{Sampling}
+
+continuous sampling,
+
+		---other not implemented \& not used examples:
+sparse (comic strip / narrative sequence),
+
+post-processing operators:
+motion blur,

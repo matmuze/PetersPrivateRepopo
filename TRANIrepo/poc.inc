@@ -199,6 +199,7 @@ The metamorpher checks if molecule instances are culled from the view. If yes, t
 
 Finally, to produce the animated transition to the histogram bars, why apply the same continuous sampling as in the previous two use cases.
 
+The transition conveys two aspects of the data that a simple side-by-side presentation of original and target state would not. One the one side, the relation between the histogram bars and the molecular structures that they represent is established. On the other side, the inner structures of the HIV particle that are not visible in the original representation and not present in the target representation are revealed in the course of the transition.
 
 
 
@@ -207,11 +208,6 @@ Finally, to produce the animated transition to the histogram bars, why apply the
 
 
 
-
-
-shapes and positions of compartments and molecules are sacrificed. 
-%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).		
-@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 
 
 

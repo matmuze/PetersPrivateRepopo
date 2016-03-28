@@ -71,54 +71,57 @@ Furthermore the transition explains where the isolated molecules originate from.
 %since the data is XXX, it is impossible to see YYY
 Besides the structural composition of a cell, biologists are often also interested in the cell's molecular composition, i.e., what types of molecules are present in the data, in which compartment are they contained, what do the molecules look like?
 The HIV data, for instances, contains 42 different molecules but due to their high count (thousands of molecule instances across these 42 types), their mostly random distribution and the dense packing of the data, the detailed information about the number of types and their individual shape is impossible to deduce from the original data.
-Illustrators therefore create atlas based views (such as in Figure \ref{fig:schema}d) that show a simplified schematic representation of a cell to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
+Illustrators therefore create atlas based views (such as in Figure \ref{fig:schema}d) that show a simplified schematic representation of a cell in order to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
 
 We achieve such a transition to an atlas based view with our pipeline in the following way:
-Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the four subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the four subsets will be blended in image space to create the uniform compartment color, we need a copy of each one for the layouting stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
+Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the four subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the four subsets will be blended in image space to create the uniform compartment color, we need a copy of each subset for the layouting stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
 
-In the morphing stage, we now create the relation of our original noisy data representation to the uniform color that marks each compartment's area by applying a \textit{blur} metamorpher. The blur operator creates an additional render pass for each given subset where the respective subset is rendered and blurred individually. By increasing the contrast of the alpha channel for the blurred image, the sharp edges of each compartment are created.
+%To indicate the shape of compartment structures, we create a uniform background color that represents the colors of the molecules
+Since the shapes of compartments in the HIV particle are occluded in the original representation, we create a uniform color that marks each compartment's area in the morphing stage.
+We create the relation of our original noisy data representation to the uniform compartment color by applying a \textit{blur} metamorpher. 
+The blur metamorpher creates an additional render pass for each subset of copy A. The molecules in the respective subset are blurred with a Gaussian blur kernel into a uniform color. By increasing the contrast of the alpha channel for the blurred image, the sharp edges of each compartment are created. %If we wanted to keep a hint of the noisy color distribution, we could reduce the blur kernel. the compartments would still be separated from each other due to the sharp edges of the constrast in the alpha channel.
 
-In the layouting stage, we create the relation of our dense and noisy original data to the sparse enlarged rendering of representative molecules and compartment shells in the final representation.
-For a given subset, the \textit{schema} layout metamorpher differentiates between membrane molecule types, i.e., molecules that compose the shell of a compartment, and non-membrane types, i.e., the ones that are floating within a compartment, in order to create the final schematic representation.
+To reveal the compartment area colors that we created in the previous step, and to enable the display of enlarged representatives for each molecule type that are an essential for conveying the molecule shapes, we have to reduce the noisy clutter of molecules.
+We achieve this reduction in the layouting stage, where we create the relation of our dense and noisy original data to the sparse enlarged rendering of representative molecules and compartment shells in the final representation.
+For a given subset of copy B, the \textit{schema} layout metamorpher differentiates between membrane molecule types, i.e., molecules that compose the shell of a compartment, and non-membrane types, i.e., the ones that are floating within a compartment, in order to create the final schematic representation.
 Since illustrators know, which molecule types the membranes of compartments are composed of, they can specify the membrane type so that they are treated differently than the molecules within compartments. For membrane molecules, the schema layout metamorpher picks the ones that are closest to the border of the compartment, from the viewing position. The picked membrane molecules remain their original size and rotation. The non-picked membrane molecules are scaled to zero to be invisible in the final representation, in order to reveal the compartments and molecules within. Alternatively, instead of scaling, transparency could be applied to membrane molecules in the morphing stage. For membranes, the schema layout operator thus preserves the membranes shells of compartments while revealing the inner structures of a compartment.
 
 For non-membrane molecules, the illustrator has control over the total count of representatives that 
 should be displayed in a compartment. Based on the specified number, the schema layout metamorpher calculates how many representatives of each molecule type of the given subset should be kept. The number of kept representatives depends on the ratio between the total number of molecules of each type within the subset, and the maximum number of allowed representatives.
 Each molecule has one guaranteed representative.
-Once the number of representatives for each molecule type is calculated, the schema layout metamorpher creates a uniform grid for the available space with as many grid points as there are representatives.
-For each grid point, the metamorpher then pics 
+Once the number of representatives for each molecule type is calculated, the schema layout metamorpher places them on a grid. In order to avoid cluttering of the representatives and to achieve a more pleasant result image, the grid positions are chosen so that molecules are evenly spaced from each other. Representatives are placed iteratively by type to avoid accidental clustering of the same types.
 
-to specify a percentage of how much of the available space should be covered with molecule representatives. This percentage is used to 
+To make the atomic structures of molecule representatives better visible, the schema layout metamorpher enlarges them.
+Since not also the position but also the rotation of molecule instances is randomly distributed, the schema layout metamorpher also rotates each representative molecule back to 90 degree, which is the angle that shows the top down look of a molecule.
 
-the schema layout metamorpher calculates a count of how many molecules can be rendered on 
-counts the instances of each type within the subset,
-calculates a number that represents 
+To achieve smooth rotations during the transition, the trajectory stage uses a \textit{SLERP} metamorpher for the interpolation between the original and the target orientation.
+
+Since inner structures are occluded by the outer structures of the blood serum and HIV particle, we use the timing stage to reveal the structures step-by-step. A \textit{staged timing} metamorpher manipulates the time curve of the molecules of a compartment in such a way, that the transition of each compartment starts with a specified delay.
+Additionally, in order to create a peel-away effect that reveals the inner structures and molecule representatives of each compartment from left to right, we use a \textit{distance offset} metamorpher. The distance offset metamorpher calculates the distance of each molecule instance to a plane or other object, that the illustrator can place in the scene. The distance to the plane is then used as a measure for creating an additional distance based delay in each molecules time curve.
+
+Since the original and the target representation occupy the exact same space, we do not need to apply any guidance in the camera control stage.
+
+Since we want to create an animated transition from the continuum that we just set up, we apply the same continuous sampling as in the previous use case.
 
 
-To achieve this schematic representation therefore, on the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of a vast amount of other molecules (context). 
+%To achieve this schematic representation therefore, on the one side, specific molecules have to be chosen as representatives of their type to be displayed at a sufficiently large scale (focus), while suppressing the noisy distribution of a vast amount of other molecules (context). 
 
-molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.	
+%molecules that do not have a noisy distribution but form coherent structures, such as cell membranes, have to be preserved.	
 
 
-	timing: distance
 %%	why is the transition to the view necessary as opposed to just having the final image?
+%Even though the final image of the schematization of the HIV particle is conceptually similar to the original representation, the transition between both representation reveals and emphasizes relations that are not obvious.
+The presentation of the continuum between the original data representation and the schematization emphasizes aspects of the data that may not be self explanatory.
+The transition of the scaling more directly shows how small the original molecule representatives were.
+The transition of rotations emphasizes the fact that molecules can have different orientations in the original data.
+The staging per compartment enables occlusion handling as it reveals inner structures in intermediate states of the transition which would not happen in a side by side comparison and non-staged animation.
+The distance offset delay reduces the transformation at any given time to a small vertical stripe of the data, thereby reducing the amount of simultaneous visual stimuli, making the animation more readable, and directing the users attention to the one specific location that is transforming at each point in time.
+
+
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 	
 
 
@@ -131,23 +134,19 @@ molecules that do not have a noisy distribution but form coherent structures, su
 	%	tries to preserve anatomical attributes but in a simplified / schematic way.
 		%tries to give overview of elements in  the data and possibly their interrelations.
 		
-		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
+
 
 %how do we present the transition/continuum?
 
 
 %justification: why was this transition necessary / why is the final image alone not enough?
 	
-	discussion: 
-	@discussion of results: transition = more intuitive to follow.
-This metamorphosis corresponds with a transformation within the same visualization space.
-
 
 	
 \subsection{Representation of Quantitative Relations}%[infovis: focus on morphing, camera, trajectory]
 For the analysis and explanation of molecular data often also the comparison of quantitative aspects is important for its understanding. %, besides structural information,
+In our example, we convey how many different molecule types the HIV particle contains, and how much of the volume within the particle each type occupies.
 Such quantification is necessary, for instance, when analyzing different life cycle stages of a cell.
-In our example, we want to convey how many different molecule types the HIV particle contains, and how much of the volume within the particle each type occupies.
 
 The direct comparison of such information on the original 3D models of the cells can deceive due to the complexity of the molecular structures.
 Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial dimensions but rather abstract dimensions, such as atom counts[cite tory/möller?].

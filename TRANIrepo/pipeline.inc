@@ -1,5 +1,3 @@
-\clearpage
-
 \section{Metamorphosis formalization}
 
 \begin{figure*}[t]
@@ -76,13 +74,21 @@ The metamorphers are used to specify the starting time of each transformation, a
 %Additionally, the speed at which individual transitions occur might be used by the illustrators to suggest importance of the individual events and 
 
 \subsubsection{Camera Control}
-The illustrators creating continuous transitions, especially those between different visualization spaces, face the problem of the optimal camera placement. At each point during the transition, a different camera settings might be desirable so that the essential aspects of the visualization are captured.
+To adequately follow the development of continuous transitions, especially those between different visualization spaces, camera steering is a necessary component of a non-interactive explanatory visualization. To assure visibility of all data elements at each timestep, illustrators manually specify camera settings and how they change over time.
+
+In our pipeline, this task is carried out through the metamorphers in the \emph{camera control} stage. These metamorphers access the temporally and spatially arranged data elements and use this information to automatically modify the position and the look-at vector of the camera. An example of camera control metamorpher sets the look-at vector of the camera to point in the centroid of the data elements, while it moves the camera far enough to capture the entire dataset for the given field-of-view.
 
 \subsubsection{Sampling}
-To present the created transition to the viewers, it is necessary to select a set of timesteps which are going to be 
+To present the created transition to the viewers, it is necessary to select a set of timesteps which are going to tell the story intended by the illustrators. In the simplest case, the transition is sampled densely enough to form a seamless animation, given certain FPS and a desired length of the animation. However, due to various disadvantages of animation, as discussed in Section \ref{sec:intro}, it might be necessary to select only few representative timesteps which show the essential aspects of the transition.
 
-After the transition is created, it is necessary to present it to the viewers. This requires a selection of the 
+Metamorphers of the \emph{sampling} stage implement various strategies how these timesteps are chosen. While the previous stages of the pipeline can be called multiple times in order to create more complex animations/transitions/stories, the sampling stage is final, as it ties together the information from the previous stages to sample the visual result.
 
+For this purpose, the scene graph information is propagated through the hierarchy down to the individual data elements, to determine their absolute positions and orientations. The trajectory and the timing stages of the pipeline provide the information about the intermediate transformations of the data elements in an arbitrary timestep, which is in turn acquired by the sampling metamorphers.
+
+Since the operators applied in the previous stages of the pipeline are continuous, there are no restrictions on how the sampling is performed. For instance, it is possible to create a hybrid visualization that displays a sparsely sampled narrative sequence of small multiples. Upon request, a continuous animated transition between two consecutive small multiples can be shown to provide additional information on how do they relate to each other.
+
+The sampling stage can also determine if the transition is pre-baked or sampled on the fly in real-time.
+This makes it possible to use a continuous pre-baked transition to create, for instance, a single result image that encodes the missing transition information within glyphs. These glyphs can be calculated from the continuous pre-baked information.
 
 
 

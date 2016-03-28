@@ -23,7 +23,7 @@
 %% ``\begin{document}'' command. It prepares and prints the title block.
 
 %% the only exception to this rule is the \firstsection command
-\firstsection{Introduction}
+\firstsection{Introduction}\label{sec:intro}
 \maketitle
 The traditional approach for the visual communication of scientific insights is handled by illustrators and animators.
 Their goal is to convey complex phenomena in an accessible way, and to attract the interest of broad audiences.

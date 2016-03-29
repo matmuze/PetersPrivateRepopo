@@ -7,7 +7,7 @@
 %This data set represents an HIV particle contained within blood serum \textbf{(see Figure XXX)}. The three questions that we helped to answer with our demonstration are: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
 
 After the description of the theoretical pipeline, we demonstrate its utility on several use cases.
-We show these examples on the structural model of the human immunodeficiency virus which is built-up from thousands of macromolecules. The HIV particle is contained within blood serum \textbf{(see Figure XXX)}. The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
+We show these examples on the structural model of the human immunodeficiency virus (HIV) which is built-up from thousands of macromolecules. The HIV particle is either contained within blood serum (Figures \ref{fig:teaser} and \ref{fig:explosion}), or with the blood serum removed (Figure \ref{fig:infovis}). The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
 
 %[first we motivate why illustrators would want to use the pipeline]
 
@@ -16,13 +16,14 @@ We show these examples on the structural model of the human immunodeficiency vir
 \subsection{Explosion of Molecular Structures}
 	%[motivate it - what problem does it solve in presenting the data]
 Since molecular structures of the HIV data are very densely packed, it is impossible to inspect the outer and inner structures of the virus at the same time. 
-The four structures that we want to show are assembled in an onion-like structure where one compartment is contained in another one. We therefore chose to convey the encapsulation of compartments in form of an exploded view (Figure \ref{fig:expl}), to answer our first question.
+The four structures that we want to show are assembled in an onion-like structure where one compartment is contained in another one. We therefore chose to convey the encapsulation of compartments in form of an exploded view (Figure \ref{fig:explosion}), to answer our first question.
 
 %We can achieve the transition of the HIV data to an exploded view in the following way:
 %how do we want to relate the source rep to the target rep?
 %First, we want to create the relation of the original data to the four compartment structures of the target representation. In the data re-structuring stage, we therefore need to create four subsets from our original data that correspond to these compartments. 
 
-The specific pipeline for creating the continuum between the original visualization and the exploded view starts with restructuring. In order to create the relation of the original data to the four compartment structures of the target representation, we create subsets for all four compartments in the restructuring stage. %create subsets from our original data that correspond to these compartments.
+
+The specific pipeline for creating the continuum between the original visualization and the exploded view starts with the data restructuring. In order to create the relation of the original data to the four compartment structures of the target representation, we create subsets for all four compartments in the restructuring stage. %create subsets from our original data that correspond to these compartments.
 %Thereby we create the relation of the original data to the four compartment structures of the target representation.
 To create the compartment subsets, we exploit the fact that each compartment contains molecules of different types, and implemented a \textit{type range} metamorpher. The subsets crated by the type range metamorpher contain all given molecules that match a specified type range. If each molecule type could exist within multiple compartments, we could achieve the creation of the compartment subsets, by spatially grouping the molecules with a \textit{spatial splitting} metamorpher. A spatial splitting metamorpher checks the position of a given list of molecules in respect to a spatial object, like a plane, cube, or sphere, that the user can position freely in the scene. Molecules are then assigned to two new subsets, depending on which side of the object they are situated.
 To create the seam at which compartments are split for the explosion, we actually apply a spatial splitting metamorpher to spatially subdivide the three outer of the four subsets that we just created along a plane.
@@ -31,9 +32,11 @@ At the end of the restructuring stage, the root node of the scene hierarchy has 
 
 Since the visual representation of individual molecules does not change across the source and the target representation, we do not need to apply any metamorphers in the morphing stage of our pipeline.
 
-In order to relate the original unexploded data to the final exploded representation, we need to call \textit{translation} and \textit{rotation} metamorphers in the layouting stage that create the translation (and slight rotation) of the explosion for each pair of spatially split subsets (Figure \ref{fig:explode}b). An additional translation moves each inner compartment to the right of its previously encapsulating compartment (Figure \ref{fig:explode}c).
+In order to relate the original unexploded data to the final exploded representation, we apply metamorphers of the layouting stage performing the necessary spatial transformations. In this step, we finalized the creation of the continuum between the original unexploded and the exploded target representation. In order to present the transition in a pleasant way, we follow the remaining steps of our pipeline. 
 
-We now created the continuum between the original unexploded and the exploded target representation. In order to present the transition in a pleasant way, we follow the remaining steps of our pipeline.
+%In order to relate the original unexploded data to the final exploded representation, we need to call \textit{translation} and \textit{rotation} metamorphers in the layouting stage that create the translation (and slight rotation) of the explosion for each pair of spatially split subsets (Figure \ref{fig:explode}b). An additional translation moves each inner compartment to the right of its previously encapsulating compartment (Figure \ref{fig:explode}c).
+
+
 
 Since both, source and target representation, remain within the same view frustum, and we do not explicitly point the camera on any specific details, we apply no metamorpher in the camera control stage.
 
@@ -57,7 +60,17 @@ Furthermore the transition explains where the isolated molecules originate from.
 
 
 
+\begin{figure}[ht!]
+\centering
+\subfloat[]{\label{fig:explosion0}\includegraphics[width=0.8\linewidth]{figures/explosion0.png}}
 
+\subfloat[]{\label{fig:explosion1}\includegraphics[width=0.8\linewidth]{figures/explosion1.png}}
+
+\subfloat[]{\label{fig:explosion2}\includegraphics[width=0.8\linewidth]{figures/explosion2.png}}
+
+\subfloat[]{\label{fig:explosion3}\includegraphics[width=0.8\linewidth]{figures/explosion3.png}}
+\caption{\label{fig:explosion}Explosion}
+\end{figure}
 
 \begin{figure}[ht!]
 \centering
@@ -71,17 +84,7 @@ Furthermore the transition explains where the isolated molecules originate from.
 \caption{\label{fig:infovis}Infovis}
 \end{figure}
 
-\begin{figure}[ht!]
-\centering
-\subfloat[]{\label{fig:explosion0}\includegraphics[width=0.8\linewidth]{figures/explosion0.png}}
 
-\subfloat[]{\label{fig:explosion1}\includegraphics[width=0.8\linewidth]{figures/explosion1.png}}
-
-\subfloat[]{\label{fig:explosion2}\includegraphics[width=0.8\linewidth]{figures/explosion2.png}}
-
-\subfloat[]{\label{fig:explosion3}\includegraphics[width=0.8\linewidth]{figures/explosion3.png}}
-\caption{\label{fig:explosion}Explosion}
-\end{figure}
 
 
 

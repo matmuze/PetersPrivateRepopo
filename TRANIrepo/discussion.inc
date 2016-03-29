@@ -2,16 +2,18 @@
 
 \section{Discussion and Future Work}
 
+%[todo: thoughts on creation of the continuum vs presentation of the continuum]
 
+Independent of the intended purpose of a transition, it is essential, how the transition is presented, in order to make it engaging, readable, and valueable (in the sense that it conveys relevant information).
+Three high level tasks are responsible for achieving these goals: occlusion handling, the steering of the viewer's attention, and the reduction of visual stimuli.
+The tasks can be achieved in both, the target representation of the transition, and during the transition itself. In the former case, the continuum creation pipeline stages are responsible, in the latter the continuum presentation stages.
+occlusion handling helps to.... can be handled for instance by
+steering helps to... can be handled for instance by
+stimuli reduction helps to.. can be handled for instance by.. stages
 
-high level tasks: occlusion handling, steering of attention, stimuli reduction
-
-occlusion handling
-steering of visual stimuli
 
 		
-	compatible data types:
-		dense hierarchical data with lots of repeating entities  of a few dozen types
+%	compatible data types:		dense hierarchical data with lots of repeating entities  of a few dozen types
 		
 
 %not supported:
@@ -25,7 +27,7 @@ The formal pipeline, as well as the implementation could be extended to support 
 Our plan for future work is actually to allow user interactions on the final representation, e.g., to create a partial transition of a selected subset back to the original representation.
 
 Our pipeline is specifically designed to create continuous representations between two representation states. It is not meant to be used to produce movies, i.e., there is no explicit support for features like .. as they can be found in 3D modeling tools.
-However, theoretically the data restructuring stage could be exploited in such a way 
+However, theoretically the data restructuring stage could be exploited in such a way ...
 
 At one point during the design of our formal pipeline, we were contemplating to add a stage for annotations to our pipeline, as they can assist story telling by describing what is currently happening in the scene. They can point to specific events in the transition to steer the viewer's attention. They can create frames of reference, such as coordinate axes, scales, and legends, that can improve the viewers' orientation within and their understanding of the presented information.
 However, we decided to rather discuss them in this part of our paper, as they are orthogonal to what our pipeline is designed to do and therefore do not match the conceptual scope of our pipeline.
@@ -71,15 +73,13 @@ implementation of comic strip / animation hybrid
 \subsection{occlusion}
 
 	is of course a central factor that could hinder a user's understanding of a transition.
-	can be dealt with at various stages of the pipeline.
-		grouping: choose groups so that they dont interfere with each other (depending on how you plan to transform the data)
+
+
+		grouping (prerequesite / support / not directly responsible): choose groups so that they dont interfere with each other (depending on how you plan to transform the data)
 			TODO: come up with examples that describe which kind of grouping would be beneficial for which kind of target state
 				e.g., group the data first into layers parallel to the viewing plane that basically peel the data
 		layouts
-			inner
 				bar: within the bar occlusion does not matter, as long as the bar represents entities of the exact same type
-				todo: other inner layouts \& general
-			outer
 				general: the placement of entities/subests should be chosen so that they dont occlude each other from the viewing angle. 
 			maybe we should not distinguish between inner and outer layout since this kind of restricts us to having two layouts instead of n.
 

@@ -19,14 +19,11 @@ The metamorphosis is carried out by applying a sequence of operators, which we r
 %For the clarity, the operators are grouped into several stages
 
 \subsection{Continuum Creation}
-In the first step of the pipeline, the continuum between two model representations is created.
+In the first step of the pipeline, the continuum between two model representations is created. Such a continuum is essential to communicate the relationship between two desired data representation. Alternatively, the continuum can communicate essential information to the viewers, for instance the way how various biological processes occur.
 
-Independent of the intended purpose of a transition, it is essential, how the transition is presented, in order to make it engaging, readable, and valueable (in the sense that it conveys relevant information).
-Three high level tasks are responsible for achieving these goals: occlusion handling, the steering of the viewer's attention, and the reduction of visual stimuli.
-The tasks can be achieved in both, the target representation of the transition, and during the transition itself. In the former case, the continuum creation pipeline stages are responsible, in the latter the continuum presentation stages.
-occlusion handling helps to.... can be handled for instance by
-steering helps to... can be handled for instance by
-stimuli reduction helps to.. can be handled for instance by.. stages
+When illustrators manually create transitions across data representations, they have to keep this continuum in mind while they create its actual visual encoding. They typically don't build relationships between the representations, but design the transition in such a way that the continuum is communicated. The problem with this approach is that if the underlying data change, or different relationship is to be communicated, the entire transition has to be recreated from scratch.
+
+To overcome this issue, we split the continuum creation from its presentation to the viewers. In the first step of our pipeline, this continuum is explicitly created by specifying relationships of various aspects of the underlying data representations. The continuum can then be reused for different data, or different form of presentation to the viewers, saving a significant effort of the illustrator.
 
 
 %In this section, we describe the three stages of the continuum creation, with examples of metamorphers which can be used in these stages.
@@ -63,7 +60,17 @@ To allow the illustrators to create transitions between different data represent
 The layout metamorphers operate on the individual nodes of the scene graph down to the individual data elements (e.g., molecules), so that whole data subsets can be transformed at once. Additionally, the layout metamorphers can be arbitrarily stacked to achieve wide range of spatial transformations.
 
 \subsection{Continuum Presentation}
-After the continuum between the two data representations is created, it needs to be processed so that it adequately communicates the intended message. This processing takes place within the second step of the pipeline, consisting of four stages.
+After the continuum between the two data representations is created, it needs to be processed so that the transition is engaging, readable, and valuable, i.e., it conveys the relevant information. There are three high level tasks that are responsible for achieving this goal: occlusion handling, the steering of the viewer's attention, and the reduction of the visual clutter. These tasks are carried out during the second step of our pipeline, consisting of four different stages.
+
+%After the continuum between the two data representations is created, it needs to be processed so that it adequately communicates the intended message. This processing takes place within the second step of the pipeline, consisting of four stages.
+
+
+%Independent of the intended purpose of a transition, it is essential, how the transition is presented, in order to make it engaging, readable, and valueable (in the sense that it conveys relevant information).
+%Three high level tasks are responsible for achieving these goals: occlusion handling, the steering of the viewer's attention, and the reduction of visual stimuli.
+%The tasks can be achieved in both, the target representation of the transition, and during the transition itself. In the former case, the continuum creation pipeline stages are responsible, in the latter the continuum presentation stages.
+%occlusion handling helps to.... can be handled for instance by
+%steering helps to... can be handled for instance by
+%stimuli reduction helps to.. can be handled for instance by.. stages
 
 \subsubsection{Trajectory}
 While the layout stage of the pipeline defines the relationship between data elements in different data representations, the actual transition between them is not yet specified. It is necessary to define the trajectory along which the data elements move in order to transit from the source representation to the target one. This is done in the first stage of the continuum presentation step.

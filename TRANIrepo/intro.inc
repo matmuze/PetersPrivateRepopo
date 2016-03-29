@@ -2,8 +2,13 @@
 %% Uncomment below to include a teaser figure.
   \teaser{
  \centering
- \includegraphics[width=\linewidth]{figures/teaser.png}
-  \caption{\label{fig:schema}Metamorphosis to a schematic representation of an HIV particle in blood serum.}
+
+\subfloat[]{\label{fig:t0}\includegraphics[width=0.25\linewidth]{figures/t0.png}}
+\subfloat[]{\label{fig:t1}\includegraphics[width=0.25\linewidth]{figures/t1.png}}
+\subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t2.png}}
+\subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t3.png}}
+ 
+  \caption{\label{fig:teaser}Metamorphosis to a schematic representation of an HIV particle in blood serum.}
   }
 
 %% Uncomment below to disable the manuscript note

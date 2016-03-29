@@ -1,10 +1,3 @@
-					
-\begin{figure*}[t!]
-\centering
- \includegraphics[height=5cm, width=\linewidth]{figures/infovis.png}
-\caption{\label{fig:spaces}Infovis}
-\end{figure*}
-
 \section{Use Cases}
 %[we just learned about the pipeline - now we want to know how it can be actually used - surprise: we actually have a proof of concept implementation of it]
 %Illustrators now can use this pipeline of metamorphers to create continuous representations that depict a desired metamorphosis of a given source representation to an intended target representation by combining the metamorphers on each pipeline stage that create the intended relations between the source and the target representation. %that answer specific questions / relate two different representations to each other
@@ -61,6 +54,39 @@ The only thing that is left to accomplish now, is to sample the continuum repres
 
 With the transition that we just created, we can explain to a viewer, how the four compartments are actually enclosed within each other, as the final representation alone does not convey that one object is enclosed in another, especifally for a viewer who has not seen the dataset before.
 Furthermore the transition explains where the isolated molecules originate from. 
+
+
+
+
+
+\begin{figure}[ht!]
+\centering
+\subfloat[]{\label{fig:infovis0}\includegraphics[width=0.8\linewidth]{figures/infovis0-1.png}}
+
+\subfloat[]{\label{fig:infovis1}\includegraphics[width=0.8\linewidth]{figures/infovis1.png}}
+
+\subfloat[]{\label{fig:infovis2}\includegraphics[width=0.8\linewidth]{figures/infovis2.png}}
+
+\subfloat[]{\label{fig:infovis3}\includegraphics[width=0.8\linewidth]{figures/infovis3-1.png}}
+\caption{\label{fig:infovis}Infovis}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\subfloat[]{\label{fig:explosion0}\includegraphics[width=0.8\linewidth]{figures/explosion0.png}}
+
+\subfloat[]{\label{fig:explosion1}\includegraphics[width=0.8\linewidth]{figures/explosion1.png}}
+
+\subfloat[]{\label{fig:explosion2}\includegraphics[width=0.8\linewidth]{figures/explosion2.png}}
+
+\subfloat[]{\label{fig:explosion3}\includegraphics[width=0.8\linewidth]{figures/explosion3.png}}
+\caption{\label{fig:explosion}Explosion}
+\end{figure}
+
+
+
+
+
 
 
 \subsection{Schematization of Molecular Structures}%[schematization: foucs on layouts]

@@ -1,9 +1,13 @@
 \section{Implementation}
 
+We implemented the pipeline within the CellVIEW framework \cite{muzic15}, which is a tool for real-time visualization of large mesoscale molecular models. We treat individual molecules as data elements that are rearranged in the scene within the transitions. In this way, we support large variety of illustrative effects.
 
-\subsection{PoC Pipeline}
-[contains specifics about our pipeline implementation]\textbf{ [move to implementation section]}
-implemented in cellVIEW: give some details about cellVIEW): unity, supports loading \&rendering of cellPACK data, renders molecules as point clouds
-\newline
+The pipeline is implemented as an application programming interface (API) that can be easily scripted in C\# language. All metamorphers are supported as simple function calls taking as the input arbitrary nodes of the scene graph, down to the individual data elements.
 
-desc was jeder component beisteuert um die beiden reps zu erzielen
+
+%\subsection{PoC Pipeline}
+%[contains specifics about our pipeline implementation]\textbf{ [move to implementation section]}
+%implemented in cellVIEW: give some details about cellVIEW): unity, supports loading \&rendering of cellPACK data, renders molecules as point clouds
+%\newline
+
+%desc was jeder component beisteuert um die beiden reps zu erzielen

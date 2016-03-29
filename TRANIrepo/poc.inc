@@ -208,6 +208,18 @@ The transition conveys two aspects of the data that a simple side-by-side presen
 
 
 
+\subsection{Expert Feedback}
+We demonstrated the three usecases to two experts in illustration and animation in order to gather their feedback.
+Each use case was presented in form a video of the respective animated transition.
+We supplied the experts with questionnaires that contained specific questions for each use case. [mention the questions or list a few examples of the questions?]
+
+\subsubsection{Exploded Views}
+...waiting for feedback...
+\subsubsection{Schematization}
+...waiting for feedback...
+\subsubsection{Histograms}
+...waiting for feedback...
+
 
 
 

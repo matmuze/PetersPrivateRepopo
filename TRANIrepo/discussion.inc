@@ -1,25 +1,13 @@
+
+
 \section{Discussion and Future Work}
 
-\subsection{Expert Feedback}
-We demonstrated the three transitions that we discussed in Section \ref{sec:usecase} to two experts in illustration and animation in order to gather their feedback.
-Each use case was presented in form a video of the respective animated transition.
-We supplied the experts with questionnaires that contained specific questions for each use case. [mention the questions or list a few examples of the questions?]
-
-\subsubsection{Exploded Views}
-...waiting for feedback...
-\subsubsection{Schematization}
-...waiting for feedback...
-\subsubsection{Histograms}
-...waiting for feedback...
 
 
+high level tasks: occlusion handling, steering of attention, stimuli reduction
 
-
-
-\subsection{Reflections on the Pipeline}
-
-high level tasks:
-
+occlusion handling
+steering of visual stimuli
 
 		
 	compatible data types:
@@ -34,26 +22,31 @@ It is built to produce static images.
 %It does not consider interactions on a conceptual level.
 The environment in which we implemented our method, however (cellVIEW), natively supports user interactions as it is based on the Unity3D engine.
 The formal pipeline, as well as the implementation could be extended to support user interactions.
-Our plan for future work is actually to allow user interactions on the final representation that then creates a partial transition of a selected subset back to the original representation.
+Our plan for future work is actually to allow user interactions on the final representation, e.g., to create a partial transition of a selected subset back to the original representation.
 
-Our pipeline is not feature explicit support for 
-such as they are featured in full fledged 3D modeling environments that support 
-as our focus lies on supporting illustrators 
+Our pipeline is specifically designed to create continuous representations between two representation states. It is not meant to be used to produce movies, i.e., there is no explicit support for features like .. as they can be found in 3D modeling tools.
+However, theoretically the data restructuring stage could be exploited in such a way 
 
+At one point during the design of our formal pipeline, we were contemplating to add a stage for annotations to our pipeline, as they can assist story telling by describing what is currently happening in the scene. They can point to specific events in the transition to steer the viewer's attention. They can create frames of reference, such as coordinate axes, scales, and legends, that can improve the viewers' orientation within and their understanding of the presented information.
+However, we decided to rather discuss them in this part of our paper, as they are orthogonal to what our pipeline is designed to do and therefore do not match the conceptual scope of our pipeline.
+Further, the implementation of simple annotations, e.g., as billboards in the scene, is trivial, so we did not deem them as an essential contribution in the scope of our work.
 
-
-annotations..
-
-
-general applicability:
-	compatible data formats:
-		point cloud,
-		volume,
-		polygonal?
+Even though we described our pipeline only for the application with molecular data, it could be also applied on other data formats and other application domains, e.g., to explain physical phenomena. %on a macro/micro/nano scale or across different scales
+The molecular data is comparable with point cloud data on a non uniform grid. Point cloud and volume data are therefore supported out of the box if the matching data importer is supplied.
+What these data formats have in common is that the geometric topologies of objects can be easily split up, e.g., as is the case when splitting a spherical structure along a plane.
+In polygon data, the splitting of the geometric topology is not as trivial.
+In order to make our pipeline compatible with polygonal data, the data restructuring stage would have to be extended with metamorphers that support topological changes of the mesh data.
 
 
+transitions across different scales (meso - nano)
 
 
+
+
+
+	side products of our pipeline - free of charge / easily achievable with minimal additional effort:
+	sequence: comic strips,
+	static image with glyph
 
 
 
@@ -64,53 +57,17 @@ general applicability:
 future work:
 authoring tool
 extraction of motion for glyphs
+implementation of comic strip / animation hybrid
 
 
-
-\subsection{Discussion of Results}
-
-\subsubsection{shematization}
-	discussion: 
-	@discussion of results: transition = more intuitive to follow.
-This metamorphosis corresponds with a transformation within the same visualization space.
-
-		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
-
-\subsubsection{infovis}
-
-shapes and positions of compartments and molecules are sacrificed. 
-%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).		
-@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
 
 
 
 
 	
 
-		
-\subsection{general discussion}
-\subsubsection{additional outcomes}
-	side products of our pipeline - free of charge / easily achievable with minimal additional effort:
-	sequence: comic strips,
-	static image with glyph
+
 	
-\subsubsection{animation}
-tversky:
-	congruence principle:
-		the structure and content of an external representation should match the structure and content of the desired mental representation.
-		
-	apprehension principle:
-		the structure and content of the external representation should be readily and accurately perceived and comprehended.
-		
-		\subsubsection{things that should be preserved:} depending on the usecase / representation - not all properties are essential for each representation form.
-	\begin{itemize}
-		\item instance level: position of instances
-		\item type level: shape of types, relative size of types, color of types (?), number relation between types
-		\item compartment level: shape/pos/size/color of compartments / structures
-		\item global level: volumetric dimensions of the data
-		\item todo: what else?
-	\end{itemize}
-		
 \subsection{occlusion}
 
 	is of course a central factor that could hinder a user's understanding of a transition.

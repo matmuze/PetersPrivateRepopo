@@ -1,3 +1,42 @@
+\subsection{Discussion of Results}
+
+\subsubsection{shematization}
+	discussion: 
+	@discussion of results: transition = more intuitive to follow.
+This metamorphosis corresponds with a transformation within the same visualization space.
+
+		because this type of automatic illustrative schematization has not been presented/solved yet in literature, we present it as our tertiary contribution...
+
+\subsubsection{infovis}
+
+shapes and positions of compartments and molecules are sacrificed. 
+%high level shapes (e.g. of compartments or other structures) for low level information (details on the data such as count of instances).		
+@discussion: here, large distance between representation forms in visualization space - a continuous transition is therefore especially suitable for conveying the transition..
+
+
+
+
+%\subsubsection{animation}tversky:	congruence principle:		the structure and content of an external representation should match the structure and content of the desired mental representation.	apprehension principle:		the structure and content of the external representation should be readily and accurately perceived and comprehended.
+		
+		\subsubsection{things that should be preserved:} depending on the usecase / representation - not all properties are essential for each representation form.
+	\begin{itemize}
+		\item instance level: position of instances
+		\item type level: shape of types, relative size of types, color of types (?), number relation between types
+		\item compartment level: shape/pos/size/color of compartments / structures
+		\item global level: volumetric dimensions of the data
+		\item todo: what else?
+	\end{itemize}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 %\textbf{[this is the old usecase section]}
 %In this section, we will demonstrate our proof of concept implementation based on three exemplary use cases that we developed with illustrators. We will first describe our data and then motivate these use cases, [actually, we already motivated them in the introduction..]
 

@@ -1,5 +1,46 @@
 \subsection{Discussion of Results}
 
+
+
+	
+\subsection{occlusion}
+Independent of the intended purpose of a transition, it is essential, how the transition is presented, in order to make it engaging, readable, and valuable (in the sense that it conveys relevant information).
+Three high level tasks are responsible for achieving these goals: occlusion handling, the steering of the viewer's attention, and the reduction of visual stimuli.
+The tasks can be achieved in both, the target representation of the transition, and during the transition itself. In the former case, the continuum creation pipeline stages are responsible, in the latter the continuum presentation stages.
+occlusion handling helps to.... can be handled for instance by thsese stages.. by doin this or that or 
+steering helps to... can be handled for instance by...
+stimuli reduction helps to.. can be handled for instance by.. stages
+
+	is of course a central factor that could hinder a user's understanding of a transition.
+
+
+		grouping (prerequesite / support / not directly responsible): choose groups so that they dont interfere with each other (depending on how you plan to transform the data)
+			TODO: come up with examples that describe which kind of grouping would be beneficial for which kind of target state
+				e.g., group the data first into layers parallel to the viewing plane that basically peel the data
+		layouts
+				bar: within the bar occlusion does not matter, as long as the bar represents entities of the exact same type
+				general: the placement of entities/subests should be chosen so that they dont occlude each other from the viewing angle. 
+			maybe we should not distinguish between inner and outer layout since this kind of restricts us to having two layouts instead of n.
+
+then again, we could argue that there can be n-outer layouts, and one inner layout
+		morphing:
+			same as inner layout: within the shape occlusion is not an issue
+			
+		trajectory:
+			the trajectories offer two of techniques for avoiding occlusion.
+			
+				edge bundling:
+				setting control points so that paths don't occlude each other
+				todo: anything else?
+				
+		timing:
+			coordination of timing and speed of elements, e.g., staging
+			
+			
+
+
+
+
 \subsubsection{shematization}
 	discussion: 
 	@discussion of results: transition = more intuitive to follow.

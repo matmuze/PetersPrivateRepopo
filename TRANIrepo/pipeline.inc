@@ -1,11 +1,9 @@
 \section{Metamorphosis formalization}
 
-\begin{figure*}[t]
+\begin{figure*}[ht!]
 \centering
-\subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
-\subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
-\subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
-\caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
+ \includegraphics[height=5cm, width=\linewidth]{figures/pipeline.png}
+\caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
 \end{figure*}
 
 The context of our research is an explanatory visualization of large-scale structural models of viruses and bacteri that conveys relationships between various abstracted or transformed visual representations of the models without any need for user interaction. Such visualization techniques can then be easily employed by scientific illustrators and animators for easily accessible and engaging content authoring for popularising and conveying science to non-expert audiences.
@@ -14,14 +12,24 @@ Each illustration which communicates a relationship starts with the two represen
 
 Figure \ref{fig:ov0} shows the source and the target representations. They both communicate certain aspects of the model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists two steps. In the first step, we create a continuous space between these representations. However, this low-level connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). Therefore, the second step of the pipeline prepares this continuum for the presentation to the intended audience (Figure \ref{fig:ov2}). In this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
 
-The metamorphosis is carried out by applying a sequence of operators, which we refer to as \emph{metamorphers}.
+The metamorphosis is carried out by applying a sequence of operators, which we refer to as \emph{metamorphers}. The operators can be arbitrarily combined by the illustrators to achieve results which they would otherwise have to create manually.
 
 %Each metamorpher belongs to one of the stages of a pipeline according to the task it is used to solve.
 
 %For the clarity, the operators are grouped into several stages
 
 \subsection{Continuum Creation}
-In the first step of the pipeline, the continuum between two model representations is created. In this section, we describe the three stages of the continuum creation, with examples of metamorphers which can be used in these stages.
+In the first step of the pipeline, the continuum between two model representations is created.
+
+Independent of the intended purpose of a transition, it is essential, how the transition is presented, in order to make it engaging, readable, and valueable (in the sense that it conveys relevant information).
+Three high level tasks are responsible for achieving these goals: occlusion handling, the steering of the viewer's attention, and the reduction of visual stimuli.
+The tasks can be achieved in both, the target representation of the transition, and during the transition itself. In the former case, the continuum creation pipeline stages are responsible, in the latter the continuum presentation stages.
+occlusion handling helps to.... can be handled for instance by
+steering helps to... can be handled for instance by
+stimuli reduction helps to.. can be handled for instance by.. stages
+
+
+%In this section, we describe the three stages of the continuum creation, with examples of metamorphers which can be used in these stages.
 
 \subsubsection{Data restructuring}
 Biological data models are organized in a hierarchy, which corresponds with the semantics of abstraction of the modelled phenomena. This hierarchy often differ in both representations. Therefore, the first step of connecting the representations is to match their semantic hierarchy. In this step of the pipeline, the illustrator defines data subsets within the source model representation, which match the semantics of the target representation, thus restructuring the data. Additionally, some of the data subsets can be duplicated, if the target representation requires it. All the data subsets are then organized in a hierarchy with a tree structure, or a scene graph. All the subsequent pipeline stages can operate on any node of the scene graph, giving the illustrators the flexibility they are used to from the 3D modelling software.
@@ -76,10 +84,13 @@ The metamorphers are used to specify the starting time of each transformation, a
 
 \begin{figure*}[t]
 \centering
-\subfloat[]{\label{fig:mm0}\includegraphics[width=0.25\linewidth]{figures/mm0.png}}
-\subfloat[]{\label{fig:mm1}\includegraphics[width=0.25\linewidth]{figures/mm1.png}}
-\subfloat[]{\label{fig:mm2}\includegraphics[width=0.25\linewidth]{figures/mm2.png}}
-\subfloat[]{\label{fig:mm3}\includegraphics[width=0.25\linewidth]{figures/mm3.png}}
+\subfloat[]{\label{fig:mm0}\includegraphics[width=0.22\linewidth]{figures/mm0.png}}
+\hfill
+\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
+\hfill
+\subfloat[]{\label{fig:mm2}\includegraphics[width=0.22\linewidth]{figures/mm2.png}}
+\hfill
+\subfloat[]{\label{fig:mm3}\includegraphics[width=0.22\linewidth]{figures/mm3.png}}
 \caption{\label{fig:mm}Examples of different metamorphers: a) shape morphing, b) time offset, c) blurring, d) trajectory bundling}
 \end{figure*}
 

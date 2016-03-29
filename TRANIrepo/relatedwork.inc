@@ -18,8 +18,10 @@ Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization m
 
 \begin{figure*}[ht!]
 \centering
- \includegraphics[height=5cm, width=\linewidth]{figures/pipeline.png}
-\caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
+\subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
+\subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
+\subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
+\caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
 \end{figure*}
 
 \subsection{Transitions between visual representations}

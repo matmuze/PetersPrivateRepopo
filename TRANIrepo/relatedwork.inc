@@ -48,6 +48,7 @@ They report that animation together with basic interaction methods like pausing,
 While techniques, such as CMV, require user interaction for establishing relationships between corresponding representations,
 Tversky et al. acknowledge that the non-interactive alternatives to animation (such as sequences of static illustration) are surprisingly hard to design and are therefore not an easy target for computer automation.
 
+TODO \cite{Correa:TOG:2011}
 
 
 %\textbf{Molecular Visualziation}: 

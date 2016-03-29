@@ -73,10 +73,22 @@ The metamorphers are used to specify the starting time of each transformation, a
 
 %Additionally, the speed at which individual transitions occur might be used by the illustrators to suggest importance of the individual events and 
 
+
+\begin{figure*}[t]
+\centering
+\subfloat[]{\label{fig:mm0}\includegraphics[width=0.25\linewidth]{figures/mm0.png}}
+\subfloat[]{\label{fig:mm1}\includegraphics[width=0.25\linewidth]{figures/mm1.png}}
+\subfloat[]{\label{fig:mm2}\includegraphics[width=0.25\linewidth]{figures/mm2.png}}
+\subfloat[]{\label{fig:mm3}\includegraphics[width=0.25\linewidth]{figures/mm3.png}}
+\caption{\label{fig:mm}Examples of different metamorphers: a) shape morphing, b) time offset, c) blurring, d) trajectory bundling}
+\end{figure*}
+
 \subsubsection{Camera Control}
 To adequately follow the development of continuous transitions, especially those between different visualization spaces, camera steering is a necessary component of a non-interactive explanatory visualization. To assure visibility of all data elements at each timestep, illustrators manually specify camera settings and how they change over time.
 
 In our pipeline, this task is carried out through the metamorphers in the \emph{camera control} stage. These metamorphers access the temporally and spatially arranged data elements and use this information to automatically modify the position and the look-at vector of the camera. An example of camera control metamorpher sets the look-at vector of the camera to point in the centroid of the data elements, while it moves the camera far enough to capture the entire dataset for the given field-of-view.
+
+
 
 \subsubsection{Sampling}
 To present the created transition to the viewers, it is necessary to select a set of timesteps which are going to tell the story intended by the illustrators. In the simplest case, the transition is sampled densely enough to form a seamless animation, given certain FPS and a desired length of the animation. However, due to various disadvantages of animation, as discussed in Section \ref{sec:intro}, it might be necessary to select only few representative timesteps which show the essential aspects of the transition.
@@ -90,13 +102,6 @@ Since the operators applied in the previous stages of the pipeline are continuou
 The sampling stage can also determine if the transition is pre-baked or sampled on the fly in real-time.
 This makes it possible to use a continuous pre-baked transition to create, for instance, a single result image that encodes the missing transition information within glyphs. These glyphs can be calculated from the continuous pre-baked information.
 
-
-
-\begin{figure*}[ht!]
-\centering
- \includegraphics[height=5cm, width=\linewidth]{figures/metamorphers.png}
-\caption{\label{fig:spaces}Examples of different metamorphers: a) shape morphing, b) blurring, c) time offset, d) some layout}
-\end{figure*}
 
 
 

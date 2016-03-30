@@ -8,7 +8,7 @@
 \subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t2.png}}
 \subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t3.png}}
  
-  \caption{\label{fig:teaser}Metamorphosis to a schematic representation of an HIV particle in blood serum.}
+  \caption{\label{fig:teaser}Metamorphosis to a schematic representation of an HIV particle in blood serum. Protein types are shown in a reduced quantity that represents their number within a compartment. Each representative is enlarged for better readability of its atomic composition.}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -53,14 +53,14 @@ In such cases, the illustrator would abstract the biological structure from a sp
 %The element of temporal sequence is used to convey changes of data states over time.
 %The element of visual transformation creates different representations of the data in order to convey otherwise hidden aspects.
 
-For biological entities, a "canonical" representation, especially for non-experts, is the one closest to their mental model that is formed by images from photography, microscopy, and XXX(could not read).
+For biological entities, a "canonical" representation, especially for non-experts, is the one closest to their mental model that is formed by images from photography, microscopy, and crystallography.
 %A viewer's mental model of a biological entity is formed by images from photography, microscopy,... - 
 The mental model is therefore anchored within the same visualization space as the actual biological entity. %To comprehend another (transformed) representation form, a viewer needs guidance on how to relate their mental model to this transformed representation. %the mental model is typically also an abstraction as human vision/perception system tends to abstract what it sees.
 If no obvious relation between a mental model and a particular representation exists, the viewer needs guidance on how to relate their mental model to this transformed representation, in order to comprehend the other (transformed) representation form.
 
 In scenarios where interaction is possible or desired, e.g., in an interactive analysis scenario, approaches such as coordinated multiple view (CMV) visualizations can be used for conveying the relations between two representations, e.g., via brushing and linking.
 
-In cases, where interaction is not feasible, such as in presentation scenarios, this guidance is often realized by depicting a transition from a representation A to a representation B, e.g., in the form of static sequence of snapshots/small multiples, or an animation/animated transition.
+In cases, where interaction is not feasible or very limited, such as in presentation scenarios, this guidance is often realized by depicting a transition from a representation A to a representation B, e.g., in the form of static sequence of snapshots/small multiples, or an animation/animated transition.
 We denote such a transition as a metamorphosis and the individual building blocks of the metamorphosis as metamorphers.
 
 
@@ -76,7 +76,7 @@ We denote such a transition as a metamorphosis and the individual building block
 
 Animations are a powerful tool for conveying these metamorphoses, since they are capable of displaying such a transition between two representations in a continuous way.
 The continuous presentation supports an intuitive understanding of the relationship between representation states. The presentation is both self-explanatory, and enjoyable to audiences \cite{Robertson:TVCG:2008}.
-Despite their immense popularity in the visual communication ... (cannot read), animations are also critically regarded by the visualization community. Tversky describes the fleetingness of the displayed information and the potential sensory overload and distracting nature of badly designed animations. 
+Despite their immense popularity in the visual communication crafts, animations are also critically regarded by the visualization community. Tversky describes the fleetingness of the displayed information and the potential sensory overload and distracting nature of badly designed animations. 
 
 Alternative solutions for conveying transitions alleviate the fleetingness of the displayed information by sacrificing the continuous aspect of the representation. Examples are narrative sequences of small multiples or static images that supplement the missing information of the continuity with glyphs.
 While solving the problem of fleetingness, they have to be well designed to be understandable.

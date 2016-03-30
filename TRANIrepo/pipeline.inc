@@ -114,6 +114,7 @@ The metamorphers are used to specify the starting time of each transformation, a
 \caption{\label{fig:mm}Examples of different metamorphers: a) shape morphing, b) time offset, c) blurring, d) trajectory bundling}
 \end{figure*}
 
+
 \subsubsection{Camera Control}
 To adequately follow the development of continuous transitions, especially those between different visualization spaces, camera steering is a necessary component of a non-interactive explanatory visualization. To assure visibility of all data elements at each timestep, illustrators manually specify camera settings and how they change over time.
 
@@ -130,19 +131,8 @@ For this purpose, the scene graph information is propagated through the hierarch
 
 Since the operators applied in the previous stages of the pipeline are continuous, there are no restrictions on how the sampling is performed. For instance, it is possible to create a hybrid visualization that displays a sparsely sampled narrative sequence of small multiples. Upon request, a continuous animated transition between two consecutive small multiples can be shown to provide additional information on how do they relate to each other.
 
-The sampling stage can also determine if the transition is pre-baked or sampled on the fly in real-time.
-This makes it possible to use a continuous pre-baked transition to create, for instance, a single result image that encodes the missing transition information within glyphs. These glyphs can be calculated from the continuous pre-baked information.
-
-
-
-
-
-
-
-
-
-
-
+The sampling stage can also determine if the transition is pre-calculated or sampled on the fly in real-time.
+A continuous pre-calculated transition could be used not only for display in an animation but also for extracting information about the continuous change or motion of the transition. This extracted information could then be used for encoding the otherwise missing information about the transition in the form of glyphs within a static single result image. %These glyphs can be calculated from the continuous pre-baked information.
 
 
 

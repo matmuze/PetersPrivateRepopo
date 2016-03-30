@@ -7,7 +7,7 @@
 %This data set represents an HIV particle contained within blood serum \textbf{(see Figure XXX)}. The three questions that we helped to answer with our demonstration are: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
 
 After the description of the theoretical pipeline, we demonstrate its utility on several use cases.
-We show these examples on the structural model of the human immunodeficiency virus (HIV) which is built-up from thousands of macromolecules. The HIV particle is either contained within blood serum (Figures \ref{fig:teaser} and \ref{fig:explosion}), or with the blood serum removed (Figure \ref{fig:infovis}). The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
+We show these examples on the structural model of the human immunodeficiency virus (HIV) which is built-up from thousands of macromolecules. The HIV particle is either contained within blood serum (Figures \ref{fig:teaser} and \ref{fig:explosion}), or with the blood serum removed (Figure \ref{fig:infovis}). The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, what do they look like, and in which approximate quantity are they present? 3) how large is the collective volume of each molecule type within the HIV particle in respect to each other?
 
 %[first we motivate why illustrators would want to use the pipeline]
 
@@ -69,8 +69,10 @@ Furthermore the transition explains where the isolated molecules originate from.
 \subfloat[]{\label{fig:explosion2}\includegraphics[width=0.8\linewidth]{figures/explosion2.png}}
 
 \subfloat[]{\label{fig:explosion3}\includegraphics[width=0.8\linewidth]{figures/explosion3.png}}
-\caption{\label{fig:explosion}Explosion}
+\caption{\label{fig:explosion} Metamorphosis to an exploded representation of blood serum and HIV compartments. A  trail of molecules is left behind during the transition to indicate their individual size and shape.}
 \end{figure}
+
+
 
 \begin{figure}[ht!]
 \centering
@@ -81,7 +83,7 @@ Furthermore the transition explains where the isolated molecules originate from.
 \subfloat[]{\label{fig:infovis2}\includegraphics[width=0.8\linewidth]{figures/infovis2.png}}
 
 \subfloat[]{\label{fig:infovis3}\includegraphics[width=0.8\linewidth]{figures/infovis3-1.png}}
-\caption{\label{fig:infovis}Infovis}
+\caption{\label{fig:infovis}Metamorphosis of molecules into histogram bars that display the volume that each molecule takes up in the HIV particle. A distance based time offset reveals the layered compartments one by one during the metamorphosis.}
 \end{figure}
 
 

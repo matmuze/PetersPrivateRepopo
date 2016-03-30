@@ -37,7 +37,7 @@
 \abstract{
 Illustrators in molecular biology often use animated transitions as a means to communicate complex phenomena.
 While these animations are popular, they still have to be created manually in 3D modeling software. 
-We therefore provide illustrators with a more streamlined way for creating such transitions between various representations of molecular data.
+We therefore provide illustrators with a streamlined way for creating such transitions between various representations of molecular data.
 We propose a formalization of the process of specifying transitions to arbitrary representations in the form of a conceptual pipeline.
 Data representations are specified in such a way that they form a continuous space.
 The first three stages of the pipeline are responsible for creating this continuum. The final four stages of the pipeline are responsible for presenting the continuum.

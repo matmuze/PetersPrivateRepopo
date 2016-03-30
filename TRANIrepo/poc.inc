@@ -60,31 +60,23 @@ Furthermore the transition explains where the isolated molecules originate from.
 
 
 
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
 \centering
-\subfloat[]{\label{fig:explosion0}\includegraphics[width=0.8\linewidth]{figures/explosion0.png}}
-
-\subfloat[]{\label{fig:explosion1}\includegraphics[width=0.8\linewidth]{figures/explosion1.png}}
-
-\subfloat[]{\label{fig:explosion2}\includegraphics[width=0.8\linewidth]{figures/explosion2.png}}
-
-\subfloat[]{\label{fig:explosion3}\includegraphics[width=0.8\linewidth]{figures/explosion3.png}}
+\subfloat[]{\label{fig:explosion0}\includegraphics[width=0.25\linewidth]{figures/explosion0.png}}
+\subfloat[]{\label{fig:explosion1}\includegraphics[width=0.25\linewidth]{figures/explosion1.png}}
+\subfloat[]{\label{fig:explosion2}\includegraphics[width=0.25\linewidth]{figures/explosion2.png}}
+\subfloat[]{\label{fig:explosion3}\includegraphics[width=0.25\linewidth]{figures/explosion3.png}}
 \caption{\label{fig:explosion} Metamorphosis to an exploded representation of blood serum and HIV compartments. A  trail of molecules is left behind during the transition to indicate their individual size and shape.}
-\end{figure}
+\end{figure*}
 
-
-
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
 \centering
-\subfloat[]{\label{fig:infovis0}\includegraphics[width=0.8\linewidth]{figures/infovis0-1.png}}
-
-\subfloat[]{\label{fig:infovis1}\includegraphics[width=0.8\linewidth]{figures/infovis1.png}}
-
-\subfloat[]{\label{fig:infovis2}\includegraphics[width=0.8\linewidth]{figures/infovis2.png}}
-
-\subfloat[]{\label{fig:infovis3}\includegraphics[width=0.8\linewidth]{figures/infovis3-1.png}}
+\subfloat[]{\label{fig:infovis0}\includegraphics[width=0.25\linewidth]{figures/infovis0-1.png}}
+\subfloat[]{\label{fig:infovis1}\includegraphics[width=0.25\linewidth]{figures/infovis1.png}}
+\subfloat[]{\label{fig:infovis2}\includegraphics[width=0.25\linewidth]{figures/infovis2.png}}
+\subfloat[]{\label{fig:infovis3}\includegraphics[width=0.25\linewidth]{figures/infovis3-1.png}}
 \caption{\label{fig:infovis}Metamorphosis of molecules into histogram bars that display the volume that each molecule takes up in the HIV particle. A distance based time offset reveals the layered compartments one by one during the metamorphosis.}
-\end{figure}
+\end{figure*}
 
 
 

@@ -45,8 +45,10 @@ In such cases, the illustrator would abstract the biological structure from a sp
 
 \begin{figure*}[ht!]
 \centering
- \includegraphics[height=7cm, width=\linewidth]{figures/spaces.png}
-\caption{\label{fig:spaces}Examples of transitions within the same visualization space (a), across different visualization spaces (b).}
+\subfloat[]{\label{fig:t0}\includegraphics[width=\linewidth]{figures/spaces0.png}}
+
+\subfloat[]{\label{fig:t1}\includegraphics[width=\linewidth]{figures/spaces1.png}}
+\caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces.}
 \end{figure*}
 %[general conclusion of what he wants to convey]
 %Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.

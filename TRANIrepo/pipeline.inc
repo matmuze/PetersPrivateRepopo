@@ -2,7 +2,7 @@
 
 \begin{figure*}[ht!]
 \centering
- \includegraphics[height=5cm, width=\linewidth]{figures/pipeline.png}
+ \includegraphics[width=\linewidth]{figures/pipeline.png}
 \caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
 \end{figure*}
 

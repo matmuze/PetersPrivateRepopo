@@ -4,6 +4,14 @@ Animation and transitions between visual and data representations have been empl
 They serve as powerful tools for the dissemination of complex relations in space, time and abstract dimensions. 
 They are frequently used in visual story telling and for the depiction of correspondences between data representations as well as visual representations. 
 
+\begin{figure*}[ht!]
+\centering
+\subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
+\subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
+\subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
+\caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
+\end{figure*}
+
 \subsection{Visual story telling}
 Kosara and Mackinlay~\cite{Kosara:Computer:2013} note that for a long time the focus of visualization research was on exploration and analysis but that presentation of findings especially using elements of story telling should be a research focus of equal importance.
 They list prominent examples of story telling that include animated transitions for trend analysis and dissemination.
@@ -16,13 +24,7 @@ Along these lines Wohlfart and Hauser~\cite{Wohlfart:EuroVis:2007} presented a g
 
 Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization methods that can be used for scientific story telling. Among other issues they suggest that novel transitions between different coordinate systems are needed to address the overwhelming complexity involved in today's scientific story telling.
 
-\begin{figure*}[ht!]
-\centering
-\subfloat[]{\label{fig:ov0}\includegraphics[width=0.33\linewidth]{figures/ov0.png}}
-\subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
-\subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
-\caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
-\end{figure*}
+
 
 \subsection{Transitions between visual representations}
 Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives. Elmquist et al.~\cite{Elmqvist:TVCG:2008} present an exploration technique for multi-dimensional data. They place scatter plots on the sides of a dice and animate the transitions when the dice is rotated.

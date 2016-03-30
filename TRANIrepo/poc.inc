@@ -20,8 +20,7 @@ The four structures that we want to show are assembled in an onion-like structur
 
 %We can achieve the transition of the HIV data to an exploded view in the following way:
 %how do we want to relate the source rep to the target rep?
-%First, we want to create the relation of the original data to the four compartment structures of the target representation. In the data re-structuring stage, we therefore need to create four subsets from our original data that correspond to these compartments. 
-
+%First, we want to create the relation of the original data to the four compartment structures of the target representation. In the data re-structuring stage, we therefore need to create four subsets from our original data that correspond to these compartments.
 
 The specific pipeline for creating the continuum between the original visualization and the exploded view starts with the data restructuring. In order to create the relation of the original data to the four compartment structures of the target representation, we create subsets for all four compartments in the restructuring stage. %create subsets from our original data that correspond to these compartments.
 %Thereby we create the relation of the original data to the four compartment structures of the target representation.

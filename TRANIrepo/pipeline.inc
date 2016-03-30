@@ -7,7 +7,7 @@
 \end{figure*}
 
 The context of our research lies in the field of explanatory visualizations of large-scale models of biological structures, such as viruses and bacteria, where relationships between various abstracted or transformed visual representations of a model should be conveyed without any need for user interaction.
-Such visualizations are employed by scientific illustrators and animators for conveying scientific topics to expert and non-expert audiences in an easily accessible and engaging way.
+Such visualizations are employed by scientific illustrators and animators for conveying science to expert and non-expert audiences in an easily accessible and engaging way.
 
 Each illustration which communicates a relationship starts with the two representations of the model. The first, source representation, is typically close to the mental model of the audience. The second, target representation, illustrates different aspects of the presented model, but its relationship to the source representation might not be obvious. In that case, the illustrator needs to manually create the visual transition between the two representations. We present a method for creating a continuum, or metamorphosis, between two arbitrary model representations that illustrates the relationship between these representations.
 
@@ -15,7 +15,7 @@ The state of each data element is represented as a point in multidimensional "at
 
 Our method creates this continuum by describing the target representation on the basis of the original representation, thus alleviating the illustrator from creating the transition manually.
 
-Figure \ref{fig:ov0} shows a source and a target representation. Both communicate certain aspects of a model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists two high level steps. In the first step, we create a continuous space between source and target representation. However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). Therefore, the second step of the pipeline prepares this continuum for presentation to an intended audience (Figure \ref{fig:ov2}). In this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
+Figure \ref{fig:ov0} shows a source and a target representation. Both communicate certain aspects of a model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists of two high level steps. In the first step, we create a continuous space between source and target representation. However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). Therefore, the second step of the pipeline prepares this continuum for presentation to an intended audience (Figure \ref{fig:ov2}). In this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
 
 The metamorphosis is carried out by applying a sequence of operators, which we refer to as \emph{metamorphers}. The operators can be arbitrarily combined by the illustrators to achieve results which they would otherwise have to create manually.
 
@@ -30,9 +30,20 @@ When illustrators manually create a transition across data representations in a 
 Without such a relation, the transition that they modeled is only valid for the exact combination of the specified data, original representation, target representation, as well as the visual transition.
 The problem with this approach is that if one of these four aspects should be changed, e.g, because new findings about the data have been discovered, or a different information should be conveyed, the entire transition has to be manually remodeled from scratch.
 
-To overcome this issue, we explicitly create this continuum in the first step of our pipeline by explicitly relating each point in the attribute space of the source and the target representation to each other. 
-The continuum can then be reused for different data, by replacing the original representation, i.e., the starting point of the curves in attribute space. 
-The continuum can be reused for different target representations by replacing the target points of the curves in attribute space, thus saving a significant effort of the illustrator.
+To overcome this issue, we explicitly create this continuum in the first step of our pipeline by specifying relationships between all aspects of the underlying source and target representations.
+The continuum is created with the sequential execution of the metamorphers in the pipeline.
+The metamorphers define how an aspect A, e.g., the position, in the source state relates to aspect B in the target state.
+The relationship is explicitly modeled with these metamorphers.
+Therefore, if the underlying data is changed, the relationship remains.
+The transition does not have to be remodeled,
+simply the involved metamorphers have to be re-executed on the new data,
+thus saving a significant effort of the illustrator.
+
+%The continuum can then be reused for different data, or different form of presentation to the viewers, saving a significant effort of the illustrator.
+
+%explicitly relating each point in the attribute space of the source and the target representation to each other. 
+%The continuum can then be reused for different data, by replacing the original representation, i.e., the starting point of the curves in attribute space. 
+%The continuum can be reused for different target representations by replacing the target points of the curves in attribute space, thus saving a significant effort of the illustrator.
 
 %%In the first step of the pipeline, the continuum between two model representations is created. Such a continuum is essential to communicate the relationship between two desired data representation. Alternatively, the continuum can communicate essential information to the viewers, for instance the way how various biological processes occur.
 %When illustrators manually create transitions across data representations, they have to keep this continuum in mind while they create its actual visual encoding. They typically don't build relationships between the representations, but design the transition in such a way that the continuum is communicated. The problem with this approach is that if the underlying data change, or different relationship is to be communicated, the entire transition has to be recreated from scratch.
@@ -42,9 +53,18 @@ The continuum can be reused for different target representations by replacing th
 %In this section, we describe the three stages of the continuum creation, with examples of metamorphers which can be used in these stages.
 
 \subsubsection{Data restructuring}
-Biological data models are organized in a hierarchy, which corresponds with the semantics of abstraction of the modelled phenomena. This hierarchy often differ in both representations. Therefore, the first step of connecting the representations is to match their semantic hierarchy. In this step of the pipeline, the illustrator defines data subsets within the source model representation, which match the semantics of the target representation, thus restructuring the data. Additionally, some of the data subsets can be duplicated, if the target representation requires it. All the data subsets are then organized in a hierarchy with a tree structure, or a scene graph. All the subsequent pipeline stages can operate on any node of the scene graph, giving the illustrators the flexibility they are used to from the 3D modelling software.
+%Biological data models are organized in a hierarchy, which corresponds with the semantics of abstraction of the modelled phenomena.
+Biological data models often have a semantic hierarchy, such as the compartments that build up a cell.
+The hierarchy in a target representation does not necessarily have to be the same, e.g., due to abstraction of certain details.
+Therefore, the first step of connecting two representations, is to match their semantic hierarchy.
+%Therefore, as the first step of connecting two representations, the metamorphers in this stage match their semantic hierarchy.
+The metamorphers in this stage, relate the original data structure with the data structure of the target representation by defining data subsets within the source model representation that match the semantics of the target representation, thus restructuring the data.
+%The illustrator defines data subsets within the source model representation, which match the semantics of the target representation, thus restructuring the data.
+Optionally, data subsets can be duplicated, if the target representation requires it.
+All data subsets are organized in a hierarchical tree structure, or a scene graph.
+The subsequent pipeline stages can operate on any node of the scene graph, giving illustrators the flexibility they are used to from 3D modeling software.
 
-Examples of metamorphers used in this stages are implicitly defined cutaway objects, such as those proposed by Le Muzic at al. \ref{our eurovis paper}, which specify spatial data subsets, or various data clustering algorithms.
+Examples of metamorphers used in this stage are explicitly defined cutaway objects, such as those proposed by Le Muzic at al. \textbf{ref our eurovis paper}, which specify spatial data subsets, or data clustering algorithms, e.g., that group proteins by their type.
 
 \subsubsection{Morphing}
 %DESCRIBE THE RELATION

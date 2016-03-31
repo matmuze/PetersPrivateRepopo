@@ -6,7 +6,7 @@
 \subfloat[]{\label{fig:t0}\includegraphics[width=0.25\linewidth]{figures/t0.png}}
 \subfloat[]{\label{fig:t1}\includegraphics[width=0.25\linewidth]{figures/t1.png}}
 \subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t2.png}}
-\subfloat[]{\label{fig:t2}\includegraphics[width=0.25\linewidth]{figures/t3.png}}
+\subfloat[]{\label{fig:t3}\includegraphics[width=0.25\linewidth]{figures/t3.png}}
  
   \caption{\label{fig:teaser}Metamorphosis to a schematic representation of an HIV particle in blood serum. Protein types are shown in a reduced quantity that represents their number within a compartment. Each representative is enlarged for better readability of its atomic composition.}
   }

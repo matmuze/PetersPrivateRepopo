@@ -20,13 +20,14 @@
 }
 %% This is how authors are specified in the journal style
 %% indicate IEEE Member or Student Member in form indicated below
-\author{A, B, and C}
+\author{ID 137}
 \authorfooter{
 %% insert punctuation at end of each item
-\item
- Author A is with Institute X. E-mail: a@x.com.
-\item
- Author B is with Institute Y. E-mail: b@Y.com.
+%\item
+% Author A is with Institute X. E-mail: a@x.com.
+%\item
+% Author B is with Institute Y. E-mail: b@Y.com.
+ID 137
 }
 
 %other entries to be set up for journal

@@ -26,7 +26,7 @@ Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization m
 
 
 
-\subsection{Transitions between visual representations}
+\subsection{Animated transitions between visual representations}
 Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives. Elmquist et al.~\cite{Elmqvist:TVCG:2008} present an exploration technique for multi-dimensional data. They place scatter plots on the sides of a dice and animate the transitions when the dice is rotated.
 
 Guilmaine et al.~\cite{Guilmaine:IWCAVI:2012} compare different animated transitions of tree structures. They find that hierarchical animation is better suited for tracking of changes.
@@ -44,16 +44,18 @@ Exploded views~\cite{Bruckner:2006:TVCG, Li:SIGGRAPH:2008, Karpenko:2010:TVCG} h
 Our approach is similar to exploded views, since it animates the decomposition of the object into its parts. 
 However, the spatial displacement is not only driven by the visibility of the individual parts, but also by additional data attributes. 
 
+
+
 \subsection{Alternatives to animated transitions} 
+
 Small multiples~\cite{Tufte:1990:EI}, coordinated multiple views, and static images in conjunction with annotations, traces and glyphs are alternatives that are typically used to visualize transitions, trends, correspondences or sequences~\cite{Robertson:TVCG:2008}.
+Hsu et al. \cite{Correa:TOG:2011} present an automated method for the illustrative visualization of multiscale phenomena. They generate an image that contains multiple levels of detail of one subject by blending the renderings of multiple pin hole cameras at different zoom levels together. 
+
 Tversky et al.~\cite{Tversky:IJHCS:2002} summarize cognitive studies on the benefits of animation. 
 Although, they conclude that animation alone has not been convincingly demonstrated to be superior to static illustrations, other findings of their study suggest a direction for research on animations in visualization.
 They report that animation together with basic interaction methods like pausing, partial re-playing, zooming and change of perspective might be the key to enhance the effectiveness of animation.
 While techniques, such as CMV, require user interaction for establishing relationships between corresponding representations,
 Tversky et al. acknowledge that the non-interactive alternatives to animation (such as sequences of static illustration) are surprisingly hard to design and are therefore not an easy target for computer automation.
-
-TODO \cite{Correa:TOG:2011}
-
 
 %\textbf{Molecular Visualziation}: 
 %\textbf{infographics:} assisted with glyphs and labels

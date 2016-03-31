@@ -2,7 +2,7 @@
 
 \begin{figure*}[ht!]
 \centering
- \includegraphics[width=\linewidth]{figures/pipeline.png}
+ \includegraphics[width=0.9\linewidth]{figures/pipeline.png}
 \caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
 \end{figure*}
 
@@ -68,7 +68,7 @@ Optionally, data subsets can be duplicated, if the target representation require
 All data subsets are organized in a hierarchical tree structure, or a scene graph.
 The subsequent pipeline stages can operate on any node of the scene graph, giving illustrators the flexibility they are used to from 3D modeling software.
 
-Examples of metamorphers used in this stage are explicitly defined cutaway objects, such as those proposed by Le Muzic at al. \textbf{ref our eurovis paper}, which specify spatial data subsets, or data clustering algorithms, e.g., that group proteins by their type.
+Examples of metamorphers used in this stage are explicitly defined cutaway objects, such as those proposed by Le Muzic at al. \cite{LeMuzic:EV:2016}, which specify spatial data subsets, or data clustering algorithms, e.g., that group proteins by their type.
 
 \subsubsection{Morphing}
 %DESCRIBE THE RELATION
@@ -141,13 +141,13 @@ Timing metamorphers are used to specify the starting time of each transformation
 
 \begin{figure*}[t]
 \centering
-\subfloat[]{\label{fig:mm0}\includegraphics[width=0.22\linewidth]{figures/mm0.png}}
+\subfloat[]{\label{fig:mm0}\includegraphics[width=0.17\linewidth]{figures/mm0.png}}
 \hfill
-\subfloat[]{\label{fig:mm2}\includegraphics[width=0.22\linewidth]{figures/mm2.png}}
+\subfloat[]{\label{fig:mm2}\includegraphics[width=0.17\linewidth]{figures/mm2.png}}
 \hfill
-\subfloat[]{\label{fig:mm3}\includegraphics[width=0.22\linewidth]{figures/mm3.png}}
+\subfloat[]{\label{fig:mm3}\includegraphics[width=0.17\linewidth]{figures/mm3.png}}
 \hfill
-\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
+\subfloat[]{\label{fig:mm1}\includegraphics[width=0.17\linewidth]{figures/mm1-1.png}}
 \caption{\label{fig:mm}Examples of different metamorphers: a) object space morphing, b) image space morphing, c) trajectory bundling, d) distance based time offset}
 \end{figure*}
 

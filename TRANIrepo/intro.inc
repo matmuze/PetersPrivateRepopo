@@ -32,7 +32,7 @@
 \maketitle
 The traditional approach for the visual communication of scientific insights is handled by illustrators and animators.
 Their goal is to convey complex phenomena in an accessible way, and to attract the interest of broad audiences.
-In recent years, we have seen a rapid increase in the communication of topics from molecular biology \textbf{cite[drew berry, gj, david bolinsky, Gaël McGill, janett iwasa]}, such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell. %we dont mention animations yet
+In recent years, we have seen a rapid increase in the communication of topics from molecular biology (e.g., work of Drew Berry, Graham Johnson, David Bolinsky, Ga\"el McGill, Janett Iwasa), such as the splitting of DNA, the transport of oxygen in the the blood stream, or the comparison of molecular structures within a cell. %we dont mention animations yet
 Such animations are used in teaching undergraduate level biology worldwide.
 
 %[what does an illustrator want to convey? - concrete examples]
@@ -48,7 +48,7 @@ In such cases, the illustrator would abstract the biological structure from a sp
 \subfloat[]{\label{fig:spaces0}\includegraphics[width=\linewidth]{figures/small-spaces0.png}}
 
 \subfloat[]{\label{fig:spaces1}\includegraphics[width=\linewidth]{figures/small-spaces1.png}}
-\caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces.}
+\caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces (video by Graham Johnson).}
 \end{figure}
 %[general conclusion of what he wants to convey]
 %Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.

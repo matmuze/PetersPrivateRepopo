@@ -31,7 +31,7 @@ Since we designed our pipeline to produce visualizations for presentation purpos
 It is built to produce static images or animation sequences.
 %It does not consider interactions on a conceptual level.
 The environment in which we implemented our method, however (cellVIEW), natively supports user interactions as it is based on the Unity3D engine.
-The formal pipeline, as well as the implementation could be extended to support user interactions, e.g., to make it also applicable in interactive analysis scenarios.
+The formal pipeline, as well as the implementation could be extended to support user interactions, e.g., to make it applicable for interactive analysis.
 Such an extension of our approach could allow user interactions, e.g., on the final representation, to create a partial transition of a selected subset back to the original representation.
 
 At one point during the design of our formal pipeline, we were contemplating to add a stage for annotations to our pipeline, as they can assist story telling by describing what is currently happening in the scene. They can point to specific events in the transition to steer the viewer's attention. They can create frames of reference, such as coordinate axes, scales, and legends, that can improve the viewers' orientation within and their understanding of the presented information.
@@ -47,7 +47,7 @@ In order to make our pipeline compatible with polygonal data, the data restructu
 While we only inspected our method from the perspective of molecular mesoscale data, our approach could also be applied to other application domains at different visualization scales, e.g., to explain physical phenomena.
 Further, our approach could also be used to transition between different scales of data, such as in the work of Hsu et al. \cite{Correa:TOG:2011}.
 Different scales of a data set could be managed in different hierarchy levels by the data re-structuring stage.
-Each node of the hierarchy could be rendered with a different level of detail mechanic in the morphing stage.
+Each node of the hierarchy could be rendered with a different level of detail in the morphing stage.
 
 Since our pipeline produces a continuum between two representation states, it can be used out of the box to generate animations and narrative sequences (comic strips).
 However, another interesting direction for future work would be to explore the possibilities that different sampling metamorphers could provide.

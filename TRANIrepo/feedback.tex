@@ -59,10 +59,10 @@ We asked, whether the animated transition could adequately answer the questions 
 %-if the lighting had effects like ambient occlusion or global illumination, we would be able to infer where towards the left each piece had come from.
 
 
-All experts confirmed that the transition does reveal the main structural components of the virus, as well as what structures reside within others. %how the individual parts fit together.
+All experts confirmed that the transition does reveal the main structural components of the virus, as well as the hierarchies of the structures. %how the individual parts fit together.
 \textit{"I like the clamshell explosion technique - it does a nice job of revealing the spatial relationships without distorting or deleting any information."; "I like the clarity of this "fracturing" type of transition."}
 
-One illustrator suggested to zoom in to smaller structures on the right side, so that they are more visible. This could be achieved by applying a layout metamorpher that translates the smaller structures closer to the camera. One illustrator was not sure about the meaning of the individual floating molecules that did not move with the upper and lower exploded sections. Another illustrator suggested better lighting in order to show the \textit{"dents left when large items are removed, for example the inverse hemisphere left in the blood plasma when the HIV."}
+One illustrator suggested to zoom in to smaller structures on the right side, so that they are more visible. This could be achieved by applying a layout metamorpher that translates the smaller structures closer to the camera. One illustrator was not sure about the meaning of the individual floating molecules that did not move with the upper and lower exploded sections.%Another illustrator suggested better lighting in order to show the \textit{"dents left when large items are removed, for example the inverse hemisphere left in the blood plasma when the HIV."}
 
 All illustrators confirmed that the transition was crucial for understanding the final image. \textit{"Simply looking at the final image would make it far less clear what the relationships between the different compartments are."}
 
@@ -152,9 +152,9 @@ The experts' estimated duration for the manual re-creation of the explosion tran
 
 
 All experts confirmed that the animation successfully conveyed the compartmentalizations and compartment-to-compartment relationships in the virus. And also the "painting style" that the image space metamorpher achieved was complemented. The transition was stated to give a good impression \textit{"where molecular color schemes match the simpler fills that they become."}
-One expert was particularly fond of this transition. \textit{"This transition does a great job of taking a densely packed model and simplifying it to reveal the composition of molecules that are isolated to each compartment, while still retaining a simplified rendition of the compartment (organic wavy colored compartment shapes.)"}
+One expert was particularly fond of this transition. \textit{"This transition does a great job of taking a densely packed model and simplifying it to reveal the composition of molecules that are isolated to each compartment, while still retaining a simplified rendition of the compartment."}
 
-One expert was more interested in the inner parts of the virus and would have ignored the outer blood serum in her design. In our pipeline, this update is easily achievable, for instance, with a re-specification of the subsets that in the schema layout metamorpher processes. 
+One expert was more interested in the inner parts of the virus and would have ignored the outer blood serum in her design. In our pipeline, this update is easily achievable, e.g., with a re-specification of the subsets that in the schema layout metamorpher processes. 
 
 The experts appreciated that the transition conveyed additional information that would not have been visible with a simple depiction of the original and target state.
 The transition \textit{"does help show what the different types of molecules look like, because the animation takes away the layers that obstruct the deeper molecules."
@@ -234,7 +234,10 @@ The transition to histograms was the most critical regarded, in comparison to th
 The illustrators uniformly appreciated the engangingness of the transition and the fact that it established a visual connection to the target representation, \textit{"I like the continuous connected flow from the 3D structure to the bar graphs to help maintain a visual connection. It is a fun piece to watch!" "Would be tough to understand where they came from or what they refer to [without the transition]."}
 On the critical side, all three illustrators would have added labels to the target representation, in order to make their context more understandable. \textit{"The target image can't stand alone."}
 We discuss why annotations are not part of our pipeline in Section \ref{sec:discuss}.
-All other complaints are easily addressable with existing metamorphers. One expert preferred to have a bar in the graph for each compartment. This is achievable by creating a by-compartment hierarchy in the data structuring stage, before executing the bar layouts on the individual subsets. Another expert would have preferred 2D bars. This is achievable with object space morphing metamorpher that we demonstrate in our supplemental video. One suggestion to establish context without labels, was to add the original representation at the end of the animation. This is actually supported by the data restructuring and timing stages. Another suggestion was to encode the quantities of proteins instead of their collective volume. This would be easily achievable with a re-parametrization of the object space metamorpher.
+All other complaints are easily addressable with existing metamorphers. One expert preferred to have a bar in the graph for each compartment. This is achievable by creating a by-compartment hierarchy in the data structuring stage, before executing the bar layouts on the individual subsets. One suggestion to establish context without labels, was to add the original representation at the end of the animation. This is actually supported by the data restructuring and timing stages. Another suggestion was to encode the quantities of proteins instead of their collective volume. This would be easily achievable with a re-parametrization of the object space metamorpher.
+%%%%%%%%%%%%
+%Another expert would have preferred 2D bars. This is achievable with object space morphing metamorpher that we demonstrate in our supplemental video. 
+
 
 %pro:
 %-like the continuous connected flow from the 3D structure to the bar graphs to help maintain a visual connection.  It is a fun piece to watch

@@ -151,7 +151,7 @@ Timing metamorphers are used to specify the starting time of each transformation
 \subfloat[]{\label{fig:mm3}\includegraphics[width=0.22\linewidth]{figures/mm3.png}}
 \hfill
 \subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
-\caption{\label{fig:mm}Examples of different metamorphers: a) image space morphing, b) object space morphing, c) trajectory bundling, d) distance based time offset}
+\caption{\label{fig:mm}Examples of different metamorphers: a) object space morphing, b) image space morphing, c) trajectory bundling, d) distance based time offset}
 \end{figure*}
 
 

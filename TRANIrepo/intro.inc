@@ -49,11 +49,14 @@ In such cases, the illustrator would abstract the biological structure from a sp
 
 \subfloat[]{\label{fig:spaces1}\includegraphics[width=\linewidth]{figures/small-spaces1.png}}
 \caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces (video by Graham Johnson).}
+\vspace{-6mm}
 \end{figure}
+
 %[general conclusion of what he wants to convey]
 %Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.
 %The element of temporal sequence is used to convey changes of data states over time.
 %The element of visual transformation creates different representations of the data in order to convey otherwise hidden aspects.
+
 
 For biological entities, a "canonical" representation, especially for non-experts, is the one closest to their mental model that is formed by images from photography, microscopy, and crystallography.
 %A viewer's mental model of a biological entity is formed by images from photography, microscopy,... - 

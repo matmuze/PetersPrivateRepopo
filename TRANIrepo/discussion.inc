@@ -45,7 +45,7 @@ In polygon data, the splitting of the geometric topology is not as trivial.
 In order to make our pipeline compatible with polygonal data, the data restructuring stage would have to be extended with metamorphers that support topological changes of the mesh data.
 
 While we only inspected our method from the perspective of molecular mesoscale data, our approach could also be applied to other application domains at different visualization scales, e.g., to explain physical phenomena.
-Further, our approach could also be used to transition between different scales of data, such as in the work of Hsu et al. \ref{Correa:TOG:2011}.
+Further, our approach could also be used to transition between different scales of data, such as in the work of Hsu et al. \cite{Correa:TOG:2011}.
 Different scales of a data set could be managed in different hierarchy levels by the data re-structuring stage.
 Each node of the hierarchy could be rendered with a different level of detail mechanic in the morphing stage.
 

@@ -91,18 +91,19 @@ While solving the problem of fleetingness, they have to be well designed to be u
 %Animated transitions are great for engaging audiences, garnering interest from new audiences.
 
 
-Once a transition from one representation to another one is planned, there is little aid in modeling tools to realize it. Animators employ key frame animation and create these keyframes manually
+Once a transition from one representation to another one is planned, there is little aid in modeling tools to realize it. Animators employ key frame animation and create these key frames manually
 %However, no matter which medium is used for the illustrative depiction of these stories, these transformed representations and the transitions to them have to be modeled manually by the illustrators
 which is a laborious and time-consuming task.
 %The authors build their visualizations with complex molecular models, e.g., of a cell, consisting of millions of atoms that form tens of thousands of molecules, that are loaded into the scene of a 3D modeling tool. 
-Considering that new discoveries are made frequently in molecular biology, these representations and their transitions have to be re-modeled when new insights are found, which makes the effort for maintaining them even higher.	
+Considering that new discoveries are made frequently in molecular biology, these representations and their transitions have to be re-modeled when new insights are found, which makes the effort for maintaining them even higher.
+Therefore, we set our goal to assist illustrators by eliminating the need to manually recreate their transitions for each new data set. We do so by proposing a pipeline, where the authoring and the presentation of the transition are separated and all the individual components are reusable in different scenarios.
 
+%Therefore, we set our goal to assist illustrators by eliminating the need to manually author their target representations and the transitions in between by proposing a pipeline that makes all the components necessary for this process reusable.
 %	\item While animation in visualization and simple transitions in information visualization have been already addressed in literature cite[heer, tversky], narrative animations in molecular biology, while being well established in this branch of visualization, have not been formally described yet.\end{enumerate}
+%We therefore set our goal to assist illustrators by eliminating the need to manually author their target representations and the transitions in between.
+%We supply illustrators with a pipeline for creating continuous target representation as well presenting the transitions to them.
 
-We therefore set our goal to assist illustrators by eliminating the need to manually author their target representations and the transitions in between.
-We supply illustrators with a pipeline for creating continuous target representation as well presenting the transitions to them.
-
-Our main contribution is a formalization of a uniform method for creating continuous target representations for spatial biological data sets, as well as presenting the transitions to these representations - describing the complete metamorphosis of the data representation, so to say.
+Our main contribution is a formalization of this uniform method for creating continuous target representations, as well as presenting the transitions to these representations - thereby describing the complete metamorphosis of the data representation. %for spatial biological data sets
 
 Data representations are specified in such a way that they form a continuous space.
 The first three stages of the pipeline are responsible for creating this continuum. The final four stages of the pipeline are responsible for presenting the continuum.
@@ -112,5 +113,5 @@ Each stage supports operators, so called metamorphers, that are responsible for 
 
 Further, we demonstrate an exemplification of this pipeline with an extendable API by showcasing three use cases that we developed and evaluated in collaboration with an illustrator, one of them is 
 a novel illustrative rendering approach for automatic schematization of mesoscopic data.
-. %One of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, is our third and final contribution.
+%One of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, is our third and final contribution.
 

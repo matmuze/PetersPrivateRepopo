@@ -29,7 +29,6 @@ Ma et al.~\cite{Ma:CGA:2012} describe the need of new scientific visualization m
 
 \subsection{Animated transitions between visual representations}
 Kosara et al.~\cite{Kosara:VMV:2004} use 3D scatter plot matrices to establish a link between physical layout and the abstract dimensions of the data. Their work is an early attempt to connect information visualization and scientific visualization using points as data primitives. Elmquist et al.~\cite{Elmqvist:TVCG:2008} present an exploration technique for multi-dimensional data. They place scatter plots on the sides of a dice and animate the transitions when the dice is rotated.
-
 Guilmaine et al.~\cite{Guilmaine:IWCAVI:2012} compare different animated transitions of tree structures. They find that hierarchical animation is better suited for tracking of changes.
 
 

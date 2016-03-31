@@ -7,7 +7,7 @@
 %This data set represents an HIV particle contained within blood serum \textbf{(see Figure XXX)}. The three questions that we helped to answer with our demonstration are: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, how do they look like, and in which approximate quantity are they present? 3) how large is the volume of each compartment and the molecules contained within in respect to each other?
 
 After the description of the theoretical pipeline, we demonstrate its utility on several use cases.
-We show these examples on the structural model of the human immunodeficiency virus (HIV) which is built-up from thousands of macromolecules. The HIV particle is either contained within blood serum (Figures \ref{fig:teaser} and \ref{fig:explosion}), or with the blood serum removed (Figure \ref{fig:infovis}). The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, what do they look like, and in which approximate quantity are they present? 3) how large is the collective volume of each molecule type within the HIV particle in respect to each other?
+We show these examples on the structural model of the human immunodeficiency virus (HIV) which is built-up from thousands of macromolecules. The HIV particle is either contained within blood serum (Fig. \ref{fig:teaser} and \ref{fig:explosion}), or with the blood serum removed (Fig. \ref{fig:infovis}). The source visual representation is the direct rendering of the structural data set, which is then continuously transformed into a particular destination visualization space. Each example highlights a different aspect of the structure: 1) what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically? 2) what types of molecules are contained in which compartment of virus, what do they look like, and in which approximate quantity are they present? 3) how large is the collective volume of each molecule type within the HIV particle in respect to each other?
 
 %[first we motivate why illustrators would want to use the pipeline]
 
@@ -16,7 +16,7 @@ We show these examples on the structural model of the human immunodeficiency vir
 \subsection{Explosion of Molecular Structures}
 	%[motivate it - what problem does it solve in presenting the data]
 Since molecular structures of the HIV data are very densely packed, it is difficult to inspect the outer and inner structures of the virus at the same time. 
-The four structures that we want to show are assembled in an onion-like structure where one compartment is contained in another one. We therefore chose to convey the encapsulation of compartments in form of an exploded view (Figure \ref{fig:explosion}), to answer our first question.
+The four structures that we want to show are assembled in an onion-like structure where one compartment is contained in another one. We therefore chose to convey the encapsulation of compartments in form of an exploded view (Fig. \ref{fig:explosion}), to answer our first question.
 
 %We can achieve the transition of the HIV data to an exploded view in the following way:
 %how do we want to relate the source rep to the target rep?
@@ -31,9 +31,9 @@ At the end of the restructuring stage, the root node of the scene hierarchy has 
 
 Since the visual representation of individual molecules does not change across the source and the target representation, we do not need to apply any metamorphers in the morphing stage of our pipeline.
 
-In order to relate the original unexploded data to the final exploded representation, we apply metamorphers of the layouting stage performing the necessary spatial transformations. In this step, we finalized the creation of the continuum between the original unexploded and the exploded target representation. In order to present the transition in a pleasant way, we follow the remaining steps of our pipeline. 
+In order to relate the original unexploded data to the final exploded representation, we apply metamorphers of the layouting stage performing the necessary spatial transformations. In this step, we finalized the creation of the continuum between the original unexploded representation (Fig. \ref{fig:explosion0}) and the exploded target representation (Fig. \ref{fig:explosion3}). In order to present the transition in a pleasant way, we follow the remaining steps of our pipeline. 
 
-%In order to relate the original unexploded data to the final exploded representation, we need to call \textit{translation} and \textit{rotation} metamorphers in the layouting stage that create the translation (and slight rotation) of the explosion for each pair of spatially split subsets (Figure \ref{fig:explode}b). An additional translation moves each inner compartment to the right of its previously encapsulating compartment (Figure \ref{fig:explode}c).
+%In order to relate the original unexploded data to the final exploded representation, we need to call \textit{translation} and \textit{rotation} metamorphers in the layouting stage that create the translation (and slight rotation) of the explosion for each pair of spatially split subsets (Fig. \ref{fig:explode}b). An additional translation moves each inner compartment to the right of its previously encapsulating compartment (Fig. \ref{fig:explode}c).
 
 
 
@@ -42,15 +42,15 @@ Since both, the source and the target representation, remain within the same vie
 
 Our original data differs from the exploded target representation only in position and topology (the split compartments). To present the transition, we move all compartment subsets as a unit so that they keep their shape during the transition. In the trajectory stage, we therefore apply the \textit{linear interpolation} metamorpher to achieve a linear transition along the continuum between source and target representation.
 
-In the layouting stage, we apply a total of five layout metamorphers to create the relation to the exploded representation (three compartments are split open, while two of them are also translated). If all these operations would be executed at the same time, the transition could be hard to follow \cite{Heer:TVCG:2007}. In the timing stage, we make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion starts only after the previous is finished.
+In the layouting stage, we apply a total of five layout metamorphers to create the relation to the exploded representation (three compartments are split open, while two of them are also translated). If all these operations would be executed at the same time, the transition could be hard to follow \cite{Heer:TVCG:2007}. In the timing stage, we make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion starts only after the previous is finished (Fig \ref{fig:explosion1}, \ref{fig:explosion2}, and \ref{fig:explosion3}).
 
 In order to also support understanding for the structures of individual molecules/proteins and to convey the opening motion of each exploding compartment in the final representation, we show representatives of the proteins separated from the compartments in which they are contained.
 These representatives are molecules that simply do not complete their transition.
 To end the transition for these molecules before they reach their final position, we manipulate their timecurves with a \emph{dust} metamorpher. During the transition, the opening compartments thus leaves a motion trail of molecules behind. In a static image, they suggest the opening motion leading to the final representation. In case the camera would zoom-in to show details of individual compartments, the motion trails would make the individual molecules surrounding the compartment discernible.
 
-As the last step, the continuum created between the two representations is sampled. To create an animation, \emph{continuous sampling} metamorpher is utilized, which generates a 10 seconds animation of 24 frames per second. This animation is shown in the supplementary video. For Figure \ref{fig:explosion}, we apply \emph{sparse sampling} metamorpher, which simply takes desired number of samples of the continuum at even intervals.
+As the last step, the continuum created between the two representations is sampled. To create an animation, \emph{continuous sampling} metamorpher is utilized, which generates a 10 seconds animation of 24 frames per second. This animation is shown in the supplementary video. For Fig. \ref{fig:explosion}, we apply \emph{sparse sampling} metamorpher, which simply takes desired number of samples of the continuum at even intervals.
 
-%The only thing that is left to accomplish now, is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Figure \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
+%The only thing that is left to accomplish now, is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Fig \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
 %We parametrized the \textit{sampling} metamorpher to create a ten second video, with twenty four frames per second to create the animation for the supplemental video. 
 
 
@@ -71,16 +71,9 @@ With the created transition, we can explain to the viewer how are the compartmen
 \subfloat[]{\label{fig:explosion2}\includegraphics[width=0.25\linewidth]{figures/explosion2.png}}
 \subfloat[]{\label{fig:explosion3}\includegraphics[width=0.25\linewidth]{figures/explosion3.png}}
 \caption{\label{fig:explosion} Metamorphosis to an exploded representation of blood serum and HIV compartments. A  trail of molecules is left behind during the transition to indicate their individual size and shape.}
+\vspace{-6mm}
 \end{figure*}
 
-\begin{figure*}[ht!]
-\centering
-\subfloat[]{\label{fig:infovis0}\includegraphics[width=0.25\linewidth]{figures/infovis0-1.png}}
-\subfloat[]{\label{fig:infovis1}\includegraphics[width=0.25\linewidth]{figures/infovis1.png}}
-\subfloat[]{\label{fig:infovis2}\includegraphics[width=0.25\linewidth]{figures/infovis2.png}}
-\subfloat[]{\label{fig:infovis3}\includegraphics[width=0.25\linewidth]{figures/infovis3-1.png}}
-\caption{\label{fig:infovis}Metamorphosis of molecules into histogram bars that display the volume that each molecule takes up in the HIV particle. A distance based time offset reveals the layered compartments one by one during the metamorphosis.}
-\end{figure*}
 
 
 
@@ -98,14 +91,14 @@ With the created transition, we can explain to the viewer how are the compartmen
 %since the data is XXX, it is impossible to see YYY
 Besides the spatial organization of a cell, biologists are often also interested in the cell's molecular composition, i.e., what types of molecules are present in the data, in which compartment are they contained, what do the molecules look like?
 The HIV model, for instance, contains 42 different molecule types but due to their high count (thousands of molecule instances across these 42 types), their mostly random distribution and the dense packing of the data, the detailed information about the number of types and their individual shape is impossible to deduce from direct visualization of the original data.
-Illustrators therefore create atlas based views (such as in Figure \ref{fig:t3}) that show a simplified schematic representation of a cell in order to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
+Illustrators therefore create atlas based views (such as in Fig. \ref{fig:t3}) that show a simplified schematic representation of a cell in order to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
 
 We achieve a transition to such an atlas based view with our pipeline in the following way:
 Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the three subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the three subsets will be morphed in image space to create suggestions of the compartment shapes, we need a copy of each subset for the layouting stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
 
 %To indicate the shape of compartment structures, we create a uniform background color that represents the colors of the molecules
 Since the shapes of compartments in the HIV particle are occluded in the original representation, we create a simplified representation of the shape of each compartment, marking its area, in the morphing stage. %uniform color that marks each compartment's area in the morphing stage.
-We create the relation of our original noisy data to the simplified shape representation by applying a \textit{blur} metamorpher. 
+We create the relation of our original noisy data (Fig. \ref{fig:t0}) to the simplified shape representation (Fig. \ref{fig:t3}) by applying a \textit{blur} metamorpher. 
 The blur metamorpher creates an additional render pass for each subset of copy A. The image of the molecules in the respective subset is blurred with a Gaussian kernel, removing high frequency noise from the image and leaving only a suggestion of the colors and the area of each respective compartment. By increasing the contrast of the alpha channel of the blurred image, sharp edges of each compartment area are created, thus making the shape representation more pronounced. The molecules in their original form are rendered on top of these shape representations.
 
 %If we wanted to keep a hint of the noisy color distribution, we could reduce the blur kernel. the compartments would still be separated from each other due to the sharp edges of the constrast in the alpha channel.
@@ -129,7 +122,7 @@ Since the rotations of the molecules are randomly distributed, the schema layout
 
 To achieve smooth rotations during the transition, the trajectory stage uses a \textit{SLERP} metamorpher that implements spherical linear interpolation \cite{Shoemake:ARQ:1985} between the original and the target orientation, which are internally represented as quaternions.
 
-Since inner structures are occluded by the outer structures of the blood serum and HIV particle, we use the timing stage to reveal the structures step-by-step. A \textit{staged timing} metamorpher manipulates the time curve of the molecules of a compartment in such a way, that the transition of each compartment starts with a specified delay.
+Since inner structures are occluded by the outer structures of the blood serum and HIV particle, we use the timing stage to reveal the structures step-by-step. A \textit{staged timing} metamorpher manipulates the time curve of the molecules of a compartment in such a way, that the transition of each compartment starts with a specified delay, as seen in Fig. \ref{fig:t1} and \ref{fig:t2}.
 Additionally, in order to create a peel-away effect that reveals the inner structures and molecule representatives of each compartment from left to right, we use a \textit{distance offset} metamorpher. The distance offset metamorpher calculates the distance of each molecule to a plane, or other 3D object, that the illustrator can place in the scene. The distance to the plane is then used as a measure for creating an additional per-molecule delay offset. %in each molecule's time curve.
 
 Since the original and the target representation occupy the same space, we do not need to apply any guidance in the camera control stage. The animation is again created through the continuous sampling metamorpher in the sampling stage.
@@ -174,7 +167,15 @@ The distance offset delay reduces the transformation at any given time to a smal
 
 %justification: why was this transition necessary / why is the final image alone not enough?
 	
-
+\begin{figure*}[ht!]
+\centering
+\subfloat[]{\label{fig:infovis0}\includegraphics[width=0.25\linewidth]{figures/infovis0-1.png}}
+\subfloat[]{\label{fig:infovis1}\includegraphics[width=0.25\linewidth]{figures/infovis1.png}}
+\subfloat[]{\label{fig:infovis2}\includegraphics[width=0.25\linewidth]{figures/infovis2.png}}
+\subfloat[]{\label{fig:infovis3}\includegraphics[width=0.25\linewidth]{figures/infovis3-1.png}}
+\caption{\label{fig:infovis}Metamorphosis of molecules into histogram bars that display the volume that each molecule takes up in the HIV particle. A distance based time offset reveals the layered compartments one by one during the metamorphosis.}
+\vspace{-6mm}
+\end{figure*}
 	
 \subsection{Representation of Quantitative Relations}%[infovis: focus on morphing, camera, trajectory]
 To understand the molecular data, it is often necessary to show quantitative aspects of the data elements.
@@ -187,7 +188,7 @@ Illustrators therefore often supply quantitative information in the form of info
 %In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space.
 %A stronger abstraction of the original spatial representation than in the previous two examples takes place.
 The relation between the original spatial and the transformed abstract representations is even harder to grasp.
-Continuous transitions are especially suitable for depicting such complex relations, as was successfully demonstrated in the award-winning animation of the decomposition of a cell (Figure \ref{fig:spaces1}). In this video, scientific illustrator Graham Johnson used an animated transition to convey the relation between the 3D model of a pancreas cell and an abstract depiction of volumetric relations between the elements of the cell.
+Continuous transitions are especially suitable for depicting such complex relations, as was successfully demonstrated in the award-winning animation of the decomposition of a cell (Fig. \ref{fig:spaces1}). In this video, scientific illustrator Graham Johnson used an animated transition to convey the relation between the 3D model of a pancreas cell and an abstract depiction of volumetric relations between the elements of the cell.
 
 
 
@@ -201,7 +202,7 @@ Continuous transitions are especially suitable for depicting such complex relati
 %complex interplay  of randomness and specific interactions in these structures that enables life to exist
 
 In this final use case, we demonstrate how we can achieve such a transition to an abstract visualization space with our pipeline.
-As a demonstration, we chose to convey the quantitative information about the number of molecule types in the HIV particle and the volumetric relation between types by a histogram (Figure \ref{fig:infovis3}). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
+As a demonstration, we chose to convey the quantitative information about the number of molecule types in the HIV particle (Fig. \ref{fig:infovis0}) and the volumetric relation between types by a histogram (Fig. \ref{fig:infovis3}). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
 Since we are concentrating on displaying relations within the HIV particle, we remove the blood serum from our original representation before we restructure our data hierarchy to match the intended target representation.
 
 Since each histogram bar has to represent a single molecule type, we use a \textit{group-by-type} metamorpher to create a subset for each type.
@@ -224,7 +225,7 @@ Finally, the control points of each molecule are interpolated by a cubic spline.
 
 Due to the onion like structure of the HIV particle, inner structures are occluded by outer structures.
 Inner structures should therefore not start their transition before the outer structures, as they would never be visible in their original representation. Further, if the inner structures would fly through the outer structures to their target representation, a viewer would not understand, from which part of the virus are they coming from.
-To present the transition in a manner that reveals each original structure before it starts its transition, we apply the \textit{staged timing} metamorpher to peel HIV particle like an onion, starting with its outer layers.
+To present the transition in a manner that reveals each original structure before it starts its transition, we apply the \textit{staged timing} metamorpher to peel HIV particle like an onion, starting with its outer layers (Fig. \ref{fig:infovis1} and \ref{fig:infovis2}).
 In contrast to the previous two use cases, here we stage the timing by molecule type to transition each molecular type individually into its histogram bar representation. The transition of each type starts after a certain delay / when the previous transition is finished.
 To create the order of the staging that results in the peeling effect, we use a \textit{distance offset} metamorpher. The distance of each molecule of a specific type to the center of the particle is calculated and averaged. The average distance per type is then used for the ordering of the staging. As the center of the particle we assume the center of the bounding box of the root node of the scene hierarchy.
 

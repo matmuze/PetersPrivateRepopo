@@ -4,6 +4,7 @@
 \centering
  \includegraphics[width=0.9\linewidth]{figures/pipeline.png}
 \caption{\label{fig:overview}The metamorphosis pipeline. Continuum creation: data restructuring, morphing, layouting. Continuum presentation: camera control, trajectory, timing, sampling.}
+\vspace{-6mm}
 \end{figure*}
 
 The context of our research lies in the field of explanatory visualizations of large-scale models of biological structures, such as viruses and bacteria, where relationships between various abstracted or transformed visual representations of a model should be conveyed without any need for user interaction.
@@ -149,6 +150,7 @@ Timing metamorphers are used to specify the starting time of each transformation
 \hfill
 \subfloat[]{\label{fig:mm1}\includegraphics[width=0.17\linewidth]{figures/mm1-1.png}}
 \caption{\label{fig:mm}Examples of different metamorphers: a) object space morphing, b) image space morphing, c) trajectory bundling, d) distance based time offset}
+\vspace{-6mm}
 \end{figure*}
 
 

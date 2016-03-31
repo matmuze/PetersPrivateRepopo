@@ -10,6 +10,7 @@ They are frequently used in visual story telling and for the depiction of corres
 \subfloat[]{\label{fig:ov1}\includegraphics[width=0.33\linewidth]{figures/ov1.png}}
 \subfloat[]{\label{fig:ov2}\includegraphics[width=0.33\linewidth]{figures/ov2.png}}
 \caption{\label{fig:ov}The continuum between two representations describes the metamorphosis from one representation state to another: a) source and target representation. b) the continuum creation connects both representations. c) the continuum is restructured for presentation.}
+\vspace{-6mm}
 \end{figure*}
 
 \subsection{Visual story telling}

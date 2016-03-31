@@ -43,13 +43,13 @@ In other cases, illustrators want to convey quantitative instead of spatial info
 In the former case, a bar chart could be used as representation of the quantities. A node-link diagram could be chosen in the latter case to convey the relationships. 
 In such cases, the illustrator would abstract the biological structure from a spatial representation to a quantitative or relational one, which we denote as a transformation \textit{across} visualization spaces (Figure 2b).
 
-\begin{figure*}[ht!]
+\begin{figure}[ht!]
 \centering
-\subfloat[]{\label{fig:t0}\includegraphics[width=\linewidth]{figures/spaces0.png}}
+\subfloat[]{\label{fig:spaces0}\includegraphics[width=\linewidth]{figures/small-spaces0.png}}
 
-\subfloat[]{\label{fig:t1}\includegraphics[width=\linewidth]{figures/spaces1.png}}
+\subfloat[]{\label{fig:spaces1}\includegraphics[width=\linewidth]{figures/small-spaces1.png}}
 \caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces.}
-\end{figure*}
+\end{figure}
 %[general conclusion of what he wants to convey]
 %Illustrators have access to different narrative elements that can be combined with each other in order to convey their stories.
 %The element of temporal sequence is used to convey changes of data states over time.

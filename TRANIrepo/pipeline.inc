@@ -68,14 +68,17 @@ Examples of metamorphers used in this stage are explicitly defined cutaway objec
 
 \subsubsection{Morphing}
 %DESCRIBE THE RELATION
+An important aspect of relating two representations of the same biological data to each other, is understanding how the shapes of individual elements in those two representations relate to each other.
+%The understandability of the relationship between two different representations of the same biological entities strongly depends on the similarity of their visual representation.
+%Depending on the visual appearance of biological entities in two different representations forms
+%An important aspect that might obfuscate the relationship between different representations of the biological data are the shapes, or visual representations, of the individual data elements. 
+For instance, molecules in mesoscale biological models can be displayed as space-filling models, stick models, or one of many other representations commonly used in molecular graphics. Alternatively, molecules can be represented in a different spatial frame of reference, as abstract shapes, such as cuboids, to illustrate quantitative information, such as their volume.
 
-An important aspect that might obfuscate the relationship between different representations of the biological data are the shapes, or visual representations, of the individual data elements. For instance, molecules in the mesoscale biological models can be displayed as space-filling models, stick models, or one of many different representations commonly used in molecular graphics. Alternatively, molecules can be represented by abstract shapes, such as balls or cubes illustrating their volume.
+Metamorphers in this stage of the pipeline therefore specify the relationships between the shapes of the corresponding data elements. Depending on the target representation, two types of metamorphers can be applied to establish this relationship:
 
-In this stage of the pipeline, the relationships between the shapes of the corresponding data elements are specified. For this purpose, two types of metamorphers can be applied.
+\emph{Object-space morphing} metamorphers define how to transition between 3D shapes of the visual representations of the data elements. For instance, in molecular data, this can be achieved by continuously repositioning the individual atoms of a molecule to form the shape of the target representation, such as a different molecule, or an abstract shape (Fig. \ref{fig:mm0}). %If the atom counts of the two molecules differ, multiple atoms are placed at the same spatial location to match these counts before the object-space morphing is applied.
 
-\emph{Object-space morphing} metamorphers are used to transition between 3D shapes of the visual representations of the data elements. For instance, in the molecular data, this is achieved by continuously repositioning the individual atoms of a molecule to form the shape of a different molecule. If the atom counts of the two molecules differ, multiple atoms are placed at the same spatial location to match these counts before the object-space morphing is applied.
-
-\emph{Image-space morphing} metamorphers transforms the visual representations of the data elements in the image space, for instance through alpha blending or other image-processing operations. These metamorphers are used when the two representations cannot be adequately matched in the object space.
+\emph{Image-space morphing} metamorphers define how to transform the visual representation of data elements in image space, for instance, through alpha blending or other image-processing operations (Fig. \ref{fig:mm2}). These metamorphers are used when the two representations cannot be adequately matched in the object space.
 
 %For this purpose, we propose two metamorphers.
 
@@ -84,13 +87,16 @@ In this stage of the pipeline, the relationships between the shapes of the corre
 %\emph{Crossfade} metamorpher morphs the shape of the elements in the image space. This is simply achieved by cross-fading the visual representations of the two data elements through alpha-blending.
 
 \subsubsection{Layout}
-Depending on the intended message, the illustrators often need to reposition data elements within the visualization. This might be done as means for occlusion handling, e.g., by exploding dense data to reveal the internal structures, or to simplify noisy or complex spatial arrangement of the data elements to better fit the viewer's mental model. Elements could be positioned so that they represent an altogether different visualization space, such as a network that shows interactions between molecules.
+Depending on what illustrators intend to convey in a target representation, they often need to reposition data elements within the visualization.
+This might be done as means for occlusion handling, e.g., by exploding dense data to reveal the internal structures, or to simplify a noisy or complex spatial arrangement of the data elements to better fit the viewer's mental model. Elements could be positioned so that they represent an altogether different visualization space, such as a network that shows interactions between molecules.
 
 %To allow the illustrators to create transitions between various spatial arrangements of the data elements, the target state have to be
 
-To allow the illustrators to create transitions between different data representations, the spatial arrangements of the data elements in both representations need to be matched. This is achieved by transforming the positions, rotations, and scaling of the data elements through \emph{layout} metamorphers. For instance, such metamorphers can arrange the data elements into various 3D volumes, such as cubes or spheres in order to illustrate their relative counts, or align them side by side for comparison.
-
-The layout metamorphers operate on the individual nodes of the scene graph down to the individual data elements (e.g., molecules), so that whole data subsets can be transformed at once. Additionally, the layout metamorphers can be arbitrarily stacked to achieve wide range of spatial transformations.
+Metamorphers in this stage of the pipeline therefore define how the spatial arrangements of data elements in both representations are related to each other, in order to allow illustrators to create spatial transitions between both layouts.
+Metamorphers define this relation with a sequence of transformations of the positions, rotations, and scales of the data elements.
+Layout metamorphers operate on the individual nodes of the scene graph down to the individual data elements (e.g., molecules), so that whole data subsets can be transformed at once.
+Additionally, layout metamorphers can be arbitrarily stacked to achieve a wide range of spatial transformations.
+Such metamorphers can arrange data elements into various 3D volumes, such as cubes or spheres in order to illustrate their relative counts, or align them side by side for comparison.
 
 \subsection{Continuum Presentation}
 After the continuum between the two data representations is created, it needs to be processed so that the transition is engaging, readable, and valuable, i.e., it conveys the relevant information. There are three high level tasks that are responsible for achieving this goal: occlusion handling, the steering of the viewer's attention, and the reduction of the visual clutter. These tasks are carried out during the second step of our pipeline, consisting of four different stages.
@@ -126,12 +132,12 @@ The metamorphers are used to specify the starting time of each transformation, a
 \centering
 \subfloat[]{\label{fig:mm0}\includegraphics[width=0.22\linewidth]{figures/mm0.png}}
 \hfill
-\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
-\hfill
 \subfloat[]{\label{fig:mm2}\includegraphics[width=0.22\linewidth]{figures/mm2.png}}
 \hfill
+\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
+\hfill
 \subfloat[]{\label{fig:mm3}\includegraphics[width=0.22\linewidth]{figures/mm3.png}}
-\caption{\label{fig:mm}Examples of different metamorphers: a) shape morphing, b) time offset, c) blurring, d) trajectory bundling}
+\caption{\label{fig:mm}Examples of different metamorphers: a) image space morphing, b) object space morphing, c) distance based time offset, d) trajectory bundling}
 \end{figure*}
 
 

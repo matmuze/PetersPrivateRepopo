@@ -2,7 +2,11 @@
 
 We implemented the pipeline within the CellVIEW framework \cite{muzic15}, which is a tool for real-time visualization of large mesoscale molecular models. We treat individual molecules as data elements that are rearranged in the scene within the transitions. In this way, we support large variety of illustrative effects.
 
-The pipeline is implemented as an application programming interface (API) that can be easily scripted in C\# language. All metamorphers are supported as simple function calls taking as the input arbitrary nodes of the scene graph, down to the individual data elements.
+The pipeline is implemented as an application programming interface (API) that can be easily scripted in C\# language. At the beginning, the whole dataset is contained within a single root node of the scene graph. By applying data-restructuring metamorphers, the scene graph is constructed by splitting the root node into a hierarchy. All metamorphers are supported as simple function calls taking as the input arbitrary nodes of the scene graph, down to the individual data elements. Parameters of these function serve for the parametrization of the metamorphers, thus making the interface compact.
+
+We implemented various metamorphers with basic functionality which is reusable for large variety of use cases. The metamorphers are implemented in such a way that the scene graph nodes they operate on are transparent for them, meaning the metamorphers can be used to fulfil different tasks. For instance, the line-layout metamorpher can be used to align bars of a histogram next to each other, or it can be used to align several representative molecules next to each other, forming a label for an illustration containing these molecules.
+
+As the timing of the transition is handled in a separate stage of the pipeline, the order in which are the layout metamorphers applied to describe the transition is not important. This increases the flexibility of the combination of individual metamorphers.
 
 
 %\subsection{PoC Pipeline}

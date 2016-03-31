@@ -37,25 +37,30 @@ In order to relate the original unexploded data to the final exploded representa
 
 
 
-Since both, source and target representation, remain within the same view frustum, and we do not explicitly point the camera on any specific details, we apply no metamorpher in the camera control stage.
+%Since both, source and target representation, remain within the same view frustum, and we do not explicitly point the camera on any specific details, we apply no metamorpher in the camera control stage.
+Since both, the source and the target representation, remain within the same view frustum, and we do no explicitly focus on any specific details, we do not apply any metamorphers in the camera control stage. The camera parameters are manually set beforehand, and the camera remains static throughout the animation.
 
 Our original data differs from the exploded target representation only in position and topology (the split compartments). To present the transition, we move all compartment subsets as a unit so that they keep their shape during the transition. In the trajectory stage, we therefore apply the \textit{linear interpolation} metamorpher to achieve a linear transition along the continuum between source and target representation.
 
-In the layouting stage, we apply a total of XXX layout metamorphers/operations to create the relation to the exploded representation. If all these operations would be executed at the same time, the transition could be hard to follow [cite Heer paper here]. In the timing stage, we can make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion starts only after the previous is finished. 
+In the layouting stage, we apply a total of five layout metamorphers to create the relation to the exploded representation (three compartments are split open, while two of them are also translated). If all these operations would be executed at the same time, the transition could be hard to follow \cite{Heer:TVCG:2007}. In the timing stage, we make the presentation of the transition more pleasant, by applying a \textit{delay} metamorpher. The delay metamorpher adjusts the time curve of each compartment subset so that each subsequent explosion starts only after the previous is finished.
 
 In order to also support understanding for the structures of individual molecules/proteins and to convey the opening motion of each exploding compartment in the final representation, we show representatives of the proteins separated from the compartments in which they are contained.
 These representatives are molecules that simply do not complete their transition.
-To end the transition for these molecules before they reach their final position, we manipulate their timecurves with a \textit{[need fitting name]} metamorpher. During the transition, the opening compartments thus leaves a motion trail of molecules behind that makes individual molecules discernible.
+To end the transition for these molecules before they reach their final position, we manipulate their timecurves with a \emph{dust} metamorpher. During the transition, the opening compartments thus leaves a motion trail of molecules behind. In a static image, they suggest the opening motion leading to the final representation. In case the camera would zoom-in to show details of individual compartments, the motion trails would make the individual molecules surrounding the compartment discernible.
 
-The only thing that is left to accomplish now, is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Figure \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
+As the last step, the continuum created between the two representations is sampled. To create an animation, \emph{continuous sampling} metamorpher is utilized, which generates a 10 seconds animation of 24 frames per second. This animation is shown in the supplementary video. For Figure \ref{fig:explosion}, we apply \emph{sparse sampling} metamorpher, which simply takes desired number of samples of the continuum at even intervals.
+
+%The only thing that is left to accomplish now, is to sample the continuum representation that we created. We chose a \textit{dense/continuous sampling} metamorpher to create a ten second animation with twenty four frames per second for the supplemental video. For the Figure \ref{fig:explosion} we applied a \textit{sparse sampling} metamorpher [or we took stills from this video?][or we have one sampling metamorpher that we used for video and figures but with different parametrizations - how to spin/sell this?].
 %We parametrized the \textit{sampling} metamorpher to create a ten second video, with twenty four frames per second to create the animation for the supplemental video. 
 
 
 %short justification of why an animation between the S and D was necessary in this case.
 %what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically?
 
-With the transition that we just created, we can explain to a viewer, how the four compartments are actually enclosed within each other, as the final representation alone does not convey that one object is enclosed in another, especifally for a viewer who has not seen the dataset before.
-Furthermore the transition explains where the isolated molecules originate from. 
+
+With the created transition, we can explain to the viewer how are the compartments enclosed within each other, as the final represenatation alone does not necessarily convey this information. This is especially the case for the viewers who are not familiar with the dataset. Furthermore, the transition explains where the isloated molecules, used as a context for the individual compartments, originate from.
+
+%With the created transition, we can explain to a viewer how the four compartments are enclosed within each other, as the final representation alone does not convey that one object is enclosed in another, especially for a viewer who has not seen the dataset before. Furthermore the transition explains where the isolated molecules originate from. 
 
 
 

@@ -16,11 +16,8 @@ Our method creates this continuum by describing the target representation on the
 
 Figure \ref{fig:ov0} shows a source and a target representation. Both communicate certain aspects of a model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists of two high level steps. In the first step, we \textit{create} the continuum by explicitly defining relations between the data structures, visual, and spatial properties of the source and target representation (Fig. \ref{fig:overview}, left).
 %explicitly define the relation between an element's attribute in its source and target state. e between both representation states.
-However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). The continuous space that we created can be sampled but we have to define \textit{how} first.
-%This presentation is defined in the second step of our pipeline, i.e., the continuum \textit{presentation}.
-%we \textit{create} a continuous space between source and target representation. The continuum is created by explicitly defining relations between the data structures, visual, and spatial properties of the source and target representation, i.e., \textit{what} to relate, represented by the first three stages in Figure \ref{fig:overview}.
-%
-The second step of the pipeline prepares this continuum for \textit{presentation} to an intended audience (Figure \ref{fig:ov2}) by specifying how the relations that we created in the first step should be presented (Fig. \ref{fig:overview}, right). 
+However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}), no means for making the transition readable have yet been applied. The continuous space that we created can be sampled but we have to define \textit{how} first.
+This is the task of the second step of our pipeline - it prepares this continuum for \textit{presentation} to an intended audience (Figure \ref{fig:ov2}) by specifying how the relations that we created in the first step should be presented (Fig. \ref{fig:overview}, right). 
 %The presentation of the metamorphosis is handled by the last four stages of our pipeline (Fig. \ref{fig:overview}), i.e., in regard to \textit{how} the transition should be carried out.
 With this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
 

@@ -1,4 +1,4 @@
-\section{Use Cases}
+\section{Use Cases}\label{sec:usecases}
 %[we just learned about the pipeline - now we want to know how it can be actually used - surprise: we actually have a proof of concept implementation of it]
 %Illustrators now can use this pipeline of metamorphers to create continuous representations that depict a desired metamorphosis of a given source representation to an intended target representation by combining the metamorphers on each pipeline stage that create the intended relations between the source and the target representation. %that answer specific questions / relate two different representations to each other
 %To actually enable an illustrator to apply our method, we created a proof of concept implementation of our pipeline.
@@ -228,7 +228,7 @@ To present the transition in a manner that reveals each original structure befor
 In contrast to the previous two use cases, here we stage the timing by molecule type to transition each molecular type individually into its histogram bar representation. The transition of each type starts after a certain delay / when the previous transition is finished.
 To create the order of the staging that results in the peeling effect, we use a \textit{distance offset} metamorpher. The distance of each molecule of a specific type to the center of the particle is calculated and averaged. The average distance per type is then used for the ordering of the staging. As the center of the particle we assume the center of the bounding box of the root node of the scene hierarchy.
 
-In contrast to the previous use case, the position of the final representation (the histograms) differs from the position of the original representation (the HIV particle).
+In contrast to the previous use case, the position of the the histograms representation differs from the position of the original representation.
 A camera position that shows both representations at the same time would use the screen space inefficiently, since only during the transition both representations are visible. The original and the target representation would be shown with unused screen space where the respective other representation would be positioned.
 We therefore implemented a simple \textit{guided navigation} metamorpher to use the available screen space efficiently by zooming in as closely as possible to the displayed data, while assuring that entire scene (all molecules) are visible during the transition.
 The metamorpher checks if molecule instances are culled from the view. If yes, then the camera is zoomed out until no more instances are culled. If no, the camera zooms in until instances are culled. A constant zooming in and out at the optimal position is avoided by smoothing the camera transition. The camera look-at vector is updated to look at the center of our scene, where our HIV particle is positioned.

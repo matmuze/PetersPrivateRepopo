@@ -38,10 +38,10 @@ Such animations are used in teaching undergraduate level biology worldwide.
 %[what does an illustrator want to convey? - concrete examples]
 When illustrators want to convey, for instance, the inner and outer structures of a cell, they face the challenge that the structures of their data are very densely packed. The dense data makes it very difficult to convey inner and outer structures at the same time. Therefore they employ means for occlusion handling, such as exploded views, in order to make all important aspects of the data visible.
 Illustrators often want to convey the entire variety of different molecules within a cell in form of an atlas-based view [cite some atlas]. However, a cell contains in reality many thousand instances of the same molecular structures. To achieve such an atlas based view, an illustrator does not want to display every single molecule but would rather draw various structures at sufficiently large scale so that the viewer can understand the structural details.
-In these examples, the illustrator represents abstracted spatial information within same spatial frame of reference. We denote this as a transformation \textit{within} the same visualization space (Figure 2a).
+In these examples, the illustrator represents abstracted spatial information within same spatial frame of reference. We denote this as a transformation \textit{within} the same visualization space (Fig. 2a).
 In other cases, illustrators want to convey quantitative instead of spatial information, e.g., how many different molecules of each type a biological entity contains, or how a functional relationship between these molecules would look like.
 In the former case, a bar chart could be used as representation of the quantities. A node-link diagram could be chosen in the latter case to convey the relationships. 
-In such cases, the illustrator would abstract the biological structure from a spatial representation to a quantitative or relational one, which we denote as a transformation \textit{across} visualization spaces (Figure 2b).
+In such cases, the illustrator would abstract the biological structure from a spatial representation to a quantitative or relational one, which we denote as a transformation \textit{across} visualization spaces (Fig. 2b).
 
 \begin{figure}[ht!]
 \centering
@@ -99,7 +99,7 @@ Considering that new discoveries are made frequently in molecular biology, these
 We therefore set our goal to assist illustrators by eliminating the need to manually author their target representations and the transitions to them.
 We supply illustrators with a pipeline for creating continuous target representation as well presenting the transitions to them.
 
-Our primary contribution is a formal description of a uniform method for creating continuous target representations for spatial biological data sets, as well as presenting the transitions to these representations - describing the complete metamorphosis of the data representation, so to say.
+Our main contribution is a formalization of a uniform method for creating continuous target representations for spatial biological data sets, as well as presenting the transitions to these representations - describing the complete metamorphosis of the data representation, so to say.
 
 Data representations are specified in such a way that they form a continuous space.
 The first three stages of the pipeline are responsible for creating this continuum. The final four stages of the pipeline are responsible for presenting the continuum.
@@ -107,5 +107,5 @@ This continuum can be arbitrarily sampled in order to create a transition betwee
 %The method is described by a pipeline that consists of eight stages that can be grouped by their high-level functionality: target state representation, transition definition, and story helpers.
 Each stage supports operators, so called metamorphers, that are responsible for one aspect of the metamorphosis.
 
-As our secondary contribution, we demonstrate a proof-of-concept implementation of this pipeline based on three use cases that we developed in collaboration with illustrators. One of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, is our third and final contribution.
+Further, we demonstrate an exemplification of this pipeline with an extendable API by showcasing three use cases that we developed and evaluated in collaboration with an illustrator. %One of these results, a novel illustrative rendering approach for automatic schematization of mesoscopic data, is our third and final contribution.
 

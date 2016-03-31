@@ -1,5 +1,6 @@
+\vspace{-7pt}
 \section{Implementation}
-
+\vspace{-2pt}
 We implemented the pipeline within the CellVIEW framework \cite{muzic15}, which is a tool for real-time visualization of large mesoscale molecular models. We treat individual molecules as data elements that are rearranged in the scene within the transitions. In this way, we support large variety of illustrative effects.
 
 The pipeline is implemented as an application programming interface (API) that can be easily scripted in C\# language. At the beginning, the whole dataset is contained within a single root node of the scene graph. By applying data-restructuring metamorphers, the scene graph is constructed by splitting the root node into a hierarchy. All metamorphers are supported as simple function calls taking as the input arbitrary nodes of the scene graph, down to the individual data elements. Parameters of these function serve for the parametrization of the metamorphers, thus making the interface compact.

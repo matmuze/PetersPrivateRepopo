@@ -1,4 +1,6 @@
+\vspace{-7pt}
 \section{Conclusion}
+\vspace{-2pt}
 In this paper, we present a formal method for creating continuous transitions between two representations.
 These target representations and transitions have historically been modeled and key-framed manually by illustrators and animators in 3D modeling tools.
 Our method is described in the form of a pipeline, that creates and presents a continuum between two representations in seven stages based on a simple scripting interface. Representations and transitions can be created with a few lines of code and executed for arbitrary data sets, which is a huuuge improvement over the previous manual workflow for creating such representations.

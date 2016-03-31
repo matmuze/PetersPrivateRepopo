@@ -1,7 +1,8 @@
 
-
+\vspace{-5pt}
 \section{Discussion and Future Work}
 \label{sec:discuss}
+\vspace{-2pt}
 %[todo: thoughts on creation of the continuum vs presentation of the continuum]
 
 

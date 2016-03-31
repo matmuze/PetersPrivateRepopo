@@ -30,7 +30,7 @@ When illustrators manually create a transition across data representations in a 
 Without such a relation, the transition that they modeled is only valid for the exact combination of the specified data, original representation, target representation, as well as the visual transition.
 The problem with this approach is that if one of these four aspects should be changed, e.g, because new findings about the data have been discovered, or a different information should be conveyed, the entire transition has to be manually remodeled from scratch.
 
-To overcome this issue, we explicitly create this continuum in the first step of our pipeline by specifying relationships between all aspects of the underlying source and target representations.
+To overcome this issue, we explicitly create this continuum in the first step of our pipeline by specifying relationships between all aspects of the underlying source and target representations, i.e., defining the "what" of this relationship.
 The continuum is created with the sequential execution of the metamorphers in the pipeline.
 The metamorphers define how an aspect A, e.g., the position, in the source state relates to aspect B in the target state.
 The relationship is explicitly modeled with these metamorphers.
@@ -98,8 +98,12 @@ Layout metamorphers operate on the individual nodes of the scene graph down to t
 Additionally, layout metamorphers can be arbitrarily stacked to achieve a wide range of spatial transformations.
 Such metamorphers can arrange data elements into various 3D volumes, such as cubes or spheres in order to illustrate their relative counts, or align them side by side for comparison.
 
+
+
 \subsection{Continuum Presentation}
-After the continuum between the two data representations is created, it needs to be processed so that the transition is engaging, readable, and valuable, i.e., it conveys the relevant information. There are three high level tasks that are responsible for achieving this goal: occlusion handling, the steering of the viewer's attention, and the reduction of the visual clutter. These tasks are carried out during the second step of our pipeline, consisting of four different stages.
+After the continuum between the two data representations is created, the "how?" of its presentation needs to be answered. The transition should be presented in a way that is engaging, readable, and valuable, i.e., so that it conveys the relevant information for the current scenario.
+%After the continuum between the two data representations is created, it needs to be presented in an engaging, readable, and valuable way, i.e., so that it conveys the relevant information for the current scenario.
+There are three high level tasks that are essential in achieving this goal: occlusion handling, the steering of the viewer's attention, and the reduction of visual clutter. These tasks can be achieved during the second step of our pipeline, consisting of four different stages.
 
 %After the continuum between the two data representations is created, it needs to be processed so that it adequately communicates the intended message. This processing takes place within the second step of the pipeline, consisting of four stages.
 
@@ -112,18 +116,21 @@ After the continuum between the two data representations is created, it needs to
 %stimuli reduction helps to.. can be handled for instance by.. stages
 
 \subsubsection{Trajectory}
-While the layout stage of the pipeline defines the relationship between data elements in different data representations, the actual transition between them is not yet specified. It is necessary to define the trajectory along which the data elements move in order to transit from the source representation to the target one. This is done in the first stage of the continuum presentation step.
+While the layout stage of the pipeline defines the "what" of the spatial relationship between data elements in different data representations, the actual "how", i.e., the trajectories between each source/target pair of spatial attributes is not yet specified. It is necessary to define the trajectory along which the data elements move in order to transit from the source representation to the target one. This is achieved in the first stage of the continuum presentation step.
 
-The trajectories are defined as arbitrary sets of control points between the source and target transformations of the data elements. These control points can form various curves along which the data elements move during the metamorphosis. The continuity of the spatial transformations is achieved through linear interpolation of the translations and scaling, and spherical linear interpolation of the rotations.
+Trajectory metamorphers define the "how" of the spatial relation based on arbitrary sets of control points between the source and target transformations of the data elements. These control points define the paths along which the data elements move, rotate, and scale during the metamorphosis. 
+%The continuity of the spatial transformations is achieved through linear interpolation of the translations and scaling, and spherical linear interpolation of the rotations.
 
-The metamorphers of the trajectory stage can be used to structure the transition, such as through edge-various bundling methods. For instance, the molecules of the same type can move to their target positions along similar paths in order to minimize the visual clutter created by the transition.
+The metamorphers of the trajectory stage can be used to structure the transition, such as through various edge-bundling methods. For instance, the molecules of the same type can move to their target positions along similar paths in order to minimize the visual clutter created by the transition (Fig. \ref{fig:mm3}).
 
 \subsubsection{Timing}
-In order to present the transitions specified in the morphing and the layout stages to the viewers, illustrators need to create appropriate temporal arrangement for them. Such arrangement encodes the information about the chronology of the illustrated events. Additionally, illustrators use the speed at which individual transitions occur as means to suggest their importance for the communicated message, as well as to draw viewers attention to different parts of the illustration.
+In order to coordinate the transitions specified in the morphing and the layout stages, illustrators need to create an appropriate temporal arrangement for them. Such an arrangement can, on the one side, encode information about the chronology of the illustrated events. On the other side, illustrators use the speed and sequence at which individual transitions occur as means to suggest the transition's importance for the communicated message, as well as to draw a viewer's attention to different parts of the illustration.
 
-The temporal arrangement is designed through metamorphers of the timing stage. They operate on so called \emph{time curves} associated with each node in the scene graph. These curves are used as transformations of the data elements' positions within their specified trajectories as functions of time.
+Metamorphers in the timing stage define the "how" of this temporal arrangement.
+%The temporal arrangement is designed through metamorphers of the timing stage.
+They operate on so called \emph{time curves} that are associated with each node in the scene graph. These curves are used as transformations of the data elements' positions within their specified trajectories as functions of time.
 
-The metamorphers are used to specify the starting time of each transformation, as well as its speed. As such, they can be used to create various temporal effects, e.g., ease-in or ease-out curves for the movement of the data elements or entire data subsets. The time curves can be also modified to make some of the elements stop in the middle of the specified trajectory, or to reverse their movement.
+Timing metamorphers are used to specify the starting time of each transformation, as well as its speed (Fig. \ref{fig:mm1}). As such, they can be used to create various temporal effects, such as staging \cite{Heer:TVCG:2007} to reduce the visual clutter during the transition, and ease-in or ease-out curves for the movement of the data elements or entire data subsets. Time curves can also be modified to make some of the elements stop in the middle of the specified trajectory, or to reverse their movement.
 
 %Additionally, the speed at which individual transitions occur might be used by the illustrators to suggest importance of the individual events and 
 
@@ -134,28 +141,33 @@ The metamorphers are used to specify the starting time of each transformation, a
 \hfill
 \subfloat[]{\label{fig:mm2}\includegraphics[width=0.22\linewidth]{figures/mm2.png}}
 \hfill
-\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
-\hfill
 \subfloat[]{\label{fig:mm3}\includegraphics[width=0.22\linewidth]{figures/mm3.png}}
-\caption{\label{fig:mm}Examples of different metamorphers: a) image space morphing, b) object space morphing, c) distance based time offset, d) trajectory bundling}
+\hfill
+\subfloat[]{\label{fig:mm1}\includegraphics[width=0.22\linewidth]{figures/mm1-1.png}}
+\caption{\label{fig:mm}Examples of different metamorphers: a) image space morphing, b) object space morphing, c) trajectory bundling, d) distance based time offset}
 \end{figure*}
 
 
 \subsubsection{Camera Control}
-To adequately follow the development of continuous transitions, especially those between different visualization spaces, camera steering is a necessary component of a non-interactive explanatory visualization. To assure visibility of all data elements at each timestep, illustrators manually specify camera settings and how they change over time.
+To adequately follow the development of continuous transitions, e.g., when trajectories or target representations lie outside the original view frustum, and to guide the viewer's attention towards important details of a representation, camera steering is a necessary component of a non-interactive explanatory visualization. %To assure the visibility of all important data elements at each time step, illustrators specify camera settings and how they change over time.
 
-In our pipeline, this task is carried out through the metamorphers in the \emph{camera control} stage. These metamorphers access the temporally and spatially arranged data elements and use this information to automatically modify the position and the look-at vector of the camera. An example of camera control metamorpher sets the look-at vector of the camera to point in the centroid of the data elements, while it moves the camera far enough to capture the entire dataset for the given field-of-view.
+Camera control metamorphers define how camera settings change over time, to assure the visibility of all important data elements at each time step.
+%In our pipeline, this task is carried out through the metamorphers in the \emph{camera control} stage.
+These metamorphers access the temporally and spatially arranged data elements and use this information to automatically modify the position and the look-at vector of the camera. A camera control metamorpher could, for instance, set the look-at vector of the camera to point in the centroid of the data elements, while it moves the camera far enough to capture the entire data set for the given field-of-view.
 
 
 
 \subsubsection{Sampling}
-To present the created transition to the viewers, it is necessary to select a set of timesteps which are going to tell the story intended by the illustrators. In the simplest case, the transition is sampled densely enough to form a seamless animation, given certain FPS and a desired length of the animation. However, due to various disadvantages of animation, as discussed in Section \ref{sec:intro}, it might be necessary to select only few representative timesteps which show the essential aspects of the transition.
+To present the created transition to the viewers, it is necessary to select a set of time steps that are going to tell the story intended by the illustrators. In the simplest case, the transition is sampled densely enough to form a seamless animation, given a certain number of frames per second and a desired length of the animation.
+In other situations,
+%However, due to various disadvantages of animation, as discussed in Section \ref{sec:intro},
+it might be more feasible to present only a few representative time steps which show the essential aspects of the transition, e.g., as a narrative sequence of single images.
 
-Metamorphers of the \emph{sampling} stage implement various strategies how these timesteps are chosen. While the previous stages of the pipeline can be called multiple times in order to create more complex animations/transitions/stories, the sampling stage is final, as it ties together the information from the previous stages to sample the visual result.
+Metamorphers of the \emph{sampling} stage implement various strategies of how these time steps are chosen. While the previous stages of the pipeline can be called multiple times in order to create more complex transitions, the sampling stage is final, as it ties together the information from the previous stages to sample the visual result.
 
-For this purpose, the scene graph information is propagated through the hierarchy down to the individual data elements, to determine their absolute positions and orientations. The trajectory and the timing stages of the pipeline provide the information about the intermediate transformations of the data elements in an arbitrary timestep, which is in turn acquired by the sampling metamorphers.
-
-Since the operators applied in the previous stages of the pipeline are continuous, there are no restrictions on how the sampling is performed. For instance, it is possible to create a hybrid visualization that displays a sparsely sampled narrative sequence of small multiples. Upon request, a continuous animated transition between two consecutive small multiples can be shown to provide additional information on how do they relate to each other.
+To sample the transition information created in the previous stages, the scene graph information is propagated down through the hierarchy to the individual data elements, to determine their absolute positions, orientations, and shapes at each point in time. %The trajectory and the timing stages of the pipeline provide the information about the intermediate transformations of the data elements in an arbitrary time step, which is in turn acquired by the sampling metamorphers.
+%Since the operators applied in the previous stages of the pipeline are continuous, t
+There are no restrictions on how the sampling is performed. For instance, it is possible to create a hybrid visualization that displays a sparsely sampled narrative sequence of small multiples. Upon request, a continuous animated transition between two consecutive small multiples could be shown to provide additional information on how they relate to each other.
 
 The sampling stage can also determine if the transition is pre-calculated or sampled on the fly in real-time.
 A continuous pre-calculated transition could be used not only for display in an animation but also for extracting information about the continuous change or motion of the transition. This extracted information could then be used for encoding the otherwise missing information about the transition in the form of glyphs within a static single result image. %These glyphs can be calculated from the continuous pre-baked information.

@@ -13,13 +13,13 @@
 
 
 Our method allows the generation of transitions for arbitrary molecular data sets, which has the advantage target representations and transitions do not have to be manually modeled and key-framed in a tool like Maya.
-Our pipeline implementation offers a simple API for access and parametrizaiton of the implemented metamorphers.
-The API can be extended to support further transitions and target representations, that can then again be applied to arbitrary molecular data.
+Our pipeline implementation offers a simple API for access and parametrization of the implemented metamorphers.
+The API can be extended with additional metamorphers that support further transitions and target representations, that can then again be applied to arbitrary molecular data.
 Currently illustrators can access our API with a scripting interface, where metamorphers along the pipeline are called on subsets of the data with specific parametrizations.
 The scripting does not pose a challenge to illustrators as they are used to high level scripting interfaces of tools such as Maya.
-Nevertheless, we would love to implement a visual interface for our API so that also non-experts can plug metamorphers together with a few clicks.
+Nevertheless, we plan to implement a visual interface for our API so that also non-experts can plug metamorphers together with a few clicks.
 
-The ease of use and speed in generating results with our method has the tradeoff of scrificing the flexibility the time consuming manual modeling these modeling tools supply with manual creation.
+The ease of use and speed in generating results with our method has the tradeoff of sacrificing the flexibility the time consuming manual modeling these modeling tools supply with manual creation.
 
 %Our pipeline is specifically designed to create continuous representations between two representation states. It is not meant to be used to produce movies, i.e., there is no explicit support for features like .. as they can be found in 3D modeling tools.However, theoretically the data restructuring stage could be exploited in such a way ...
 
@@ -28,7 +28,7 @@ The ease of use and speed in generating results with our method has the tradeoff
 %-interaction
 %-full fledged animation
 Since we designed our pipeline to produce visualizations for presentation purposes, we did not build it explicitly with interaction in mind.
-It is built to produce static images.
+It is built to produce static images or animation sequences.
 %It does not consider interactions on a conceptual level.
 The environment in which we implemented our method, however (cellVIEW), natively supports user interactions as it is based on the Unity3D engine.
 The formal pipeline, as well as the implementation could be extended to support user interactions, e.g., to make it also applicable in interactive analysis scenarios.
@@ -51,9 +51,9 @@ Each node of the hierarchy could be rendered with a different level of detail me
 
 Since our pipeline produces a continuum between two representation states, it can be used out of the box to generate animations and narrative sequences (comic strips).
 However, another interesting direction for future work would be to explore the possibilities that different sampling metamorphers could provide.
-As we discussed in Section 3.2.4, our pipeline supports pre-baked as well as real-time sampling for the presentation of the created continuum.
+As we discussed in Section 3.2.4, our pipeline supports pre-calculated as well as real-time sampling for the presentation of the created continuum.
 Real-time sampling could be explored in regard to possible applications for user interaction.
-Concerning, the pre-baked continuum, we could investigate, how to actually extract information about the change during a transition to substitute information the information about motion within static glyphs. 
+Concerning, the pre-calculated continuum, we could investigate, how to actually extract information about the change during a transition to substitute the missing information about motion within static glyphs. 
 Further, the possible applications of the mentioned narrative sequence-animation hybrid could be explored.
 
 

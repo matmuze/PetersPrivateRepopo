@@ -42,11 +42,6 @@ We asked, whether the animated transition could answer the questions (that we po
 %- I think better lighting, e.g. global illumination/ambient occlusion, could show the dents left when large items are removed, for example the inverse hemisphere left in the blood plasma when the HIV is removed.
 %-I'm not sure, however, why there are molecules that do not move with the upper or lower sections, and float around in the middle.
 
-
-
-
-
-
 %*****************
 %********advantage of transition:
 
@@ -77,7 +72,7 @@ All illustrators confirmed, that the transition was crucial for understanding th
 %********pro/con final img:
 
 %pro:
-%-I like how the matryoshka doll approach (clamshell exploded view), reveals the hierarchical “nesting” of the various compartments of HIV and its environment.
+%-I like how the matryoshka doll approach (clamshell exploded view), reveals the hierarchical of the various compartments of HIV and its environment.
 %-Overall, it looks nice (color, rendering style)
 
 %con:
@@ -101,29 +96,94 @@ The experts' estimated duration for the manual re-creation of the explosion tran
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{Schematization}
-could the animation answer the posed question?
+%*****************
+%********could the animation answer the posed question?
 
-positiv:
+%-g- Feel free to pull any of the more detailed notes I emailed last month about this one:
+%Yes, this transition does a great job of taking a densely packed model and simplifying it to reveal the composition of molecules that are isolated to each compartment, while still retaining a simplified rendition of the compartment (organic wavy colored compartment shapes.)
 
-advantage to static final img:
 
-pro/con final img:
+%-iw- Again, there is a lot of screen space here that's dedicated to the blood plasma and less for the virus.  Many of the proteins that are most presented most clearly are not part of the virus itself, but are outside of the virus, and many molecules that exist in the virus (such as integrase, envelope protein, other viral factors) are not shown at all or are not shown clearly.  The membrane surrounding the virus is also not clearly shown.
 
-duration:
+%-p- It does help show what the different types of molecules look like, because the animation takes away the layers that obstruct the deeper molecules. but it doesn't answer what types of molecules there are, labeling would actually answer that question. Maybe some people know all the different types of molecules by heart just by looking at them, but some don't. It gives no indication on quantity.
 
+%pro:
+%-"this transition does a great job of taking a densely packed model and simplifying it to reveal the composition of molecules that are isolated to each compartment, while still retaining a simplified rendition of the compartment (organic wavy colored compartment shapes.)"
+%- does help show what the different types of molecules look like, because the animation takes away the layers that obstruct the deeper molecules.
+
+%con:
+%-lot of screen space here that's dedicated to the blood plasma and less for the virus.  Many of the proteins that are most presented most clearly are not part of the virus itself, but are outside of the virus, and many molecules that exist in the virus (such as integrase, envelope protein, other viral factors) are not shown at all or are not shown clearly.  The membrane surrounding the virus is also not clearly shown.
+%-doesn't answer what types of molecules there are, labeling would actually answer that question.
+
+
+
+%*****************
+%********positiv:
+
+%-g- Overall, I like the simplified representation and the brick of blue goo that still gives an impression of the shape and the relationship of the color scheme where molecular color schemes match the simpler fills that they become. This does a great job of still showing the compartmentalizations and comparment-to-compartment relationships.
+%A major thing missing- the matrix of the HIV Is packed with proteins (this is the main thing our published models show, but in this transition, the HIV matrix (space between the envelope and the capsid) is completely empty and the proteins are missing.
+%-iw- I like the painting style (Goodsell-like). 
+%-p-  The transition itself is really nice, for the same reasons that I like the other one.
+
+%pro:
+%-like the simplified representation and the brick of blue goo that still gives an impression of the shape and the relationship of the color scheme where molecular color schemes match the simpler fills that they become. 
+%This does a great job of still showing the compartmentalizations and comparment-to-compartment relationships.
+%-like the painting style (Goodsell-like).
+
+%con:
+%- major thing missing- the matrix of the HIV Is packed with proteins (this is the main thing our published models show, but in this transition, the HIV matrix (space between the envelope and the capsid) is completely empty and the proteins are missing.
+
+
+
+%*****************
+%********advantage of trans:
+
+%-g- In seeing the original model, I could truly appreciate how dense things were.  In the cleaned up final image, that density is harder to appreciate.
+%-iw- The starting point gives an indication of crowdedness and relative abundance of protein, while the final image does not.
+%-p- The transition let's the viewer see the complexity of the structure, where the final image is simplified.
+
+%pro:
+%-In seeing the original model, I could truly appreciate how dense things were.  In the cleaned up final image, that density is harder to appreciate.
+%-he starting point gives an indication of crowdedness and relative abundance of protein, while the final image does not.
+%-The transition let's the viewer see the complexity of the structure, where the final image is simplified.
+%con:
+%---
+
+
+All experts confirmed that the animation successfully conveyed the compartmentalizations and compartment-to-compartment relationships in the virus. And also the "painting style" that the image space metamorpher achieved was complemented. The transition was stated to give a good impression \textit{"where molecular color schemes match the simpler fills that they become."}
+One expert was particularly fond of this transition. \textit{"This transition does a great job of taking a densely packed model and simplifying it to reveal the composition of molecules that are isolated to each compartment, while still retaining a simplified rendition of the compartment (organic wavy colored compartment shapes.)"}
+
+One expert was more interested in the inner parts of the virus and would have ignored the outer blood serum in her design. In our pipeline, this update is easily achievable, for instance, with a re-specification of the subsets that in the schema layout metamorpher processes. 
+
+The experts appreciated that the transition conveyed additional information that would not have been visible with a simple depiction of the original and target state.
+The transition \textit{"does help show what the different types of molecules look like, because the animation takes away the layers that obstruct the deeper molecules."
+"The transition let's the viewer see the complexity of the structure, where the final image is simplified."}
+
+%*****************
+%********pro/con final img:
+
+%-g- same
+%-iw- The final representation only shows a small subset of viral proteins.
+%-p- -----
+
+%pro:
+%---
+%con:
+%-The final representation only shows a small subset of viral proteins.
+
+%*****************
+%********duration:
+
+%-g- This would likely take me between 4 and 6 hours to recreate with Cinema 4D.
+%4h
+
+%-iw- If I already had all of the geometry, I would guess that this type of visualization would take up to a week to create.
+%1week
+
+%-p- In Maya, I would do several sets of still renders by rendering the top layer, then erase the molecules I don't want to see anymore, then render the next layer. and then do the transition in post production in After Effects. The actual post production transition I would do with an animated mask reveal, it's very simple and would not take long. Setting up the Maya file would take the longest.
+
+The effort for the manual re-creation of the transition to a schematic representation was deemed higher than for the explosion. Estimations lay between four hours and one week. A parametrization of the necessary metamorphers in our pipeline takes would take up approximately the same amount of time as the setup for the explosion. ... up to half an hour
 
 
 
@@ -134,15 +194,72 @@ duration:
 
 
 \subsubsection{Histograms}
-could the animation answer the posed question?
+%*****************
+%********could the animation answer the posed question?
 
-positiv:
+-g- 
 
-advantage to static final img:
+-iw- 
 
-pro/con final img:
+-p- 
 
-duration:
+pro:
+
+con:
 
 
+%*****************
+%********positiv:
 
+-g- 
+
+-iw- 
+
+-p- 
+
+pro:
+
+con:
+
+
+%*****************
+%********advantage to static final img:
+
+-g- 
+
+-iw- 
+
+-p- 
+
+pro:
+
+con:
+
+
+%*****************
+%********pro/con final img:
+
+-g- 
+
+-iw- 
+
+-p- 
+
+pro:
+
+con:
+In this and in the previous use case, two of three illustrators would have added labels to the target representation. We discuss why annotations are not part of our pipeline in Section \ref{sec:discuss}.
+
+
+%*****************
+%********duration:
+
+-g- 
+
+-iw- 
+
+-p- 
+
+pro:
+
+con:

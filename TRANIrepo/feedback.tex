@@ -91,7 +91,7 @@ All illustrators confirmed that the transition was crucial for understanding the
 %-p- I've never tried to do this exact seperation/animation, but i don't think it would take too long. The virus structure loads into Maya in an organized way so that I don't really remember it being too difficult to manage.
 
 
-The experts' estimated duration for the manual re-creation of the explosion transition ranged between three hours and two days. With our scripting interface, the respective metamorphers can be parametrized within a few minutes.
+The experts' estimated duration for the manual re-creation of the explosion transition ranged between three hours and two days. With our scripting interface, the respective metamorphers can be parametrized within within half an hour.
 
 
 
@@ -183,7 +183,7 @@ The transition \textit{"does help show what the different types of molecules loo
 
 %-p- In Maya, I would do several sets of still renders by rendering the top layer, then erase the molecules I don't want to see anymore, then render the next layer. and then do the transition in post production in After Effects. The actual post production transition I would do with an animated mask reveal, it's very simple and would not take long. Setting up the Maya file would take the longest.
 
-The effort for the manual re-creation of the transition to a schematic representation was deemed higher than for the explosion. Estimations lay between four hours and one week. A parametrization of the necessary metamorphers in our pipeline takes would take up approximately the same amount of time as the setup for the explosion. ... up to half an hour
+The effort for the manual re-creation of the transition to a schematic representation was deemed higher than for the explosion. Estimations lay between four hours and one week. A parametrization of the necessary metamorphers in our pipeline takes would take up approximately the same amount of time as the setup for the explosion.
 
 
 
@@ -197,69 +197,73 @@ The effort for the manual re-creation of the transition to a schematic represent
 %*****************
 %********could the animation answer the posed question?
 
--g- 
+%-g- I don’t thinks this current implementation gives me an easy to understand or accurate depiction of the compartment volumes. If I wanted to compare the volumes of the compartment, I would prefer to have a bar in the graph for each compartment.  In this version I have to mentally stack each molecular tower to sum them up to understand how tall the compartments are relative to each other.  The lighting on the bars is hard to read, so the 3rd dimension in the bar graph could be interepreted as a taller bar instead of one that goes back into 3D space.  The camera moves during the transition which makes it hard for me to understand how big the original sphere-shaped particle was before the layers got pealed away.  Lastly, the bars are out of the safe area of the movie, at the border of the screen which makes them hard to read.
+%-iw- I thought this animation was very unclear.  It could be improved by labeling (why are there so many blue-ish columns, orange-ish columns, etc, and what protein does each column represent?).  
+%-p- I don't think it answers the relative volume of each compartment because it looks like it's just stacking the numbers of each type of molecule. So I can tell that there are more light blue molecules then red molecules. Also by the end I can't remember where the red tiles come from or the blue tiles, and I have no idea what each other represents. 
 
--iw- 
-
--p- 
-
-pro:
-
-con:
 
 
 %*****************
 %********positiv:
 
--g- 
+%-g- See above for critiques. I do like the continuous connected flow from the 3D structure to the bar graphs to help maintain a visual connection.  It is a fun piece to watch, but scientifically, I’m not sure how useful it can be until the issues described above are addressed.
+%-iw- It's not clear to me what purpose this animation would serve.  It might be more useful to think about proteins in quantity rather than volume (how many of each protein is there?)
+%-p- The transition is really nice, it looks interesting, the movement is great!
 
--iw- 
-
--p- 
-
-pro:
-
-con:
 
 
 %*****************
-%********advantage to static final img:
+%********advantage of trani:
 
--g- 
+%-g- Everything… simply because there is no before state in the final image, only a collection of lumpy 3D bar graphs with no labels, so it would be tough to understand where they came from or what they refer to.  In that regard the animation is nice because it makes a connection from the complex structure to the volumetric analysis.
 
--iw- 
+%-iw- Without labels, the final representation is almost impossible to interpret on its own.  With the transition, it’s a bit more clear what the representation is meant to show, but it is still very difficult to interpret.
 
--p- 
+%-p- Nothing, the transition just looked cool. Obviously the target image says nothing alone, apart that there is more light blue somethings then red somethings. So the target image can't stand alone. But the particular transition doesn't provide addition information except maybe that the blue somethings came from the virus structure, but I don't know where it came from exactly.
 
-pro:
-
-con:
 
 
 %*****************
 %********pro/con final img:
 
--g- 
+%-g- See above… its out of context, needs labels or some relationship to the original , e.g. if the original came back up somehow at the end it would be a moore complete comparison.
+%-iw- ---
+%-p- nothing in particular, needs labels, don't know what I'm actually looking at.
 
--iw- 
+The transition to histograms was the most critical regarded, in comparison to the prior two use cases.
+The illustrators uniformly appreciated the engangingness of the transition and the fact that it established a visual connection to the target representation, \textit{"I like the continuous connected flow from the 3D structure to the bar graphs to help maintain a visual connection. It is a fun piece to watch!" "Would be tough to understand where they came from or what they refer to [without the transition]."}
+On the critical side, all three illustrators would have added labels to the target representation, in order to make their context more understandable. \textit{"The target image can't stand alone."}
+We discuss why annotations are not part of our pipeline in Section \ref{sec:discuss}.
+All other complaints are easily addressable with existing metamorphers. One expert preferred to have a bar in the graph for each compartment. This is achievable by creating a by-compartment hierarchy in the data structuring stage, before executing the bar layouts on the individual subsets. Another expert would have preferred 2D bars. This is achievable with object space morphing metamorpher that we demonstrate in our supplemental video. One suggestion to establish context without labels, was to add the original representation at the end of the animation. This is actually supported by the data restructuring and timing stages. Another suggestion was to encode the quantities of proteins instead of their collective volume. This would be easily achievable with a re-parametrization of the object space metamorpher.
 
--p- 
+%pro:
+%-like the continuous connected flow from the 3D structure to the bar graphs to help maintain a visual connection.  It is a fun piece to watch
+%-The transition is really nice, it looks interesting, the movement is great!
 
-pro:
+%-would be tough to understand where they came from or what they refer to.
+%-labels, the final representation is almost impossible to interpret on its own.  With the transition, it’s a bit more clear what the representation is meant to show, but it is still very difficult to interpret.
+%-the target image can't stand alone.
 
-con:
-In this and in the previous use case, two of three illustrators would have added labels to the target representation. We discuss why annotations are not part of our pipeline in Section \ref{sec:discuss}.
+%con:
+%-no easy to understand or accurate depiction of the compartment volumes.
+%-prefer to have a bar in the graph for each compartment. === doable with metamorphers
+%-lighting on the bars is hard to read, so the 3rd dimension in the bar graph could be interpreted as a taller bar instead of one that goes back into 3D space. == 2d example
+%- by the end I can't remember where the red tiles come from or the blue tiles, and I have no idea what each other represents.
+%-It might be more useful to think about proteins in quantity rather than volume (how many of each protein is there?) == doable
+%-target is out of context without labels
+%-if the original came back up somehow at the end it would be a moore complete comparison. == doable
+%-mentally stack each molecular tower to sum them up to understand how tall the compartments are relative to each other === also doable
+%--navigation: The camera moves during the transition which makes it hard for me to understand how big the original sphere-shaped particle was before the layers got pealed away.  Lastly, the bars are out of the safe area of the movie, at the border of the screen which makes them hard to read.
 
 
 %*****************
 %********duration:
 
--g- 
+%-g- This would take me between 6 and 12 hours to create with rigging and a bit of scripting in Cinema 4D
 
--iw- 
+%-iw- A week or less, provided I already had the geometry.
 
--p- 
+%-p- no one in their right mind would try to do that manually. If I needed to make a graph that showed the relative amount of each type of molecule (which I have never been asked to do) then I would try to find a clever way to find out how many molecules of each type there are, I would start with the original "recipe", usually there is a recipe and that would say how many molecules are of each type. I would then make a the graph manually. Again, I've never tried, but I would never try to do a transition like that manually.
 
-pro:
 
-con:
+The experts estimated the effort for the manual re-creation of this use case between six hours and a week. One expert even stated that she would not dare to create such a transition manually. In our scripting interface, this was actually the easiest transition to set-up, as the bar layout does not require much parametrization. 

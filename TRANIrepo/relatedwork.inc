@@ -48,8 +48,8 @@ However, the spatial displacement is not only driven by the visibility of the in
 
 \subsection{Alternatives to animated transitions} 
 
-Small multiples~\cite{Tufte:1990:EI}, coordinated multiple views, and static images in conjunction with annotations, traces and glyphs are alternatives that are typically used to visualize transitions, trends, correspondences or sequences~\cite{Robertson:TVCG:2008}.
-Hsu et al. \cite{Correa:TOG:2011} present an automated method for the illustrative visualization of multiscale phenomena. They generate an image that contains multiple levels of detail of one subject by blending the renderings of multiple pin hole cameras at different zoom levels together. 
+Small multiples~\cite{Tufte:1990:EI}, coordinated multiple views, and static images in conjunction with traces and glyphs are alternatives that are typically used to visualize transitions, trends, correspondences or sequences~\cite{Robertson:TVCG:2008}.
+Hsu et al. \cite{Correa:TOG:2011} present an automated method for the illustrative visualization of multiscale phenomena. They generate an image that contains multiple levels of detail of one subject by blending the renderings of multiple pin hole cameras at different zoom levels.
 
 Tversky et al.~\cite{Tversky:IJHCS:2002} summarize cognitive studies on the benefits of animation. 
 Although, they conclude that animation alone has not been convincingly demonstrated to be superior to static illustrations, other findings of their study suggest a direction for research on animations in visualization.

@@ -48,7 +48,7 @@ In such cases, the illustrator would abstract the biological structure from a sp
 \subfloat[]{\label{fig:spaces0}\includegraphics[width=\linewidth]{figures/small-spaces0.png}}
 
 \subfloat[]{\label{fig:spaces1}\includegraphics[width=\linewidth]{figures/small-spaces1.png}}
-\caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces (video by Graham Johnson).}
+\caption{\label{fig:spaces}(a) Examples of transitions within the same visualization space and (b) across different visualization spaces \cite{gjvideo}.}
 \vspace{-6mm}
 \end{figure}
 

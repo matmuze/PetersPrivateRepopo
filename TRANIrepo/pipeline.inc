@@ -11,13 +11,20 @@ Such visualizations are employed by scientific illustrators and animators for co
 
 Each illustration which communicates a relationship starts with the two representations of the model. The first, source representation, is typically close to the mental model of the audience. The second, target representation, illustrates different aspects of the presented model, but its relationship to the source representation might not be obvious. In that case, the illustrator needs to manually create the visual transition between the two representations. We present a method for creating a continuum, or metamorphosis, between two arbitrary model representations that illustrates the relationship between these representations.
 
-The state of each data element is represented as a point in multidimensional "attribute" space. Each attribute of the data is present as one dimension of this space. The continuum is represented by curves in this multidimensional "attribute" space that connect the points of an element's source state to its target state.
-
+The continuum is defined as follows: the state of each data element is represented as a point in multidimensional "attribute" space. Each attribute of the data is present as one dimension of this space. The continuum is represented by curves in this multidimensional "attribute" space that connect, i.e., relate, the points of an element's source state to its target state.
 Our method creates this continuum by describing the target representation on the basis of the original representation, thus alleviating the illustrator from creating the transition manually.
 
-Figure \ref{fig:ov0} shows a source and a target representation. Both communicate certain aspects of a model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists of two high level steps. In the first step, we create a continuous space between source and target representation. However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). Therefore, the second step of the pipeline prepares this continuum for presentation to an intended audience (Figure \ref{fig:ov2}). In this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
+Figure \ref{fig:ov0} shows a source and a target representation. Both communicate certain aspects of a model, but they are disconnected, their relationship is not immediately clear. Our pipeline consists of two high level steps. In the first step, we \textit{create} the continuum by explicitly defining relations between the data structures, visual, and spatial properties of the source and target representation (Fig. \ref{fig:overview}, left).
+%explicitly define the relation between an element's attribute in its source and target state. e between both representation states.
+However, this unstructured connection is not yet ready for illustrating the relationship between the representations (Figure \ref{fig:ov1}). The continuous space that we created can be sampled but we have to define \textit{how} first.
+%This presentation is defined in the second step of our pipeline, i.e., the continuum \textit{presentation}.
+%we \textit{create} a continuous space between source and target representation. The continuum is created by explicitly defining relations between the data structures, visual, and spatial properties of the source and target representation, i.e., \textit{what} to relate, represented by the first three stages in Figure \ref{fig:overview}.
+%
+The second step of the pipeline prepares this continuum for \textit{presentation} to an intended audience (Figure \ref{fig:ov2}) by specifying how the relations that we created in the first step should be presented (Fig. \ref{fig:overview}, right). 
+%The presentation of the metamorphosis is handled by the last four stages of our pipeline (Fig. \ref{fig:overview}), i.e., in regard to \textit{how} the transition should be carried out.
+With this step, the metamorphosis is finalized so that it illustrates the relationship between the source and the target representations.
 
-The metamorphosis is carried out by applying a sequence of operators, which we refer to as \emph{metamorphers}. The operators can be arbitrarily combined by the illustrators to achieve results which they would otherwise have to create manually.
+The metamorphosis is carried out by applying a sequence of operators in our pipeline (Fig. \ref{fig:overview}), which we refer to as \emph{metamorphers}. The operators can be arbitrarily combined by the illustrators to achieve results which they would otherwise have to create manually.
 
 %Each metamorpher belongs to one of the stages of a pipeline according to the task it is used to solve.
 
@@ -30,14 +37,14 @@ When illustrators manually create a transition across data representations in a 
 Without such a relation, the transition that they modeled is only valid for the exact combination of the specified data, original representation, target representation, as well as the visual transition.
 The problem with this approach is that if one of these four aspects should be changed, e.g, because new findings about the data have been discovered, or a different information should be conveyed, the entire transition has to be manually remodeled from scratch.
 
-To overcome this issue, we explicitly create this continuum in the first step of our pipeline by specifying relationships between all aspects of the underlying source and target representations, i.e., defining the "what" of this relationship.
+To overcome this issue, we explicitly create this continuum in the first step of our pipeline by specifying relationships between all aspects of the underlying source and target representations.
 The continuum is created with the sequential execution of the metamorphers in the pipeline.
 The metamorphers define how an aspect A, e.g., the position, in the source state relates to aspect B in the target state.
 The relationship is explicitly modeled with these metamorphers.
 Therefore, if the underlying data is changed, the relationship remains.
 The transition does not have to be remodeled,
 simply the involved metamorphers have to be re-executed on the new data,
-thus saving a significant effort of the illustrator.
+thus saving significant effort for the illustrator.
 
 %The continuum can then be reused for different data, or different form of presentation to the viewers, saving a significant effort of the illustrator.
 

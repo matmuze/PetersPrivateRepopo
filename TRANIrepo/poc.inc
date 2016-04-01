@@ -58,7 +58,7 @@ As the last step, the continuum created between the two representations is sampl
 %what does the three dimensional structure of the virus and its inner compartments actually look like and how do they relate to each other hierarchically?
 
 
-With the created transition, we can explain to the viewer how are the compartments enclosed within each other, as the final represenatation alone does not necessarily convey this information. This is especially the case for the viewers who are not familiar with the dataset. Furthermore, the transition explains where the isloated molecules, used as a context for the individual compartments, originate from.
+With the created transition, we can explain how the HIV compartments are enclosed within each other, as the final representation alone does not necessarily convey this information. This is especially the case for audiences who are not familiar with the data set. Furthermore, the transition explains where the isolated molecules, used as a context for the individual compartments, originate from.
 
 %With the created transition, we can explain to a viewer how the four compartments are enclosed within each other, as the final representation alone does not convey that one object is enclosed in another, especially for a viewer who has not seen the dataset before. Furthermore the transition explains where the isolated molecules originate from. 
 
@@ -90,11 +90,11 @@ With the created transition, we can explain to the viewer how are the compartmen
 	
 %since the data is XXX, it is impossible to see YYY
 Besides the spatial organization of a cell, biologists are often also interested in the cell's molecular composition, i.e., what types of molecules are present in the data, in which compartment are they contained, what do the molecules look like?
-The HIV model, e.g., contains 42 different molecule types but due to their high count (thousands of molecule instances across these 42 types), their mostly random distribution and the dense packing of the data, the detailed information about the number of types and their individual shape is impossible to deduce from direct visualization of the original data.
+The HIV model, e.g., contains 42 different molecule types but due to their high count (thousands of molecule instances across these 42 types), their mostly random distribution and the dense packing of the data, the detailed information about the number of types and their individual shape is impossible to deduce from direct a visualization of the original data.
 Illustrators therefore create atlas views (Fig. \ref{fig:t3}) showing a simplified schematic representation of a cell in order to highlight the shapes of different molecules, as well, as the shape and size of the structures that they collectively compose and are contained in. Low level details of the noisy molecule distribution, i.e., the exact count, position and shape of individual molecules are suppressed for this schematic representation.
 
 We achieve a transition to such an atlas based view with our pipeline in the following way:
-Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the three subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the three subsets will be morphed in image space to create suggestions of the compartment shapes, we need a copy of each subset for the layouting stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
+Similar to the first step in the exploded view use case, we restructure the data with the type range metamorpher to create the relation to the three subsets that represent the compartments of our schematic target representation. Technically, we need each subset twice. Since the three subsets will be morphed in image space to create suggestions of the compartment shapes, we need a copy of each subset for the layout stage. The \textit{copy} metamorpher creates copies of the supplied subsets, resulting in copies A and B for each subset.
 
 %To indicate the shape of compartment structures, we create a uniform background color that represents the colors of the molecules
 Since the shapes of compartments in the HIV particle are occluded in the original representation, we create a simplified representation of the shape of each compartment, marking its area, in the morphing stage. %uniform color that marks each compartment's area in the morphing stage.
@@ -104,7 +104,7 @@ The blur metamorpher creates an additional render pass for each subset of copy A
 %If we wanted to keep a hint of the noisy color distribution, we could reduce the blur kernel. the compartments would still be separated from each other due to the sharp edges of the constrast in the alpha channel.
 
 To reveal the compartment areas created in the previous step, and to enable the display of enlarged representatives for each molecule type that are essential for conveying the molecule shapes, we have to reduce the noisy clutter of the molecules.
-We achieve this reduction in the layouting stage, where we create the relation of our dense and noisy original data to the sparse enlarged rendering of representative molecules and compartment shells in the final representation.
+We achieve this reduction in the layout stage, where we create the relation of our dense and noisy original data to the sparse enlarged rendering of representative molecules and compartment shells in the final representation.
 For a given subset of copy B, the \textit{schema} layout metamorpher differentiates between membrane molecule types, i.e., molecules that compose the shell of a compartment, and non-membrane types, i.e., the ones that are floating within a compartment, in order to create the final schematic representation.
 Since illustrators know, which molecule types the membranes of compartments are composed of, they can specify the membrane type so that they are treated differently than the molecules within compartments. For membrane molecules, the schema layout metamorpher picks the ones that are closest to the border of the compartment, from the viewing position. The picked membrane molecules remain their original size and rotation. The non-picked membrane molecules are scaled to zero to be invisible in the final representation, in order to reveal the compartments and molecules within. Alternatively, instead of scaling, transparency could be applied to membrane molecules in the morphing stage. For membranes, the schema layout operator thus preserves the membranes shells of compartments while revealing the inner structures of a compartment.
 
@@ -141,7 +141,7 @@ The presentation of the continuum between the original data representation and t
 The transition of the scaling more directly shows how small the original molecule representatives were.
 The transition of rotations emphasizes the fact that molecules can have different orientations in the original data.
 The staging per compartment enables occlusion handling as it reveals inner structures in intermediate states of the transition which would not happen in a side by side comparison and non-staged animation.
-The distance offset delay reduces the transformation at any given time to a small vertical stripe of the data, thereby reducing the amount of simultaneous visual stimuli, making the animation more readable, and directing the users attention to the one specific location that is transforming at each point in time.
+The distance offset delay reduces the transformation at any given time to a small vertical stripe of the data, thereby reducing the amount of simultaneous visual stimuli, making the animation more readable, and directing the user's attention to the one specific location that is transforming at each point in time.
 
 
 
@@ -180,15 +180,15 @@ The distance offset delay reduces the transformation at any given time to a smal
 \subsection{Representation of Quantitative Relations}%[infovis: focus on morphing, camera, trajectory]
 To understand the molecular data, it is often necessary to show quantitative aspects of the data elements.
 %For the analysis and explanation of molecular data often also the comparison of quantitative aspects is important for its understanding. %, besides structural information,
-In our example, we convey how many different molecule types does the HIV particle contains, and how much of the volume within the particle does each of the types occupy.
+In our example, we convey how many different molecule types the HIV particle contains, and how much of the volume within the particle each of the types occupies.
 Such quantification is necessary, for instance, when analyzing different life cycle stages of a cell.
 
 The comparison of such information on the direct rendering of the original 3D models can deceive due to the complexity of the molecular structures.
-Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial information but rather abstract dimensions, such as aggregations, e.g., of atom counts \cite{Tory:RVH:2004}.
+Illustrators therefore often supply quantitative information in the form of infographics, which are based in a different visualization space than the original biological data. In this space, spatial dimensions are not used to convey spatial information but rather abstract dimensions \cite{Tory:RVH:2004}, such as aggregations, e.g., of atom counts.
 %In order to achieve this sort of representation, the molecular data has to be transformed into a different visualization space.
 %A stronger abstraction of the original spatial representation than in the previous two examples takes place.
 The relation between the original spatial and the transformed abstract representations is even harder to grasp.
-Continuous transitions are especially suitable for depicting such complex relations, as was successfully demonstrated in the award-winning animation of the decomposition of a cell (Fig. \ref{fig:spaces1}). In this video, scientific illustrator Graham Johnson used an animated transition to convey the relation between the 3D model of a pancreas cell and an abstract depiction of volumetric relations between the elements of the cell.
+Continuous transitions are especially suitable for depicting such complex relations, as was successfully demonstrated in the award-winning animation of the decomposition of a cell (Fig. \ref{fig:spaces1}). In this video, scientific illustrator Graham Johnson used an animated transition to convey the relation between the 3D model of a pancreas cell and an abstract depiction of volumetric relations between the elements of the cell \cite{gjvideo}.
 
 
 
@@ -201,7 +201,7 @@ Continuous transitions are especially suitable for depicting such complex relati
 %information of hybrid easier to absorb than mentally merging quantifiation information from pie chart and original 3d model of cell
 %complex interplay  of randomness and specific interactions in these structures that enables life to exist
 
-In this final use case, we demonstrate how we can achieve such a transition to an abstract visualization space with our pipeline.
+In this final use case, we demonstrate how we can achieve a transition to an abstract visualization space with our pipeline.
 As a demonstration, we chose to convey the quantitative information about the number of molecule types in the HIV particle (Fig. \ref{fig:infovis0}) and the volumetric relation between types by a histogram (Fig. \ref{fig:infovis3}). The number of histogram bars corresponds to the number of molecule types. The height of each bar corresponds to the volume that the respective molecule type occupies in the HIV particle.
 Since we are concentrating on displaying relations within the HIV particle, we remove the blood serum from our original representation before we restructure our data hierarchy to match the intended target representation.
 
@@ -224,17 +224,17 @@ Finally, the control points of each molecule are interpolated by a cubic spline.
 
 Due to the onion like structure of the HIV particle, inner structures are occluded by outer structures.
 Inner structures should therefore not start their transition before the outer structures, as they would never be visible in their original representation. Further, if the inner structures would fly through the outer structures to their target representation, a viewer would not understand, from which part of the virus are they coming from.
-To present the transition in a manner that reveals each original structure before it starts its transition, we apply the \textit{staged timing} metamorpher to peel HIV particle like an onion, starting with its outer layers (Fig. \ref{fig:infovis1} and \ref{fig:infovis2}).
-In contrast to the previous two use cases, here we stage the timing by molecule type to transition each molecular type individually into its histogram bar representation. The transition of each type starts after a certain delay / when the previous transition is finished.
+To present the transition in a manner that reveals each original structure before it starts its transition, we apply the \textit{staged timing} metamorpher to peel the HIV particle like an onion, starting with its outer layers (Fig. \ref{fig:infovis1} and \ref{fig:infovis2}).
+In contrast to the previous two use cases, here we stage the timing by molecule type to transition each molecular type individually into its histogram bar representation. The transition of each type starts after a certain delay.
 To create the order of the staging that results in the peeling effect, we use a \textit{distance offset} metamorpher. The distance of each molecule of a specific type to the center of the particle is calculated and averaged. The average distance per type is then used for the ordering of the staging. As the center of the particle we assume the center of the bounding box of the root node of the scene hierarchy.
 
-In contrast to the previous use case, the position of the the histograms representation differs from the position of the original representation.
+In contrast to the previous use case, the position of the the histogram's representation differs from the position of the original representation.
 A camera position that shows both representations at the same time would use the screen space inefficiently, since only during the transition both representations are visible. The original and the target representation would be shown with unused screen space where the respective other representation would be positioned.
 We therefore implemented a simple \textit{guided navigation} metamorpher to use the available screen space efficiently by zooming in as closely as possible to the displayed data, while assuring that entire scene (all molecules) are visible during the transition.
 The metamorpher checks if molecule instances are culled from the view. If yes, then the camera is zoomed out until no more instances are culled. If no, the camera zooms in until instances are culled. A constant zooming in and out at the optimal position is avoided by smoothing the camera transition. The camera look-at vector is updated to look at the center of our scene, where our HIV particle is positioned.
 Finally, to produce the animated transition to the histogram bars, why apply the same continuous sampling as in the previous two use cases.
 
-The transition conveys two aspects of the data that a simple side-by-side presentation of original and target state would not. One the one side, the relation between the histogram bars and the molecular structures that they represent is established. On the other side, the inner structures of the HIV particle that are not visible in the original representation and not present in the target representation are revealed in the course of the transition.
+The transition conveys two aspects of the data that a simple side-by-side presentation of original and target state would not. The relation between the histogram bars and the molecular structures that they represent is established. Additionally, the inner structures of the HIV particle that are not visible in the original representation and not present in the target representation are revealed in the course of the transition.
 
 
 

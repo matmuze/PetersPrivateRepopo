@@ -34,8 +34,8 @@ Our approach is therefore fundamentally different from existing occlusion manage
 	\includegraphics[width=\linewidth]{figures/__overview.eps}
 	\caption{\label{fig:o}
 		An illustration of the workflow with the visibility equalizer. 		
-		Clipping objects filter-out elements in the data based on their type and location (1).
-		The clipping is applied in serial, i.e., the output of a clipping object constitute de the input of the next one.
+		Clipping objects filter out elements in the data based on their type and location (1).
+		The clipping is applied in serial, i.e., the output of a clipping object constitute the input of the next one.
 		The visibility information of the entire scene is routinely collected and updated in the visibility equalizer to keep the viewer informed about the current state of the data (2).
 		The clipping parameters of a given clipping object can later on be refined by interacting with the bar charts of the visibility equalizer to offer more control on the clipping, such as fuzziness (3).		
 		%Upon interaction with the bar charts, the properties of the selected clipping object is overridden to offer more control on the clipping, such as fuzziness.
@@ -67,19 +67,19 @@ timization by minimizing the informational divergence between a user specified t
 
 \pagebreak
 
-Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other side, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures.
+Transfer function based approaches are well suited for volumetric data that contains segmentable structures, such as the organs or bones in a medical scan. For molecular data this only holds partially true, as some types of molecules do indeed form continuous structures that could be made visible with a transfer function (e.g., membranes, nucleus). On the other hand, within these structures there is a more noise-like distribution of these molecules that cannot be segmented into solid structures.
 
 \subsection{Multi-Scale Visualization of Molecular Structures}
 %The visualization of the molecular structures in our approach is based on the publicly available cellView \cite{muzic15}. The tool is capable of rendering structures that are comprised of several billions atoms at interactive frame rates in multiple levels of detail.  
 Lindow et al. \cite{lindow15} were the first to introduce a fast method for the real-time rendering of large-scale atomic data on consumer level hardware. They utilize instancing on the GPU to repeat these structures in the scene. For each molecule type, a 3D grid of the atoms is created and stored on the GPU. Falk et al. \cite{falk13} further refined the method with improved depth culling and hierarchical ray casting to achieve faster rendering performance for even larger scenes. 
 
-A novel and more efficient approach for rendering large molecular datasets was later on introduced by Le Muzic et al. \cite{le2014illustrative}, which is based on brute-force rasterization rather than ray-tracing. 
-To reduce the number of drawn geometries they rely on the tessellation shader to perform dynamic level-of-detail. 
-Their approach allows switching between different degree of coarseness for the molecular structures on-the-fly, thus allowing the entire scene to be rendered in a single draw call efficiently, approaching zero driver overhead. 
+A novel and more efficient approach for rendering large molecular datasets was introduced by Le Muzic et al. \cite{le2014illustrative}, which is based on brute-force rasterization rather than ray-tracing. 
+To reduce the number of drawn geometries they rely on the tessellation shader to perform dynamic level-of-detail rendering. 
+Their approach allows switching between different degrees of coarseness for the molecular structures on the fly, thus allowing the entire scene to be rendered in a single draw call efficiently, approaching zero driver overhead. 
 As a follow up, they developed and released cellVIEW \cite{muzic15}, a tool designed for rendering large-scale molecular scenes, which was implemented with Unity3D, a popular 3D engine.
 cellVIEW was primarily developed to showcase large molecular structures generated with cellPACK \cite{cellpack}, a tool developed to procedurally generate accurate and multi-scale models of entire viruses and cells.
 
-Our visibility equalizer technique is built-upon cellVIEW, and is an attempt to improve the navigation and exploration of large molecular scenes generated with cellPACK.
+Our visibility equalizer technique is built upon cellVIEW to improve the navigation and exploration of large molecular scenes generated with cellPACK.
 cellVIEW leverages GPU computing and parallel programming to enable real-time rendering and therefore, to provide a smooth and responsive user-experience, the visibility equalizer was developed with the same programming paradigm.
 
 %Other related work is concerned with illustrative molecular visualization. Grottel et al. \cite{grottel12} and Eichelbaum et al. \cite{eichelbaum13} propose ambient occlusion approaches for large molecular scenes in order to improve the depth perception in these complex structures. Parulek et al. \cite{parulek14} propose a continuous level of detail scheme for molecular data that offers gradual shape simplification for distant molecules based on a clustering of the atomic spheres.

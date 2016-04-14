@@ -36,15 +36,15 @@
 Clipping objects define which instances of a given ingredient type are displayed.
 There are two ways of how a clipping object can influence the clipping: either in object-space or in view-space.
 
-\subsection{Object-Space Clipping}
+\subsection{Object Space Clipping}
 
 \end{comment}  
 
-\section{Object-Space Clipping}
+\section{Object Space Clipping}
 
 Clipping objects define how instances shall be discarded depending on their location or type.
-They can operate either in object-space or in view-space.
-In this Section, we will explain in details how clipping objects operate in object-space.
+They can operate either in object space or in view space.
+In this Section, we will explain in detail how clipping objects operate in object space.
 
 %There are two ways of how a clipping object can influence the clipping: either in object-space or in view-space.
 %%%%%%%%%%%%%%%%%%%%%%
@@ -65,32 +65,32 @@ In this Section, we will explain in details how clipping objects operate in obje
 %Although the set of offered clipping shapes is yet limited, it would be trivial to enrich it using more complex SDF operators, such as union, to merge several shapes together in one single distance field, and thus obtain more complex clipping region shapes.
 %The first task of the object-space clipping is to determine whether an instance is located in the clipping region.
 %This operation is repeated every frame for each instance of the scene.
-Clipping objects are associated with geometric shapes to specify a region of the domain which is influenced by the clipping.
+Clipping objects are associated with geometric shapes to specify a region of the domain that is influenced by the clipping.
 Our system currently supports the following set of primitive shapes: plane, cube, sphere, cylinder and cone.
-We compute the distance between the instance centroids and the clipping region to find out which ones lie inside that region.
+We compute the distance between the instance centroids and the clipping region to identify instances that lie inside that region.
 To accelerate the computation, we solve the problem analytically using a mathematical description of the clipping region as a 3D signed distance field (SDF).
 
 Due to the architecture of the rendering technique which is employed, the instances information (position, rotation, type, radius, etc.) is already stored on the GPU in large buffers using a structure of array layout.
 To speed up the clipping operation and avoid data transfer costs, the distance is computed in parallel in a compute shader program, prior to the rendering, with one thread allocated per instance.  
 The position, rotation, scale and geometry type of every clipping object must be additionally uploaded to the GPU in order to define the correct clipping region SDF.
 In a single thread and for each clipping object, the required information is fetched from the video memory and is used to compute the signed distance between an instance and the clipping object.
-Should an object be clipped, a dedicated flag in a GPU buffer will be updated, and that flag will be read during the rendering to discard the clipped instance.
+When an object needs to be clipped, a dedicated flag in a GPU buffer is updated. The flag is read during the rendering to discard the clipped instance.
 
 \subsection{Clipping Filtering} \label{ssec:clip_params}
 
 A clipping object also comprises a set of parameters that override the clipping state of instances based on their type.
 This filtering operation is performed if an instance is located inside the clipping region, in the same compute shader program described in Section \ref{localization}.
 The first parameter controls the percentage of discarded instances in the clipping region for a given type.
-We refer to this value as \emph{object-space clipping probability}.
+We refer to this value as \emph{object space clipping probability}.
 This value can be increased or decreased by dragging the light green bar in the visibility equalizer.
 %Clipping objects are applied in serial, the output of a clipping object constitute the input of the next one. 
 It is important to mention that with multiple clipping objects, interaction with the light green bar in the visibility equalizer will only affect the clipping probability of the selected clipping object.
 
-Upon start-up of the system, each instance is given a uniformly distributed random number comprised between $0$ and $1$, and which will remain unchanged.
+Upon start-up of the system, each instance is given a uniformly distributed random number between $0$ and $1$, and which will remain unchanged.
 Then, for each instance, we compare this value with the clipping probability in the computer shader program.
-In case the constant random number is higher than the clipping probability, the instance is marked as discarded, and will not be rendered. 
-For example, if the clipping probability value is equal to zero, all instances in the clipping region will be clipped, if the value is equal to one, no instance will be clipped.
-A value between zero and one thus allows to control the degree of fuzziness of a clipping, as explained in Figure \ref{fig:falloff}.
+If the constant random number is higher than the clipping probability, the instance is marked as discarded, and will not be rendered. 
+For example, if the clipping probability value is equal to zero, all instances in the clipping region will be clipped, whereas if the value is equal to one, no instances will be clipped.
+A value between zero and one thus controls the degree of fuzziness of a clipping, as explained in Figure \ref{fig:falloff}.
 
 The other parameters allow users to control the clipping based on properties such as the size of the molecules (weight) and their overall number (concentration).
 Via the user interface and for a given clipping object, the user defines ranges that correspond to the desired concentration and molecular weight.
@@ -104,23 +104,23 @@ Instances whose properties lie outside these ranges are simply discarded and wil
 \subfloat[]{\label{fig:falloff1}\includegraphics[width=0.3\linewidth]{figures/__falloff1.eps}}
 \subfloat[]{\label{fig:falloff2}\includegraphics[width=0.3\linewidth]{figures/__falloff2.eps}}
 \caption{\label{fig:falloff} 
-Illustration of the falloff function mechanism, (a) elements located further than distance $d$ from the clipping object  are clipped, (b) elements between the clipping object and $d$ are uniformly clipped, (c) elements are removed gradually based on their distance to the clipping object to further customize its behaviour.}
+Illustration of the falloff function mechanism: (a) elements located further than distance $d$ from the clipping object  are clipped, (b) elements between the clipping object and $d$ are uniformly clipped, (c) elements are removed gradually based on their distance to the clipping object to further customize its behaviour.}
 \vspace{-5mm}
 \end{figure}
 
 
-To further increase control over the object-space clipping, we use a falloff function. 
+To further increase control over the object space clipping, we use a falloff function. 
 The falloff function gradually modulates the effect of the clipping with respect to the distance from the clipping shape as illustrated in Figure \ref{fig:falloff}.
 %This is easily achievable, since we use distance functions to represent the clipping objects. 
 %Therefore, the distance of a molecular instance from the clipping surface can be evaluated by simply sampling the distance function of the given clipping object at the 3D position of the instance. 
-The farther away from the clipping surface an instance is, the higher his clipping probability will be.
+The farther away from the clipping surface an instance is, the higher its clipping probability will be.
 %The falloff function can be either constant, linear, or exponential.
-The object-space clipping probability of a molecule on the 3D position $p$ is multiplied by the falloff function $f(p)$. The falloff function is defined as follows:
+The object space clipping probability of a molecule on the 3D position $p$ is multiplied by the falloff function $f(p)$. The falloff function is defined as follows:
 \begin{equation}
 	f(\vec{p}) = 1 - min(1, (d(\vec{p}) / d) ^ c)
 \end{equation}
 where $d(p)$ is the distance to the clipping surface from the point $p$. 
-The function is parametrized by $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, while $c$ specifies the exponent of the falloff function.
+The function is parametrized by $d$ and $c$, where $d$ is the maximum distance up to which the object space clipping probability takes effect, and $c$ specifies the exponent of the falloff function.
 %We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
 It is important to mention that the falloff function will not preserve the user-defined clip-ratio displayed in the visibility equalizer.
 %An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. 
@@ -130,7 +130,7 @@ It is important to mention that the falloff function will not preserve the user-
 
 \section{View-Space Clipping}
 
-While object-space clipping with primitive shapes allows for a high degree of flexibility, it may also require cumbersome manual operations for more complex set-ups.
+While object space clipping with primitive shapes allows for a high degree of flexibility, it may also require cumbersome manual operations for more complex set-ups.
 We therefore provide additional functionalities to selectively remove occluding instances in front of a set of ingredients set focus, to ensure them a maximum degree of visibility.
 The focus state can be manually specified via the visibility equalizer by ticking a dedicated checkbox in front of the stack bars.
 %We use occlusion queries to determine the instances located in front of the focus region. 
@@ -180,7 +180,7 @@ We then update the clipping state of the occluding instance by updating its corr
 
 \subsection{Clipping Filtering}
 
-Similarly to the object-space clipping, we provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we refer to as \emph{view-space clipping probability}.
+Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we refer to as \emph{view-space clipping probability}.
 This value is set by the user for each ingredient type, and is modified by dragging the dark green bar in the visibility equalizer.
 The view-space clipping probability is evaluated after an instance was flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
 We compare the clipping probability with a random number, initially defined and described in Section \ref{ssec:clip_params}.

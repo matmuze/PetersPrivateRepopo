@@ -23,8 +23,8 @@ The instances are densely packed within the predefined compartments, to replicat
 Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism, remain hidden.
 It is therefore important to develop visualization techniques that would procedurally reproduce the occlusion management methods used in traditional illustration.
 Currently, this is achieved by placing clipping objects in the scene, which remove specified parts of the displayed model. 
-However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients is represented, and not either hidden in the volume or clipped away (Fig. \ref{fig:which}a). 
-To do this, they would need to visually inspect the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:which}b).
+However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients is represented, and not either hidden in the volume or clipped away (Fig. \ref{fig:hiv0}). 
+To do this, they would need to visually inspect the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:hiv1}).
 %However, in order to know how many instances have already been removed, and which molecular types are still sufficiently represented in the scene, the illustrator has to continuously check and compare the modeled scene against the gathered data and tediously confirm whether the essential information is still represented.
 %As a tangible example, let us assume we have to confirm the presented ratio of multiple molecular ingredients (Fig. \ref{fig:which}a) in an illustration. 
 %By clipping through the center of a 3D model, many structures can be revealed (Fig. \ref{fig:which}b). 

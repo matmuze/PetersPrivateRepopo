@@ -90,7 +90,7 @@ Upon start-up of the system, each instance is given a uniformly distributed rand
 Then, for each instance, we compare this value with the clipping probability in the computer shader program.
 In case the constant random number is higher than the clipping probability, the instance is marked as discarded, and will not be rendered. 
 For example, if the clipping probability value is equal to zero, all instances in the clipping region will be clipped, if the value is equal to one, no instance will be clipped.
-A value between zero and one thus allows to control the degree of fuzziness of a clipping, as explained in Figure \ref{fig:his}.
+A value between zero and one thus allows to control the degree of fuzziness of a clipping, as explained in Figure \ref{fig:falloff}.
 
 The other parameters allow users to control the clipping based on properties such as the size of the molecules (weight) and their overall number (concentration).
 Via the user interface and for a given clipping object, the user defines ranges that correspond to the desired concentration and molecular weight.
@@ -98,14 +98,14 @@ Instances whose properties lie outside these ranges are simply discarded and wil
 
 \subsection{Falloff Function}
 
-
 \begin{figure}[t]
 \centering
 \subfloat[]{\label{fig:falloff0}\includegraphics[width=0.3\linewidth]{figures/__falloff0.eps}}
 \subfloat[]{\label{fig:falloff1}\includegraphics[width=0.3\linewidth]{figures/__falloff1.eps}}
 \subfloat[]{\label{fig:falloff2}\includegraphics[width=0.3\linewidth]{figures/__falloff2.eps}}
 \caption{\label{fig:falloff} 
-Illustration of the falloff function mecanism, (a) elements located further than distance $d$ from the clipping object  are clipped, (b) elements between the clipping object and $d$ are uniformly clipped, (c) elements are removed gradually based on their distance to the clipping object to further customize its behaviour.}
+Illustration of the falloff function mechanism, (a) elements located further than distance $d$ from the clipping object  are clipped, (b) elements between the clipping object and $d$ are uniformly clipped, (c) elements are removed gradually based on their distance to the clipping object to further customize its behaviour.}
+\vspace{-5mm}
 \end{figure}
 
 
@@ -175,6 +175,7 @@ We then update the clipping state of the occluding instance by updating its corr
 \subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
 \subfloat[]{\label{fig:df3}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
 \caption{\label{fig:df}View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
+\vspace{-8mm}
 \end{figure}
 
 \subsection{Clipping Filtering}
@@ -197,16 +198,15 @@ Then, while computing occlusion queries in the fragment shader, we simply look-u
 %, priorly set of each ingredient type.
 
 
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.7\linewidth]{figures/__hiv.eps}
 \caption{\label{fig:hiv-islands} 
 Illustration of contextual anchoring with an HIV particle. 
 Despite the cutaway, some of the glyco-proteins (in yellow) are displayed and their surrounding lipid molecules (green) is preserved as contextual information.}
+\vspace{-5mm}
 \end{figure}
-
-
-
 
 \subsection{Contextual Anchoring}
 \label{ssec:anchoring}
@@ -219,6 +219,8 @@ This principle in shown in Figure \ref{fig:hiv-islands}, where we can observe pa
 We were able to procedurally reproduce this effect by applying a depth bias to the occlusion queries computation for selected focused molecules.
 This bias will ensure that contextual elements will no longer overlap the focus and will therefore be preserve as illustrated in Figure \ref{fig:islands}.
 
+
+
 \begin{figure}[t]
 \centering
 \subfloat[]{\label{fig:df0}\includegraphics[width=0.45\linewidth]{figures/__islands-no.eps}}
@@ -230,6 +232,7 @@ Elements in grey correspond to potentional occluders, while elements in red and 
 The red type is subject to contextual anchoring.
 (a) Without contextual anchoring, the depth of occluders (grey) is overlapping the depth of the mask and will therefore be discarded. 
 (b) With contextual anchoring, the depth of the occludees (red) is shifted so that context elements (purple) no longer overlap the focus and remain unclipped.}
+\vspace{-3mm}
 \end{figure}
 
 \section{Equalizing Visibility}

@@ -19,6 +19,7 @@
        {M. Le Muzic\thanks{Both first authors contributed equally. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Contact: \{mathieu | mindek\}@cg.tuwien.ac.at}$^{1}$,
         P. Mindek$^{1}$,
         J. Sorger$^{1,2}$,
+        L. Autin$^{3}$,
         D. Goodsell$^{3}$,
         and I. Viola$^{1}$        
         \\
@@ -63,7 +64,7 @@
 %\subfloat[]{\label{fig:res:w5}\includegraphics[width=0.25\linewidth]{figures/res-w5.eps}}
 %\subfloat[]{\label{fig:res:w6}\includegraphics[width=0.25\linewidth]{figures/res-w6.eps}}
 %\subfloat[]{\label{fig:res:w7}\includegraphics[width=0.25\linewidth]{figures/res-w7.eps}}
-
+\vspace{10mm}
 }
 
 \maketitle

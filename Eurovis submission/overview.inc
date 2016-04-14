@@ -81,7 +81,7 @@ By dragging the light green bar, the proportion of instances affected by the obj
 
 \begin{figure}[t]
 \centering 
-\includegraphics[width=0.6\linewidth]{figures/o-histogram-merged.eps}
+\includegraphics[width=\linewidth]{figures/__o-histogram-merged.eps}
 \caption{\label{fig:ohist}Illustration of the visibility equalizers. 
 Each molecular ingredient has its own stacked bar showing (a) instances visible from the current viewpoint, (b) occluded instances, (c) instances clipped away by the clipping objects.}
 \end{figure}

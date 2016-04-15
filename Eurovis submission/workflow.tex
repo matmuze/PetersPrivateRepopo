@@ -183,9 +183,9 @@ We then update the clipping state of the occluding instance by updating its corr
 \vspace{-2mm}
 \subsection{Clipping Filtering}
 
-Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we refer to as \emph{view-space clipping probability}.
+Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view dependent clipping, which we refer to as \emph{view space clipping probability}.
 This value is set by the user for each ingredient type, and is modified by dragging the dark green bar in the visibility equalizer.
-The view-space clipping probability is evaluated after an instance is flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
+The view space clipping probability is evaluated after an instance is flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
 We compare the clipping probability with a random number, initially defined and described in Section \ref{ssec:clip_params}.
 If the random number is higher than the clipping probability, the instance will remain as clipped, otherwise it will be displayed. 
 This will however result in a uniformly distributed number of visible occluders over the object of focus. 
@@ -193,7 +193,7 @@ Such a distribution might not always be the best design choice, because it fragm
 
 We propose an alternative technique for fuzzy removal of occluding instances, which we dub the \emph{aperture effect}.
 We define an additional parameter, the aperture coefficient, which controls the 2D distance from the instance to the edges of the occludees mask below which occluding instances shall be clipped.
-A example of the aperture effect is shown in Figure \ref{fig:df2}.
+An example of the aperture effect is shown in Figure \ref{fig:df2}.
 To enable this effect we compute the 2D distance transform of the occludees mask which we store in a separate off-line texture.
 We use the GPU Jump Flooding Algorithm by Rong \& Tan \cite{Rong06} to interactively recompute the 2D distance field every frame. 
 After the computation of the distance transform, the texture stores the distance to the contours of the shape for each pixel.

@@ -117,10 +117,10 @@ The farther away from the clipping surface an instance is, the higher its clippi
 %The falloff function can be either constant, linear, or exponential.
 The object space clipping probability of a molecule on the 3D position $p$ is multiplied by the falloff function $f(p)$. The falloff function is defined as follows:
 \begin{equation}
-	f(\vec{p}) = 1 - min(1, (d(\vec{p}) / d) ^ c)
+	f(\vec{p}) = 1 - min(1, (d(\vec{p}) / m) ^ c)
 \end{equation}
 where $d(p)$ is the distance to the clipping surface from the point $p$. 
-The function is parametrized by $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, and $c$ specifies the exponent of the falloff function.
+The function is parametrized by $m$ and $c$, where $m$ is the maximum distance up to which the object-space clipping probability takes effect, and $c$ specifies the exponent of the falloff function.
 %We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
 It is important to mention that the falloff function will not preserve the user-defined clip-ratio displayed in the visibility equalizer.
 %An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. 
@@ -143,7 +143,7 @@ It is important to mention that the falloff function will not preserve the user-
 
 While object space clipping with primitive shapes allows for a high degree of flexibility, it may also require cumbersome manual operations for more complex set-ups.
 We therefore provide additional functionalities to selectively remove occluding instances in front of a set of ingredients set focus, to ensure them a maximum degree of visibility.
-The focus state can be manually specified via the visibility equalizer by ticking a dedicated checkbox in front of the stack bars.
+The focus state can be manually specified via the visibility equalizer by ticking a dedicated checkbox in front of the stacked bars.
 %We use occlusion queries to determine the instances located in front of the focus region. 
 %We provide users with the option to control the degree of fuzziness of the clipping, similarly to object-space clipping.
 %We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-space clipping.
@@ -183,9 +183,9 @@ We then update the clipping state of the occluding instance by updating its corr
 \vspace{-2mm}
 \subsection{Clipping Filtering}
 
-Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view dependent clipping, which we refer to as \emph{view space clipping probability}.
+Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we refer to as \emph{view-space clipping probability}.
 This value is set by the user for each ingredient type, and is modified by dragging the dark green bar in the visibility equalizer.
-The view space clipping probability is evaluated after an instance is flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
+The view-space clipping probability is evaluated after an instance is flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
 We compare the clipping probability with a random number, initially defined and described in Section \ref{ssec:clip_params}.
 If the random number is higher than the clipping probability, the instance will remain as clipped, otherwise it will be displayed. 
 This will however result in a uniformly distributed number of visible occluders over the object of focus. 
@@ -193,7 +193,7 @@ Such a distribution might not always be the best design choice, because it fragm
 
 We propose an alternative technique for fuzzy removal of occluding instances, which we dub the \emph{aperture effect}.
 We define an additional parameter, the aperture coefficient, which controls the 2D distance from the instance to the edges of the occludees mask below which occluding instances shall be clipped.
-An example of the aperture effect is shown in Figure \ref{fig:df2}.
+A example of the aperture effect is shown in Figure \ref{fig:df2}.
 To enable this effect we compute the 2D distance transform of the occludees mask which we store in a separate off-line texture.
 We use the GPU Jump Flooding Algorithm by Rong \& Tan \cite{Rong06} to interactively recompute the 2D distance field every frame. 
 After the computation of the distance transform, the texture stores the distance to the contours of the shape for each pixel.

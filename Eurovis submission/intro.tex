@@ -2,7 +2,7 @@
 
 Molecular biology is an emerging field that is characterized by rapid advances of the current state of knowledge.
 New discoveries have to be communicated frequently to a large variety of audiences.
-However, due to their structural and phenomenal complexity, it is challenging to convey the discoveries of molecular phenomena. On a mesoscale level, where thousands or millions of macromolecules form a given structure, this challenge is amplified by the presence of multiple spatio-temporal scales. Currently, illustrations are the most widely-used form of communicating mesoscale structures. To reveal the internal composition of mesoscale structures such as viruses or bacteria, illustrators often employ clipping, section views or cutaways in their work.
+However, due to their structural and phenomenal complexity, it is challenging to convey the discoveries of molecular phenomena. On a mesoscale level, where thousands or millions of macromolecules form a given structure, this challenge is amplified by the presence of multiple spatio-temporal scales. Currently, illustrations are the most widely-used form of communicating mesoscale structures. To reveal the internal composition of mesoscale structures, such as viruses or bacteria, illustrators often employ clipping, section views or cutaways in their work.
 
 %The traditional pipeline for creating scientific illustrations of molecular structures starts with gathering the required knowledge for building models that convey the newly discovered insights.
 %Illustrators then create sketches, in which the relevant internal and external regions of these structures are uncovered.
@@ -17,10 +17,10 @@ Considering the rapid evolution of knowledge in the field of biology, it is nece
 Virtual 3D models of cells and other mesoscale molecular structures can be utilized for these purposes.
 Biologists have designed tools, such as \emph{cellPACK} \cite{cellpack}, to procedurally generate 3D models that represent the structure of micro-organisms such as viruses, or entire cells at atomic resolution.
 Based on a set of input parameters, individual molecules are algorithmically assembled into these complex organic static structures. 
-The parameter set consists of a specification of molecular types, concentrations and spatial distribution that define where are the instances distributed in a given compartment. 
+The parameter set consists of a specification of molecular types, concentrations and spatial distribution that define where the instances are distributed in a given compartment. 
 The resulting 3D models, in the most complex cases, may consist of thousands of various molecular types, which in turn, may result in millions of molecules and billions of atoms.
 The instances are densely packed within the predefined compartments, to replicate the actual molecular crowding phenomena prevailing in living organisms.
-Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism remain hidden.
+Due to the high density of these scenes, inner structures that are essential for conveying the function of the organism remain hidden.
 It is therefore important to develop visualization techniques that would procedurally reproduce the occlusion management methods used in traditional illustration.
 Currently, this is achieved by placing clipping objects in the scene, which remove specified parts of the displayed model. 
 However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients, is represented and not either hidden in the volume or clipped away (Fig. \ref{fig:hiv0}). 
@@ -33,9 +33,9 @@ To do this, they would need to visually inspect the presence of each single ingr
 
 To alleviate this process, we present our first contribution: a method that quantifies the overall visibility of the model contents. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. 
 During the process of placing clipping objects in the scene, these bars continuously reveal molecular types that are underrepresented or overrepresented. 
-This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the coarse level of the visibility specification process.
+This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the \emph{coarse level} of the visibility specification process.
 
-To preserve important structures that would be removed by clipping objects such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. 
+To preserve important structures that would be removed by clipping objects such as cutting planes, traditional illustrations also often reintroduce parts of the removed structures in front of the revealed cross sections. 
 In Figure \ref{fig:hiv1}, for instance, the glycoproteins (yellow molecules) of the HIV particle that are not occluding the object of interest, in this case the capsid containing the RNA, are left in the illustration to communicate their presence on the surface of the virus (Fig. \ref{fig:hiv0}).
 In this way, the main components of the virus particle can be illustrated in a single image.
 %Simple cutaway however, only achieve cross sections.
@@ -60,10 +60,10 @@ The process of fine-tuning the visibility is extremely time-consuming, as the il
 To speed up this visibility fine-tuning process, we propose our second contribution: a novel method for managing the visibility of instances. Instead of binary enabling or disabling the presence of all instances for a given molecular type, we offer the possibility to show a desired number of them.
 The main purpose of this approach is to increase the visibility of hidden structures by removing redundant parts of occluding instances while preserving some of them.
 An analogy of this approach can be drawn with ``Screen-Door Transparency'', a trivial way to obtain transparency in computer graphics by placing small holes in a polygon to reveal what is present behind.
-Additionally, we propose the novel metaphor of the \emph{visibility equalizer} for controlling efficiently this effect.
+Additionally, we propose the novel metaphor of the \emph{visibility equalizer} for controlling this effect efficiently.
 %To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our main technical contribution.
 To explain its role, we use the metaphor of hi-fi sound reproduction where the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
-Such a mechanism corresponds to our coarse-level visibility specification of the clipping objects, where all molecular types are uniformly removed from the clipped regions.
+Such a mechanism corresponds to our coarse level visibility specification of the clipping objects, where all molecular types are uniformly removed from the clipped regions.
 However, hi-fi sound systems also allow users to fine-tune the volume levels of individual frequency bands through an \emph{equalizer}.
 Following this metaphor, the visibility levels of molecular types are represented as stacked bars that form our visibility equalizer.
 All visibility bars are interactive, thus allowing the user to adjust desired levels just as with a sound equalizer. After drawing relation to previously proposed visibility management techniques in the next section, we will discuss the technique of visibility equalizers in further detail in the remaining sections of the paper.

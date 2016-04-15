@@ -19,11 +19,11 @@ Biologists have designed tools, such as \emph{cellPACK} \cite{cellpack}, to proc
 Based on a set of input parameters, individual molecules are algorithmically assembled into these complex organic static structures. 
 The parameter set consists of a specification of molecular types, concentrations as well as spatial distribution that define where are the instances distributed in a given compartment. 
 The resulting 3D models, in most complex cases, may consist of thousands of various molecular types, which in turn, may result in millions of molecule instances and billions of atoms.
-The instances are densely packed within the predefined compartments, to replicate the actual molecular crowding phenomenon prevailing in living organisms.
-Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism, remain hidden.
+The instances are densely packed within the predefined compartments, to replicate the actual molecular crowding phenomena prevailing in living organisms.
+Due to the high density of these scenes, inner structures that are essential for conveying the functioning of the organism remain hidden.
 It is therefore important to develop visualization techniques that would procedurally reproduce the occlusion management methods used in traditional illustration.
 Currently, this is achieved by placing clipping objects in the scene, which remove specified parts of the displayed model. 
-However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients is represented, and not either hidden in the volume or clipped away (Fig. \ref{fig:hiv0}). 
+However, illustrators have to make sure that the essential information, e.g., the ratio of multiple molecular ingredients, is represented and not either hidden in the volume or clipped away (Fig. \ref{fig:hiv0}). 
 To do this, they would need to visually inspect the presence of each single ingredient in the resulting visualization (Fig. \ref{fig:hiv1}).
 %However, in order to know how many instances have already been removed, and which molecular types are still sufficiently represented in the scene, the illustrator has to continuously check and compare the modeled scene against the gathered data and tediously confirm whether the essential information is still represented.
 %As a tangible example, let us assume we have to confirm the presented ratio of multiple molecular ingredients (Fig. \ref{fig:which}a) in an illustration. 
@@ -31,12 +31,12 @@ To do this, they would need to visually inspect the presence of each single ingr
 %However, for dozens of molecular types, it would be tedious to manually check whether all are displayed, or if some have been completely removed or not yet revealed through the clipping.
 %However, to find out which of these ingredients have been actually shown by the clipping and which are completely cut or not yet revealed, one would need to manually check the presence of each single ingredient in the resulting visualization.
 
-To alleviate this process, we present our first contribution that quantifies the overall visibility of the model contents. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. 
-During the process of placing clipping objects in the scene, these bars therefore continuously reveal, which molecular types are underrepresented or overrepresented. 
-This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the coarse-level of the visibility specification process.
+To alleviate this process, we present our first contribution: a method that quantifies the overall visibility of the model contents. We display a stacked bar for each molecular type that encodes the ratio of visible, clipped, and occluded instances of the respective type for the current viewpoint and clipping setting. 
+During the process of placing clipping objects in the scene, these bars continuously reveal molecular types that are underrepresented or overrepresented. 
+This enables the illustrator to modify the placement of the clipping objects in such a way that every molecular type is adequately represented in the scene. We call this the coarse level of the visibility specification process.
 
-To preserve important structures that would be removed through clipping objects, such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. 
-In Figure \ref{fig:hiv1}, for instance, the glycoproteins (yellow molecules) of the HIV particle which are not occluding the object of interest, in this case the capsid containing the RNA, are left in the illustration to communicate their presence on the surface of the virus (Fig. \ref{fig:hiv0}).
+To preserve important structures that would be removed by clipping objects such as cutting planes, traditional illustrations also often reintroduce parts of them in front of the revealed cross sections. 
+In Figure \ref{fig:hiv1}, for instance, the glycoproteins (yellow molecules) of the HIV particle that are not occluding the object of interest, in this case the capsid containing the RNA, are left in the illustration to communicate their presence on the surface of the virus (Fig. \ref{fig:hiv0}).
 In this way, the main components of the virus particle can be illustrated in a single image.
 %Simple cutaway however, only achieve cross sections.
 %In traditional illustration, fine-level visibility specification is often utilized as well.
@@ -56,15 +56,15 @@ The process of fine-tuning the visibility is extremely time-consuming, as the il
 \end{figure}
 
 
-To significantly speed up this visibility fine-tuning process, we propose our second contribution, namely a novel method for managing the visibility of instances. Instead of binary enabling or disabling the presence of all instances for a given molecular type, we offer the possibility to show a desired number of them.
+To speed up this visibility fine-tuning process, we propose our second contribution: a novel method for managing the visibility of instances. Instead of binary enabling or disabling the presence of all instances for a given molecular type, we offer the possibility to show a desired number of them.
 The main purpose of this approach is to increase the visibility of hidden structures by removing redundant parts of occluding instances while preserving some of them.
-An analogy of this approach can be drawn with ``Screen-Door Transparency'', which is a trivial way to obtain transparency in computer graphics, by placing small holes in a polygon to reveal what is present behind.
+An analogy of this approach can be drawn with ``Screen-Door Transparency'', a trivial way to obtain transparency in computer graphics by placing small holes in a polygon to reveal what is present behind.
 Additionally, we propose the novel metaphor of the \emph{visibility equalizer} for controlling efficiently this effect.
 %To significantly speed up this visibility fine-tuning process, we propose the novel metaphor of the \emph{visibility equalizer} as our main technical contribution.
-To explain its role, we use the metaphor of hi-fi sound reproduction where on a basic level, the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
-Such a mechanism corresponds to our coarse-level visibility specification through the clipping objects, where all molecular types are uniformly removed from the clipped regions.
+To explain its role, we use the metaphor of hi-fi sound reproduction where the \textit{volume control} is used for adjusting the output sound \textit{uniformly} on all frequencies. 
+Such a mechanism corresponds to our coarse-level visibility specification of the clipping objects, where all molecular types are uniformly removed from the clipped regions.
 However, hi-fi sound systems also allow users to fine-tune the volume levels of individual frequency bands through an \emph{equalizer}.
-Following this metaphor, the visibility levels of each molecular type are represented as stacked bars that form our visibility equalizer.
+Following this metaphor, the visibility levels of molecular types are represented as stacked bars that form our visibility equalizer.
 All visibility bars are interactive, thus allowing the user to adjust desired levels just as with a sound equalizer. After drawing relation to previously proposed visibility management techniques in the next section, we will discuss the technique of visibility equalizers in further detail in the remaining sections of the paper.
 %Individual intervals on each bar can be dragged to increase or decrease the visibility of the individual molecular types within the scene, given the specified clipping objects. 
 %This interactive element effectively turns the stacked bars into visibility equalizers for the molecular models - and as such presents the main technical contribution of this paper.

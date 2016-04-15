@@ -52,9 +52,9 @@ Our approach is therefore fundamentally different from existing occlusion manage
 
 \noindent
 \textbf{Transfer Function Based Approaches.}
-Since our molecule data is composed of a dense point cloud that resembles volumetric data on a non regular grid, our approach is also related to transfer function based approaches.
+Since our molecule data is composed of a dense point cloud that resembles volumetric data on a nonregular grid, our approach is also related to transfer function based approaches.
 However, instead of a wide range of attribute values distributed over voxels, our data features a comparably smaller number of molecule types. This characteristic enables our visibility equalizer approach. %Our approach could also be applied to volumetric data by binning continuous attribute ranges into discrete ones.
-The context-preserving volume rendering model \cite{Bruckner05} uses a function of shading intensity, gradient magnitude, distance to the eye point, and previously accumulated opacity to selectively reduce the opacity in less important data regions. Contours of surfaces that would be removed due to opacity, remain visible as the amount of illumination received is taken as a measure whether a point should be visible or not.
+The context-preserving volume rendering model \cite{Bruckner05} uses a function of shading intensity, gradient magnitude, distance to the eye point, and previously accumulated opacity to selectively reduce the opacity in less important data regions. Contours of surfaces that would be removed due to opacity remain visible, as the amount of illumination received is taken as a measure whether a point should be visible or not.
 Burns et al. \cite{Burns07} propose a multimodal approach that combines CT scan data and real-time ultrasound data. Importance driven shading is used to emphasize features of higher importance that have been revealed through the ghosting.
 
 In his PhD thesis \cite{phd-viola}, Viola presents an optimization strategy for automatically assigning visual mapping to voxels so that segmented objects in the volume are visible as specified by the user. Correa et al. \cite{correa11} used a similar approach for applying visibility directly to voxels, without the notion of segmented objects.
@@ -62,8 +62,7 @@ In our approach, we control visibility by interacting with the stacked bars of t
 %In contrast to this work, the motivation for our proposed method is to design an interface for authoring cutaway illustrations of mesoscopic multi-molecular data. The properties of such data imply that each bin of our visibility equalizer, representing individual molecular ingredients, can be interacted with to change the properties of the clipping objects applied to the 3D scene.
 %The notion of visibility histograms proposed by Correa et al. \cite{correa11} inspired our visibility equalizer metaphor. These histograms represent the distribution of visibility in a volume-rendered image and should help users manage a set of transfer function parameters to maximize the visibility of interesting intervals in the volume.
 %Correa et al. \cite{correa11} present visibility histograms for specification of transfer functions for volume rendering. 
-Ruiz et al. \cite{ruiz11} propose an approach for automatic transfer function op
-timization by minimizing the informational divergence between a user specified target distribution and the visibility distribution captured from certain viewpoints. 
+Ruiz et al. \cite{ruiz11} propose an approach for automatic transfer function optimization by minimizing the informational divergence between a user specified target distribution and the visibility distribution captured from certain viewpoints. 
 
 \pagebreak
 

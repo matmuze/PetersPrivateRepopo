@@ -70,11 +70,11 @@ Our system currently supports the following set of primitive shapes: plane, cube
 We compute the distance between the instance centroids and the clipping region to identify instances that lie inside that region.
 To accelerate the computation, we solve the problem analytically using a mathematical description of the clipping region as a 3D signed distance field (SDF).
 
-Due to the architecture of the rendering technique which is employed, the instances information (position, rotation, type, radius, etc.) is already stored large buffers stored on the GPU memory.
+Due to the architecture of the rendering technique which is employed, the instances information (position, rotation, type, radius, etc.) is already stored on the GPU in large buffers using a structure of array layout.
 To speed up the clipping operation and avoid data transfer costs, the distance is computed in parallel in a compute shader program, prior to the rendering, with one thread allocated per instance.  
 The position, rotation, scale and geometry type of every clipping object must be additionally uploaded to the GPU in order to define the correct clipping region SDF.
 In a single thread and for each clipping object, the required information is fetched from the video memory and is used to compute the signed distance between an instance and the clipping object.
-When an object needs to be clipped, a dedicated flag in a GPU buffer is updated. The flag is then accessed during the rendering to discard the clipped instance.
+When an object needs to be clipped, a dedicated flag in a GPU buffer is updated. The flag is read during the rendering to discard the clipped instance.
 
 \subsection{Clipping Filtering} \label{ssec:clip_params}
 
@@ -120,7 +120,7 @@ The object space clipping probability of a molecule on the 3D position $p$ is mu
 	f(\vec{p}) = 1 - min(1, (d(\vec{p}) / d) ^ c)
 \end{equation}
 where $d(p)$ is the distance to the clipping surface from the point $p$. 
-The function is parametrized by $d$ and $c$, where $d$ is the maximum distance up to which the object-space clipping probability takes effect, and $c$ specifies the exponent of the falloff function.
+The function is parametrized by $d$ and $c$, where $d$ is the maximum distance up to which the object space clipping probability takes effect, and $c$ specifies the exponent of the falloff function.
 %We provide additional parameters to gradually remove instances according the shape of the clipping region. These parameters control the so-called \emph{falloff functions}
 It is important to mention that the falloff function will not preserve the user-defined clip-ratio displayed in the visibility equalizer.
 %An example of the falloff function applied to the object space clipping is shown in Figure \ref{fig:res:gh3}. 
@@ -128,6 +128,17 @@ It is important to mention that the falloff function will not preserve the user-
 %In this way, the information about the concentration of these molecules is illustrated at the bottom of the scene, while the visibility of the HIV particle (blue and green) is increased towards to top of the scene.
 %\textbf{TODO PMINDEK:} Talk about gradient clipping here, motivation and parameters, maybe a figure too.
 
+\begin{figure}[t]
+\centering
+\subfloat[]{\label{fig:df0}\includegraphics[width=0.25\linewidth]{figures/df0.eps}}
+\subfloat[]{\label{fig:df1}\includegraphics[width=0.25\linewidth]{figures/df1.eps}}
+\subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
+\subfloat[]{\label{fig:df3}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
+\caption{\label{fig:df}View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
+\vspace{-2mm}
+\end{figure}
+
+\vspace{-2mm}
 \section{View-Space Clipping}
 
 While object space clipping with primitive shapes allows for a high degree of flexibility, it may also require cumbersome manual operations for more complex set-ups.
@@ -138,6 +149,7 @@ The focus state can be manually specified via the visibility equalizer by tickin
 %We also introduce a new effect inspired from the work of scientific illustrators, that allows users to control the degree of aperture of the view-space clipping.
 %Finally, we modify our occlusion query method to improve depth perception. This is done by performing contextual anchoring which means that instances that would normally be clipped are kept when located in close vicinity to the focus region.
 
+\vspace{-2mm}
 \subsection{Occlusion Queries}
 \label{sec:OQ}
 %Focus ingredients are priorly selected from the user interface.
@@ -153,44 +165,35 @@ The focus state can be manually specified via the visibility equalizer by tickin
 %Due to early depth-stencil test, implicitly performed by the graphics hardware, 
 
 When an ingredient type is set as focus, occluding instances of a different type may be selectively removed to reveal the occludees.
-To identify occluding instances, we perform occlusion queries. 
+To determine which are the occluding instances, we perform occlusion queries. 
 Nowadays, modern graphics hardware is able to perform occlusion queries easily using the fixed-functionality.
-However this method requires one draw call per query, which may induce driver overhead with several thousands of queries.
-We compute the queries manually instead, using a custom shader program, because it allows the queries to be computed in a single GPU draw call, thus approaching zero driver overhead.
-In-depth technical details about this approach are described by Kubisch \& Tavenrath \cite{kubisch2014opengl}.
+This method requires one draw call per query, which may induce driver overhead with several thousands of queries.
+We compute the queries manually instead using a custom shader program, because it allows the queries to be computed in a single GPU draw call, thus approaching zero driver overhead.
+Technical details about the approach are given by Kubisch \& Tavenrath \cite{kubisch2014opengl}.
 
 We first render all the focused ingredients to an off-screen texture. 
-This texture will then serve as a depth-stencil mask for the occlusion queries.
+The texture will then serve as a depth-stencil mask for the occlusion queries.
 There can be several ingredient types constituting the object of focus for a given clipping object.
-Thereafter, we render the bounding spheres of the potential occluders in a single draw call using instancing, on top of the depth-stencil mask.
-Thanks to early depth-stencil functionality, available on modern graphics hardware, fragments that will pass the test and be executed are guaranteed to belong to an occluder.
-We then update the clipping state of the occluding instance by updating its corresponding occlusion flag stored in the main video memory directly from the fragment program.
+We render the bounding spheres of the potential occluders in a single draw call using instancing, on top of the depth-stencil mask.
+Thanks to \emph{early depth-stencil} functionality available on modern graphics hardware, fragments that pass the test and be executed are guaranteed to belong to an occluder.
+We then update the clipping state of the occluding instance by updating its corresponding occlusion flag stored in the GPU memory directly from the fragment \mbox{program}.
 
 %An example of how we perform occlusion queries is shown in Figure \ref{fig:df0}.
 
-\begin{figure}[t]
-\centering
-\subfloat[]{\label{fig:df0}\includegraphics[width=0.25\linewidth]{figures/df0.eps}}
-\subfloat[]{\label{fig:df1}\includegraphics[width=0.25\linewidth]{figures/df1.eps}}
-\subfloat[]{\label{fig:df2}\includegraphics[width=0.25\linewidth]{figures/df2.eps}} 
-\subfloat[]{\label{fig:df3}\includegraphics[width=0.25\linewidth]{figures/df3.eps}}
-\caption{\label{fig:df}The view-space clipping: (a) the HIV capsid with no clipping, (b) uniformly distributed clipping begins to show the RNA inside, (c) the aperture effect selectively clips to reveal the RNA, and (d) the 2D distance transform of the clipping mask.View-space clipping, (a) shows the full HIV Capsid, (b) shows the uniformly distributed clipping, (c) demonstrate the aperture effect and (d) shows the results of the 2D distance transform of the clipping mask.}
-\vspace{-8mm}
-\end{figure}
-
+\vspace{-2mm}
 \subsection{Clipping Filtering}
 
 Similarly to the object space clipping, we provide an additional parameter to control the degree of fuzziness of the view-dependent clipping, which we refer to as \emph{view-space clipping probability}.
 This value is set by the user for each ingredient type, and is modified by dragging the dark green bar in the visibility equalizer.
-The view-space clipping probability is evaluated after an instance is flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
+The view-space clipping probability is evaluated after an instance was flagged as occluder in the same shader program mentioned in Section \ref{sec:OQ}.
 We compare the clipping probability with a random number, initially defined and described in Section \ref{ssec:clip_params}.
 If the random number is higher than the clipping probability, the instance will remain as clipped, otherwise it will be displayed. 
 This will however result in a uniformly distributed number of visible occluders over the object of focus. 
 Such a distribution might not always be the best design choice, because it fragments heavily the overall structure of the occluders and makes it difficult to see the occludees, as shown in Figure \ref{fig:df1}.
 
-We propose an alternative technique for fuzzy removal of occluding instances, which we dub the \emph{aperture effect}.
+We propose an alternative technique for fuzzy removal of occluding instances, which we dub \emph{aperture effect}.
 We define an additional parameter, the aperture coefficient, which controls the 2D distance from the instance to the edges of the occludees mask below which occluding instances shall be clipped.
-A example of the aperture effect is shown in Figure \ref{fig:df2}.
+A visual explanation of the aperture effect is shown in Figure \ref{fig:df2}.
 To enable this effect we compute the 2D distance transform of the occludees mask which we store in a separate off-line texture.
 We use the GPU Jump Flooding Algorithm by Rong \& Tan \cite{Rong06} to interactively recompute the 2D distance field every frame. 
 After the computation of the distance transform, the texture stores the distance to the contours of the shape for each pixel.
@@ -205,7 +208,7 @@ Then, while computing occlusion queries in the fragment shader, we simply look-u
 \caption{\label{fig:hiv-islands} 
 Illustration of contextual anchoring with an HIV particle. 
 Despite the cutaway, some of the glyco-proteins (in yellow) are displayed and their surrounding lipid molecules (green) is preserved as contextual information.}
-\vspace{-5mm}
+\vspace{-2mm}
 \end{figure}
 
 \subsection{Contextual Anchoring}
@@ -213,7 +216,7 @@ Despite the cutaway, some of the glyco-proteins (in yellow) are displayed and th
 
 When observing still images of cut-away scenes, it might be challenging to perceive the depth of objects correctly, despite using lighting-based depth cues.
 We propose an additional method for depth guidance, which we call \emph{contextual anchoring}.
-The concept is to override the results of clipping, to preserve elements located in proximity to non-clipped elements that would normally be clipped.
+The concept is to override the results of clipping, to preserve elements located in proximity to non-clipped elements, and that would normally be clipped.
 %By introducing contextual anchoring, the viewer, will intuitively understand where instances are located.
 This principle in shown in Figure \ref{fig:hiv-islands}, where we can observe parts of the green membrane anchored around channel molecules, and which indicate that they are located on the surface of the object.
 We were able to procedurally reproduce this effect by applying a depth bias to the occlusion queries computation for selected focused molecules.
@@ -228,7 +231,7 @@ This bias will ensure that contextual elements will no longer overlap the focus 
 \caption{\label{fig:islands} 
 The principle of the depth-bias used for contextual anchoring.
 The dark bars represents the depth values of the mask from the side, in one dimension. 
-Elements in grey correspond to potential occluders, while elements in red and green correspond to occludees.
+Elements in grey correspond to potentional occluders, while elements in red and green correspond to focused elements.
 The red type is subject to contextual anchoring.
 (a) Without contextual anchoring, the depth of occluders (grey) is overlapping the depth of the mask and will therefore be discarded. 
 (b) With contextual anchoring, the depth of the occludees (red) is shifted so that context elements (purple) no longer overlap the focus and remain unclipped.}
@@ -243,27 +246,28 @@ The red type is subject to contextual anchoring.
 %The entire green section (dark \& light green) represents the percentage of instances that are actually rendered.
 %To provide a clear overview of the scene properties, we display stack bars for each ingredient type that indicate information about their degree of visibility.
 
-The visibility equalizer comprises a series of stacked bars that convey important visibility information for each ingredient type.
+The visibility equalizer comprises a series of stack bars that convey important visibility information for each ingredient type.
 The three colors correspond respectively to the number of visible, occluded and clipped instances, as explained in Figure \ref{fig:ohist}.
 In order to fill the stacked bars with correct values, we must count the number of clipped and visible instances, and this operation must be repeated on every update.
 
+\vspace{-2mm}
 \subsection{Counting Clipped Instances}
 
 We perform the counting of the clipped instances on the GPU, in a dedicated compute shader program, since all the data already reside in the video memory.
-We previously declare a dedicated buffer on the GPU to hold the number of clipped instances for each ingredient type, and which shall be cleared before each counting operation.
+We priorly declare a dedicated buffer on the GPU to hold the number of clipped instances for each ingredient type, and which shall be cleared before each counting operation.
 Counting the clipped instances is a rather straightforward task since the clipping state of each instance is routinely computed and stored in a dedicated GPU buffer.
-Once the clipping routine is performed, we simply browse through all the instances, and if an instance is flagged as clipped, we increase the counter in the GPU buffer that corresponds to the number of clipped instances for the given type.
+Once the clipping routine is performed, we simply browse through all the instances, and in case an instance was flagged as clipped, we increase the counter in the GPU buffer that corresponds to the number of clipped instances for the given type.
 It is important to use an atomic increment operation for the counting to avoid concurrent accesses to the same counter value from different threads. 
 
 \subsection{Counting Visible Instances}
 
-In order to count the number of visible instances for a given viewpoint, we first need to generate an instance buffer, which is a texture that contains, for each pixel, the unique instance id of the rendered molecule.
-We first start to flag visible instances in a post-processing shader, by browsing all the pixels of the instance buffer.
-In case an instance is present in the instance buffer, it is guaranteed to have at least one pixel visible on the screen, and it is therefore flagged as visible in a dedicated GPU buffer.
-To store the number of visible instances per type, we also need to declare an additional GPU buffer, which must be previously cleared each time visible instances are counted.
+In order to count the number of visible instances for a given view-point, we first need to generate an instance-buffer, which is a texture that contains, for each pixel, the unique instance id of the rendered molecule.
+We first start to flag visible instances in a post-processing shader, by browsing all the pixels of the instance-buffer.
+In case an instance is present in the instance-buffer, it is guaranteed to have at least one pixel visible on the screen, and it is therefore flagged as visible in a dedicated GPU buffer.
+To store the number of visible instances per type, we also need to declare an additional GPU buffer, which must be priorly cleared each time visible instances are counted.
 In a second stage, similarly to the counting of the clipped instances, we browse through all the instances in a dedicated compute shader, while fetching the visibility information which was previously computed.
-Should an instance be flagged as visible, the counter that corresponds to the number of visible instances for the given type will be increased using an atomic increment operation.
-Once the information about the number of visible and clipped instances is obtained, the data is then transferred to the CPU and used to update the visibility equalizer.
+Should an instance be flagged as visible, the counter that corresponds to the number of visible instances for the given type will be increase using an atomic increment operation.
+Once the information about the number of visible and clipped instance is obtained, the data is then transferred to the CPU, and used to update the visibility equalizer.
 
 \begin{comment}  
 
